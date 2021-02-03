@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>macOS on Siege</title>
+    <link>https://via.moe/tags/macos/</link>
+    <description>Recent content in macOS on Siege</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sun, 15 Nov 2020 10:32:59 +0800</lastBuildDate><atom:link href="https://via.moe/tags/macos/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Big Apple Is Watching You</title>
+      <link>https://via.moe/about-apple-ocsp/</link>
+      <pubDate>Sun, 15 Nov 2020 10:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/about-apple-ocsp/</guid>
+      <description>蘋果推出 macOS Big Sur 之後，幾乎立即就出現了服務器問題，導致用戶無法在電腦上運行第三方應用。雖然很快就有人在 Twitter 上找到了解決方法，但也有人提出了一些與該問題相關的隱私問題。
+含有 T2 安全芯片的蘋果設備每次開機都會進行 OCSP(Online Certificate Status Protocol) 驗證，此驗證在中國大陸地區，CDN 使用了非加密 HTTP 鏈接，這可能導致隱私數據的泄漏問題，另外使用了某些代理軟件也可能會被記錄上傳至蘋果的雲上貴州服務器內(參考資料)，更嚴重的是蘋果可以在後臺隨時讓你的設備變得無法使用
+一方面可以清除已經安裝的 app 簽名，或者使用源碼自己編譯。
+xcode-select --installcodesign --remove-signature - /Applications/name.app另一方面可以立即使用編輯器更改系統的 hosts 文件以屏蔽蘋果的 OCSP 驗證服務器。
+sudo nano /etc/hosts加入以下內容(來自 https://gist.github.com/h0wardch3ng/c03e8528594aff6ccb3201f02e1ae2a8)
+127.0.0.1 ocsp-lb.apple.com.akadns.net127.0.0.1 ocsp-cn-lb.apple.com.akadns.net127.0.0.1 ocsp.apple.com.download.ks-cdn.com127.0.0.1 k128-mzstatic.gslb.ksyuncdn.com127.0.0.1 ocsp.apple.com.cdn20.com127.0.0.1 ocsp.g.aaplimg.com127.0.0.1 ocsp.apple.com127.0.0.1 ocsp.digicert.com關於 OCSP 的其他問題可以參考以下文章
+https://jhuo.ca/post/ocsp-stapling-letsencrypt/
+https://news.ycombinator.com/item?id=23273247
+https://arstechnica.com/gadgets/2020/11/macos-big-sur-launch-appears-to-cause-temporary-slowdown-in-even-non-big-sur-macs/
+https://blog.jacopo.io/en/post/apple-ocsp/
+https://www.4hou.com/posts/92xD
+https://twitter.com/virushuo/status/1327642757272317953
+蘋果對於這個問題的解釋：
+https://support.apple.com/en-us/HT202491
+珍愛生命，遠離蘋果。
+Chrome 和 Android 目前還未採用 OCSP 驗證。</description>
+    </item>
+    
+    <item>
+      <title>修復 macOS Catalina 启动第三方 APP 的問題</title>
+      <link>https://via.moe/fix-catalina-to-open-third-party-apps/</link>
+      <pubDate>Fri, 11 Sep 2020 10:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/fix-catalina-to-open-third-party-apps/</guid>
+      <description>在 macOS 下安裝一些軟件時提示&amp;quot;來自身份不明開發者&amp;quot;，其實這是新系統啓用了新的安全機制。
+默認只信任 Mac App Store 下載的軟件和擁有開發者 ID 簽名的應用程序。
+換句話說就是 macOS 系統默認只能安裝靠譜渠道（有蘋果審覈的 App Store）下載的軟件或被認可的人開發的軟件。
+這當然是爲了用戶不會稀裏糊塗安裝流氓軟件中招，但沒有開發者簽名的 「老實軟件」 也受影響了，安裝就會彈出下圖所示警告框：「打不開 xxx，因爲它來自身份不明的開發者」。
+來自身份不明的開發者
+出現這個問題的解決方法有 2 種：
+最簡單的方式：按住 Control 後，再次點擊軟件圖標，即可。 修改系統配置：系統偏好設置 -&amp;gt; 安全性與隱私 -&amp;gt; 認證
+修改爲任何來源
+如果沒有這個選項的話（macOS Sierra 10.12以上），打開終端，輸入
+sudo spctl --master-disable然後按回車。然後會看見個 password 後面還有個鑰匙圖標，然後不用管他直接再繼續輸入你自己電腦解鎖密碼（輸入的時候不顯示你輸入的密碼，感覺就是輸入不了東西一樣，也不用管，憑感覺輸入完按回車鍵）。然後再回到隱私裏，就看見任何來源了。
+如果還是無法打開 App，可以試試看
+sudo xattr -d com.apple.quarantine /Applications/xxxx.app再不行就只能自簽名第三方 App 了
+xcode-select --installcodesign --force --deep --sign - /Applications/name.app</description>
+    </item>
+    
+    <item>
+      <title>解決 MacBook Pro 休眠掉電問題</title>
+      <link>https://via.moe/please-sleep/</link>
+      <pubDate>Tue, 22 Oct 2019 10:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/please-sleep/</guid>
+      <description>重啟 Macbook，在啟動的時候按住 command + R，然後系統會進入 recovery 模式。
+  選擇語言，點下一步，然後在菜單欄選擇打開 terminal。
+  輸入 csrutil disable 禁掉 SIP，然後正常重啟 macbook。
+  打開 terminal，輸入 ioreg -l | grep board-id 查看你的 board-id，
+  在這個目錄 /System/Library/Extensions/IOPlatformPluginFamily.kext/Contents/PlugIns/X86PlatformPlugin.kext/Contents/Resources 下面找到你的 board-id 對應的 .plist 文件。
+  用管理員賬户編輯上一步中的 plist 文件，比如 sudo vim Mac-2BD2C319xxxxxxxx.plist, Catalina 系統之後需要 sudo mount -uw / 臨時讀寫只讀分區的內容，此命令重啓後效果消失。
+  把以下三項的值修改為 false, 然後保存 。
+  &amp;lt;key&amp;gt;TCPKeepAliveDuringSleep&amp;lt;/key&amp;gt;&amp;lt;false/&amp;gt;&amp;lt;key&amp;gt;NotificationWake&amp;lt;/key&amp;gt;&amp;lt;false/&amp;gt;&amp;lt;key&amp;gt;DNDWhileDisplaySleeps&amp;lt;/key&amp;gt;&amp;lt;false/&amp;gt; 重啟 Macbook，按照第 1，2 步進入 recovery 模式，輸入命令 csrutil enable 開啟 SIP，。</description>
+    </item>
+    
+    <item>
+      <title>黑蘋果相關工具筆記</title>
+      <link>https://via.moe/hackintosh-tools-note/</link>
+      <pubDate>Tue, 01 Jan 2019 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/hackintosh-tools-note/</guid>
+      <description>這篇文章只是一個關於黑蘋果安裝完成之後的小工具使用筆記，具體按照步驟見：Tonymacx86
+系統 macOS Mojave 10.14.3 18D42 With Clover 4859 + Transmac 12.3
+系統鏡像下载
+相關工具 Clover
+Clover Configurator
+FakeSMC
+AppleALC
+Multibeast
+Kext Utility
+KCPM Utility Pro
+Kextupdater
+Nvidia Web Driver
+LAN &amp;amp; Wireless Driver
+命令行工具 ohmyzsh
+sh -c &amp;#34;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&amp;#34; brew 包管理器
+/usr/bin/ruby -e &amp;#34;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;#34; </description>
+    </item>
+    
+    <item>
+      <title>macOS High Sierra 安全更新注意事項</title>
+      <link>https://via.moe/macos-10-13-1-security-update/</link>
+      <pubDate>Fri, 24 Nov 2017 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/macos-10-13-1-security-update/</guid>
+      <description>不需要輸入密碼就能取得管理員權限的作法意外的簡單。只要在輸入帳號的欄位中打 root，密碼欄空著，按下確定，就可以成功登入並獲得 Mac 管理員權限；如果 Mac 鎖定了，也可以在登入頁面中取得管理員權限。
+儘管你使用訪客帳戶，只要到系統偏好設定，進入用戶設定中，點一下左下角的鎖頭，在帳號欄位中輸入：root，並將密碼欄位留白後登入就可以取得權限。在系統登入頁面中，也可以用這種方式達成並登入。目前這個漏洞僅在 High Sierra 中可以使用，包括現行的 macOS High Sierra 10.13.1 以及 10.13.2 都有這個問題。
+目前蘋果已經放出安全更新，不過這個安全更新還是有 BUG 需要解決。
+漏洞原理 https://zhuanlan.zhihu.com/p/31544555
+在蘋果放出了這個 Security Update 2017-001 更新後，會發現文件共享的認證會失敗
+解決方法：
+1.然後你需要安裝更新後重新設置 root 密碼
+2.輸入命令
+sudo /usr/libexec/configureLocalKDC 本文參考
+https://support.apple.com/en-us/HT208315 https://support.apple.com/en-us/HT208317</description>
+    </item>
+    
+    <item>
+      <title>黑蘋果升級 High Sierra 系統</title>
+      <link>https://via.moe/hackintosh-upgrade-high-sierra/</link>
+      <pubDate>Fri, 29 Sep 2017 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/hackintosh-upgrade-high-sierra/</guid>
+      <description>需要工具：
+Clover FakeSMC AppleALC APFS.EFI Nvidia Web Driver
+一、準備工作 首先升級 Clover 和 FakeSMC
+之後下載 APFS.EFI 放到 EFI/CLOVER/drivers64UEFI 下
+ 蘋果檔案系統（英語：Apple File System，簡稱APFS）是一個適用於 macOS、iOS、tvOS 和 watchOS 的檔案系統，目前正在由蘋果公司開發和部署。它的目的是解決 HFS+（Mac OS Extend，APFS 的前身）檔案系統的核心問題。APFS 為快閃記憶體和固態儲存裝置最佳化，具有寫入時複製等設計特點，使用 I/O 合併改進效能。
+ APFS.EFI 這個文件也可以在官方鏡像 Install macOS High Sierra.app 中找到，路徑在 Contents\SharedSupport\BaseSystem.dmg\usr\standalone\i386\apfs.efi,自行提取
+安裝完成後，路徑在 /usr/standalone/i386/apfs.efi
+重啟系統後，測試 APFS.EFI 是否正確加載
+bdmesg 如果成功會有文字提示
+...0:112 0:000 === [ LoadDrivers ] =======================================0:116 0:003 Loading FSInject-64.efi status=Success0:118 0:001 Loading OsxFatBinaryDrv-64.efi status=Success0:118 0:000 Loading OsxAptioFix2Drv-64.</description>
+    </item>
+    
+  </channel>
+</rss>

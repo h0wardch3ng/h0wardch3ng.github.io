@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<script>var url=window.location.href;url.indexOf("https")<0&&(url=url.replace("http:","https:"),window.location.replace(url));</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="theme-color" content="#2e2e33">
+<meta name="robots" content="index, follow">
+<title>PS4 手柄有線/藍牙無線連接PC | Siege</title>
+
+<meta name="keywords" content="ps4" />
+<meta name="description" content="本文將講解Windows 7系統下如何將PS4手柄與PC電腦配對，並模擬成Xbox 360手柄的設置
+現在已經是 2017 年了，也有了更好的工具，請見 https://level5.dev/ds4-for-windows/
+需要無線連接之前請先嚐試有線連接是否正常
+ 有線連接  拿一條安卓設備常見的microusb連接線 連接PC等待安裝完驅動即可使用 但此時是兼容的DirectInput遊戲手柄設備 PS4手柄背部此時LED顯示爲黃色常亮
+需要去這個論壇下載 DS4 TO XInput Wrapper 這個軟件模擬XBOX遊戲手柄 *最新版本是DS4TOOL 1.2.2.zip
+下載完成之後解壓壓縮包
+打開Virtual Bus Driver子目錄
+安裝ScpDriver.exe
+然後返回解壓之後的文件根目錄 打開ScpServer.exe 這時主程序最小化到任務欄右下角去了
+連接正常 PS4手柄背部LED燈顯示藍色常亮 DS4TOOL會顯示手柄的mac地址 內置電池電量 和觸控板開啓狀態
+如果沒有正常連接 則沒有顯示 需要重新插拔設備即可
+DS4TOOL支持手柄的更多設置（反正默認夠用
+ 熱鍵說明
+L2&#43;按下觸摸板 | 關閉觸摸板 L2&#43;R2&#43;按下觸摸板 | 開啓觸摸板 雙指上滑/下滑 | 向上/向下滾動
+單擊觸摸板 | 相當於鼠標左鍵
+觸摸板右側單擊後左側單擊 | 相當於鼠標右鍵
+PS鍵&#43;Option鍵 | 關閉藍牙
+  無線設置  如果是搭載了Windows 7/Windows 8/8.1的筆記本 可以打開系統藍牙設置並配對
+如果是臺式機 請買個支持藍牙2.1&#43;EDR的適配器 例如:ORICO 奧睿科 BTA-402 藍牙V4.">
+<meta name="author" content="">
+<link rel="canonical" href="https://via.moe/ps4-controller-on-pc/" />
+<link href="/assets/css/stylesheet.min.5c4f6d85b7abfcfea458637c672d16a7a9c38c37f002753cfdc7f314b6d3c8f2.css" integrity="sha256-XE9thber/P6kWGN8Zy0Wp6nDjDfwAnU8/cfzFLbTyPI=" rel="preload stylesheet"
+    as="style">
+
+<link rel="icon" href="https://via.moe/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://via.moe/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://via.moe/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://via.moe/apple-touch-icon.png">
+<link rel="mask-icon" href="https://via.moe/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.80.0" />
+
+
+<meta property="og:title" content="PS4 手柄有線/藍牙無線連接PC" />
+<meta property="og:description" content="本文將講解Windows 7系統下如何將PS4手柄與PC電腦配對，並模擬成Xbox 360手柄的設置
+現在已經是 2017 年了，也有了更好的工具，請見 https://level5.dev/ds4-for-windows/
+需要無線連接之前請先嚐試有線連接是否正常
+ 有線連接  拿一條安卓設備常見的microusb連接線 連接PC等待安裝完驅動即可使用 但此時是兼容的DirectInput遊戲手柄設備 PS4手柄背部此時LED顯示爲黃色常亮
+需要去這個論壇下載 DS4 TO XInput Wrapper 這個軟件模擬XBOX遊戲手柄 *最新版本是DS4TOOL 1.2.2.zip
+下載完成之後解壓壓縮包
+打開Virtual Bus Driver子目錄
+安裝ScpDriver.exe
+然後返回解壓之後的文件根目錄 打開ScpServer.exe 這時主程序最小化到任務欄右下角去了
+連接正常 PS4手柄背部LED燈顯示藍色常亮 DS4TOOL會顯示手柄的mac地址 內置電池電量 和觸控板開啓狀態
+如果沒有正常連接 則沒有顯示 需要重新插拔設備即可
+DS4TOOL支持手柄的更多設置（反正默認夠用
+ 熱鍵說明
+L2&#43;按下觸摸板 | 關閉觸摸板 L2&#43;R2&#43;按下觸摸板 | 開啓觸摸板 雙指上滑/下滑 | 向上/向下滾動
+單擊觸摸板 | 相當於鼠標左鍵
+觸摸板右側單擊後左側單擊 | 相當於鼠標右鍵
+PS鍵&#43;Option鍵 | 關閉藍牙
+  無線設置  如果是搭載了Windows 7/Windows 8/8.1的筆記本 可以打開系統藍牙設置並配對
+如果是臺式機 請買個支持藍牙2.1&#43;EDR的適配器 例如:ORICO 奧睿科 BTA-402 藍牙V4." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://via.moe/ps4-controller-on-pc/" />
+<meta property="article:published_time" content="2015-03-28T19:32:59+08:00" />
+<meta property="article:modified_time" content="2015-03-28T19:32:59+08:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="PS4 手柄有線/藍牙無線連接PC"/>
+<meta name="twitter:description" content="本文將講解Windows 7系統下如何將PS4手柄與PC電腦配對，並模擬成Xbox 360手柄的設置
+現在已經是 2017 年了，也有了更好的工具，請見 https://level5.dev/ds4-for-windows/
+需要無線連接之前請先嚐試有線連接是否正常
+ 有線連接  拿一條安卓設備常見的microusb連接線 連接PC等待安裝完驅動即可使用 但此時是兼容的DirectInput遊戲手柄設備 PS4手柄背部此時LED顯示爲黃色常亮
+需要去這個論壇下載 DS4 TO XInput Wrapper 這個軟件模擬XBOX遊戲手柄 *最新版本是DS4TOOL 1.2.2.zip
+下載完成之後解壓壓縮包
+打開Virtual Bus Driver子目錄
+安裝ScpDriver.exe
+然後返回解壓之後的文件根目錄 打開ScpServer.exe 這時主程序最小化到任務欄右下角去了
+連接正常 PS4手柄背部LED燈顯示藍色常亮 DS4TOOL會顯示手柄的mac地址 內置電池電量 和觸控板開啓狀態
+如果沒有正常連接 則沒有顯示 需要重新插拔設備即可
+DS4TOOL支持手柄的更多設置（反正默認夠用
+ 熱鍵說明
+L2&#43;按下觸摸板 | 關閉觸摸板 L2&#43;R2&#43;按下觸摸板 | 開啓觸摸板 雙指上滑/下滑 | 向上/向下滾動
+單擊觸摸板 | 相當於鼠標左鍵
+觸摸板右側單擊後左側單擊 | 相當於鼠標右鍵
+PS鍵&#43;Option鍵 | 關閉藍牙
+  無線設置  如果是搭載了Windows 7/Windows 8/8.1的筆記本 可以打開系統藍牙設置並配對
+如果是臺式機 請買個支持藍牙2.1&#43;EDR的適配器 例如:ORICO 奧睿科 BTA-402 藍牙V4."/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "PS4 手柄有線/藍牙無線連接PC",
+  "name": "PS4 手柄有線\/藍牙無線連接PC",
+  "description": "本文將講解Windows 7系統下如何將PS4手柄與PC電腦配對，並模擬成Xbox 360手柄的設置\n現在已經是 2017 年了，也有了更好的工具，請見 https://level5.dev/ds4-for-windows/\n需要無線連接之前請先嚐試有線連接是否正常\n 有線連接  拿一條安卓設備常見的microusb連接線 連接PC等待安裝完驅動即可使用 但 …",
+  "keywords": [
+    "ps4"
+  ],
+  "articleBody": "本文將講解Windows 7系統下如何將PS4手柄與PC電腦配對，並模擬成Xbox 360手柄的設置\n現在已經是 2017 年了，也有了更好的工具，請見 https://level5.dev/ds4-for-windows/\n需要無線連接之前請先嚐試有線連接是否正常\n 有線連接  拿一條安卓設備常見的microusb連接線 連接PC等待安裝完驅動即可使用 但此時是兼容的DirectInput遊戲手柄設備 PS4手柄背部此時LED顯示爲黃色常亮\n需要去這個論壇下載 DS4 TO XInput Wrapper 這個軟件模擬XBOX遊戲手柄 *最新版本是DS4TOOL 1.2.2.zip\n下載完成之後解壓壓縮包\n打開Virtual Bus Driver子目錄\n安裝ScpDriver.exe\n然後返回解壓之後的文件根目錄 打開ScpServer.exe 這時主程序最小化到任務欄右下角去了\n連接正常 PS4手柄背部LED燈顯示藍色常亮 DS4TOOL會顯示手柄的mac地址 內置電池電量 和觸控板開啓狀態\n如果沒有正常連接 則沒有顯示 需要重新插拔設備即可\nDS4TOOL支持手柄的更多設置（反正默認夠用\n 熱鍵說明\nL2+按下觸摸板 | 關閉觸摸板 L2+R2+按下觸摸板 | 開啓觸摸板 雙指上滑/下滑 | 向上/向下滾動\n單擊觸摸板 | 相當於鼠標左鍵\n觸摸板右側單擊後左側單擊 | 相當於鼠標右鍵\nPS鍵+Option鍵 | 關閉藍牙\n  無線設置  如果是搭載了Windows 7/Windows 8/8.1的筆記本 可以打開系統藍牙設置並配對\n如果是臺式機 請買個支持藍牙2.1+EDR的適配器 例如:ORICO 奧睿科 BTA-402 藍牙V4.0 適配器\n*本文以此適配器作爲演示\n插入主板的USB2.0接口 等待安裝驅動完成\n右鍵底部狀態欄的藍牙圖標 搜索新設備\n此時 按住手柄的PS鍵和Share鍵 此時PS手柄背部的LED燈顯示白色並閃爍 開始配對\n等待配對完成 此時PS手柄背部的LED燈顯示白色常亮\n此時打開DS4TOOL可以正常顯示設備狀態 具體手柄設置參考上文 以上～\n",
+  "wordCount" : "83",
+  "inLanguage": "en",
+  "datePublished": "2015-03-28T19:32:59+08:00",
+  "dateModified": "2015-03-28T19:32:59+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://via.moe/ps4-controller-on-pc/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Siege",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://via.moe/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<noscript>
+    <style type="text/css">
+        .theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://via.moe/" accesskey="h" title="Siege (Alt + H)">Siege</a>
+            <span class="logo-switches">
+                <span class="theme-toggle" title="(Alt + T)">
+                    <a id="theme-toggle" accesskey="t">
+                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </a>
+                </span>
+                
+            </span>
+        </div>
+        <ul class="menu" id="menu" onscroll="menu_on_scroll()">
+            <li>
+                <a href="https://via.moe/" title="Index">
+                    <span>Index</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://via.moe/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://via.moe/rss.xml" title="RSS">
+                    <span>RSS</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://via.moe/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li></ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">
+      PS4 手柄有線/藍牙無線連接PC
+    </h1>
+    <div class="post-description">
+      
+    </div>
+    <div class="post-meta">March 28, 2015
+
+    </div>
+  </header> 
+
+  <div class="post-content">
+<p><img src="https://ww3.sinaimg.cn/large/6d9bd6a5gw1eqlqcnpkucj21kw16o4h2.jpg" alt=""></p>
+<p>本文將講解Windows 7系統下如何將PS4手柄與PC電腦配對，並模擬成Xbox 360手柄的設置</p>
+<p>現在已經是 2017 年了，也有了更好的工具，請見 <a href="https://level5.dev/ds4-for-windows/">https://level5.dev/ds4-for-windows/</a></p>
+<p>需要無線連接之前請先嚐試有線連接是否正常</p>
+<ul>
+<li>有線連接</li>
+</ul>
+<p>拿一條安卓設備常見的microusb連接線   連接PC等待安裝完驅動即可使用
+但此時是兼容的DirectInput遊戲手柄設備 PS4手柄背部此時LED顯示爲黃色常亮</p>
+<p>需要去這個論壇下載 <a href="http:///forums.pcsx2.net/Thread-DS4-To-XInput-Wrapper">DS4 TO XInput Wrapper</a> 這個軟件模擬XBOX遊戲手柄 *最新版本是DS4TOOL 1.2.2.zip</p>
+<p>下載完成之後解壓壓縮包</p>
+<p>打開Virtual Bus Driver子目錄</p>
+<p><img src="https://ww3.sinaimg.cn/large/6d9bd6a5gw1eqlotemroxj20r00idadq.jpg" alt=""></p>
+<p>安裝ScpDriver.exe</p>
+<p><img src="https://ww1.sinaimg.cn/large/6d9bd6a5gw1eqlov6vfmnj20go0bm0u2.jpg" alt=""></p>
+<p>然後返回解壓之後的文件根目錄  打開ScpServer.exe
+這時主程序最小化到任務欄右下角去了</p>
+<p>連接正常 PS4手柄背部LED燈顯示藍色常亮
+DS4TOOL會顯示手柄的mac地址  內置電池電量  和觸控板開啓狀態</p>
+<p>如果沒有正常連接 則沒有顯示  需要重新插拔設備即可</p>
+<p><img src="https://ww3.sinaimg.cn/large/6d9bd6a5gw1eqloyh86ewj20m209vgpt.jpg" alt=""></p>
+<p>DS4TOOL支持手柄的更多設置（反正默認夠用</p>
+<hr>
+<p>熱鍵說明</p>
+<p>L2+按下觸摸板 | 關閉觸摸板                  <br>
+L2+R2+按下觸摸板 | 開啓觸摸板
+雙指上滑/下滑 | 向上/向下滾動<br>
+單擊觸摸板 | 相當於鼠標左鍵<br>
+觸摸板右側單擊後左側單擊 | 相當於鼠標右鍵<br>
+PS鍵+Option鍵 | 關閉藍牙</p>
+<hr>
+<ul>
+<li>無線設置</li>
+</ul>
+<p>如果是搭載了Windows 7/Windows 8/8.1的筆記本  可以打開系統藍牙設置並配對</p>
+<p>如果是臺式機 請買個支持藍牙2.1+EDR的適配器  例如:<a href="https://www.amazon.cn/ORICO-%E5%A5%A5%E7%9D%BF%E7%A7%91-BTA-402-%E8%93%9D%E7%89%99V4-0-%E9%80%82%E9%85%8D%E5%99%A8-USB2-0%E8%93%9D%E7%89%99%E6%8E%A5%E6%94%B6%E5%99%A8%E6%94%AF%E6%8C%81Windows-P-Vista-7-8/dp/B00AKO7XOW/ref=sr_1_1?ie=UTF8&amp;qid=1427546082&amp;sr=8-1&amp;keywords=%E8%93%9D%E7%89%99%E9%80%82%E9%85%8D%E5%99%A8">ORICO 奧睿科 BTA-402 藍牙V4.0 適配器</a></p>
+<p>*本文以此適配器作爲演示</p>
+<p>插入主板的USB2.0接口  等待安裝驅動完成</p>
+<p>右鍵底部狀態欄的藍牙圖標 搜索新設備</p>
+<p><img src="https://ww3.sinaimg.cn/large/6d9bd6a5gw1eqlq2yvmdfj20hg0eh755.jpg" alt=""></p>
+<p>此時 按住手柄的PS鍵和Share鍵 此時PS手柄背部的LED燈顯示白色並閃爍 開始配對</p>
+<p><img src="https://ww4.sinaimg.cn/large/6d9bd6a5gw1eqlq6ak2cpj20ff0b73zk.jpg" alt=""></p>
+<p>等待配對完成  此時PS手柄背部的LED燈顯示白色常亮</p>
+<p><img src="https://ww3.sinaimg.cn/large/6d9bd6a5gw1eqlq6ogn1ij20m209v774.jpg" alt=""></p>
+<p>此時打開DS4TOOL可以正常顯示設備狀態
+具體手柄設置參考上文 以上～</p>
+
+</div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://via.moe/tags/ps4/">ps4</a></li>
+    </ul>
+  </footer>
+</article>
+    </main><footer class="footer">
+    
+    <span>本博客除另外說明，都採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW">署名-非商業性使用-相同方式共享 4.0 協議</a> 進行許可<br>Except where otherwise noted, content on this site is licensed under a<br><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a> license</span>
+    
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
+    <button class="top-link" id="top-link" type="button" accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </button>
+</a>
+
+
+
+<script defer src="/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<script>
+    window.onload = function () {
+        if (localStorage.getItem("menu-scroll-position")) {
+            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
+        }
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.replaceState(null, null, `#${id}`);
+            }
+        });
+    });
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+    function menu_on_scroll() {
+        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+    }
+
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-70500040-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-70500040-1');
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+</body>
+
+</html>

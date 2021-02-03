@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<script>var url=window.location.href;url.indexOf("https")<0&&(url=url.replace("http:","https:"),window.location.replace(url));</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="theme-color" content="#2e2e33">
+<meta name="robots" content="index, follow">
+<title>Nexus 5X 更新基於 Android 9.0 Pie 的第三方系統 | Siege</title>
+
+<meta name="keywords" content="android" />
+<meta name="description" content="Nexus 5X 的刷機就需要幾個步驟就可以了
+ 配置 ADB 環境變量（SDK） 按照最新工廠鏡像做為底包（如果是最新官方系統可忽略此步驟，如果是舊版本系統 7.x/6.x 會驗證 vendor images 會導致無法正常開機） 準備刷機 ROM 包&#43; GAPPS &#43; SU（Root 可選） 安裝手機驅動 解鎖 BootLoader 通過 Recovery 卡刷 Rom  配置 ADB 環境變量（SDK） 現在 Google 也放出了單獨的 ADB 文件了，還是比較方便的
+https://developer.android.com/studio/releases/platform-tools
+下載完成后記得配 PATH 即可。
+安裝工廠鏡像（可選） https://developers.google.com/android/images
+下載 &ldquo;bullhead&rdquo; for Nexus 5X 的 8.1.0 (OPM4.171019.016.A1, May 2018) 壓縮包
+下載完成解壓后雙擊脚本開始自動按照工廠鏡像
+之後開機進入桌面準備刷機包
+AospExtend 系統刷機包 &#43; GAPPS AospExtend 基於 Android 9.0 Pie https://downloads.aospextended.com/bullhead
+Open GApps https://opengapps.org/
+下載 ARM64 &#43; 9.">
+<meta name="author" content="">
+<link rel="canonical" href="https://via.moe/nexus-5x-with-aospextend/" />
+<link href="/assets/css/stylesheet.min.5c4f6d85b7abfcfea458637c672d16a7a9c38c37f002753cfdc7f314b6d3c8f2.css" integrity="sha256-XE9thber/P6kWGN8Zy0Wp6nDjDfwAnU8/cfzFLbTyPI=" rel="preload stylesheet"
+    as="style">
+
+<link rel="icon" href="https://via.moe/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://via.moe/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://via.moe/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://via.moe/apple-touch-icon.png">
+<link rel="mask-icon" href="https://via.moe/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.80.0" />
+
+
+<meta property="og:title" content="Nexus 5X 更新基於 Android 9.0 Pie 的第三方系統" />
+<meta property="og:description" content="Nexus 5X 的刷機就需要幾個步驟就可以了
+ 配置 ADB 環境變量（SDK） 按照最新工廠鏡像做為底包（如果是最新官方系統可忽略此步驟，如果是舊版本系統 7.x/6.x 會驗證 vendor images 會導致無法正常開機） 準備刷機 ROM 包&#43; GAPPS &#43; SU（Root 可選） 安裝手機驅動 解鎖 BootLoader 通過 Recovery 卡刷 Rom  配置 ADB 環境變量（SDK） 現在 Google 也放出了單獨的 ADB 文件了，還是比較方便的
+https://developer.android.com/studio/releases/platform-tools
+下載完成后記得配 PATH 即可。
+安裝工廠鏡像（可選） https://developers.google.com/android/images
+下載 &ldquo;bullhead&rdquo; for Nexus 5X 的 8.1.0 (OPM4.171019.016.A1, May 2018) 壓縮包
+下載完成解壓后雙擊脚本開始自動按照工廠鏡像
+之後開機進入桌面準備刷機包
+AospExtend 系統刷機包 &#43; GAPPS AospExtend 基於 Android 9.0 Pie https://downloads.aospextended.com/bullhead
+Open GApps https://opengapps.org/
+下載 ARM64 &#43; 9." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://via.moe/nexus-5x-with-aospextend/" />
+<meta property="article:published_time" content="2019-02-14T19:32:59+08:00" />
+<meta property="article:modified_time" content="2019-02-14T19:32:59+08:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Nexus 5X 更新基於 Android 9.0 Pie 的第三方系統"/>
+<meta name="twitter:description" content="Nexus 5X 的刷機就需要幾個步驟就可以了
+ 配置 ADB 環境變量（SDK） 按照最新工廠鏡像做為底包（如果是最新官方系統可忽略此步驟，如果是舊版本系統 7.x/6.x 會驗證 vendor images 會導致無法正常開機） 準備刷機 ROM 包&#43; GAPPS &#43; SU（Root 可選） 安裝手機驅動 解鎖 BootLoader 通過 Recovery 卡刷 Rom  配置 ADB 環境變量（SDK） 現在 Google 也放出了單獨的 ADB 文件了，還是比較方便的
+https://developer.android.com/studio/releases/platform-tools
+下載完成后記得配 PATH 即可。
+安裝工廠鏡像（可選） https://developers.google.com/android/images
+下載 &ldquo;bullhead&rdquo; for Nexus 5X 的 8.1.0 (OPM4.171019.016.A1, May 2018) 壓縮包
+下載完成解壓后雙擊脚本開始自動按照工廠鏡像
+之後開機進入桌面準備刷機包
+AospExtend 系統刷機包 &#43; GAPPS AospExtend 基於 Android 9.0 Pie https://downloads.aospextended.com/bullhead
+Open GApps https://opengapps.org/
+下載 ARM64 &#43; 9."/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Nexus 5X 更新基於 Android 9.0 Pie 的第三方系統",
+  "name": "Nexus 5X 更新基於 Android 9.0 Pie 的第三方系統",
+  "description": "Nexus 5X 的刷機就需要幾個步驟就可以了\n 配置 ADB 環境變量（SDK） 按照最新工廠鏡像做為底包（如果是最新官方系統可忽略此步驟，如果是舊版本系統 7.x/6.x 會驗證 vendor images 會導致無法正常開機） 準備刷機 ROM 包+ GAPPS + SU（Root 可選） 安裝手機驅動 解鎖 BootLoader …",
+  "keywords": [
+    "android"
+  ],
+  "articleBody": "Nexus 5X 的刷機就需要幾個步驟就可以了\n 配置 ADB 環境變量（SDK） 按照最新工廠鏡像做為底包（如果是最新官方系統可忽略此步驟，如果是舊版本系統 7.x/6.x 會驗證 vendor images 會導致無法正常開機） 準備刷機 ROM 包+ GAPPS + SU（Root 可選） 安裝手機驅動 解鎖 BootLoader 通過 Recovery 卡刷 Rom  配置 ADB 環境變量（SDK） 現在 Google 也放出了單獨的 ADB 文件了，還是比較方便的\nhttps://developer.android.com/studio/releases/platform-tools\n下載完成后記得配 PATH 即可。\n安裝工廠鏡像（可選） https://developers.google.com/android/images\n下載 “bullhead” for Nexus 5X 的 8.1.0 (OPM4.171019.016.A1, May 2018) 壓縮包\n下載完成解壓后雙擊脚本開始自動按照工廠鏡像\n之後開機進入桌面準備刷機包\nAospExtend 系統刷機包 + GAPPS AospExtend 基於 Android 9.0 Pie https://downloads.aospextended.com/bullhead\nOpen GApps https://opengapps.org/\n下載 ARM64 + 9.0 + PICO 或 STOCK\n按照手機驅動和解鎖 Bootloader 下載 XDA 大神的 TOOL ALL IN ONE\n點擊界面的 Install Drivers，一路 Next，等待驅動安裝完成\n之後點擊 Bootloader 裡面的 Unlock，等待手機重啟\n通過 Recovery 卡刷 Rom 然後手機再次進入 Bootloader 界面，此時使用工具 Recovery 裡面的 Recovery Flasher 刷入 TWRP Recovery 即可\n之後進入 TWRP Recovery，記得雙清後刷入刷機包和其他組件\n 附：\n清除 Wifi 感嘆號\n",
+  "wordCount" : "113",
+  "inLanguage": "en",
+  "datePublished": "2019-02-14T19:32:59+08:00",
+  "dateModified": "2019-02-14T19:32:59+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://via.moe/nexus-5x-with-aospextend/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Siege",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://via.moe/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<noscript>
+    <style type="text/css">
+        .theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://via.moe/" accesskey="h" title="Siege (Alt + H)">Siege</a>
+            <span class="logo-switches">
+                <span class="theme-toggle" title="(Alt + T)">
+                    <a id="theme-toggle" accesskey="t">
+                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </a>
+                </span>
+                
+            </span>
+        </div>
+        <ul class="menu" id="menu" onscroll="menu_on_scroll()">
+            <li>
+                <a href="https://via.moe/" title="Index">
+                    <span>Index</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://via.moe/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://via.moe/rss.xml" title="RSS">
+                    <span>RSS</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://via.moe/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li></ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">
+      Nexus 5X 更新基於 Android 9.0 Pie 的第三方系統
+    </h1>
+    <div class="post-description">
+      
+    </div>
+    <div class="post-meta">February 14, 2019
+
+    </div>
+  </header> 
+
+  <div class="post-content">
+<p>Nexus 5X 的刷機就需要幾個步驟就可以了</p>
+<ol>
+<li>配置 ADB 環境變量（SDK）</li>
+<li>按照最新工廠鏡像做為底包（如果是最新官方系統可忽略此步驟，如果是舊版本系統 7.x/6.x 會驗證 vendor images 會導致無法正常開機）</li>
+<li>準備刷機 ROM 包+ GAPPS + SU（Root 可選）</li>
+<li>安裝手機驅動</li>
+<li>解鎖 BootLoader</li>
+<li>通過 Recovery 卡刷 Rom</li>
+</ol>
+<h3 id="配置-adb-環境變量sdk">配置 ADB 環境變量（SDK）<a hidden class="anchor" aria-hidden="true" href="#配置-adb-環境變量sdk">#</a></h3>
+<p>現在 Google 也放出了單獨的 ADB 文件了，還是比較方便的</p>
+<p><a href="https://developer.android.com/studio/releases/platform-tools">https://developer.android.com/studio/releases/platform-tools</a></p>
+<p>下載完成后記得配 PATH 即可。</p>
+<h3 id="安裝工廠鏡像可選">安裝工廠鏡像（可選）<a hidden class="anchor" aria-hidden="true" href="#安裝工廠鏡像可選">#</a></h3>
+<p><a href="https://developers.google.com/android/images">https://developers.google.com/android/images</a></p>
+<p>下載 &ldquo;bullhead&rdquo; for Nexus 5X 的 8.1.0 (OPM4.171019.016.A1, May 2018) 壓縮包</p>
+<p>下載完成解壓后雙擊脚本開始自動按照工廠鏡像</p>
+<p>之後開機進入桌面準備刷機包</p>
+<h3 id="aospextend-系統刷機包--gapps">AospExtend 系統刷機包 + GAPPS<a hidden class="anchor" aria-hidden="true" href="#aospextend-系統刷機包--gapps">#</a></h3>
+<h4 id="aospextend-基於-android-90-pie">AospExtend 基於 Android 9.0 Pie<a hidden class="anchor" aria-hidden="true" href="#aospextend-基於-android-90-pie">#</a></h4>
+<p><a href="https://downloads.aospextended.com/bullhead">https://downloads.aospextended.com/bullhead</a></p>
+<h4 id="open-gapps">Open GApps<a hidden class="anchor" aria-hidden="true" href="#open-gapps">#</a></h4>
+<p><a href="https://opengapps.org/">https://opengapps.org/</a></p>
+<p>下載 ARM64 + 9.0 + PICO 或 STOCK</p>
+<h3 id="按照手機驅動和解鎖-bootloader">按照手機驅動和解鎖 Bootloader<a hidden class="anchor" aria-hidden="true" href="#按照手機驅動和解鎖-bootloader">#</a></h3>
+<p>下載 XDA 大神的 <a href="https://forum.xda-developers.com/nexus-6p/orig-development/tool-tool-one-driversunlocktwrpfactory-t3358709">TOOL ALL IN ONE</a></p>
+<p>點擊界面的 Install Drivers，一路 Next，等待驅動安裝完成</p>
+<p>之後點擊 Bootloader 裡面的 Unlock，等待手機重啟</p>
+<h3 id="通過-recovery-卡刷-rom">通過 Recovery 卡刷 Rom<a hidden class="anchor" aria-hidden="true" href="#通過-recovery-卡刷-rom">#</a></h3>
+<p>然後手機再次進入 Bootloader 界面，此時使用工具 Recovery 裡面的 Recovery Flasher 刷入 <a href="https://dl.twrp.me/bullhead/">TWRP Recovery</a> 即可</p>
+<p>之後進入 TWRP Recovery，記得雙清後刷入刷機包和其他組件</p>
+<hr>
+<p>附：</p>
+<p><a href="https://level5.dev/android-no-exclamation/">清除 Wifi 感嘆號</a></p>
+
+</div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://via.moe/tags/android/">android</a></li>
+    </ul>
+  </footer>
+</article>
+    </main><footer class="footer">
+    
+    <span>本博客除另外說明，都採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW">署名-非商業性使用-相同方式共享 4.0 協議</a> 進行許可<br>Except where otherwise noted, content on this site is licensed under a<br><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a> license</span>
+    
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
+    <button class="top-link" id="top-link" type="button" accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </button>
+</a>
+
+
+
+<script defer src="/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<script>
+    window.onload = function () {
+        if (localStorage.getItem("menu-scroll-position")) {
+            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
+        }
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.replaceState(null, null, `#${id}`);
+            }
+        });
+    });
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+    function menu_on_scroll() {
+        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+    }
+
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-70500040-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-70500040-1');
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+</body>
+
+</html>

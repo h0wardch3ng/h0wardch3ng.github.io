@@ -1,0 +1,136 @@
+###
+#
+# 縦つい。Ver. 0.1,  by yubais, 2013/03/14
+#
+###
+
+# 句読点（右上に移動すべき文字）
+punctuation = ["、","。","，","．"]
+
+# 変換する文字。閉じカッコに良いのが無い...
+translate = {
+	"ー" : "｜"
+	"「" : "¬"
+	"」" : "∟"
+	"→" : "↓"
+	"↑" : "→"
+	"←" : "↑"
+	"↓" : "←"
+	"＝" : "॥"
+	"…" : "："
+}
+
+# 文字列をm*nの2次元配列に変換
+str2map = (input) ->
+	# 英数・コロンカンマ・スペースを全角に
+	input = input.replace(/\ /g, "　")
+	input = input.replace(/[A-Za-z0-9,\."']/g, (s) ->
+		return String.fromCharCode(s.charCodeAt(0) + 0xFEE0)
+	)
+	# 各行に分解
+	lines = input.split("\n")
+	# 1行の最大値を算出
+	maxlen = Math.max.apply(null, ( line.length for line in lines ))
+	# マップを作成
+	map = []
+	falses = (false for i in [1..maxlen])		# [false, false, false, ...]
+	# lineを1文字ずつ分解して配列にし、右側をfalseで埋めて長さをmaxlenにする
+	for line in lines
+		map.push(line.split("").concat(falses)[0..maxlen-1])
+	return map
+
+# 2次元配列を横書きから縦書きに変換。
+invert = (map) ->
+	remap = []
+	for j in [0 .. map[0].length-1]
+		remap.push([])
+		for i in [0 .. map.length-1]
+			remap[j][i] = map[i][j]
+	# remap の各要素を左右反転。
+	for j in [0..remap.length-1]
+		remap[j] = remap[j].reverse()
+	return remap
+
+# 1文字ごとに false を入れる
+spacing = (map) ->
+	remap = []
+	for line in map
+		reline = []
+		for i in [0..line.length-1]
+			reline.push(line[i])
+			reline.push(false)
+		remap.push(reline)
+	return remap
+
+# 句読点の位置を右上に移動
+shiftPunctuation = (map) ->
+	# 行頭 (y=0) の句読点は無視
+	for y in [1 .. map.length-1]
+		for x in [0 .. map[0].length-1]
+			if map[y][x] in punctuation
+				map[y-1][x+1] = map[y][x]
+				map[y][x] = false
+	return map
+
+# 2次元配列を文字列に書き起こす
+render = (map) ->
+	output = ""
+	for line in map
+		for char in line
+			output += substrate(char)
+		# 行末がスペースならばそれを除去
+		if char == false
+			output = output[0..output.length-2]
+		output += "\n"
+	return output
+
+# 特定文字を置換する
+substrate = (char) ->
+	if char of translate
+		return translate[char]
+	return "　" if char == false
+	if char.match(/[0-9a-z.,]i/)
+		return " "+char
+	return char
+
+# 全体をまとめて、横書き→縦書きを実行
+tategaki = (input) ->
+	return render(shiftPunctuation(spacing(invert(str2map(input)))))
+
+# HTMLのフォームから入出力
+execute = () ->
+	input = $("#inputarea").val()
+	output = tategaki(input)
+	$("#outputarea").val(output)
+
+	# 文字数をカウント
+	$("#lettercount").text(140 - output.length)
+	if output.length > 140
+		$("#lettercount").css("color","#f00")
+		$("#tweetButton").addClass("btn-disable")
+		$("#tweetButton").removeClass("btn-able")
+	else
+		$("#lettercount").css("color","#000")
+		$("#tweetButton").button("enable")
+
+# 出力したテキストをツイート
+tweet = ()->
+	content = $("#outputarea").val()
+	if content != "" and content.length <= 140
+		encoded = encodeURIComponent(content)
+		url = "https://twitter.com/intent/tweet?text=#{encoded}"
+		if $("#addURL").attr('checked')
+			url += "&url=http://yubais.net/tatetwi/"
+		window.open(url)
+
+# イベントを貼る
+$(document).ready ->
+	$("#convertButton").click (e)->
+		e.preventDefault()
+		execute()
+	$("#tweetButton").click (e) ->
+		e.preventDefault()
+		tweet()
+	$("#deleteButton").click (e) ->
+		$("#inputarea").val("")
+

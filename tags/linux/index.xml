@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>linux on Siege</title>
+    <link>https://via.moe/tags/linux/</link>
+    <description>Recent content in linux on Siege</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sun, 01 Jan 2017 19:32:59 +0800</lastBuildDate><atom:link href="https://via.moe/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux TCP 性能調優筆記</title>
+      <link>https://via.moe/linux-tcp-tuning/</link>
+      <pubDate>Sun, 01 Jan 2017 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/linux-tcp-tuning/</guid>
+      <description>本文參考自 Linux Tuning
+本文可以幫助您的服務器提高 并發數量 和改善 高延遲掉包 情況。
+目前文中涉及的 hybla 和 htcp 算法已經很火星了，具體釋義請自行 Google 搜索。
+本文於 2017 年 1 月 1 日更新加入對 Google TCP BBR 算法的開啟，相關技術解釋見 知乎 討論
+不推薦使用 openvz 虛擬化技術的 VPS 此類權限較低 推薦使用 KVM 架構的虛擬 Linux VPS 。
+開啟 Google TCP BBR 請先自行將系統內核更新到 Linux Kernel 4.9 版本。
+下載 Linux Kernel 4.9 内核
+wget -O linux-image-4.9.0-amd64.deb http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.9/linux-image-4.9.0-040900-generic_4.9.0-040900.201612111631_amd64.deb 安裝內核
+dpkg -i linux-image-4.9.0-amd64.deb 卸載舊版本內核
+dpkg -l | grep linux-image | awk &amp;#39;{print $2}&amp;#39; | grep -v &amp;#39;linux-image-4.</description>
+    </item>
+    
+    <item>
+      <title>Let&#39;s benchmark</title>
+      <link>https://via.moe/lets-benchmark/</link>
+      <pubDate>Thu, 06 Oct 2016 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/lets-benchmark/</guid>
+      <description>本文章將提供一些主流系統平臺的跑分軟件。
+CPU &amp;amp; GPU 信息+跑分
+CineBench
+CPU-Z
+GPU-Z
+CrystalCPUID
+SSD 測速跑分
+AS SSD Benchmark
+CrystalDiskInfo 6
+HDD 檢測
+HD Tune Pro
+附：資料
+CPU 天梯圖 English 中文
+GPU 天梯圖 English 中文
+筆記本 CPU 天梯圖 中文
+筆記本 GPU 天梯圖 中文
+GeekBench4
+
+AIDA64
+
+CPU-Z
+
+Wifi 掃描儀
+
+GPS測試
+
+網絡信號信息
+
+附：資料
+移動平臺 CPU 天梯圖 中文
+Linux 硬件檢測
+wget --no-check-certificate https://github.com/teddysun/across/raw/master/unixbench.sh chmod +x unixbench.sh ./unixbench.sh 測試項目： Dhrystone 2 using register variables 此項用於測試 string handling，因爲沒有浮點操作，所以深受軟件和硬件設計（hardware and software design）、編譯和鏈接（compiler and linker options）、代碼優化（code optimazaton）、對內存的cache（cache memory）、等待狀態（wait states）、整數數據類型（integer data types）的影響。</description>
+    </item>
+    
+  </channel>
+</rss>

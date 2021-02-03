@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>letsencrypt on Siege</title>
+    <link>https://via.moe/tags/letsencrypt/</link>
+    <description>Recent content in letsencrypt on Siege</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Wed, 14 Mar 2018 19:32:59 +0800</lastBuildDate><atom:link href="https://via.moe/tags/letsencrypt/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用 Cloudflare 獲取 Let&#39;s Encrypt SSL/TLS Wildcard 泛域名證書</title>
+      <link>https://via.moe/use-dns-get-le-certificate/</link>
+      <pubDate>Wed, 14 Mar 2018 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/use-dns-get-le-certificate/</guid>
+      <description>Let&amp;rsquo;s Encrypt 是一個於 2015 年第三季度推出的數位證書認證機構，將通過旨在消除當前手動建立和安裝證書的複雜過程的自動化流程，並推廣使全球資訊網伺服器的加密連接無所不在，為安全網站提供免費的 SSL/TLS 證書。
+ 目前可以使用更簡單的 Cloudflare DNS 驗證方式獲取證書
+安裝腳本
+wget -O - https://get.acme.sh | sh配置 DNS APIKEY
+Global API Key 去 Cloudflare 申請
+export CF_Key=&amp;#34;your_key&amp;#34; export CF_Email=&amp;#34;your_email&amp;#34; 獲取 ECC 證書 ?
+./acme.sh --issue -d your_domain -d *.your_domain --dns dns_cf --keylength ec-384 [Wed Mar 14 15:31:26 CST 2018] Registering account[Wed Mar 14 15:31:27 CST 2018] Registered[Wed Mar 14 15:31:27 CST 2018] ACCOUNT_THUMBPRINT=&#39;****&#39;[Wed Mar 14 15:31:27 CST 2018] Creating domain key[Wed Mar 14 15:31:27 CST 2018] The domain key is here: /root/.</description>
+    </item>
+    
+  </channel>
+</rss>

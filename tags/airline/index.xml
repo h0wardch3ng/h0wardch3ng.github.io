@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>airline on Siege</title>
+    <link>https://via.moe/tags/airline/</link>
+    <description>Recent content in airline on Siege</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Fri, 08 Nov 2019 19:32:59 +0800</lastBuildDate><atom:link href="https://via.moe/tags/airline/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>航空公司促銷日曆</title>
+      <link>https://via.moe/airline-promotion/</link>
+      <pubDate>Fri, 08 Nov 2019 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/airline-promotion/</guid>
+      <description>聚合了國內航司的一些優惠促銷活動，可以在你的 Google 日曆中展示。
+點擊此處訂閱</description>
+    </item>
+    
+  </channel>
+</rss>

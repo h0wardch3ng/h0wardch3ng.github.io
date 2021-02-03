@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<script>var url=window.location.href;url.indexOf("https")<0&&(url=url.replace("http:","https:"),window.location.replace(url));</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="theme-color" content="#2e2e33">
+<meta name="robots" content="index, follow">
+<title>解決 MacBook Pro 休眠掉電問題 | Siege</title>
+
+<meta name="keywords" content="macOS" />
+<meta name="description" content="重啟 Macbook，在啟動的時候按住 command &#43; R，然後系統會進入 recovery 模式。
+  選擇語言，點下一步，然後在菜單欄選擇打開 terminal。
+  輸入 csrutil disable 禁掉 SIP，然後正常重啟 macbook。
+  打開 terminal，輸入 ioreg -l | grep board-id 查看你的 board-id，
+  在這個目錄 /System/Library/Extensions/IOPlatformPluginFamily.kext/Contents/PlugIns/X86PlatformPlugin.kext/Contents/Resources 下面找到你的 board-id 對應的 .plist 文件。
+  用管理員賬户編輯上一步中的 plist 文件，比如 sudo vim Mac-2BD2C319xxxxxxxx.plist, Catalina 系統之後需要 sudo mount -uw / 臨時讀寫只讀分區的內容，此命令重啓後效果消失。
+  把以下三項的值修改為 false, 然後保存 。
+  &lt;key&gt;TCPKeepAliveDuringSleep&lt;/key&gt;&lt;false/&gt;&lt;key&gt;NotificationWake&lt;/key&gt;&lt;false/&gt;&lt;key&gt;DNDWhileDisplaySleeps&lt;/key&gt;&lt;false/&gt; 重啟 Macbook，按照第 1，2 步進入 recovery 模式，輸入命令 csrutil enable 開啟 SIP，。">
+<meta name="author" content="">
+<link rel="canonical" href="https://via.moe/please-sleep/" />
+<link href="/assets/css/stylesheet.min.5c4f6d85b7abfcfea458637c672d16a7a9c38c37f002753cfdc7f314b6d3c8f2.css" integrity="sha256-XE9thber/P6kWGN8Zy0Wp6nDjDfwAnU8/cfzFLbTyPI=" rel="preload stylesheet"
+    as="style">
+
+<link rel="icon" href="https://via.moe/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://via.moe/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://via.moe/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://via.moe/apple-touch-icon.png">
+<link rel="mask-icon" href="https://via.moe/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.80.0" />
+
+
+<meta property="og:title" content="解決 MacBook Pro 休眠掉電問題" />
+<meta property="og:description" content="重啟 Macbook，在啟動的時候按住 command &#43; R，然後系統會進入 recovery 模式。
+  選擇語言，點下一步，然後在菜單欄選擇打開 terminal。
+  輸入 csrutil disable 禁掉 SIP，然後正常重啟 macbook。
+  打開 terminal，輸入 ioreg -l | grep board-id 查看你的 board-id，
+  在這個目錄 /System/Library/Extensions/IOPlatformPluginFamily.kext/Contents/PlugIns/X86PlatformPlugin.kext/Contents/Resources 下面找到你的 board-id 對應的 .plist 文件。
+  用管理員賬户編輯上一步中的 plist 文件，比如 sudo vim Mac-2BD2C319xxxxxxxx.plist, Catalina 系統之後需要 sudo mount -uw / 臨時讀寫只讀分區的內容，此命令重啓後效果消失。
+  把以下三項的值修改為 false, 然後保存 。
+  &lt;key&gt;TCPKeepAliveDuringSleep&lt;/key&gt;&lt;false/&gt;&lt;key&gt;NotificationWake&lt;/key&gt;&lt;false/&gt;&lt;key&gt;DNDWhileDisplaySleeps&lt;/key&gt;&lt;false/&gt; 重啟 Macbook，按照第 1，2 步進入 recovery 模式，輸入命令 csrutil enable 開啟 SIP，。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://via.moe/please-sleep/" />
+<meta property="article:published_time" content="2019-10-22T10:32:59+08:00" />
+<meta property="article:modified_time" content="2019-10-22T10:32:59+08:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="解決 MacBook Pro 休眠掉電問題"/>
+<meta name="twitter:description" content="重啟 Macbook，在啟動的時候按住 command &#43; R，然後系統會進入 recovery 模式。
+  選擇語言，點下一步，然後在菜單欄選擇打開 terminal。
+  輸入 csrutil disable 禁掉 SIP，然後正常重啟 macbook。
+  打開 terminal，輸入 ioreg -l | grep board-id 查看你的 board-id，
+  在這個目錄 /System/Library/Extensions/IOPlatformPluginFamily.kext/Contents/PlugIns/X86PlatformPlugin.kext/Contents/Resources 下面找到你的 board-id 對應的 .plist 文件。
+  用管理員賬户編輯上一步中的 plist 文件，比如 sudo vim Mac-2BD2C319xxxxxxxx.plist, Catalina 系統之後需要 sudo mount -uw / 臨時讀寫只讀分區的內容，此命令重啓後效果消失。
+  把以下三項的值修改為 false, 然後保存 。
+  &lt;key&gt;TCPKeepAliveDuringSleep&lt;/key&gt;&lt;false/&gt;&lt;key&gt;NotificationWake&lt;/key&gt;&lt;false/&gt;&lt;key&gt;DNDWhileDisplaySleeps&lt;/key&gt;&lt;false/&gt; 重啟 Macbook，按照第 1，2 步進入 recovery 模式，輸入命令 csrutil enable 開啟 SIP，。"/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "解決 MacBook Pro 休眠掉電問題",
+  "name": "解決 MacBook Pro 休眠掉電問題",
+  "description": "重啟 Macbook，在啟動的時候按住 command + R，然後系統會進入 recovery 模式。\n  選擇語言，點下一步，然後在菜單欄選擇打開 terminal。\n  輸入 csrutil disable 禁掉 SIP，然後正常重啟 macbook。\n  打開 terminal，輸入 ioreg -l | grep board-id …",
+  "keywords": [
+    "macOS"
+  ],
+  "articleBody": "  重啟 Macbook，在啟動的時候按住 command + R，然後系統會進入 recovery 模式。\n  選擇語言，點下一步，然後在菜單欄選擇打開 terminal。\n  輸入 csrutil disable 禁掉 SIP，然後正常重啟 macbook。\n  打開 terminal，輸入 ioreg -l | grep board-id 查看你的 board-id，\n  在這個目錄 /System/Library/Extensions/IOPlatformPluginFamily.kext/Contents/PlugIns/X86PlatformPlugin.kext/Contents/Resources 下面找到你的 board-id 對應的 .plist 文件。\n  用管理員賬户編輯上一步中的 plist 文件，比如 sudo vim Mac-2BD2C319xxxxxxxx.plist, Catalina 系統之後需要 sudo mount -uw / 臨時讀寫只讀分區的內容，此命令重啓後效果消失。\n  把以下三項的值修改為 false, 然後保存 。\n  TCPKeepAliveDuringSleep\r\rNotificationWake\r\rDNDWhileDisplaySleeps\r\r 重啟 Macbook，按照第 1，2 步進入 recovery 模式，輸入命令 csrutil enable 開啟 SIP，。\n  正常重啟 Macbook，可以用這個命令 ioreg -l | grep IOPlatformFeatureDefaults 來查看修改後的狀態。\n  ",
+  "wordCount" : "72",
+  "inLanguage": "en",
+  "datePublished": "2019-10-22T10:32:59+08:00",
+  "dateModified": "2019-10-22T10:32:59+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://via.moe/please-sleep/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Siege",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://via.moe/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<noscript>
+    <style type="text/css">
+        .theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://via.moe/" accesskey="h" title="Siege (Alt + H)">Siege</a>
+            <span class="logo-switches">
+                <span class="theme-toggle" title="(Alt + T)">
+                    <a id="theme-toggle" accesskey="t">
+                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </a>
+                </span>
+                
+            </span>
+        </div>
+        <ul class="menu" id="menu" onscroll="menu_on_scroll()">
+            <li>
+                <a href="https://via.moe/" title="Index">
+                    <span>Index</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://via.moe/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://via.moe/rss.xml" title="RSS">
+                    <span>RSS</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://via.moe/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li></ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">
+      解決 MacBook Pro 休眠掉電問題
+    </h1>
+    <div class="post-description">
+      
+    </div>
+    <div class="post-meta">October 22, 2019
+
+    </div>
+  </header> 
+
+  <div class="post-content">
+<ol>
+<li>
+<p>重啟 Macbook，在啟動的時候按住 command + R，然後系統會進入 recovery 模式。</p>
+</li>
+<li>
+<p>選擇語言，點下一步，然後在菜單欄選擇打開 terminal。</p>
+</li>
+<li>
+<p>輸入 <code>csrutil disable</code> 禁掉 SIP，然後正常重啟 macbook。</p>
+</li>
+<li>
+<p>打開 terminal，輸入 <code>ioreg -l | grep board-id</code> 查看你的 board-id，</p>
+</li>
+<li>
+<p>在這個目錄 <code>/System/Library/Extensions/IOPlatformPluginFamily.kext/Contents/PlugIns/X86PlatformPlugin.kext/Contents/Resources</code> 下面找到你的 board-id 對應的 .plist 文件。</p>
+</li>
+<li>
+<p>用管理員賬户編輯上一步中的 plist 文件，比如 <code>sudo vim Mac-2BD2C319xxxxxxxx.plist</code>, Catalina 系統之後需要 <code>sudo mount -uw /</code> 臨時讀寫只讀分區的內容，此命令重啓後效果消失。</p>
+</li>
+<li>
+<p>把以下三項的值修改為 false, 然後保存 。</p>
+</li>
+</ol>
+<pre><code>&lt;key&gt;TCPKeepAliveDuringSleep&lt;/key&gt;
+&lt;false/&gt;
+&lt;key&gt;NotificationWake&lt;/key&gt;
+&lt;false/&gt;
+&lt;key&gt;DNDWhileDisplaySleeps&lt;/key&gt;
+&lt;false/&gt;
+</code></pre><ol start="8">
+<li>
+<p>重啟 Macbook，按照第 1，2 步進入 recovery 模式，輸入命令 <code>csrutil enable</code> 開啟 SIP，。</p>
+</li>
+<li>
+<p>正常重啟 Macbook，可以用這個命令 <code>ioreg -l | grep IOPlatformFeatureDefaults</code> 來查看修改後的狀態。</p>
+</li>
+</ol>
+
+</div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://via.moe/tags/macos/">macOS</a></li>
+    </ul>
+  </footer>
+</article>
+    </main><footer class="footer">
+    
+    <span>本博客除另外說明，都採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW">署名-非商業性使用-相同方式共享 4.0 協議</a> 進行許可<br>Except where otherwise noted, content on this site is licensed under a<br><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a> license</span>
+    
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
+    <button class="top-link" id="top-link" type="button" accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </button>
+</a>
+
+
+
+<script defer src="/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<script>
+    window.onload = function () {
+        if (localStorage.getItem("menu-scroll-position")) {
+            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
+        }
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.replaceState(null, null, `#${id}`);
+            }
+        });
+    });
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+    function menu_on_scroll() {
+        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+    }
+
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-70500040-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-70500040-1');
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+</body>
+
+</html>

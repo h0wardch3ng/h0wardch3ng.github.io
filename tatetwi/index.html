@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<title>縦つい。 〜縦書きツイート作成ツール〜</title>
+	<script>
+		var url = window.location.href;
+		if (url.indexOf("https") < 0) {
+			url = url.replace("http:", "https:");
+			window.location.replace(url);
+		}
+	</script>
+	<link rel="shortcut icon" href="https://ky0n.xyz/favicon-192.png" type="image/png" />
+	<link rel="icon" sizes="192x192" href="https://ky0n.xyz/favicon-192.png" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="./jquery.mobile-1.3.1.css" />
+	<script type="text/javascript" src="./jquery.min.js"></script>
+	<script type="text/javascript" src="./jquery.mobile-1.3.1.js"></script>
+	<script type="text/javascript" src="./script.js"></script>
+</head>
+
+<body>
+
+	<div data-role="page" data-theme="b">
+
+		<div data-role="header">
+			<h1>縦つい。</h1>
+		</div>
+		<!-- /header -->
+
+		<div data-role="content" style='max-width:800px;margin:auto;'>
+			ツイートを縦書きにします。そんだけです。<br>
+			<label for="inputarea">
+		<textarea id='inputarea'>
+春はあけぼの、
+夏は夜。
+秋は夕暮れ、
+冬はウィンター。</textarea></label>
+			<div class='ui-grid-a'>
+				<div class='ui-block-a'>
+					<button data-role='button' data-icon='arrow-d' id='convertButton'>↓ 変換 ↓</button>
+				</div>
+				<div class='ui-block-b'>
+					<label>
+					<button data-role='button' data-icon='delete' id='deleteButton'>削除</button>
+				</label>
+				</div>
+			</div>
+			<textarea id='outputarea' style='height:220px'></textarea>
+			<div id='lettercount'></div>
+			<div id='submits' style='display:block'>
+				<button href=# data-role='button' data-icon='forward' id='tweetButton' disabled>ツイートする</button><br>
+				<label type=checkbox>
+				<input type=checkbox id='addURL' checked>このページのURLを含める
+			</label>
+			</div>
+			<div style='margin:10px'></div>
+			<div>
+				ソースコード<a href='./script.coffee.txt' target=_blank>こちら</a>。(CoffeeScript)
+				<div>
+					<ul>
+						<li><a href='http://yubais.net/paperback-maker/' target=_blank>新書メーカー</a>
+							<li><a href='http://yubais.net/winlawsuit/' target=_blank>勝訴ジェネレータ</a>
+								<li><a href='http://yubais.net/tatetwi/' target=_blank>THIS PAGE BY yubais.net</a>
+					</ul>
+				</div>
+				<hr>
+				<ul>
+					<li>2013/03/13 公開。
+						<li>2013/03/16 <strong>ライフハッカー[日本版]</strong>で<a href='http://www.lifehacker.jp/2013/03/130316tategaki-twitter.html' target=_blank>紹介されました。</a>ありがとうございます。
+							<li>2013/06/03 デザインを変更、若干の機能追加。
+				</ul>
+
+			</div>
+			<!-- /content -->
+
+		</div>
+		<!-- /page -->
+		<script>
+			(function (i, s, o, g, r, a, m) {
+				i['GoogleAnalyticsObject'] = r;
+				i[r] = i[r] || function () {
+					(i[r].q = i[r].q || []).push(arguments)
+				}, i[r].l = 1 * new Date();
+				a = s.createElement(o),
+					m = s.getElementsByTagName(o)[0];
+				a.async = 1;
+				a.src = g;
+				m.parentNode.insertBefore(a, m)
+			})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+			ga('create', 'UA-70500040-1', 'auto');
+			ga('send', 'pageview');
+		</script>
+</body>
+
+</html>

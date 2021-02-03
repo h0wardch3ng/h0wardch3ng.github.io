@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>raspberrypi on Siege</title>
+    <link>https://via.moe/tags/raspberrypi/</link>
+    <description>Recent content in raspberrypi on Siege</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Mon, 05 Feb 2018 19:32:59 +0800</lastBuildDate><atom:link href="https://via.moe/tags/raspberrypi/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>樹莓派初始化安裝配置筆記</title>
+      <link>https://via.moe/raspberry-init/</link>
+      <pubDate>Mon, 05 Feb 2018 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/raspberry-init/</guid>
+      <description>樹莓派（Raspberry Pi），是一款基於 Linux 系統的只有信用卡大小的單片機。它由英國的樹莓派基金會所開發，目的是以低價硬件及自由軟件刺激在學校的基本計算機科學教育。
+2015年2月，樹莓派基金會發布了第二代產品——樹莓派2，售價35美元。樹莓派2採用4核 Broadcom BCM2836 (ARMv7-A) 芯片、雙核 VideoCore IV GPU 和 1GB 內存，其餘配置與 樹莓派B+ 型一致，除了支持第一代樹莓派支持的操作系統外，樹莓派2 將能夠運行Windows 10 IOT 以及 Snappy Ubuntu Core。
+樹莓派基金會於2016年2月發布了樹莓派3,較前一代 樹莓派2，樹莓派3 的處理器升級為了 64 位元的博通 BCM2837，並首次加入了Wi-Fi無線網路及藍牙功能，而售價仍然是35美元。
+ 此文供 樹莓派 + Ubuntu Mate 操作系統初始化安裝配置 使用。
+本文完成時 樹莓派3 已經發佈，請注意系統燒寫固件版本號。
+一個嶄新的樹莓派 3 需要自備 5V 2A 電源適配器 + MicroUSB 連接線 + 鍵盤(或者配合網線/Wifi模塊通過 SSH 遠程連接) + 鼠標(可選) + HDMI (rev 1.3 &amp;amp; 1.4) 連接線/VGA2HDMI 轉接顯示連接線 + 網線/(特定驅動支持的) Wifi 模塊 + TF 儲存卡 + 樹莓派保護外殼(可選)</description>
+    </item>
+    
+    <item>
+      <title>OSMC 配置筆記</title>
+      <link>https://via.moe/osmc-init/</link>
+      <pubDate>Sun, 14 May 2017 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/osmc-init/</guid>
+      <description>樹莓派（Raspberry Pi），是一款基於 Linux 系統的只有信用卡大小的單片機。它由英國的樹莓派基金會所開發，目的是以低價硬件及自由軟件刺激在學校的基本計算機科學教育。
+2015年2月，樹莓派基金會發布了第二代產品——樹莓派2，售價 35 美元。樹莓派2 採用 4 核 Broadcom BCM2836 (ARMv7-A) 芯片、雙核 VideoCore IV GPU 和 1GB 內存，其餘配置與 樹莓派B+ 型一致，除了支持第一代樹莓派支持的操作系統外，樹莓派2 將能夠運行Windows 10 IOT 以及 Snappy Ubuntu Core。
+樹莓派基金會於 2016年 2月 發布了樹莓派3,較前一代樹莓派2，樹莓派3 的處理器升級為了 64 位元的博通 BCM2837，並首次加入了 Wi-Fi 無線網路及藍牙功能，而售價仍然是 35 美元。
+ 此文供 樹莓派 + OSMC (with Debian Jessie) 操作系統初始化安裝配置 使用。
+一個嶄新的 樹莓派2 需要自備 5V 2A 電源適配器 + MicroUSB 連接線 + 鍵盤(或者配合網線/Wifi模塊 通過 SSH 遠程連接) + 鼠標(可選) + HDMI (rev 1.</description>
+    </item>
+    
+    <item>
+      <title>樹莓派2 上手</title>
+      <link>https://via.moe/raspberry-pi-2/</link>
+      <pubDate>Sun, 22 Mar 2015 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/raspberry-pi-2/</guid>
+      <description>第二代樹莓派（Raspberry Pi 2）於2015/02/03正式發佈，同現有的Model B+售價相同，爲$35，用戶可以通過element14 和 RS Components兩家合作商進行選購。樹莓派2採用了900MHz的四核ARM Cortex-A7處理器（性能是前代的6倍以上），1GB的LPDDR2 SDRAM（內存提升兩倍），並完美兼容第一代樹莓派。因爲採用了ARMv7處理器，所以能夠運行所有ARM GNU/Linux分支版本，包括Snappy Ubuntu Core和微軟的Windows 10系統。
+全新的樹莓派2的硬件規格如下：
+ 處理器：博通BCM2836（CPU, GPU, DSP, SDRAM和一個USB端口) CPU：900MHz的四核ARM Cortex A7（ARMv7架構） GPU：博通VideoCore IV @ 250 MHz OpenGL ES 2.0 (24 GFLOPS) 1080P 30 MPEG-2和VC-1解碼器 (帶授權證書) 1080p30的H.264 / MPEG - 4 AVC高調解碼器和編碼器 內存：1GB（同GPU共享） USB端口：4個 視頻輸入：15針的MIPI攝像頭接口（CSI）控制器 視頻輸出：HDMI、通過3.5mm套件的複合視頻（PAL和NTSC） 音頻輸出： I²S 音頻輸入：3.5mm耳機套件，通過HDMI和 I²S進行數字輸入 存儲：MicroSD卡 網絡：10/100 Mbit/s Ethernet 外設：17 GPIO加特殊功能，和HAT ID總線 電源:800 mA (4.0 W) 電源來源：通過MicroUSB或者GPIO頭的5V電 尺寸： 85.60 mm × 56.5 mm 重量：45g  新型樹莓派2 代B型板可兼容以往創建的所有樹莓派項目。同時，它還具備擴展GPIO引腳並可提供高級電源管理和連接性能，因而可連接多達4個USB設備，包括一些如硬盤驅動器的功率器件。其40針擴展GPIO接口使其能夠添加更多傳感器、連接器及擴展板，前26針引腳與A型板和B型板保持一致，可100%向後兼容。</description>
+    </item>
+    
+  </channel>
+</rss>

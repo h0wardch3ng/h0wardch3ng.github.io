@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>android on Siege</title>
+    <link>https://via.moe/tags/android/</link>
+    <description>Recent content in android on Siege</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Tue, 05 Nov 2019 19:32:59 +0800</lastBuildDate><atom:link href="https://via.moe/tags/android/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>解決 Android 10 的狀態欄感嘆號問題</title>
+      <link>https://via.moe/android-no-exclamation/</link>
+      <pubDate>Tue, 05 Nov 2019 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/android-no-exclamation/</guid>
+      <description>Mac 可以通過 Homebrew 完成修改驗證服務器的操作。
+此命令支持 Android 10.x/9.x/8.x/7.x
+ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot; brew cask install android-platform-tools adb devices adb shell settings put global captive_portal_detection_enabled 1 adb shell settings put global captive_portal_mode 1 adb shell settings put global captive_portal_use_https 0 adb shell settings put global captive_portal_server via.moe adb shell settings put global captive_portal_http_url http://via.moe/generate_204 adb shell settings put global captive_portal_https_url https://via.moe/generate_204 其他操作系統自行手動安裝對應平台 Google 的 SDK Platform Tools
+設置參數：
+captive_portal_detection_enabled: 5.0 ~ 7.</description>
+    </item>
+    
+    <item>
+      <title>Nexus 5X 更新基於 Android 9.0 Pie 的第三方系統</title>
+      <link>https://via.moe/nexus-5x-with-aospextend/</link>
+      <pubDate>Thu, 14 Feb 2019 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/nexus-5x-with-aospextend/</guid>
+      <description>Nexus 5X 的刷機就需要幾個步驟就可以了
+ 配置 ADB 環境變量（SDK） 按照最新工廠鏡像做為底包（如果是最新官方系統可忽略此步驟，如果是舊版本系統 7.x/6.x 會驗證 vendor images 會導致無法正常開機） 準備刷機 ROM 包+ GAPPS + SU（Root 可選） 安裝手機驅動 解鎖 BootLoader 通過 Recovery 卡刷 Rom  配置 ADB 環境變量（SDK） 現在 Google 也放出了單獨的 ADB 文件了，還是比較方便的
+https://developer.android.com/studio/releases/platform-tools
+下載完成后記得配 PATH 即可。
+安裝工廠鏡像（可選） https://developers.google.com/android/images
+下載 &amp;ldquo;bullhead&amp;rdquo; for Nexus 5X 的 8.1.0 (OPM4.171019.016.A1, May 2018) 壓縮包
+下載完成解壓后雙擊脚本開始自動按照工廠鏡像
+之後開機進入桌面準備刷機包
+AospExtend 系統刷機包 + GAPPS AospExtend 基於 Android 9.0 Pie https://downloads.aospextended.com/bullhead
+Open GApps https://opengapps.org/
+下載 ARM64 + 9.</description>
+    </item>
+    
+    <item>
+      <title>Nexus 5X 更新基於 Android 8.1 Oreo 的第三方系統</title>
+      <link>https://via.moe/nexus-5x-with-lineageos/</link>
+      <pubDate>Wed, 14 Feb 2018 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/nexus-5x-with-lineageos/</guid>
+      <description>Nexus 6P 和 Nexus 5X 作為最後一代的親兒子，由於 Apple 最近拒絕了 Telegram 的多次更新，我手上的黑莓 Q20 也感覺壓力有點大，所以收了一台 Nexus 5X 作為備用機收消息，還支持聯通 LTE ，配上無限流量卡儅熱點也是不錯的。
+Nexus 5X 的刷機就需要幾個步驟就可以了
+ 配置 ADB 環境變量（SDK） 按照最新工廠鏡像做為底包（如果是最新官方系統可忽略此步驟，如果是舊版本系統 7.x/6.x 會驗證 vendor images 會導致無法正常開機） 準備刷機 ROM 包+ GAPPS + SU（Root 可選） 安裝手機驅動 解鎖 BootLoader 通過 Recovery 卡刷 Rom  配置 ADB 環境變量（SDK） 現在 Google 也放出了單獨的 ADB 文件了，還是比較方便的
+https://developer.android.com/studio/releases/platform-tools
+下載完成后記得配 PATH 即可。
+安裝工廠鏡像（可選） https://developers.google.com/android/images
+下載 &amp;ldquo;bullhead&amp;rdquo; for Nexus 5X 的 8.1.0 (OPM4.171019.016.A1, May 2018) 壓縮包</description>
+    </item>
+    
+    <item>
+      <title>小米盒子國際版 Android TV 體驗</title>
+      <link>https://via.moe/mi-box-with-android-tv/</link>
+      <pubDate>Sun, 16 Jul 2017 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/mi-box-with-android-tv/</guid>
+      <description>小米香港推出的「國際版」盒子使用了原生包含 Google Services 的 Android TV 系統，并沒有使用大陸定製的 ADUI 系統，這也是我選擇這個產品的理由。乾净的 UI，清爽的操作，整體體驗還是不錯的，如果你對偏貴於大陸版本售價的 499 HKD 可以接受，那麽這個還是值得去購買。
+硬件支持 4K 高清播放
+Android TV 6.0.1 系統支持 Google Play Services 和 Google Cast
+小米盒子的系統説明，采用了 6.0.1 的版本，也不知道什麽時候升級最新的 7.x
+5GB 的内置存儲，支持 USB 外置儲存
+ 推薦幾個可以在 Play 商店能找到的好用的 App
+Android TV Remote Control
+使用手機操控您的小米電視盒子，當然 iOS 也有 Android TV
+VLC for Android
+播放器之神
+MX Player
+神之播放器，配合 MX_FFmpeg DTS 解碼器 使用更好，目前支持版本 1.8.6.1
+ES檔案瀏覽器
+安裝第三方 App 可以使用 ES檔案瀏覽器 自帶的架設 FTP 功能進行上傳安裝操作
+App Tray for TV</description>
+    </item>
+    
+    <item>
+      <title>打開 Android 5.X Lollipop 的 Google Now 教程</title>
+      <link>https://via.moe/open-google-now-on-android-lollipop/</link>
+      <pubDate>Sun, 16 Aug 2015 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/open-google-now-on-android-lollipop/</guid>
+      <description>Google Now（Google即時）是一款由Google開發的智能個人助理軟件，擴充了Google搜索手機應用程序的功能，可在Android、iOS及Google Chrome上使用。
+Google Now使用自然語言用戶接口（Natural language user interface）通過一系列的Web服務來進行回答問題、提供建議、運行動作之行爲。在迴應用戶時，Google Now會基於用戶過往的的搜索習慣來預測其所可能需要的信息。Google Now最初被包含在Android 4.1 Jelly Bean（果凍豆）之中，首先支持的智能手機爲Galaxy Nexus。
+美國雜誌《科技新時代》（Popular Science）將Google Now評選爲2012年的「年度創新」（Innovation of the Year）。
+這篇文章可幫助各位打開 中文的 Google Now
+現在 Google Now 已經支持 Android、iOS和全平臺的 Chrome 瀏覽器
+本教程僅支持 Android 5.x ，舊版本開啓 Google Now 方法請自行 Google 搜索
+ 打開 Google Now 首先需要 Gapps 和 Google Search App 的支持  首先請拔掉手機內的 sim 卡。
+系統語言需要設置英語 設置 -&amp;gt; 語言與輸入設定 -&amp;gt; 語言 -&amp;gt; English - (United States)
+關閉手機的定位 ， 開啓飛行模式 ， 打開 Wifi ，如果在中國大陸地區，需要 *科學上網</description>
+    </item>
+    
+    <item>
+      <title>支持 Android 5.x 下 Chrome 的標題欄沉浸顏色</title>
+      <link>https://via.moe/support-for-theme-color-in-chrome-39-for-android/</link>
+      <pubDate>Thu, 29 Jan 2015 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/support-for-theme-color-in-chrome-39-for-android/</guid>
+      <description>此效果要求：Android版本5.x + Chrome 39+
+後臺多任務效果是這樣的
+代碼就一行 加在網頁的 &amp;lt;head&amp;gt; 標籤內 顏色選個你喜歡的就可以了
+&amp;lt;meta name=&amp;quot;theme-color&amp;quot; content=&amp;quot;#ffffff&amp;quot;&amp;gt;  網站favicon推薦64x64的ico文件
+&amp;lt;link href=&amp;quot;../favicon.ico&amp;quot; rel=&amp;quot;shortcut icon&amp;quot; type=&amp;quot;image/x-icon&amp;quot; /&amp;gt;  </description>
+    </item>
+    
+  </channel>
+</rss>

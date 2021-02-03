@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>google on Siege</title>
+    <link>https://via.moe/tags/google/</link>
+    <description>Recent content in google on Siege</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Mon, 25 Jan 2021 19:32:59 +0800</lastBuildDate><atom:link href="https://via.moe/tags/google/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>在 Google 日曆中訂閱中國農曆</title>
+      <link>https://via.moe/chinese-lunar-calendar/</link>
+      <pubDate>Mon, 25 Jan 2021 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/chinese-lunar-calendar/</guid>
+      <description>1. 添加訂閱地址 1.1 增加自定義訂閱 填寫來自在線的 .ics 文件 URL 地址
+正體中文 訂閱地址
+https://cdn.via.moe/file/viamoe/file/lunar-calendar-tc.ics
+簡體中文 訂閱地址
+https://cdn.via.moe/file/viamoe/file/lunar-calendar-sc.ics
+2. 完成訂閱 添加訂閱成功後，即可顯示已添加的農曆日程
+ 本文參考開源項目 https://github.com/infinet/lunar-calendar</description>
+    </item>
+    
+    <item>
+      <title>Google 那些年</title>
+      <link>https://via.moe/thx4google/</link>
+      <pubDate>Sun, 14 May 2017 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/thx4google/</guid>
+      <description>Google 谷歌中國 ,生於 2006 年 4 月 卒於 2010 年 3 月 23 日
+Google 全球中文名稱爲「谷歌」，於 2006 年 4 月 13 日由 Google 公司 CEO 埃裏克 · 施密特在中國北京發佈，是 Google 唯一的非英文品牌名稱。「谷歌」的意思解作「以穀物爲歌」，是播種與期待之歌，也是收穫與歡愉之歌，象徵着耕耘和收穫的喜悅，也表達了一種勤懇求實的態度。
+時任 Google 大中華區總裁李開復曾表示，「G-O-O-G-L-E」並不是標準的中文拼音，因此很多人都無法正確讀出這個詞，有很多中國人把 Google 讀成「go go」。在 Google 公司正式發佈中文名之前，民間尚有一些原文以外的俗稱，例如：「狗狗」（現多指迅雷的「狗狗搜索」）、「酷狗」（現多指「酷狗音樂」）、「古狗」、「勾勾」等。
+另一方面，Google 公司於較早前的 2 月 15 日在臺灣登記爲「美商科高國際有限公司」（GOOGLE INTERNATIONAL LLC）。
+此外，Google 在北京的分公司曾使用「咕果」作爲合約簽訂以及網絡招聘的中文譯名。
+北京時間（UTC+8）4 月 17 日凌晨 1 時左右，Google 簡體中文國際網站 正式出現「谷歌」字樣。
+由於「Google」一詞對於中文用戶來說比較難以拼寫，所以谷歌特爲解決此問題斥資千萬美元買下中國域名 g.cn，以便網民記憶。
+在谷歌退出中國事件後，2010 年 4 月 3 日，谷歌首頁更名爲「Google 中國」，但在北京時間當天晚上，谷歌中國又在其首頁恢復顯示「谷歌」字樣。
+這幾年 Google 在中國就是 來得錯誤，去得瀟灑。
+這家公司提供的服務已經改變了大家的生活 比如： Google 搜索：互聯網上最大、影響最廣泛的搜索引擎。Google 每日通過不同的服務，處理來自世界各地超過 2 億次的查詢</description>
+    </item>
+    
+    <item>
+      <title>Google 的正確使用方法</title>
+      <link>https://via.moe/use-google/</link>
+      <pubDate>Sun, 22 Jun 2014 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/use-google/</guid>
+      <description>Google在大陸已經封了差不多有20天 訪問是極其的困難
+##下面我會介紹幾種輕輕鬆鬆訪問Google的方法
+你需要個靠譜的DNS服務器 比如 https://code.google.com/p/openerdns/ 或者 http://alidns.com/
+推薦各位使用Chrome瀏覽器 對自己家的Google有神祕加成 http://ippotsuko.com/open-google/
+或許你還需要http://jingyun.org 這樣你就可以訪問其他受限制的網站了 支持全平臺 包括Windows,Mac,Linux,iOS,Android等等 甚至你家的路由器也可以用）
+ Google搜索服務優化 Google會根據你的地區自動切換搜索的語言 在大陸是自動跳轉到谷歌香港 你懂的 如果你要搜索一些奇奇怪怪的東西 是很難的 因爲google香港禁用了安全搜索 這個時候你需要 https://google.com/ncr 打開這個網址 Google就不會自動跳轉了 或者進入https://encrypted.google.com 解除google的搜索限制 這個是完全加密的
+ Chrome瀏覽器可以用地址欄搜索 用ncr的參數應該是
+設置爲默認即可 如圖：
+以上都不行 也可以試試大神自己搭建的反向代理 g.ttlsa.com 或者 wen.lu
+然後 你應該就可以正常的使用Google了~
+ 登不上Google 怪我咯？</description>
+    </item>
+    
+    <item>
+      <title>探訪谷歌上海辦公室</title>
+      <link>https://via.moe/visit-google-shanghai/</link>
+      <pubDate>Fri, 12 Jul 2013 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/visit-google-shanghai/</guid>
+      <description>2012年4月25日 Google 上海正式搬入了環球金融中心，新辦公室的設計充滿了中國元素的風情。我們一起來看看工程師們的聖地。
+  山水屏幕——揚子江上獨釣老翁
+福利——茶歇水果，應有盡有
+上面的文章來自谷歌搬到新家的報道
+接下來是今天我自己拍的 我也是匆忙收到谷歌的一個電話 讓我去參觀的 (:з」∠)
+這是我的Pass 那個藍色的圓形帖紙是進入餐廳要用的
+由於谷歌幾年前被迫離開中國 在大陸的業務就剩下廣告了 (:з」∠)
+這是入口處
+路過谷歌的餐廳 等會要來這裏吃飯的 ^_^
+谷歌內置的咖啡廳 名字叫：海 Cafe
+我朝小朋友給Google畫的Doodle~ 很可愛啊~ 很童趣
+地板上的字
+谷歌的前臺 （妹子很漂亮哦~
+入口處有個很寬的落地窗 放眼望去 是整個陸家嘴的鳥瞰
+旁邊的我朝特色的大門
+ Chrome和安德猴的雕塑
+入口還放了一個谷歌 地球的 設備 可以看全立體的地圖影像
+   每個辦公室都有一個名字 這個叫做：黃河
+由於辦公區域不能拍照 只能口述了
+谷歌在環球金融中心有兩個樓層 61和62 單單辦公室 佔了一個樓層多
+辦公室裏 可以騎車 可以遛狗 看到有人在辦公室裏養了只狗。。。
+辦公室的音樂&amp;mdash;留聲機
+每個辦公區域 都有個中文名稱 我看到的有 仁 義 智 信 孝 （沒見到 「禮」 出自《仁義八行》吧？ 仁 智 義 忠 信 禮 孝 悌</description>
+    </item>
+    
+  </channel>
+</rss>

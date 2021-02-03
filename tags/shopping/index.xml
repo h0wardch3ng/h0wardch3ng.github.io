@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>shopping on Siege</title>
+    <link>https://via.moe/tags/shopping/</link>
+    <description>Recent content in shopping on Siege</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Thu, 29 Nov 2018 19:32:59 +0800</lastBuildDate><atom:link href="https://via.moe/tags/shopping/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>雙十一購物戰況</title>
+      <link>https://via.moe/11112018/</link>
+      <pubDate>Thu, 29 Nov 2018 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/11112018/</guid>
+      <description>今年我買了一些很早就想買的東西，就等雙十一打折了。
+一、 audio-technica ATH-E40 入耳式 HIFI 發燒雙動圈監聽耳機
+真嘅勁，冇得頂
+聽女聲是相當的棒
+評測詳見
+https://www.zhihu.com/question/48024247
+https://zhuanlan.zhihu.com/p/27297000
+https://zhuanlan.zhihu.com/p/27296909
+購買的是日版，天朝的苛稅你懂的
+二、 LG 27UD69-W 4K 顯示器
+參數很好看的顯示器，顯示效果也不錯，用的自家 AH-IPS 的屏幕
+連接 Macbook 觀感很好，Windows 縮放 125% 感覺也還行，不過有些程序需要手動設置 DPI 縮放
+https://www.displayspecifications.com/en/model/67d1110e
+三、 樂歌站立辦公智能電動升降電腦桌 E2
+很實用的桌子，保護頸椎，可以調節適合自己的桌面高度
+https://item.jd.com/100000543180.html
+四、 西昊/SIHOO 電腦椅辦公椅子 家用人體工學椅 黑色 M56-002
+好桌配好椅，這個價格不錯的選擇
+https://item.jd.com/5838172.html
+五、賽揚 3215U 雙核四口千兆服務器軟路由
+https://item.taobao.com/item.htm?spm=a230r.1.14.20.4b86527eFfNpeS&amp;amp;id=536759389569
+買來之後安裝了 Koolshare 製作的 LEDE 作為路由系統，上面跑了一些科學上網的服務用於日常網頁瀏覽和遊戲加速
+之後魔都電信 200M 能跑到這個速度
+順便買了
+ 雙十一特價魔都聯通 100M  作為海外流量中繼服務器使用，相對於天天晚上海外出口抽風的魔都奠信好太多了
+使用 tinyPortMapper 轉發所有海外 IP 的 TCP/UDP 流量
+ 一臺 Netgear R7000  作為 AP 使用</description>
+    </item>
+    
+  </channel>
+</rss>

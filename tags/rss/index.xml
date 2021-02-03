@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rss on Siege</title>
+    <link>https://via.moe/tags/rss/</link>
+    <description>Recent content in rss on Siege</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sat, 14 Sep 2019 19:32:59 +0800</lastBuildDate><atom:link href="https://via.moe/tags/rss/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>個人 RSS/Podcast 訂閱源分享</title>
+      <link>https://via.moe/share-rss-and-podcast/</link>
+      <pubDate>Sat, 14 Sep 2019 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/share-rss-and-podcast/</guid>
+      <description>首先祭奠一下的已經去世的 Google Reader ，這個閱讀器自從我接觸 RSS 訂閱就用了很久。
+RSS 是個很方便查看更新信息并閱讀的一種方式，很多網站都支持訂閱功能。
+我的訂閱包括一些時事新聞頻道和一些科技媒體，還有一些非常優秀的個人博客。
+RSS Feed 個人推薦使用 Inoreader
+也可以使用 Feedly 等閱讀器導入訂閱備份文件即可。
+RSS 訂閱備份文件 下載
+ 全文 RSS 製作工具: https://github.com/blackgear/feed_bot
+RSSHub 生成工具: https://docs.rsshub.app
+Podcast 手機端推薦 Overcast
+本人拒絕一些播客平台，因為這些平台可能對於一些內容會進行審查，還是嘗試使用泛用型播客客戶端，自由地收聽節目。
+Podcast 訂閱備份文件 下載</description>
+    </item>
+    
+  </channel>
+</rss>

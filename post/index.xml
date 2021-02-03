@@ -1,0 +1,1253 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Siege</title>
+    <link>https://via.moe/post/</link>
+    <description>Recent content in Posts on Siege</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Tue, 26 Jan 2021 19:32:59 +0800</lastBuildDate><atom:link href="https://via.moe/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>遛狗指南 - 配置 Katago 與 Leela-Zero</title>
+      <link>https://via.moe/katago-vs-leelazero/</link>
+      <pubDate>Tue, 26 Jan 2021 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/katago-vs-leelazero/</guid>
+      <description>1 前言 AlphaGo（「Go」為日文「碁」字發音轉寫，是圍棋的西方名稱），直譯為阿爾法圍棋，亦被音譯為阿爾法狗，是於 2014 年開始由英國倫敦 Google DeepMind 開發的人工智慧圍棋軟體，以及對應的電影紀錄片《 AlphaGo 世紀對決》。
+專業術語上來說，AlphaGo 的做法是使用了蒙地卡羅樹搜尋與兩個深度神經網路相結合的方法，一個是以藉助估值網路（value network）來評估大量的選點，一個是藉助走棋網路（policy network）來選擇落子，並使用強化學習進一步改善它。在這種設計下，電腦可以結合樹狀圖的長遠推斷，又可像人類的大腦一樣自發學習進行直覺訓練，以提高下棋實力。
+2016 年 3 月 9 、10 和 12 日的三局對戰均為 AlphaGo 獲勝，而 13 日的對戰則為李世乭獲勝，15 日的最終局則又是 AlphaGo 獲勝。因此對弈結果為 AlphaGo 4:1 戰勝了李世乭。這次比賽在網路上引發了人們對此次比賽和人工智慧的廣泛討論。
+AlphaGo 在 2017 年 5 月 23、25 和 27日這三天，柯潔與 AlphaGo 下三番棋，用時為每方 3 小時，5 次 1 分鐘讀秒。此外在 5 月 26 日，時越、羋昱廷、唐韋星、陳耀燁和周睿羊 5 人將進行團隊賽，他們將聯合與 AlphaGo 對弈，用時為每方 2 小時 30 分鐘，3 次 1 分鐘讀秒。最終，AlphaGo 以 3：0 戰勝柯潔。
+同日下午，中國的五名九段棋手組團對抗 AlphaGo。他們分別是時越、羋昱廷、唐韋星、陳耀燁和周睿羊。其結局為 AlphaGo 執白盤中獲勝。</description>
+    </item>
+    
+    <item>
+      <title>在 Google 日曆中訂閱中國農曆</title>
+      <link>https://via.moe/chinese-lunar-calendar/</link>
+      <pubDate>Mon, 25 Jan 2021 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/chinese-lunar-calendar/</guid>
+      <description>1. 添加訂閱地址 1.1 增加自定義訂閱 填寫來自在線的 .ics 文件 URL 地址
+正體中文 訂閱地址
+https://cdn.via.moe/file/viamoe/file/lunar-calendar-tc.ics
+簡體中文 訂閱地址
+https://cdn.via.moe/file/viamoe/file/lunar-calendar-sc.ics
+2. 完成訂閱 添加訂閱成功後，即可顯示已添加的農曆日程
+ 本文參考開源項目 https://github.com/infinet/lunar-calendar</description>
+    </item>
+    
+    <item>
+      <title>Big Apple Is Watching You</title>
+      <link>https://via.moe/about-apple-ocsp/</link>
+      <pubDate>Sun, 15 Nov 2020 10:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/about-apple-ocsp/</guid>
+      <description>蘋果推出 macOS Big Sur 之後，幾乎立即就出現了服務器問題，導致用戶無法在電腦上運行第三方應用。雖然很快就有人在 Twitter 上找到了解決方法，但也有人提出了一些與該問題相關的隱私問題。
+含有 T2 安全芯片的蘋果設備每次開機都會進行 OCSP(Online Certificate Status Protocol) 驗證，此驗證在中國大陸地區，CDN 使用了非加密 HTTP 鏈接，這可能導致隱私數據的泄漏問題，另外使用了某些代理軟件也可能會被記錄上傳至蘋果的雲上貴州服務器內(參考資料)，更嚴重的是蘋果可以在後臺隨時讓你的設備變得無法使用
+一方面可以清除已經安裝的 app 簽名，或者使用源碼自己編譯。
+xcode-select --installcodesign --remove-signature - /Applications/name.app另一方面可以立即使用編輯器更改系統的 hosts 文件以屏蔽蘋果的 OCSP 驗證服務器。
+sudo nano /etc/hosts加入以下內容(來自 https://gist.github.com/h0wardch3ng/c03e8528594aff6ccb3201f02e1ae2a8)
+127.0.0.1 ocsp-lb.apple.com.akadns.net127.0.0.1 ocsp-cn-lb.apple.com.akadns.net127.0.0.1 ocsp.apple.com.download.ks-cdn.com127.0.0.1 k128-mzstatic.gslb.ksyuncdn.com127.0.0.1 ocsp.apple.com.cdn20.com127.0.0.1 ocsp.g.aaplimg.com127.0.0.1 ocsp.apple.com127.0.0.1 ocsp.digicert.com關於 OCSP 的其他問題可以參考以下文章
+https://jhuo.ca/post/ocsp-stapling-letsencrypt/
+https://news.ycombinator.com/item?id=23273247
+https://arstechnica.com/gadgets/2020/11/macos-big-sur-launch-appears-to-cause-temporary-slowdown-in-even-non-big-sur-macs/
+https://blog.jacopo.io/en/post/apple-ocsp/
+https://www.4hou.com/posts/92xD
+https://twitter.com/virushuo/status/1327642757272317953
+蘋果對於這個問題的解釋：
+https://support.apple.com/en-us/HT202491
+珍愛生命，遠離蘋果。
+Chrome 和 Android 目前還未採用 OCSP 驗證。</description>
+    </item>
+    
+    <item>
+      <title>How To Fix Mac Charger Not Working Issue</title>
+      <link>https://via.moe/how-to-fix-macbook-charger-not-working-issue/</link>
+      <pubDate>Thu, 05 Nov 2020 10:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/how-to-fix-macbook-charger-not-working-issue/</guid>
+      <description>Reset the SMC Resetting the system management controller (SMC) can resolve certain issues related to power, battery, fans, and other features.
+Reset the SMC on computers that have the T2 chip If your Mac has the Apple T2 Security Chip, follow these steps. If you need help, contact Apple Support. Notebook computers with the T2 chip Before resetting the SMC, try these steps:
+ Shut down your Mac. Press and hold the power button for 10 seconds, then release the button.</description>
+    </item>
+    
+    <item>
+      <title>MFS2020 mods, liveries, and sceneries</title>
+      <link>https://via.moe/mfs2020-mods/</link>
+      <pubDate>Sun, 20 Sep 2020 10:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/mfs2020-mods/</guid>
+      <description>Start adding free aircrafts, liveries, scenery, and other mods to Microsoft Flight Simulator.
+Liveries Liveries - Clink’s Megapack https://www.msfsaddons.org/liveries/liveries-megapack-v8
+Mods Aircraft - Salty Simulations 747-8 Mod https://www.msfsaddons.org/aircraft/747-8-saltysimulations
+FlyByWire A32NX https://www.msfsaddons.org/aircraft/a32nx
+C208-MSFS2020-Fix https://github.com/Dros0phila/C208-MSFS2020-Fix
+fspackages https://github.com/Working-Title-MSFS-Mods/fspackages
+FPS Increase - Lower 2D instrument refresh rate https://www.nexusmods.com/microsoftflightsimulator/mods/34
+More Interesting Weather Presets https://www.nexusmods.com/microsoftflightsimulator/mods/80
+Plugins vfrmap https://github.com/lian/msfs2020-go
+fs2ff https://github.com/astenlund/fs2ff
+msfs-webui-devkit https://github.com/dga711/msfs-webui-devkit
+aitrack https://github.com/AIRLegend/aitrack</description>
+    </item>
+    
+    <item>
+      <title>修復 macOS Catalina 启动第三方 APP 的問題</title>
+      <link>https://via.moe/fix-catalina-to-open-third-party-apps/</link>
+      <pubDate>Fri, 11 Sep 2020 10:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/fix-catalina-to-open-third-party-apps/</guid>
+      <description>在 macOS 下安裝一些軟件時提示&amp;quot;來自身份不明開發者&amp;quot;，其實這是新系統啓用了新的安全機制。
+默認只信任 Mac App Store 下載的軟件和擁有開發者 ID 簽名的應用程序。
+換句話說就是 macOS 系統默認只能安裝靠譜渠道（有蘋果審覈的 App Store）下載的軟件或被認可的人開發的軟件。
+這當然是爲了用戶不會稀裏糊塗安裝流氓軟件中招，但沒有開發者簽名的 「老實軟件」 也受影響了，安裝就會彈出下圖所示警告框：「打不開 xxx，因爲它來自身份不明的開發者」。
+來自身份不明的開發者
+出現這個問題的解決方法有 2 種：
+最簡單的方式：按住 Control 後，再次點擊軟件圖標，即可。 修改系統配置：系統偏好設置 -&amp;gt; 安全性與隱私 -&amp;gt; 認證
+修改爲任何來源
+如果沒有這個選項的話（macOS Sierra 10.12以上），打開終端，輸入
+sudo spctl --master-disable然後按回車。然後會看見個 password 後面還有個鑰匙圖標，然後不用管他直接再繼續輸入你自己電腦解鎖密碼（輸入的時候不顯示你輸入的密碼，感覺就是輸入不了東西一樣，也不用管，憑感覺輸入完按回車鍵）。然後再回到隱私裏，就看見任何來源了。
+如果還是無法打開 App，可以試試看
+sudo xattr -d com.apple.quarantine /Applications/xxxx.app再不行就只能自簽名第三方 App 了
+xcode-select --installcodesign --force --deep --sign - /Applications/name.app</description>
+    </item>
+    
+    <item>
+      <title>Public DNS List</title>
+      <link>https://via.moe/dns/</link>
+      <pubDate>Wed, 29 Jul 2020 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/dns/</guid>
+      <description>Google DNS Google DNS is a free, global DNS resolution service that you can use as an alternative to your current DNS provider.
+   Protocol Address      DNS, IPv4 8.8.8.8 and 8.8.4.4    DNS, IPv6 2001:4860:4860::8888 and 2001:4860:4860::8844    DNS-over-HTTPS https://dns.google/dns-query    DNS-over-TLS tls://dns.google     Cloudflare DNS Cloudflare DNS is a free and fast DNS service which functions as a recursive name server providing domain name resolution for any host on the Internet.</description>
+    </item>
+    
+    <item>
+      <title>Backblaze B2 數據存儲使用 Cloudflare Workers 加速</title>
+      <link>https://via.moe/backblaze-use-cf-cdn/</link>
+      <pubDate>Mon, 02 Dec 2019 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/backblaze-use-cf-cdn/</guid>
+      <description>1. 在 Backblaze B2 文件上傳后 此時生成的外鏈 URL 為 https://f000.backblazeb2.com/file/{bucketName}/test.jpg
+2. 前往 Cloudflare Workers 新建一個 Workers // Website you intended to retrieve for users. const upstream = &#39;f000.backblazeb2.com&#39; // Website you intended to retrieve for users using mobile devices. const upstream_mobile = &#39;f000.backblazeb2.com&#39; // Countries and regions where you wish to suspend your service. const blocked_region = [] // IP addresses which you wish to block from using your service. const blocked_ip_address = [&#39;0.</description>
+    </item>
+    
+    <item>
+      <title>航空公司促銷日曆</title>
+      <link>https://via.moe/airline-promotion/</link>
+      <pubDate>Fri, 08 Nov 2019 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/airline-promotion/</guid>
+      <description>聚合了國內航司的一些優惠促銷活動，可以在你的 Google 日曆中展示。
+點擊此處訂閱</description>
+    </item>
+    
+    <item>
+      <title>解決 Android 10 的狀態欄感嘆號問題</title>
+      <link>https://via.moe/android-no-exclamation/</link>
+      <pubDate>Tue, 05 Nov 2019 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/android-no-exclamation/</guid>
+      <description>Mac 可以通過 Homebrew 完成修改驗證服務器的操作。
+此命令支持 Android 10.x/9.x/8.x/7.x
+ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot; brew cask install android-platform-tools adb devices adb shell settings put global captive_portal_detection_enabled 1 adb shell settings put global captive_portal_mode 1 adb shell settings put global captive_portal_use_https 0 adb shell settings put global captive_portal_server via.moe adb shell settings put global captive_portal_http_url http://via.moe/generate_204 adb shell settings put global captive_portal_https_url https://via.moe/generate_204 其他操作系統自行手動安裝對應平台 Google 的 SDK Platform Tools
+設置參數：
+captive_portal_detection_enabled: 5.0 ~ 7.</description>
+    </item>
+    
+    <item>
+      <title>解決 MacBook Pro 休眠掉電問題</title>
+      <link>https://via.moe/please-sleep/</link>
+      <pubDate>Tue, 22 Oct 2019 10:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/please-sleep/</guid>
+      <description>重啟 Macbook，在啟動的時候按住 command + R，然後系統會進入 recovery 模式。
+  選擇語言，點下一步，然後在菜單欄選擇打開 terminal。
+  輸入 csrutil disable 禁掉 SIP，然後正常重啟 macbook。
+  打開 terminal，輸入 ioreg -l | grep board-id 查看你的 board-id，
+  在這個目錄 /System/Library/Extensions/IOPlatformPluginFamily.kext/Contents/PlugIns/X86PlatformPlugin.kext/Contents/Resources 下面找到你的 board-id 對應的 .plist 文件。
+  用管理員賬户編輯上一步中的 plist 文件，比如 sudo vim Mac-2BD2C319xxxxxxxx.plist, Catalina 系統之後需要 sudo mount -uw / 臨時讀寫只讀分區的內容，此命令重啓後效果消失。
+  把以下三項的值修改為 false, 然後保存 。
+  &amp;lt;key&amp;gt;TCPKeepAliveDuringSleep&amp;lt;/key&amp;gt;&amp;lt;false/&amp;gt;&amp;lt;key&amp;gt;NotificationWake&amp;lt;/key&amp;gt;&amp;lt;false/&amp;gt;&amp;lt;key&amp;gt;DNDWhileDisplaySleeps&amp;lt;/key&amp;gt;&amp;lt;false/&amp;gt; 重啟 Macbook，按照第 1，2 步進入 recovery 模式，輸入命令 csrutil enable 開啟 SIP，。</description>
+    </item>
+    
+    <item>
+      <title>個人 RSS/Podcast 訂閱源分享</title>
+      <link>https://via.moe/share-rss-and-podcast/</link>
+      <pubDate>Sat, 14 Sep 2019 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/share-rss-and-podcast/</guid>
+      <description>首先祭奠一下的已經去世的 Google Reader ，這個閱讀器自從我接觸 RSS 訂閱就用了很久。
+RSS 是個很方便查看更新信息并閱讀的一種方式，很多網站都支持訂閱功能。
+我的訂閱包括一些時事新聞頻道和一些科技媒體，還有一些非常優秀的個人博客。
+RSS Feed 個人推薦使用 Inoreader
+也可以使用 Feedly 等閱讀器導入訂閱備份文件即可。
+RSS 訂閱備份文件 下載
+ 全文 RSS 製作工具: https://github.com/blackgear/feed_bot
+RSSHub 生成工具: https://docs.rsshub.app
+Podcast 手機端推薦 Overcast
+本人拒絕一些播客平台，因為這些平台可能對於一些內容會進行審查，還是嘗試使用泛用型播客客戶端，自由地收聽節目。
+Podcast 訂閱備份文件 下載</description>
+    </item>
+    
+    <item>
+      <title>自建 NAS 筆記</title>
+      <link>https://via.moe/build-your-nas/</link>
+      <pubDate>Wed, 31 Jul 2019 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/build-your-nas/</guid>
+      <description>網路附加儲存(Network Attached Storage)是一種通過電纜或無線連接到家庭或辦公室網絡的存儲設備。它允許所有連接的設備具有正確的權限設置，以訪問內部系統已存儲的文件。目前可以購買成品 NAS，但價格和功能不如自己去組建一台更合算。
+由於衆所周知的原因，你放在所謂國產雲上的文件會隨時被河蟹，所以自己的數據還是放在自己家裡面更安全。之前買過一台 HPE GEN10，由於可升級性太差最終還是出手了。
+自己組 NAS 的好處有以下幾方面：
+ 更低的價格，更好的硬件 升級空間大 可以根據自己的目前需求制定配置 軟件和系統的選擇性更多 後續維修方便  硬件 機箱 要求是存儲盤位盡可能的多，那你應該需要中塔機箱
+ 酷冷至尊(CoolerMaster)特警 365 中塔式電腦主機機箱  我買的是這個機箱，自帶 5 個 HDD 盤位，可以後續買硬盤籠裝在光驅位上，可以再增加 5 個 HDD 盤位，另外還要買 PCIE 轉 SATA 轉換卡。
+ 酷冷至尊 刺客 U3 加強版 ATX 主板 靜音 機箱 遊戲電腦機箱  其實還有很多這種老款式的機箱都可以選擇
+ Tt（Thermaltake）Urban S31 黑色 中塔機箱  新式設計，不過有 5 個 HDD 盤位，預算夠的可以選擇這個
+ 恩傑 NZXT H440 白色 中塔式機箱  不差錢的直接上這個，我目前打游戲的 PC 使用了這個機箱，有 6 個 HDD 盤位，整體感覺就是很穩</description>
+    </item>
+    
+    <item>
+      <title>將 VSCode 設置成透明背景的方法</title>
+      <link>https://via.moe/make-vscode-transparent/</link>
+      <pubDate>Fri, 10 May 2019 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/make-vscode-transparent/</guid>
+      <description>請安裝 Vibrancy 擴展即可。
+ 以下內容已經過期
+1.安裝 Custom CSS and JS Loader 擴展
+2.編輯編輯器自定義樣式
+路徑：file:///Users/MyUserName/Documents/custom.css
+內容：
+html { background: transparent !important; } .scroll-decoration { box-shadow: none !important; } .minimap { opacity: 0.6; } .editor-container { background: transparent !important; } .search-view .search-widget .input-box, .search-view .search-widget .input-box .monaco-inputbox, .monaco-workbench&amp;gt;.part.editor&amp;gt;.content&amp;gt;.one-editor-silo&amp;gt;.container&amp;gt;.title .tabs-container&amp;gt;.tab, .monaco-editor-background, .monaco-editor .margin, .monaco-workbench&amp;gt;.part&amp;gt;.content, .monaco-workbench&amp;gt;.editor&amp;gt;.content&amp;gt;.one-editor-silo.editor-one, .monaco-workbench&amp;gt;.part.editor&amp;gt;.content&amp;gt;.one-editor-silo&amp;gt;.container&amp;gt;.title, .monaco-workbench&amp;gt;.part&amp;gt;.title, .monaco-workbench, .monaco-workbench&amp;gt;.part, body { background: transparent !important; } .editor-group-container&amp;gt;.tabs { background-color: rgba(37, 37, 37,0.2) !important; } .</description>
+    </item>
+    
+    <item>
+      <title>Nexus 5X 更新基於 Android 9.0 Pie 的第三方系統</title>
+      <link>https://via.moe/nexus-5x-with-aospextend/</link>
+      <pubDate>Thu, 14 Feb 2019 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/nexus-5x-with-aospextend/</guid>
+      <description>Nexus 5X 的刷機就需要幾個步驟就可以了
+ 配置 ADB 環境變量（SDK） 按照最新工廠鏡像做為底包（如果是最新官方系統可忽略此步驟，如果是舊版本系統 7.x/6.x 會驗證 vendor images 會導致無法正常開機） 準備刷機 ROM 包+ GAPPS + SU（Root 可選） 安裝手機驅動 解鎖 BootLoader 通過 Recovery 卡刷 Rom  配置 ADB 環境變量（SDK） 現在 Google 也放出了單獨的 ADB 文件了，還是比較方便的
+https://developer.android.com/studio/releases/platform-tools
+下載完成后記得配 PATH 即可。
+安裝工廠鏡像（可選） https://developers.google.com/android/images
+下載 &amp;ldquo;bullhead&amp;rdquo; for Nexus 5X 的 8.1.0 (OPM4.171019.016.A1, May 2018) 壓縮包
+下載完成解壓后雙擊脚本開始自動按照工廠鏡像
+之後開機進入桌面準備刷機包
+AospExtend 系統刷機包 + GAPPS AospExtend 基於 Android 9.0 Pie https://downloads.aospextended.com/bullhead
+Open GApps https://opengapps.org/
+下載 ARM64 + 9.</description>
+    </item>
+    
+    <item>
+      <title>Windows 10 技巧筆記</title>
+      <link>https://via.moe/windows10-tips/</link>
+      <pubDate>Sat, 02 Feb 2019 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/windows10-tips/</guid>
+      <description>如何取得 Windows 10 安裝鏡像？ 個人版本 https://www.microsoft.com/en-us/software-download/windows10ISO
+如果不能支持下載 ISO 鏡像文件, 可以嘗試切換 User Agent 即可
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36ed2k://|file|en_windows_10_consumer_edition_version_1809_updated_sept_2018_x64_dvd_491ea967.iso|5075539968|DB1263D45D2303CEC64E09D9FAE2A329|/企業版本 https://www.microsoft.com/en-us/evalcenter/evaluate-windows-10-enterprise
+ed2k://|file|en_windows_10_enterprise_ltsc_2019_x64_dvd_be3c8ffb.iso|4056717312|17B62BAE00F77F162247008710F55AF0|/如何使用 Windows 10 鏡像文件 方法一: 使用 PE
+微 PE
+之後掛載 ISO 鏡像文件即可
+方法二: 燒錄 ISO 鏡像文件到 USB 存儲
+Windows 平臺:
+Rufus
+Win32 Disk Imager
+Mac 平臺:
+Etcher
+如何激活 Windows 10 你懂的
+https://docs.microsoft.com/en-us/windows-server/get-started/kmsclientkeys
+找到對應的 key
+slmgr -ipk YOUR-WINDOWS-KEYslmgr -skms kms.gitcafe.org:: slmgr -smks kms.</description>
+    </item>
+    
+    <item>
+      <title>黑蘋果相關工具筆記</title>
+      <link>https://via.moe/hackintosh-tools-note/</link>
+      <pubDate>Tue, 01 Jan 2019 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/hackintosh-tools-note/</guid>
+      <description>這篇文章只是一個關於黑蘋果安裝完成之後的小工具使用筆記，具體按照步驟見：Tonymacx86
+系統 macOS Mojave 10.14.3 18D42 With Clover 4859 + Transmac 12.3
+系統鏡像下载
+相關工具 Clover
+Clover Configurator
+FakeSMC
+AppleALC
+Multibeast
+Kext Utility
+KCPM Utility Pro
+Kextupdater
+Nvidia Web Driver
+LAN &amp;amp; Wireless Driver
+命令行工具 ohmyzsh
+sh -c &amp;#34;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&amp;#34; brew 包管理器
+/usr/bin/ruby -e &amp;#34;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;#34; </description>
+    </item>
+    
+    <item>
+      <title>雙十一購物戰況</title>
+      <link>https://via.moe/11112018/</link>
+      <pubDate>Thu, 29 Nov 2018 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/11112018/</guid>
+      <description>今年我買了一些很早就想買的東西，就等雙十一打折了。
+一、 audio-technica ATH-E40 入耳式 HIFI 發燒雙動圈監聽耳機
+真嘅勁，冇得頂
+聽女聲是相當的棒
+評測詳見
+https://www.zhihu.com/question/48024247
+https://zhuanlan.zhihu.com/p/27297000
+https://zhuanlan.zhihu.com/p/27296909
+購買的是日版，天朝的苛稅你懂的
+二、 LG 27UD69-W 4K 顯示器
+參數很好看的顯示器，顯示效果也不錯，用的自家 AH-IPS 的屏幕
+連接 Macbook 觀感很好，Windows 縮放 125% 感覺也還行，不過有些程序需要手動設置 DPI 縮放
+https://www.displayspecifications.com/en/model/67d1110e
+三、 樂歌站立辦公智能電動升降電腦桌 E2
+很實用的桌子，保護頸椎，可以調節適合自己的桌面高度
+https://item.jd.com/100000543180.html
+四、 西昊/SIHOO 電腦椅辦公椅子 家用人體工學椅 黑色 M56-002
+好桌配好椅，這個價格不錯的選擇
+https://item.jd.com/5838172.html
+五、賽揚 3215U 雙核四口千兆服務器軟路由
+https://item.taobao.com/item.htm?spm=a230r.1.14.20.4b86527eFfNpeS&amp;amp;id=536759389569
+買來之後安裝了 Koolshare 製作的 LEDE 作為路由系統，上面跑了一些科學上網的服務用於日常網頁瀏覽和遊戲加速
+之後魔都電信 200M 能跑到這個速度
+順便買了
+ 雙十一特價魔都聯通 100M  作為海外流量中繼服務器使用，相對於天天晚上海外出口抽風的魔都奠信好太多了
+使用 tinyPortMapper 轉發所有海外 IP 的 TCP/UDP 流量
+ 一臺 Netgear R7000  作為 AP 使用</description>
+    </item>
+    
+    <item>
+      <title>書單</title>
+      <link>https://via.moe/books/</link>
+      <pubDate>Tue, 13 Nov 2018 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/books/</guid>
+      <description>紫禁城的黃昏 莊士敦, 張昌麗 (譯者)
+他，是末代皇帝溥儀的西洋老師；他，被英國宗教界抨擊為 “英國的叛徒”。 他，描繪了紫禁城內令人憧憬的生活圖景；他，記錄了外國人眼中近代中國跌宕起伏的政治局面。 《紫禁城的黃昏》是 “帝師” 莊士敦的懷舊集，以他與溥儀的主要交往經歷為線索，記述了從晚清到民國期間，中國發生的如戊戌風雲、辛亥革命、張勛復辟等事件，以及他的看法，客觀地反映了中國從帝制到共和的艱難過渡。
+https://www.amazon.cn/dp/B00RWXN5N2
+我的前半生 愛新覺羅 · 溥儀
+愛新覺羅 • 溥儀是秦始皇確立皇帝制度以來的最後一位君主，是清朝的亡國之君，1912 年 2 月，他跌下統治地位的時候年僅六歲。《我的前半生》（全本）是溥儀的自傳，溥儀從自己的家族背景寫起，回顧了他在入宮做了皇帝、遭遇辛亥革命、滿清皇帝退位、中華民國成立、北洋軍閥混戰、出宮、客寓天津，做偽滿洲國皇帝、逃亡、直至解放後接受改造，成為普通公民的全部經歷。
+https://www.amazon.cn/dp/B07GRJLPPL
+潮來潮去: 海關與中國現代性的全球起源 近代中國海關始於太平天國運動（1850-1864）期間，1949 年共產黨在中國贏得政權後未幾結束。一個世紀中，它的身影不僅出現在中國的內陸腹地，還出現在遠在西北的烏魯木齊，甚至是西南的喜馬拉雅山。 無論沿海，還是內陸，海關對於中國而言都是一個重要機構，也是僅有的一個未有中斷且勢力幾乎可達全中國的機構。 近代海關之所以重要，在於它所提供的監管加速了中國的國際貿易，以及支持了涵括中國、歐洲、亞洲和美國在內的跨國人際網絡。它不但支持中國以平等的民族國家身份加入到新的外交體系，同時促進中國與國際組織間的合作，打造國際慣例，譬如航海公約。海關職員在私人閒暇時，是收集者、翻譯者、語言學家和學者，通過他們的活動，使中國在國際文化和學術組織中佔有一席之地。 從晚清到北洋，再到抗日戰爭乃至國共內戰，海關的歷史可以看作是整個中國近代史的縮影，並且觸及許多面向，進而影響了許多重大的歷史事件。
+https://www.amazon.cn/dp/B0742XTZ9W
+圖像中國建築史 梁思成
+本書是已故著名建築學家梁思成教授早年用英文寫成的一部簡明中國建築史，旨在藉著大量照片和圖版，就中國古代建築的結構體系及其形制的演變，向西方讀者作個通俗的解說。 其資料源於作者本人和中國營造學社同仁於三、四十年代在中國廣大地區所作的大量實地考察、測繪記錄；書中圖版及照片絕大部分也是作者及其主要助手當年所親自繪製和拍攝的。
+全書內容包括 ：中國建築結構體系的起源；明清兩朝保存下來的兩部中國古建築基本法規；佛教傳入以前的中國建築；石窟建築；從唐到清以來中國木建築的三個發展時期；中國佛塔（方形、多層式和密檐式）等。
+大逃港（增訂本） 陳秉安
+千言萬語說得再多，都是沒用的，把人民生活水準搞上去，才是唯一的辦法。不然，人民只會用腳投票。 ——習仲勳
+1949 年後，內地綿延三十年的逃港浪潮一波接一波，這段歷史一直被湮滅。本書作者以記者的身份，在二十多年裡，一個一個跟蹤尋訪大逃港的親歷者，從當時的地方要員到普通百姓，從立功受獎者到因罪受罰者，從逃港後發家致富者到終生窮困潦倒者，真實記錄了從 1950 年到 1979 年間發生在深圳河邊歷時 30 年的百萬人「大逃港」事件，再現了內地改革開放的窗口深圳在大變局前夜的這段歷史。
+本書自 2011 年出版後深受讀者歡迎，已經成為常銷書。此增訂本增補了多幅照片和逃港者自述。
+https://www.hkbookcity.com/showbook2.php?serial_no=1014959
+黑暗之城：九龍城寨的日與夜 林保賢 (作者)
+為烏煙瘴氣和危險的地方？──林保賢（Ian Lambot） 傳說中的「三不管」地帶九龍城寨，是一個傳說，是一個謎…… 有將近五十年，九龍城寨這個奇特社群是位於香港中心地帶的黑暗世界。城寨沒有法律、漠視基本服務、規劃條例或建築標準，但它不但繼續存在，而且蓬勃發展。但是，在英國、中國和香港政府「三不管」的情況下，這種地方怎麼能存在於一個現代城市之中？誰會在那裏生活？為什麼？ 《黑暗之城：九龍城寨的日與夜》不但收錄具份量的歷史篇章，更有俯拾皆是的精彩照片、繪畫、地圖和城寨街坊的口述故事，詳細地探討 1945 至 1990 年間城寨的急遽發展，同時研究它過去的黑暗面。城寨總給人詭異和神秘之感，是源於許多關於它的謬見，此書也會道出這些謬見背後的真相。 九龍城寨，是一個逝去的地方，在巔峰時期，曾是三萬五千多人的家，而且至今仍是世人所知人口最稠密的社區，城寨清拆二十年多後，《黑暗之城：九龍城寨的日與夜》記錄了城寨的黃金歲月與消亡，與讀者一同重新思考和認識九龍城寨這個空間和生活其中的不平凡社群，為他們留下獨特的城寨印記，撿拾城寨的凋零與茂盛。
+https://www.amazon.cn/dp/9888340891
+交接香港: 親歷中英談判最後 1208 天 陳佐洱</description>
+    </item>
+    
+    <item>
+      <title>免版權可商用 CC0 圖片網站推薦</title>
+      <link>https://via.moe/cc0-images/</link>
+      <pubDate>Mon, 05 Nov 2018 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/cc0-images/</guid>
+      <description>unsplash.com
+pexels.com
+gratisography.com
+designerspics.com
+stocksnap.io
+foter.com
+girlydrop.com
+nos.twnsnd.co
+pixabay.com
+goodfreephotos.com
+stockio.com
+streetwill.co
+pakutaso.com
+littlevisuals.co
+stokpic.com
+cc0photo.com
+freephotos.cc
+pickupimage.com
+on.thisistap.com/stock-images
+hippopx.com
+peakpx.com
+photock.jp
+fancycrave.com
+barnimages.com
+mmtstock.com
+visualhunt.com
+librestock.com
+picjumbo.com
+morguefile.com
+peakpx.com
+goodfreephotos.com
+finda.photo</description>
+    </item>
+    
+    <item>
+      <title>如何使用 GPG 安全傳遞加密信息</title>
+      <link>https://via.moe/use-gpg/</link>
+      <pubDate>Thu, 09 Aug 2018 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/use-gpg/</guid>
+      <description>免責聲明：使用本文推薦的專案不能保證你的通訊完全不受監控，請在信任這些軟體處理敏感資訊前自行做更深入的了解。
+認揭露美國政府監控民眾通訊記錄的前中情局職員斯諾登聯絡《衛報》記者時，要求雙方通訊期間要用加密程式把內容加密，以免走漏風聲。這套加密程式名叫 PGP ，到底這個加密法有什麼來頭呢？ 手握機密，步步為營的斯諾登知道自己一旦聯絡記者，就隨時會暴露行蹤，這時候他唯一信任的是稱為 PGP 的加密程式，把自己和記者間的通訊加密。 PGP 的全寫並不高深，就是「相當有私隱」的意思。這是一種出自民間的加密演算法，由美國人齊默曼開發，他在 1991 年把這套 PGP 加密程式在網上免費發布。
+PGP 除了免費，亦相對容易使用，齊默曼希望它可以幫所有平民在政府監察下保住私隱。不過程式剛開始普及，就引起了美國政府的注意。當局指 PGP 程式屬於軍需品，齊默曼在網上發布 PGP ，等同私下出口軍需品，隨時會被檢控。 不過齊默曼沒有屈服，反而想到和麻省理工出版社把 PGP 的程式碼印成一本書出版，因為美國憲法第一修正案表明國民的出版自由不得侵犯，所以政府再沒有藉口阻撓 PGP 普及。
+每個 PGP 的用家都會得到兩條類似密碼的字串，相當於兩條鑰匙，一條是公開的，另一條不會公開，公開的稱為公鑰，用來加密，不公開的是密鑰，用來解密。 以斯諾登的情況為例，假設他想告訴記者自己住在哪家酒店，他便先把記者那邊公開的鑰匙複製，用來把地址加密，變成亂碼，然後才把內容經電郵發出。記者收到後，只有輸入自己的密鑰，才可以把內容還原。由於密鑰只有記者知道，所以就算電郵被截獲，亂碼都不會輕易被破解。
+GnuPG（GNU Privacy Guard，GPG）是一種加密軟件，它是 PGP 加密軟件的滿足 GPL 協議的替代物。GnuPG 依照由 IETF 制定的 OpenPGP 技術標準設計。GnuPG 是用於加密、數字簽章及產生非對稱匙對的軟件。GPG 兼容 PGP（Pretty Good Privacy）的功能。
+安装 gpg Linux / Windows
+查看 https://gnupg.org/download/index.html
+macOS
+brew install gpg 生成密鑰 gpg --full-gen-key --expert gpg (GnuPG) 2.2.9; Copyright (C) 2018 Free Software Foundation, Inc. This is free software: you are free to change and redistribute it.</description>
+    </item>
+    
+    <item>
+      <title>使用 Spigot 架設 Minecraft 服務器</title>
+      <link>https://via.moe/setup-minecraft-spigot-server/</link>
+      <pubDate>Mon, 14 May 2018 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/setup-minecraft-spigot-server/</guid>
+      <description>Minecraft是一個開放世界的遊戲, 沒有具體的目標要玩家來完成, 讓玩家有非常高的自由度選擇如何玩遊戲。在默認情況下, 該遊戲是第一人稱, 但玩家可以選擇第三人稱（按F5）。核心玩法大多圍繞打破、挖掘、砍伐方塊。遊戲的世界主要由粗糙的3D方塊（或稱立方體）組成, 表面有些固定的網格(點陣)圖案, 代表不同的材料, 如泥土、石頭、各種礦石、水和樹幹。雖然玩家可以在世界各地自由移動, 但方塊只能被放置在整數的網格座標上, 除了實體之外。玩家可以收集這些材料方塊, 並將其放置在你要的地方, 從而進行各項建設。
+&amp;ndash; via Wikipedia
+本文服務器環境說明：
+Ubuntu 16.04.2 LTS (Xenial Xerus) Openjdk-8-jre
+配置運行環境
+apt install openjdk-8-jre -y 下載已經編譯完成的 spigot 執行文件, 需要自己編譯的可以使用 BuildTools.jar
+wget https://cdn.getbukkit.org/spigot/spigot-1.12.jar 建議使用 screen 後台運行 spigot 服務端, 可以使用 -Xmx4096m -Xms2048m 參數進行設置最大和最小使用內存
+screen -R spigot java -jar -Xmx4096m -Xms2048m -XX:MaxPermSize=512M -Dfile.encoding=utf-8 -Duser.timezone=Asia/Hong_Kong spigot.jar 此時會生成 eula.txt 和提示未同意 eula, 服務端運行失敗, 需要手動修改 eula.txt
+nano eula.txt 找到 eula=false 改成 eula=true
+Ctrl+O 和 Ctrl+X 保存退出</description>
+    </item>
+    
+    <item>
+      <title>使用 Cloudflare 獲取 Let&#39;s Encrypt SSL/TLS Wildcard 泛域名證書</title>
+      <link>https://via.moe/use-dns-get-le-certificate/</link>
+      <pubDate>Wed, 14 Mar 2018 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/use-dns-get-le-certificate/</guid>
+      <description>Let&amp;rsquo;s Encrypt 是一個於 2015 年第三季度推出的數位證書認證機構，將通過旨在消除當前手動建立和安裝證書的複雜過程的自動化流程，並推廣使全球資訊網伺服器的加密連接無所不在，為安全網站提供免費的 SSL/TLS 證書。
+ 目前可以使用更簡單的 Cloudflare DNS 驗證方式獲取證書
+安裝腳本
+wget -O - https://get.acme.sh | sh配置 DNS APIKEY
+Global API Key 去 Cloudflare 申請
+export CF_Key=&amp;#34;your_key&amp;#34; export CF_Email=&amp;#34;your_email&amp;#34; 獲取 ECC 證書 ?
+./acme.sh --issue -d your_domain -d *.your_domain --dns dns_cf --keylength ec-384 [Wed Mar 14 15:31:26 CST 2018] Registering account[Wed Mar 14 15:31:27 CST 2018] Registered[Wed Mar 14 15:31:27 CST 2018] ACCOUNT_THUMBPRINT=&#39;****&#39;[Wed Mar 14 15:31:27 CST 2018] Creating domain key[Wed Mar 14 15:31:27 CST 2018] The domain key is here: /root/.</description>
+    </item>
+    
+    <item>
+      <title>使用街機模擬器 TeknoParrot 玩頭文字 D8 Infinity / D7 AAX / 灣岸 5</title>
+      <link>https://via.moe/arcade-game-emulator/</link>
+      <pubDate>Sun, 04 Mar 2018 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/arcade-game-emulator/</guid>
+      <description>首先下載免費版的 TeknoParrot ，如果有錢可以支持一下作者的 patreon
+遊戲下載 頭文字 D8 Infinity
+遊戲下載完成后先把 ID8_Update.7z 解压覆蓋遊戲根目錄，再把 InitialD8_GLW_RE_SBZZ_redumped_.7z 解压覆蓋遊戲根目錄
+頭文字 D7 AAX
+灣岸 5（Wangan Midnight 5）
+内有補丁文件，請覆蓋后執行 delete_old.bat
+模擬器設置 啓動 TeknoParrotUi.exe
+設置遊戲 InitialD7_GLW_RE_SBYD_dumped_.exe 路徑
+設置網絡(可選)
+頭文字 D 手柄設置 推薦使用 XBOX 手柄 或者 DS4 手柄
+DS4 手柄可以使用 DS4Windows 模擬 XBOX 手柄
+連接成功后按照下方圖片設置鍵位
+另外使用 IDASL 可以登錄聯機
+灣岸 5 手柄設置 </description>
+    </item>
+    
+    <item>
+      <title>自建無汙染的 DNS 服務器</title>
+      <link>https://via.moe/against-dns-poisoning-in-china/</link>
+      <pubDate>Thu, 01 Mar 2018 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/against-dns-poisoning-in-china/</guid>
+      <description>Twitter 被解析到了 Facebook 的 CDN 上，提示證書錯誤
+查看 openDNS 和 AliDNS 的數據，下面的 31.13.xx.xx / 67.15.xx.xx 都是 Facebook 的 CDN
+對於大陸境內通過 UDP 53 端口傳輸的數據都會被檢測，又沒有任何認證機制，而且域名查詢通常基於無連接不可靠的UDP協議，查詢者只能接受最先到達的格式正確結果，並丟棄之後的結果，造成域名解析被惡意篡改。
+via Wikipedia
+之前 clowwindy 開源 的 chinaDNS 項目已經很久沒有更新，也不能提交 PR 了，那自建 Fork 一份改了上游 DNS 的源。
+https://github.com/ky0ncheng/ChinaDNS
+目前使用 TCP 去查詢上游的權威 DNS 數據，去除使用 UDP 查詢 8.8.8.8 的設定，目前採用 USTC DNS 和 openDNS 作為權威 DNS 服務器。
+目前缺點是每次都是重新查詢，沒有緩存，如果需要緩存，chinaDNS 設置監聽 127.0.0.1:5353，可以再部屬一個 unbound
+nano /etc/unbound/unbound.conf num-threads: 2 # 線程數可以修改爲物理核心數 interface: 0.0.0.0 # 偵聽所有 IPv4 地址 interface: ::0 # 偵聽所有 IPv6 地址 # 如果只需要本機使用，則一個 interface: 127.</description>
+    </item>
+    
+    <item>
+      <title>Nexus 5X 更新基於 Android 8.1 Oreo 的第三方系統</title>
+      <link>https://via.moe/nexus-5x-with-lineageos/</link>
+      <pubDate>Wed, 14 Feb 2018 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/nexus-5x-with-lineageos/</guid>
+      <description>Nexus 6P 和 Nexus 5X 作為最後一代的親兒子，由於 Apple 最近拒絕了 Telegram 的多次更新，我手上的黑莓 Q20 也感覺壓力有點大，所以收了一台 Nexus 5X 作為備用機收消息，還支持聯通 LTE ，配上無限流量卡儅熱點也是不錯的。
+Nexus 5X 的刷機就需要幾個步驟就可以了
+ 配置 ADB 環境變量（SDK） 按照最新工廠鏡像做為底包（如果是最新官方系統可忽略此步驟，如果是舊版本系統 7.x/6.x 會驗證 vendor images 會導致無法正常開機） 準備刷機 ROM 包+ GAPPS + SU（Root 可選） 安裝手機驅動 解鎖 BootLoader 通過 Recovery 卡刷 Rom  配置 ADB 環境變量（SDK） 現在 Google 也放出了單獨的 ADB 文件了，還是比較方便的
+https://developer.android.com/studio/releases/platform-tools
+下載完成后記得配 PATH 即可。
+安裝工廠鏡像（可選） https://developers.google.com/android/images
+下載 &amp;ldquo;bullhead&amp;rdquo; for Nexus 5X 的 8.1.0 (OPM4.171019.016.A1, May 2018) 壓縮包</description>
+    </item>
+    
+    <item>
+      <title>樹莓派初始化安裝配置筆記</title>
+      <link>https://via.moe/raspberry-init/</link>
+      <pubDate>Mon, 05 Feb 2018 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/raspberry-init/</guid>
+      <description>樹莓派（Raspberry Pi），是一款基於 Linux 系統的只有信用卡大小的單片機。它由英國的樹莓派基金會所開發，目的是以低價硬件及自由軟件刺激在學校的基本計算機科學教育。
+2015年2月，樹莓派基金會發布了第二代產品——樹莓派2，售價35美元。樹莓派2採用4核 Broadcom BCM2836 (ARMv7-A) 芯片、雙核 VideoCore IV GPU 和 1GB 內存，其餘配置與 樹莓派B+ 型一致，除了支持第一代樹莓派支持的操作系統外，樹莓派2 將能夠運行Windows 10 IOT 以及 Snappy Ubuntu Core。
+樹莓派基金會於2016年2月發布了樹莓派3,較前一代 樹莓派2，樹莓派3 的處理器升級為了 64 位元的博通 BCM2837，並首次加入了Wi-Fi無線網路及藍牙功能，而售價仍然是35美元。
+ 此文供 樹莓派 + Ubuntu Mate 操作系統初始化安裝配置 使用。
+本文完成時 樹莓派3 已經發佈，請注意系統燒寫固件版本號。
+一個嶄新的樹莓派 3 需要自備 5V 2A 電源適配器 + MicroUSB 連接線 + 鍵盤(或者配合網線/Wifi模塊通過 SSH 遠程連接) + 鼠標(可選) + HDMI (rev 1.3 &amp;amp; 1.4) 連接線/VGA2HDMI 轉接顯示連接線 + 網線/(特定驅動支持的) Wifi 模塊 + TF 儲存卡 + 樹莓派保護外殼(可選)</description>
+    </item>
+    
+    <item>
+      <title>macOS High Sierra 安全更新注意事項</title>
+      <link>https://via.moe/macos-10-13-1-security-update/</link>
+      <pubDate>Fri, 24 Nov 2017 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/macos-10-13-1-security-update/</guid>
+      <description>不需要輸入密碼就能取得管理員權限的作法意外的簡單。只要在輸入帳號的欄位中打 root，密碼欄空著，按下確定，就可以成功登入並獲得 Mac 管理員權限；如果 Mac 鎖定了，也可以在登入頁面中取得管理員權限。
+儘管你使用訪客帳戶，只要到系統偏好設定，進入用戶設定中，點一下左下角的鎖頭，在帳號欄位中輸入：root，並將密碼欄位留白後登入就可以取得權限。在系統登入頁面中，也可以用這種方式達成並登入。目前這個漏洞僅在 High Sierra 中可以使用，包括現行的 macOS High Sierra 10.13.1 以及 10.13.2 都有這個問題。
+目前蘋果已經放出安全更新，不過這個安全更新還是有 BUG 需要解決。
+漏洞原理 https://zhuanlan.zhihu.com/p/31544555
+在蘋果放出了這個 Security Update 2017-001 更新後，會發現文件共享的認證會失敗
+解決方法：
+1.然後你需要安裝更新後重新設置 root 密碼
+2.輸入命令
+sudo /usr/libexec/configureLocalKDC 本文參考
+https://support.apple.com/en-us/HT208315 https://support.apple.com/en-us/HT208317</description>
+    </item>
+    
+    <item>
+      <title>世界主流雲計算廠商服務器節點檢測</title>
+      <link>https://via.moe/cloudspeed/</link>
+      <pubDate>Fri, 24 Nov 2017 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/cloudspeed/</guid>
+      <description>可以使用 Ping 進行延遲檢測，或 Traceroute 進行路由路徑檢測。
+歡迎使用各個雲計算平臺的返利鏈接註冊賬戶並使用，會得到首次使用的餘額優惠。
+Linode 註冊鏈接
+   Facility Hostname Test Download     US East speedtest.newark.linode.com 100MB-newark.bin   US South speedtest.atlanta.linode.com 100MB-atlanta.bin   US Central speedtest.dallas.linode.com 100MB-dallas.bin   US West speedtest.fremont.linode.com 100MB-fremont.bin   Frankfurt speedtest.frankfurt.linode.com 100MB-frankfurt.bin   London speedtest.london.linode.com 100MB-london.bin   Singapore speedtest.singapore.linode.com 100MB-singapore.bin   Tokyo 2, Japan speedtest.tokyo2.linode.com 100MB-tokyo2.bin    Vultr 註冊鏈接
+   Facility Hostname Test Download Test Download 2     Frankfurt, DE fra-de-ping.</description>
+    </item>
+    
+    <item>
+      <title>互聯網海盜</title>
+      <link>https://via.moe/pirate-codex/</link>
+      <pubDate>Sun, 01 Oct 2017 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/pirate-codex/</guid>
+      <description>21世紀初，一個標榜著“實現真正的言論和文化傳播自由”的網站橫空出世。它就是日後大名鼎鼎並惹來無數爭議的最大的檔案分享網站海盜灣（The Pirate Bay）。該網站由高特弗裡德·薩特霍姆·瓦格、弗雷德裡克·內伊以及彼得·桑德三個瑞典人創立，他們的精神和魄力得到來自全世界複製派（海盜黨）的熱烈支持，與此同時也遭到號稱損失高達 61 億美金的版權方的嫉恨。2008 年，以好萊塢為首的巨頭向海盜灣提起訴訟，三位創始人不得不“離開鍵盤”，與檢方展開一連串的周旋。 一方以法律為手段，一方以技術為武器。這不僅是一場來自不同價值觀陣營的戰爭…
+ 這部電影是採用了 CC 許可證，可以自由下載觀看
+https://thepiratebay.org/torrent/8118457/TPB.AFK.2013.1080p.h264-SimonKlose
+磁力鏈接
+magnet:?xt=urn:btih:411a7a164505636ab1a8276395b375a3a30bff32&amp;amp;dn=TPB.AFK.2013.1080p.h264-SimonKlose&amp;amp;tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&amp;amp;tr=udp%3A%2F%2Fzer0day.ch%3A1337&amp;amp;tr=udp%3A%2F%2Fopen.demonii.com%3A1337&amp;amp;tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&amp;amp;tr=udp%3A%2F%2Fexodus.desync.com%3A6969海盜灣（英語：The Pirate Bay，縮寫：TPB）是一個專門儲存、分類及搜尋 Bittorrent 種子檔案的網站，並且號稱是「世界最大的BitTorrent tracker（BT 種子伺服器）」，提供的BT種子除了有自由版權的收集外，也有不少被著作人聲稱擁有版權的音訊、視訊、應用軟件與電子遊戲等，為網絡分享與下載的重要網站之一。
+各國對海盜灣的態度 出於政治和版權保護的問題，中國大陸曾經將海盜灣列為網絡封鎖物件，但可通過 https 加密方式存取。
+2009年4月17日，瑞典斯德哥爾摩的法院以侵犯版權罪判處海盜灣四名創始人各一年的監禁，並處以約3000萬瑞典克朗的罰金。
+2013年7月，中國大陸已可以正常進入該網站，並自由瀏覽。此次解封可能是因為海盜灣更換了網站域名。
+2014年1月 , 中國大陸部分地區再次不可以正常進入該網站，之後又了恢復存取。美國政府向瑞典政府威脅稱，如果瑞典無法解決「海盜灣」問題，將把其列入 WTO 黑名單。
+2014年12月10日，海盜灣網站的伺服器遭到了瑞典警方的查封，並關閉網站。2015年2月1日 重新上線。
+2015年5月，瑞典一家法院作出判決：要求海盜灣交出 piratebay.se 域名。
+2017年2月初，瑞典一家法院做出裁定，命令當地互聯網提供商在接下來的三年時間遮蔽海盜灣。
+2017年6月下旬，歐盟法院做出裁定：互聯網提供商有義務根據版權所有者的要求限制用戶存取海盜灣。
+2017年9月，荷蘭最高法院裁定：當地互聯網服務供應商 Ziggo 和 Xs4all 在接下來的10天內全面遮蔽海盜灣網站。
+思考 關於海盜灣的判罰只是在下載頁面簡單統計了下載的次數來表示版權擁有者所造成的損失，P2P File Sharing 還引出了另外第一個問題：互聯網隱私的政府監控問題,P2P 技術能很好的實現互聯網的去中心化，隱藏用戶與服務器的直接關聯。時至今日，Bitcoin / IPFS / Zeronet / Mastodon / Firechat 等技術，當政府關閉互聯網的鏈接，這些去中心化的應用還能繼續工作。
+Firechat 就是一個去中心化的典型例子，詳細見報導
+當香港手機網路訊號中斷，FireChat這款「沒有訊號也能聯繫」的APP就此爆紅
+FireChat, darling of 0ccupy Centr@l protesters, throws down gauntlet to WhatsApp with off-the-grid texting</description>
+    </item>
+    
+    <item>
+      <title>黑蘋果升級 High Sierra 系統</title>
+      <link>https://via.moe/hackintosh-upgrade-high-sierra/</link>
+      <pubDate>Fri, 29 Sep 2017 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/hackintosh-upgrade-high-sierra/</guid>
+      <description>需要工具：
+Clover FakeSMC AppleALC APFS.EFI Nvidia Web Driver
+一、準備工作 首先升級 Clover 和 FakeSMC
+之後下載 APFS.EFI 放到 EFI/CLOVER/drivers64UEFI 下
+ 蘋果檔案系統（英語：Apple File System，簡稱APFS）是一個適用於 macOS、iOS、tvOS 和 watchOS 的檔案系統，目前正在由蘋果公司開發和部署。它的目的是解決 HFS+（Mac OS Extend，APFS 的前身）檔案系統的核心問題。APFS 為快閃記憶體和固態儲存裝置最佳化，具有寫入時複製等設計特點，使用 I/O 合併改進效能。
+ APFS.EFI 這個文件也可以在官方鏡像 Install macOS High Sierra.app 中找到，路徑在 Contents\SharedSupport\BaseSystem.dmg\usr\standalone\i386\apfs.efi,自行提取
+安裝完成後，路徑在 /usr/standalone/i386/apfs.efi
+重啟系統後，測試 APFS.EFI 是否正確加載
+bdmesg 如果成功會有文字提示
+...0:112 0:000 === [ LoadDrivers ] =======================================0:116 0:003 Loading FSInject-64.efi status=Success0:118 0:001 Loading OsxFatBinaryDrv-64.efi status=Success0:118 0:000 Loading OsxAptioFix2Drv-64.</description>
+    </item>
+    
+    <item>
+      <title>Kindle 電子書繁體中文轉換和豎排文字製作</title>
+      <link>https://via.moe/kindle-book-chinese-traditionalize-and-vertical-layout/</link>
+      <pubDate>Sun, 24 Sep 2017 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/kindle-book-chinese-traditionalize-and-vertical-layout/</guid>
+      <description>開始之前請先去除電子書的 DRM
+需要工具：
+Calibre Calibre 中文轉換插件 TradSimpChinese Sigil Kindlegen
+一、轉換繁體中文 安裝 Clibre 和 中文轉換插件 TradSimpChinese
+之後選擇編輯此電子書文件
+點擊編輯文件頂部工具欄的『文』，開始轉換
+轉換完成後，保存此文件，退出編輯模式
+然後選擇轉換書籍到 .epub 格式的電子書文件
+二、豎排文字製作 使用 Sigil 打開 .epub 格式的電子書文件
+找到對應本書的 .css 文件
+最後位置加入代碼：
+body { margin-left: 5%; margin-right: 5%; margin-top: 5%; margin-bottom: 5%; text-align: justify; writing-mode: vertical-rl; -webkit-writing-mode:vertical-rl; -epub-writing-mode: vertical-rl; -epub-line-break: auto; } 加入完成後保存文件
+然後下載對應的 Kindegen 轉換為 Kindle 閱讀器可用的 .mobi 格式電子書文件
+ Windows：  把需要轉換的 .epub 電子書文件放在和 kindlegen 相同目錄層級下
+然後使用 cmd 鍵入命令</description>
+    </item>
+    
+    <item>
+      <title>使用 Aria2 建立私有離綫下載服務</title>
+      <link>https://via.moe/aria2c-installation/</link>
+      <pubDate>Sun, 06 Aug 2017 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/aria2c-installation/</guid>
+      <description>aria2 是一個輕量級的多協議和多源命令行下載工具。 它支持 HTTP / HTTPS，FTP，SFTP，BitTorrent 和 Metalink 的傳輸協議。 aria2 可以通過內置的 JSON-RPC 和 XML-RPC 接口進行操作。
+現在的迅雷離綫也差不多掛了，QQ旋風也提示用戶即將關閉，短短一個七月，感覺又倒車回到了過去。加上看不見的那堵墻有日益增高，普通下載工具根本沒有速度。
+我們先從路邊買碟，然後村裏通網了，資源都從網上挂 BT 下載，然後到了在綫點播視頻的時代，然而現在各種下載網站/在綫網盤封的封，關的關，又回到了 BT 下載的時候，不知道以後我們會不會高速倒車到衹能在路邊買碟，一夜回到 解leon放haam前。
+安裝後端 aria2c 服務 Ubuntu 可以直接通過包管理器安裝
+apt install aria2 -y 其他系統安裝方法見官方 Github 頁面
+推薦編譯安裝
+apt update -y apt install libgnutls28-dev nettle-dev libgmp-dev libssh2-1-dev libc-ares-dev libxml2-dev zlib1g-dev libsqlite3-dev pkg-config libcppunit-dev autoconf automake autotools-dev autopoint libtool git gcc g++ libxml2-dev make quilt -y wget https://github.com/aria2/aria2/releases/download/release-1.33.0/aria2-1.33.0.tar.gz &amp;amp;&amp;amp; tar zxvf aria2-1.33.0.tar.gz ./configure make cp ~/aria2/src/aria2c /usr/bin 配置文件内容 寫在 ~/.</description>
+    </item>
+    
+    <item>
+      <title>數字移民</title>
+      <link>https://via.moe/digital-immigrant/</link>
+      <pubDate>Sat, 22 Jul 2017 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/digital-immigrant/</guid>
+      <description>『數字移民』
+原指因為出生較早，在面對數字科技、數字文化時，必須經歷並不順暢且較為艱難的學習過程者。數字移民對數字科技必須經歷較為艱難的學習過程。他們好像現實世界中新到一地的人，必須想出各種辦法來適應面前的嶄新的數字化環境。
+現指因網絡環境被限制，被審查，導致一直存在於某個平台的用戶移到另一個平台繼續生存。
+二〇一七年七月，天朝互聯網 Microblogging 服務提供商渣浪微博平台大規模對用戶進行審查、過濾關鍵字、和禁言，西祠胡同的 响马‏ @xicilion 呼吁微博平台的程序員前往 twitter 。
+郵箱服務  Gmail  Google 提供的郵箱服務，內地的一些郵箱服務提供商（網易 163 郵箱、QQ 郵箱等）均出現過用戶信息泄露，或無法收取海外郵件等問題，使用洋人的服務可以解決這些問題。
+ Protonmail  來自瑞士一家提供郵件加密的服務商，所使用的郵箱服務器也位於瑞士本土，安全可靠。
+移動服務 內地各家互聯網公司在二〇一七年六月一日後，都要求強制綁定用戶手機號碼，為了避開此項規定，可以使用國外的手機號碼進行登記驗證，海外的手機號碼往往不受實名驗證，可以隨意取得。
+ 香港 / 澳門 手機號碼  X 寶有許多提供 香港 / 澳門 的長期手機號碼，使用無月租或者月租 $5 HKD 左右，也比較廉價，推薦使用。
+ 美國 手機號碼  Google Voice
+Google 提供的虛擬電話卡業務，比較常見。
+Project Fi
+Google 提供的虛擬電話卡業務，可以漫遊。
+Textnow
+Textnow 來自美國的虛擬電話運營商提供
+虛擬支付 內地於二〇一七年七月起進行外匯管制政策，除了每年每人五萬美元的購匯限制，還需要填寫購匯用途。
+新聞詳情見 http://www.sohu.com/a/143304848_783365
+七月二十九日，中國區蘋果 App Store 下架網絡代理類 App，具體名單見 列表
+ Paypal  Paypal 不同於內地版本，此處應該指國際版本，支持全球的購物網站全貨幣支付，支持綁定內地銀聯卡。</description>
+    </item>
+    
+    <item>
+      <title>小米盒子國際版 Android TV 體驗</title>
+      <link>https://via.moe/mi-box-with-android-tv/</link>
+      <pubDate>Sun, 16 Jul 2017 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/mi-box-with-android-tv/</guid>
+      <description>小米香港推出的「國際版」盒子使用了原生包含 Google Services 的 Android TV 系統，并沒有使用大陸定製的 ADUI 系統，這也是我選擇這個產品的理由。乾净的 UI，清爽的操作，整體體驗還是不錯的，如果你對偏貴於大陸版本售價的 499 HKD 可以接受，那麽這個還是值得去購買。
+硬件支持 4K 高清播放
+Android TV 6.0.1 系統支持 Google Play Services 和 Google Cast
+小米盒子的系統説明，采用了 6.0.1 的版本，也不知道什麽時候升級最新的 7.x
+5GB 的内置存儲，支持 USB 外置儲存
+ 推薦幾個可以在 Play 商店能找到的好用的 App
+Android TV Remote Control
+使用手機操控您的小米電視盒子，當然 iOS 也有 Android TV
+VLC for Android
+播放器之神
+MX Player
+神之播放器，配合 MX_FFmpeg DTS 解碼器 使用更好，目前支持版本 1.8.6.1
+ES檔案瀏覽器
+安裝第三方 App 可以使用 ES檔案瀏覽器 自帶的架設 FTP 功能進行上傳安裝操作
+App Tray for TV</description>
+    </item>
+    
+    <item>
+      <title>使用 youtube-dl 下載視頻</title>
+      <link>https://via.moe/use-youtube-dl/</link>
+      <pubDate>Thu, 18 May 2017 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/use-youtube-dl/</guid>
+      <description>youtube-dl 是一個使用 Python 編寫的腳本, 在視頻下載方面極其強悍, 比在線解析網站的下載速度更穩定更快, 並且對於 YouTube 的 1080p 及以上的視頻可以自動合併音視頻(需要 ffmpeg);由於這是一個命令腳本工具, 沒有UI界面, 因此它強大的功能就要靠參數來實現, 借用不同的參數可以實現不同的下載方式, 比如指定格式, 下載視頻字幕, 批量下載, 代理下載等等。
+安裝 youtube-dl 所有 UNIX 用戶可通過 curl 下載
+sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl sudo chmod a+rx /usr/local/bin/youtube-dl 通過 pip
+sudo pip install --upgrade youtube_dl macOS 用戶通過 brew
+brew install youtube-dl 查詢 youtube 視頻格式 youtube-dl -F [url] 下載指定 youtube 視頻格式 youtube-dl -f [format code] [url] 如果需要下載 1080p 視頻與音頻合併 [format code] 填寫 137+140</description>
+    </item>
+    
+    <item>
+      <title>Google 那些年</title>
+      <link>https://via.moe/thx4google/</link>
+      <pubDate>Sun, 14 May 2017 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/thx4google/</guid>
+      <description>Google 谷歌中國 ,生於 2006 年 4 月 卒於 2010 年 3 月 23 日
+Google 全球中文名稱爲「谷歌」，於 2006 年 4 月 13 日由 Google 公司 CEO 埃裏克 · 施密特在中國北京發佈，是 Google 唯一的非英文品牌名稱。「谷歌」的意思解作「以穀物爲歌」，是播種與期待之歌，也是收穫與歡愉之歌，象徵着耕耘和收穫的喜悅，也表達了一種勤懇求實的態度。
+時任 Google 大中華區總裁李開復曾表示，「G-O-O-G-L-E」並不是標準的中文拼音，因此很多人都無法正確讀出這個詞，有很多中國人把 Google 讀成「go go」。在 Google 公司正式發佈中文名之前，民間尚有一些原文以外的俗稱，例如：「狗狗」（現多指迅雷的「狗狗搜索」）、「酷狗」（現多指「酷狗音樂」）、「古狗」、「勾勾」等。
+另一方面，Google 公司於較早前的 2 月 15 日在臺灣登記爲「美商科高國際有限公司」（GOOGLE INTERNATIONAL LLC）。
+此外，Google 在北京的分公司曾使用「咕果」作爲合約簽訂以及網絡招聘的中文譯名。
+北京時間（UTC+8）4 月 17 日凌晨 1 時左右，Google 簡體中文國際網站 正式出現「谷歌」字樣。
+由於「Google」一詞對於中文用戶來說比較難以拼寫，所以谷歌特爲解決此問題斥資千萬美元買下中國域名 g.cn，以便網民記憶。
+在谷歌退出中國事件後，2010 年 4 月 3 日，谷歌首頁更名爲「Google 中國」，但在北京時間當天晚上，谷歌中國又在其首頁恢復顯示「谷歌」字樣。
+這幾年 Google 在中國就是 來得錯誤，去得瀟灑。
+這家公司提供的服務已經改變了大家的生活 比如： Google 搜索：互聯網上最大、影響最廣泛的搜索引擎。Google 每日通過不同的服務，處理來自世界各地超過 2 億次的查詢</description>
+    </item>
+    
+    <item>
+      <title>OSMC 配置筆記</title>
+      <link>https://via.moe/osmc-init/</link>
+      <pubDate>Sun, 14 May 2017 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/osmc-init/</guid>
+      <description>樹莓派（Raspberry Pi），是一款基於 Linux 系統的只有信用卡大小的單片機。它由英國的樹莓派基金會所開發，目的是以低價硬件及自由軟件刺激在學校的基本計算機科學教育。
+2015年2月，樹莓派基金會發布了第二代產品——樹莓派2，售價 35 美元。樹莓派2 採用 4 核 Broadcom BCM2836 (ARMv7-A) 芯片、雙核 VideoCore IV GPU 和 1GB 內存，其餘配置與 樹莓派B+ 型一致，除了支持第一代樹莓派支持的操作系統外，樹莓派2 將能夠運行Windows 10 IOT 以及 Snappy Ubuntu Core。
+樹莓派基金會於 2016年 2月 發布了樹莓派3,較前一代樹莓派2，樹莓派3 的處理器升級為了 64 位元的博通 BCM2837，並首次加入了 Wi-Fi 無線網路及藍牙功能，而售價仍然是 35 美元。
+ 此文供 樹莓派 + OSMC (with Debian Jessie) 操作系統初始化安裝配置 使用。
+一個嶄新的 樹莓派2 需要自備 5V 2A 電源適配器 + MicroUSB 連接線 + 鍵盤(或者配合網線/Wifi模塊 通過 SSH 遠程連接) + 鼠標(可選) + HDMI (rev 1.</description>
+    </item>
+    
+    <item>
+      <title>洛天依 Chrome 主題</title>
+      <link>https://via.moe/luotianyi-chrome-theme/</link>
+      <pubDate>Sun, 14 May 2017 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/luotianyi-chrome-theme/</guid>
+      <description>安裝此主題樣式
+Chrome 擴展商店的舊版本不再更新, 我也想上傳到官方平臺， 可惜註冊費用太貴算了。。。
+原始檔已經放到 Github 了，要的自取。
+ 版權說明
+背景圖片來自 セルゲイ
+洛天依 影像及商標來自 ideolo＠二日目西あ60a &amp;amp; VOCALOID-CHINA</description>
+    </item>
+    
+    <item>
+      <title>自製 Nintendo Amiibo 卡片</title>
+      <link>https://via.moe/diy-your-amiibo/</link>
+      <pubDate>Sun, 14 May 2017 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/diy-your-amiibo/</guid>
+      <description>所需工具：
+1.支持 NFC 的安卓手機一臺(自備) 2.TagMo 以及對應的解鎖 Key 文件 3.需要寫入的 Amiibo 的 bin 文件 4.空白 Ntag215 NFC 卡若干(X寶1-2元一張)
+製作步驟：
+1.手機打開 NFC 功能
+2.安裝 TagMo 應用
+3.打開 TagMo ，然後按右上角菜單按鈕，選擇 load key file 選項
+4.然後分別加載 locked-secret.bin 與 unfixed-info.bin 兩個文件，加載成功的話 Have retail locked keys 與 Have retail unfixed keys 兩個文字後面會顯示 true
+5.再點擊右上角菜單按鈕，選擇 load tag file 選項，然後選擇想要刷入的 Amiibo 的 bin文件
+6.界面顯示loaded tag file就表示加載成功
+7.然後再點擊右上角的菜單按鈕，選擇 Write to tag(auto) 選項，這時候屏幕會顯示 place phone on the(blank)tag 文字
+8.這時候將空的 nfc 卡放到手機後方，等待寫入，寫入完成會顯示 tag detected 然後下方一個 done，看到這個文字就表示寫入完成了</description>
+    </item>
+    
+    <item>
+      <title>Linux TCP 性能調優筆記</title>
+      <link>https://via.moe/linux-tcp-tuning/</link>
+      <pubDate>Sun, 01 Jan 2017 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/linux-tcp-tuning/</guid>
+      <description>本文參考自 Linux Tuning
+本文可以幫助您的服務器提高 并發數量 和改善 高延遲掉包 情況。
+目前文中涉及的 hybla 和 htcp 算法已經很火星了，具體釋義請自行 Google 搜索。
+本文於 2017 年 1 月 1 日更新加入對 Google TCP BBR 算法的開啟，相關技術解釋見 知乎 討論
+不推薦使用 openvz 虛擬化技術的 VPS 此類權限較低 推薦使用 KVM 架構的虛擬 Linux VPS 。
+開啟 Google TCP BBR 請先自行將系統內核更新到 Linux Kernel 4.9 版本。
+下載 Linux Kernel 4.9 内核
+wget -O linux-image-4.9.0-amd64.deb http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.9/linux-image-4.9.0-040900-generic_4.9.0-040900.201612111631_amd64.deb 安裝內核
+dpkg -i linux-image-4.9.0-amd64.deb 卸載舊版本內核
+dpkg -l | grep linux-image | awk &amp;#39;{print $2}&amp;#39; | grep -v &amp;#39;linux-image-4.</description>
+    </item>
+    
+    <item>
+      <title>上海天氣情況及空氣質量指數</title>
+      <link>https://via.moe/shanghai-weather-with-aqi/</link>
+      <pubDate>Fri, 23 Dec 2016 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/shanghai-weather-with-aqi/</guid>
+      <description>之前一直關注的是 Twitter 上面 美帝上海領館 的空氣檢測數據
+覺得不是很方便，畢竟只是一條 Tweet ，於是用了 aqicn 的 api 做了一個 頁面 方便查看。
+覺得好用的可以將 sh.level5.dev 收藏爲書籤。
+天氣主要數據來自 Forecast
+空氣質量指數來自 Aqicn / U.S. Consulate Shanghai Air Quality Monitor
+災害天氣預警來自 Thinkpage
+更多詳情請見：https://sh.level5.dev/about</description>
+    </item>
+    
+    <item>
+      <title>『君の名は。』My Dairy App 製作中</title>
+      <link>https://via.moe/mydairy-app/</link>
+      <pubDate>Sat, 10 Dec 2016 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/mydairy-app/</guid>
+      <description>Workflow:
+介面預覽圖：</description>
+    </item>
+    
+    <item>
+      <title>『君の名は。』Chrome 主題</title>
+      <link>https://via.moe/kiminonawa-chrome-theme/</link>
+      <pubDate>Mon, 05 Dec 2016 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/kiminonawa-chrome-theme/</guid>
+      <description>安裝此主題樣式
+Chrome 擴展商店註冊費用太貴算了。
+Github
+本主題支持 5K(5120 × 2160) 分辨率顯示。
+5K 版本請自行使用 chrome://extensions/ 載入擴展 kiminonawa5k。
+ 版權說明
+使用素材來自 Pixiv
+背景圖像版權來自 君の名は。</description>
+    </item>
+    
+    <item>
+      <title>Let&#39;s benchmark</title>
+      <link>https://via.moe/lets-benchmark/</link>
+      <pubDate>Thu, 06 Oct 2016 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/lets-benchmark/</guid>
+      <description>本文章將提供一些主流系統平臺的跑分軟件。
+CPU &amp;amp; GPU 信息+跑分
+CineBench
+CPU-Z
+GPU-Z
+CrystalCPUID
+SSD 測速跑分
+AS SSD Benchmark
+CrystalDiskInfo 6
+HDD 檢測
+HD Tune Pro
+附：資料
+CPU 天梯圖 English 中文
+GPU 天梯圖 English 中文
+筆記本 CPU 天梯圖 中文
+筆記本 GPU 天梯圖 中文
+GeekBench4
+
+AIDA64
+
+CPU-Z
+
+Wifi 掃描儀
+
+GPS測試
+
+網絡信號信息
+
+附：資料
+移動平臺 CPU 天梯圖 中文
+Linux 硬件檢測
+wget --no-check-certificate https://github.com/teddysun/across/raw/master/unixbench.sh chmod +x unixbench.sh ./unixbench.sh 測試項目： Dhrystone 2 using register variables 此項用於測試 string handling，因爲沒有浮點操作，所以深受軟件和硬件設計（hardware and software design）、編譯和鏈接（compiler and linker options）、代碼優化（code optimazaton）、對內存的cache（cache memory）、等待狀態（wait states）、整數數據類型（integer data types）的影響。</description>
+    </item>
+    
+    <item>
+      <title>Synology DS216j Optware IPKG 介紹</title>
+      <link>https://via.moe/synology-ds216j-optware-ipkg-init/</link>
+      <pubDate>Mon, 05 Sep 2016 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/synology-ds216j-optware-ipkg-init/</guid>
+      <description>本文原有内容已經可能不可用，目前可以使用第三方源内的 GUI 工具安裝 Bootstrap
+http://packages.synocommunity.net http://www.cphub.net 安裝 Easy Bootstrap ，選擇 Entware-ng OPKG 即可
+ Synology DS216j Optware IPKG 介紹 與 QNAP TS-219P+ 一樣，引入一個 Optware IPKG 作為軟件包管理工具。
+DSM 自帶的軟件中心可以安裝需要東西 (比如Git/Subversin/Perl/PHP), 因為已經有了，但你也覺得沒有太大的必要，因為它可能會使用到的機會很少。
+SSH 服務啟動 在 Synology DS216j 系統設置中，請必須啟用 SSH 連接服務。
+控制面板→終端機和SNMP
+ 您可以變更加密模式的安全層級，請注意，安全层级不相容可能導致某些用戶端無法連線。  Optware IPKG 安裝 不像 QNAP（現在當我看 QNAP 的 IPKG 已在維護，在後面將不再描述），因為它不能在系統軟件中心裡安裝，只能自己另外安裝。
+安裝必須 與 DS216j 的 CPU 架構 （Marvell Armada 385 88F6820） 相符，可以在以下頁面找到這些信息。
+GitHub - trepmag/ds213j-optware-bootstrap: Synology ds213j (manual) optware bootstrap</description>
+    </item>
+    
+    <item>
+      <title>Kcptun 服務端與客戶端啟用筆記</title>
+      <link>https://via.moe/kcptun/</link>
+      <pubDate>Tue, 09 Aug 2016 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/kcptun/</guid>
+      <description>原理圖
+目前支持情況
+   Platform Windows macOS Linux Android iOS     cli O O O O X   gui O(第三方) X X O X   x86 O O O O X   x64 O O O O X   arm5 n/a n/a O O n/a   arm6 n/a n/a O O n/a   arm7 n/a n/a O O n/a   arm8 n/a n/a use arm7 O n/a   mips32 n/a n/a O n/a n/a   mips64 n/a n/a O n/a n/a    主要參數優化</description>
+    </item>
+    
+    <item>
+      <title>牆內 Google 開</title>
+      <link>https://via.moe/ngx-http-google-filter-module/</link>
+      <pubDate>Thu, 10 Mar 2016 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/ngx-http-google-filter-module/</guid>
+      <description>配上免費的 letsencrypt SSL/TLS 證書，一個個安全快速的谷歌又出現了。
+依賴庫  pcre 正則 ngx_http_proxy_module 反向代理 ngx_http_substitutions_filter_module 多重替換  安裝  以 ubuntu 14.04 爲例 i386, x86_64 均適用
+ 最簡安裝 # # 安裝 gcc &amp;amp; git # apt-get install build-essential git gcc g++ make # # 下載最新版源碼 # nginx 官網: # http://nginx.org/en/download.html # wget &amp;#34;http://nginx.org/download/nginx-1.9.12.tar.gz&amp;#34; # # 下載最新版 pcre # pcre 官網: # http://www.pcre.org/ # wget &amp;#34;ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.38.tar.gz&amp;#34; # # 下載最新版 openssl # opessl 官網: # https://www.openssl.org/ # wget &amp;#34;https://www.</description>
+    </item>
+    
+    <item>
+      <title>Sleep Tight, PSP.</title>
+      <link>https://via.moe/sleep-tight-psp/</link>
+      <pubDate>Tue, 01 Mar 2016 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/sleep-tight-psp/</guid>
+      <description>看到 Cnbeta 的新聞，我也打算拿起我的PSP給它重生到最新的系統。
+PSP從二零零四年十二月十二日出世，已經度過了十二年共七次硬件更新，實在是索尼大法的良心作。
+如果要升級到最新的6.61系統，可以嘗試使用把系統鏡像放到儲存卡內進行更新作業。詳見 SONY 支援
+2015.01.15日的6.61更新日誌：（等於沒寫
+ 6.61版本更新的主要機能 已改善了使用部分機能時系統軟件的穩定性。   6.61 SONY 官方鏡像下載
+開發者Wololo 的系統完美破解 下載
+反正大法要關PSP的PSN了，未來只能玩UMD或者盜版的遊戲了。在大陸也很難買到正版的PSP遊戲，你懂的。
+自己整理的一些文件分享給大家 Mega網盤
+最後感謝PSP給我打發了很多的無聊時間。
+Sleep Tight, PSP.</description>
+    </item>
+    
+    <item>
+      <title>世界末日求生物品清單</title>
+      <link>https://via.moe/end-of-the-world/</link>
+      <pubDate>Sat, 23 Jan 2016 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/end-of-the-world/</guid>
+      <description>食品    類目名稱 簡述     壓縮餅乾 食用保質期長，提供熱量高   各類罐頭食品 食用保質期長   酒/酒精 消毒用，或可當燃料   種子 可種植，例如土豆    藥品    類目名稱 簡述 示例物品     綜合感冒藥 緩解感冒引起的疼痛，發燒，鼻塞流鼻水症狀 常用感冒藥見下方附錄 1   暈車藥 防暈藥只用於預防，不能治療    腸胃藥 避免生食，飲水建議煮沸開水、瓶裝水    止痛藥 緩解牙痛、頭痛、胃痛、經痛等疼痛    自身疾病藥 氣喘、高血壓患者、心臟病患者等一定要記得帶上相關藥品；糖尿病患者除了隨身攜帶降糖藥，同時攜帶葡萄糖水、餅乾之類食品，以備發生低血糖時急用。    外用藥 處理小傷口的藥品 酒精、碘酒、紅藥水、棉花棒、頭孢等   口罩/防毒面具 保護呼吸正常和防毒/防塵功能    紗布 潔淨的紗布，包紮傷口用    紅外溫度計 非接觸式，需要配備電池    手術刀/剪刀/縫合線 處理傷口     實用物品    類目名稱 簡述     水壺 儲存飲用水   通訊設備 手機/對講機/收音機/衛星電話，做好沒有信號的準備   各類電池 充電寶/AAA或AA電池等   發電機 柴油/汽油發電機   潔淨的衣物    登山鞋 需要防水性能好的   剪刀或各類刀具 最好是剪刀或手術刀   地圖 需要紙質的   鏡子    打火機/火柴 生火用   蠟燭 需要結實耐用的   繩子 需要結實耐用堅固的   斧頭 需要結實耐用的   手電筒 需要結實耐用的   TDS 水質檢測 檢測水源是否適合飲用   蓋革計數器 檢測周圍環境輻射    附錄 1.</description>
+    </item>
+    
+    <item>
+      <title>DualShock 4 手柄有線/藍牙無線連接 PC</title>
+      <link>https://via.moe/ds4-for-windows/</link>
+      <pubDate>Mon, 09 Nov 2015 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/ds4-for-windows/</guid>
+      <description>之前寫過一篇用ds4tool這個軟件連接windows的方法
+現在又一個免費開源的連接軟件能幫助大法DualShock 4 手柄有線/藍牙無線連接PC
+首先去 ds4windows 的網站下載最新的版本
+下載到本地之後 打開 ds4windows
+點擊 setting 裡面的 controller driver install 之後 按照提示安裝
+之後插上 USB 連接 PC 或者藍牙連接 都可以 Windows自己也會按照相應的手柄驅動
+成功連接自己的手柄 背後的LED會從白色變成藍色
+這個軟件也有很多的自定義設置 自己慢慢去發現吧
+索尼大法的手柄確實好用，雖然不用 PS4 玩遊戲，但是買一個連接自己的計算機玩遊戲不覺得更好嗎？也可以試試看 https://github.com/x360ce/x360ce 這個軟件。</description>
+    </item>
+    
+    <item>
+      <title>FBI Warning 樣式的 SSH 登錄提示</title>
+      <link>https://via.moe/fbi-warning-ssh-notification/</link>
+      <pubDate>Mon, 19 Oct 2015 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/fbi-warning-ssh-notification/</guid>
+      <description>在微博上看到秋大的 SSH 登錄提示 覺得很有意思
+其實我什麼都不知道 深藏功與名
+我嘗試著修改 /etc/motd 發現並不支持顏色顯示 噗。。。
+然後微博上的小夥伴告訴我這個是修改 shell 的 rc 文件，每次啟動 terminal 的時候執行 sh 腳本就可以了
+代碼參考自 http://blog.depressedmarvin.com/2015/10/13/fbi-warning-ssh-banner/
+修改了最後的居中文本
+  打開 https://gist.github.com/ky0ncheng/aa936fe51acd064ea25e 將裡面的代碼複製或另存為 xxx.sh
+  保存完成後 chmod +x xxx.sh
+  修改 shell 的 rc 文件最後加入 bash xxx.sh
+  以至於啟動 terminal 後執行 shell 腳本
+ bash shell 修改 /etc/bash.bashrc zsh 修改 ~/.zshrc  效果如圖</description>
+    </item>
+    
+    <item>
+      <title>粵語金曲分享</title>
+      <link>https://via.moe/share-cantonese-songs/</link>
+      <pubDate>Tue, 29 Sep 2015 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/share-cantonese-songs/</guid>
+      <description>剛剛看完港囧，徐崢導演在電影裡面穿插了許許多多的粵語老歌
+每一首歌 也是訴說着一個個故事
+我想推薦一些我喜歡的粵語歌曲給大家
+我覺得真正的廣東文化也不只是香港帶給我們的印象
+但是現在的粵語歌曲也基本來自香港了
+港囧裡面出現過的粵語老歌 有一些也是耳熟能詳
+首先推薦的是一個有才的香港富二代
+十年 三首歌 訴說了一個悲傷的故事
+最後，妳根本不懂妳多年來喜歡的 &amp;ldquo;ta&amp;rdquo; ，這一切都是自己的猜測與幻想。
+前幾天 麥浚龍放出了最後一支歌結束這個故事
+另外 《耿耿於懷》的 mv 很有意思，與 吳日言 的 《扯線風箏》正好是相反的。
+接下來推薦一下天后 謝安琪的幾首歌曲
+《喜帖街》
+囍帖街（利東街 位於灣仔）原本是香港一條歷史非常悠久的街道，見證了香港的變遷，但後來港府想拆遷發展商業，市民建議不要動留作紀念，廣泛徵求意見後港府決定把其作為一個旅遊景點。 後來黃偉文在這條街的故事裏感悟出很多人生道理，寫了一首歌來紀念這條街道。
+由 Eric Kwok 作曲、編曲和監製，黃偉文填詞，成為 2008 年香港最佳歌曲，至今仍然是香港獲得最多歌曲獎的流行曲，成為香港樂壇標誌性歌曲，亦帶摯謝安琪登上天后寶座及獲得多個大獎。
+云云獎項中，由商業電台頒發的「叱咤樂壇我最喜愛的歌曲大獎」為全港唯一一座公開票數之公眾投票歌曲獎，囍帖街為香港樂壇史上最高票數之獲獎歌曲，被肯定為千禧港樂之經典。
+另外一首《年度之歌》則唱出了 謝安琪 內心的感受
+「《囍帖街》曾經聽哭了，當時真是橫掃各大頒獎禮，可謂」年度之歌「，之後謝安琪就唱了這首《年度之歌》，總感覺這是在呼應她的《囍帖街》所帶來的音樂事業高峯。流行是一首窩心的歌，突然間説過就過。比長夜的冷寂更難忍受的，是絢爛後的重歸落寞，能恬淡看開一切的世間能有幾人。」
+這是來自網易雲音樂的一則評論，也許真是 Kay 的想法。
+人生不可能事事風順，總有下坡與低谷，大起大落，淡然面對就夠了。
+作爲一個歌手，能唱出自己想唱的歌，也是種釋懷。
+《獨家村》 Kay 的歌曲裡爭議最多的一首歌
+下面是來自 林滴藍 對這首歌的解讀，認為歌詞與中港矛盾及貧富懸殊有關。
+若妳為求風光去鞠躬 祝福妳成功
+這小店就如美夢 不想因應恩客易容
+就算將過得很窮 賣它僅有的種
+妳怪我不夠笑容 不懂跟風變通
+難及妳沒原則 犧牲那初衷 隨舊情斷送」整首歌中其實主角一直以第一身跟伴侶訴說內心心底話，一如〈富士山下〉中主角規勸對方不要因愛情這虛無之物，傷害自己，劃破手腕，氣氛溫和，偏偏有股淡然的哀傷。〈獨家村〉中主角則有一間小店，販賣夢想，擺售特色，堅持己見，不隨波逐流，委曲求存，但偏偏被對方挑剔批評，不懂變通，不求風光成功，但主角則反問「難及妳沒原則 犧牲那初衷」？
+主角不欲委曲求存，香港人難道不是一樣嗎？我們所珍以重之的自由、法治、人權，為什麼要為所謂的「中港融合」而拱手相讓？香港這一小店，面積不大，地方淺窄，但我們香港人靠什麼立足於世界？不是靠我們的靈活變通，不是靠我們的本土文化，不是靠我們的原則嗎？
+沒法跟妳輕輕鬆鬆假裝卿卿我我只好放手
+守護我的獨家村
+和妳同做過的美夢發完 讓我一個擁抱互相許過的夙願
+任妳毀我誇我自甘孤僻 都不要自尊心給折損</description>
+    </item>
+    
+    <item>
+      <title>首都南京游記</title>
+      <link>https://via.moe/visit-nanking/</link>
+      <pubDate>Fri, 04 Sep 2015 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/visit-nanking/</guid>
+      <description>這次去我暫時住宿的地方在玄武湖邊上，交通非常方便~
+環游了玄武湖逛了一圈 大概兩個小時 空氣很清新荷花盛開
+清澈的湖水
+鐘毓橋 （簡體字真違和233
+南京 玄武門 （此門不是玄武門之變的發生地點 唐朝歷史上的玄武門在當時都城長安的太極宮北宮門
+1945年4月20日 南京總統府被解放軍占領
+淪陷之後 拍攝《建國大業》時期的南京總統府 青天白日旗再次升起
+2015年8月22日 已經沒有青天白日旗飄揚的總統府
+南京 1912
+古秦淮
+夫子廟
+晚上的夫子廟很熱鬧
+江南貢院
+秦淮河
+第二天去了 江北
+本來想打車經過南京長江大橋過去 無奈司機不認路（畢竟南京乃安徽省會 好多司機都是來自安徽的
+衹能自己坐船過去了
+中山碼頭
+過了 長江
+就能看到一個已經廢棄的火車站 南京北站 那年冬天，祖母死了，父親的差使也交卸了，正是禍不單行的日子。我從北京到徐州打算跟着父親奔喪回家。到徐州見着父親看見滿院狼藉的東西，又想起祖母，不禁簌簌地流下眼淚。父親說：「事已如此，不必難過，好在天無絕人之路！」
+回家變賣典質，父親還了虧空；又借錢辦了喪事。這些日子，家中光景很是慘淡，一半爲了喪事，一半爲了父親賦閒。喪事完畢，父親要到南京謀事，我也要回北京唸書，我們便同行。
+到南京時，有朋友約去遊逛，勾留了一日；第二日上午便須渡江到浦口，下午上車北去。父親因爲事忙，本已說定不送我，叫旅館裏一個熟識的茶房陪我同去。他再三囑咐茶房，甚是仔細。但他終於不放心，怕茶房不妥帖；頗躊躇了一會。其實我那年已二十歲，北京已來往過兩三次，是沒有什麼要緊的了。他躊躇了一會，終於決定還是自己送我去。我再三回勸他不必去；他只說：「不要緊，他們去不好！」
+我們過了江，進了車站。我買票，他忙着照看行李。行李太多了，得向腳伕行些小費纔可過去。他便又忙着和他們講價錢。我那時真是聰明過分，總覺他說話不大漂亮，非自己插嘴不可，但他終於講定了價錢；就送我上車。他給我揀定了靠車門的一張椅子；我將他給我做的紫毛大衣鋪好座位。他囑我路上小心，夜裏要警醒些，不要受涼。又囑託茶房好好照應我。我心裏暗笑他的迂；他們只認得錢，託他們只是白託！而且我這樣大年紀的人，難道還不能料理自己麼？唉，我現在想想，那時真是太聰明瞭！
+我說道：「爸爸，你走吧。」他往車外看了看說：「我買幾個橘子去。你就在此地，不要走動。」我看那邊月臺的柵欄外有幾個賣東西的等着顧客。走到那邊月臺，須穿過鐵道，須跳下去又爬上去。父親是一個胖子，走過去自然要費事些。我本來要去的，他不肯，只好讓他去。我看見他戴着黑布小帽，穿着黑布大馬褂，深青布棉袍，蹣跚地走到鐵道邊，慢慢探身下去，尚不大難。可是他穿過鐵道，要爬上那邊月臺，就不容易了。他用兩手攀着上面，兩腳再向上縮；他肥胖的身子向左微傾，顯出努力的樣子。這時我看見他的背影，我的淚很快地流下來了。我趕緊拭乾了淚。怕他看見，也怕別人看見。我再向外看時，他已抱了硃紅的橘子往回走了。過鐵道時，他先將橘子散放在地上，自己慢慢爬下，再抱起橘子走。到這邊時，我趕緊去攙他。他和我走到車上，將橘子一股腦兒放在我的皮大衣上。於是撲撲衣上的泥土，心裏很輕鬆似的。過一會兒說：「我走了，到那邊來信！」我望着他走出去。他走了幾步，回過頭看見我，說：「進去吧，裏邊沒人。」等他的背影混入來來往往的人裏，再找不着了，我便進來坐下，我的眼淚又來了。
+近幾年來，父親和我都是東奔西走，家中光景是一日不如一日。他少年出外謀生，獨立支持，做了許多大事。哪知老境卻如此頹唐！他觸目傷懷，自然情不能自已。情鬱於中，自然要發之於外；家庭瑣屑便往往觸他之怒。他待我漸漸不同往日。但最近兩年不見，他終於忘卻我的不好，只是惦記着我，惦記着我的兒子。我北來後，他寫了一信給我，信中說道：「我身體平安，唯膀子疼痛厲害，舉箸提筆，諸多不便，大約大去之期不遠矣。」我讀到此處，在晶瑩的淚光中，又看見那肥胖的、青布棉袍黑布馬褂的背影。唉！我不知何時再能與他相見！當時 朱自清的文章《背影》就是發生于此 現在這個火車站也落寞廢棄 附近再也沒有買桔子的小販了
+當時 朱自清和他父親應該就是在這裡買的車票
+通往候車室的走廊再也不是熙熙攘攘
+仿佛時間已經凝固 候車室還是原來的那個樣子
+車站月臺也已經不准入内了 我衹能放網上的一些照片了
+開車匆匆路過很多民國的老建築 例如 海軍部 、 國立美術陳列館 、 最高法院
+所以沒有拍照片 想看的請去 這裡
+下午我從明故宮步行上山 大概走了兩個小時 到了中山陵
+沿途的風景很不錯
+鼎高4，25米，腹徑1，21米，重一萬斤，外觀圓形，三足兩耳，由三節組成，可以拆卸。鼎壁一面鑄有「智，仁，勇」（孫中山對革命軍人要求），另一面鑄有「忠，孝，仁，愛，信，義，和，平八個字，（孫中山在《三民主義》中提出的中國人傳統「八德」，）這八個字解放初被磨去。
+爲安置孝經鼎在廣場南端建鼎臺（造價2萬餘元，也由中山大學師生捐建），鼎臺由剛從中央大學畢業的陵園工務助理員夏行時設計，鼎臺設計新穎，臺下3米深處埋有一石匣子，內裝一古銅色箱，箱內存有在南京的中山大學師生恭錄的孫中山全部遺教。箱面刻有總理遺囑，爲戴季陶所書。
+「文化革大命」期間，南京新街口孫中山銅像曾遷於此臺上，孝經鼎移到陵門前廣場，1985年孫中山銅像遷至藏經樓孫中山紀念館前，孝經鼎回原地。祭堂内禁止攝影！抱歉了！  中華民國國民政府建國大綱 全文如下</description>
+    </item>
+    
+    <item>
+      <title>打開 Android 5.X Lollipop 的 Google Now 教程</title>
+      <link>https://via.moe/open-google-now-on-android-lollipop/</link>
+      <pubDate>Sun, 16 Aug 2015 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/open-google-now-on-android-lollipop/</guid>
+      <description>Google Now（Google即時）是一款由Google開發的智能個人助理軟件，擴充了Google搜索手機應用程序的功能，可在Android、iOS及Google Chrome上使用。
+Google Now使用自然語言用戶接口（Natural language user interface）通過一系列的Web服務來進行回答問題、提供建議、運行動作之行爲。在迴應用戶時，Google Now會基於用戶過往的的搜索習慣來預測其所可能需要的信息。Google Now最初被包含在Android 4.1 Jelly Bean（果凍豆）之中，首先支持的智能手機爲Galaxy Nexus。
+美國雜誌《科技新時代》（Popular Science）將Google Now評選爲2012年的「年度創新」（Innovation of the Year）。
+這篇文章可幫助各位打開 中文的 Google Now
+現在 Google Now 已經支持 Android、iOS和全平臺的 Chrome 瀏覽器
+本教程僅支持 Android 5.x ，舊版本開啓 Google Now 方法請自行 Google 搜索
+ 打開 Google Now 首先需要 Gapps 和 Google Search App 的支持  首先請拔掉手機內的 sim 卡。
+系統語言需要設置英語 設置 -&amp;gt; 語言與輸入設定 -&amp;gt; 語言 -&amp;gt; English - (United States)
+關閉手機的定位 ， 開啓飛行模式 ， 打開 Wifi ，如果在中國大陸地區，需要 *科學上網</description>
+    </item>
+    
+    <item>
+      <title>夏至南下</title>
+      <link>https://via.moe/visit-shenzhen-and-hongkong/</link>
+      <pubDate>Thu, 18 Jun 2015 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/visit-shenzhen-and-hongkong/</guid>
+      <description>又是一年夏至 每年到了這個時候 天總是格外的熱 這次又正好出差南下 感覺心更累了 T-T
+這次去深圳參加了一年一度的 Maker Faire 我也是第一次去 這次在展會上看到了好多有意思的東西
+深圳這個城市也是第一次來 之前去過廣州 也是如此悶熱 我無法想象這個城市晚上沒有空調的日子 2333
+會場上空的天很藍
+這次 Maker Faire 有許多大牌大廠 也有很多創業新項目
+大疆的多軸飛行器在這次展會上也是出足了風頭 希望這家佔據世界 90% 的多軸飛行器廠商能走得更遠吧
+關於此次的更多照片 我之後會上傳至在本人的 Flickr
+ 香港最無聊的一條馬路 上面的小店基本都是中國人開的 東西專門買給大陸遊客</description>
+    </item>
+    
+    <item>
+      <title>廣州之行</title>
+      <link>https://via.moe/visit-canton/</link>
+      <pubDate>Tue, 26 May 2015 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/visit-canton/</guid>
+      <description>剛剛回到上海 覺得在廣州玩了幾天挺有意思的 可惜就是天天下雨
+吃了好多在上海沒見過的 都挺好吃的
+水果好便宜 買了好多 菠蘿什麼的 3元一斤(差不多一個)難以想象 T-T 上海起碼一個17-20軟妹幣</description>
+    </item>
+    
+    <item>
+      <title>M$ 大法好 Visual Studio Code 閃亮登場</title>
+      <link>https://via.moe/visual-studio-code/</link>
+      <pubDate>Thu, 30 Apr 2015 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/visual-studio-code/</guid>
+      <description>昨天M$的Build 2015大會 釋出了一個面向全平臺的編輯器 Visual Studio Code
+看了一下 根據 Github 的 Atom 編輯器改的 雖然不是類似完整的 Visual Studio 這種 IDE , 但是作爲一個輕量的IDE
+改變的了以往Atom的卡慢情況 不知道他們該怎麼想。。23333 M$ 的魔改真心 diao 炸天
+下載地址
+具體評測還是看知乎上同♂志們的體驗吧~</description>
+    </item>
+    
+    <item>
+      <title>PS4 手柄有線/藍牙無線連接PC</title>
+      <link>https://via.moe/ps4-controller-on-pc/</link>
+      <pubDate>Sat, 28 Mar 2015 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/ps4-controller-on-pc/</guid>
+      <description>本文將講解Windows 7系統下如何將PS4手柄與PC電腦配對，並模擬成Xbox 360手柄的設置
+現在已經是 2017 年了，也有了更好的工具，請見 https://level5.dev/ds4-for-windows/
+需要無線連接之前請先嚐試有線連接是否正常
+ 有線連接  拿一條安卓設備常見的microusb連接線 連接PC等待安裝完驅動即可使用 但此時是兼容的DirectInput遊戲手柄設備 PS4手柄背部此時LED顯示爲黃色常亮
+需要去這個論壇下載 DS4 TO XInput Wrapper 這個軟件模擬XBOX遊戲手柄 *最新版本是DS4TOOL 1.2.2.zip
+下載完成之後解壓壓縮包
+打開Virtual Bus Driver子目錄
+安裝ScpDriver.exe
+然後返回解壓之後的文件根目錄 打開ScpServer.exe 這時主程序最小化到任務欄右下角去了
+連接正常 PS4手柄背部LED燈顯示藍色常亮 DS4TOOL會顯示手柄的mac地址 內置電池電量 和觸控板開啓狀態
+如果沒有正常連接 則沒有顯示 需要重新插拔設備即可
+DS4TOOL支持手柄的更多設置（反正默認夠用
+ 熱鍵說明
+L2+按下觸摸板 | 關閉觸摸板 L2+R2+按下觸摸板 | 開啓觸摸板 雙指上滑/下滑 | 向上/向下滾動
+單擊觸摸板 | 相當於鼠標左鍵
+觸摸板右側單擊後左側單擊 | 相當於鼠標右鍵
+PS鍵+Option鍵 | 關閉藍牙
+  無線設置  如果是搭載了Windows 7/Windows 8/8.1的筆記本 可以打開系統藍牙設置並配對
+如果是臺式機 請買個支持藍牙2.1+EDR的適配器 例如:ORICO 奧睿科 BTA-402 藍牙V4.</description>
+    </item>
+    
+    <item>
+      <title>樹莓派2 上手</title>
+      <link>https://via.moe/raspberry-pi-2/</link>
+      <pubDate>Sun, 22 Mar 2015 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/raspberry-pi-2/</guid>
+      <description>第二代樹莓派（Raspberry Pi 2）於2015/02/03正式發佈，同現有的Model B+售價相同，爲$35，用戶可以通過element14 和 RS Components兩家合作商進行選購。樹莓派2採用了900MHz的四核ARM Cortex-A7處理器（性能是前代的6倍以上），1GB的LPDDR2 SDRAM（內存提升兩倍），並完美兼容第一代樹莓派。因爲採用了ARMv7處理器，所以能夠運行所有ARM GNU/Linux分支版本，包括Snappy Ubuntu Core和微軟的Windows 10系統。
+全新的樹莓派2的硬件規格如下：
+ 處理器：博通BCM2836（CPU, GPU, DSP, SDRAM和一個USB端口) CPU：900MHz的四核ARM Cortex A7（ARMv7架構） GPU：博通VideoCore IV @ 250 MHz OpenGL ES 2.0 (24 GFLOPS) 1080P 30 MPEG-2和VC-1解碼器 (帶授權證書) 1080p30的H.264 / MPEG - 4 AVC高調解碼器和編碼器 內存：1GB（同GPU共享） USB端口：4個 視頻輸入：15針的MIPI攝像頭接口（CSI）控制器 視頻輸出：HDMI、通過3.5mm套件的複合視頻（PAL和NTSC） 音頻輸出： I²S 音頻輸入：3.5mm耳機套件，通過HDMI和 I²S進行數字輸入 存儲：MicroSD卡 網絡：10/100 Mbit/s Ethernet 外設：17 GPIO加特殊功能，和HAT ID總線 電源:800 mA (4.0 W) 電源來源：通過MicroUSB或者GPIO頭的5V電 尺寸： 85.60 mm × 56.5 mm 重量：45g  新型樹莓派2 代B型板可兼容以往創建的所有樹莓派項目。同時，它還具備擴展GPIO引腳並可提供高級電源管理和連接性能，因而可連接多達4個USB設備，包括一些如硬盤驅動器的功率器件。其40針擴展GPIO接口使其能夠添加更多傳感器、連接器及擴展板，前26針引腳與A型板和B型板保持一致，可100%向後兼容。</description>
+    </item>
+    
+    <item>
+      <title>關於Chrome的那些小技巧</title>
+      <link>https://via.moe/chrome-tips/</link>
+      <pubDate>Fri, 27 Feb 2015 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/chrome-tips/</guid>
+      <description>Chrome是Google公司開發的一個現代化的網頁瀏覽器，作爲三大瀏覽器之一 它搭載了被稱爲V8的高效率Javascript引擎。
+由於簡潔的界面風格 和便捷易用的特點 Chrome的市場份額已經升至45% ，一舉超越了Internet Explorer和Mozilla Firefox成爲全球第一大瀏覽器。(數據來自Wikipedia)
+作爲一個現代化的瀏覽器，就像智能手機的APP ，每裝一個APP，意味着你的手機又多了一個功能。Chrome瀏覽器也是如此，Google也提供了網上應用商店供人下載擴展自定義使用。
+接下來我會介紹一些大家常用的擴展
+  ABP廣告過濾 / Adblock Plus 超過5000萬人使用，適用於 Chrome 的免費的廣告攔截器，可阻止所有煩人的廣告及惡意軟件和跟蹤。 享受沒有惱人廣告的網絡世界。   更好的歷史記錄 / Better History 替換瀏覽器自帶的歷史查看頁面。本擴展能更好地查看您的歷史記錄。爲查看您的歷史記錄帶來最好的搜索體驗，最清晰的界面和最有幫助的篩選。   印象筆記 剪藏 / Evernote Web Clipper 使用印象筆記擴展程序一鍵保存精彩網頁內容到印象筆記帳戶。 印象筆記•剪藏，以最快的速度，幫你保存網頁、截取屏幕、添加標註、輕鬆歸檔，隨時隨地快速找到所需一切。   環聊 / Hangouts 環聊讓對話更生動有趣：不但可以發送圖片和表情符，還能免費視頻聊天。 環聊融入了照片、表情符和視頻，讓一對一和多人對話更加生動有趣，而且完全免費。你可以通過手機、計算機和平板電腦與朋友溝通交流。   新浪微博眼不見心不煩 新浪微博（weibo.com）非官方功能增強插件，可以無限制地屏蔽關鍵詞、用戶、來源，去除頁面廣告和推廣微博，反刷屏，還您一個清爽乾淨的微博！   新浪微博圖牀 簡單好用的新浪微博圖牀,支持選擇/拖拽/粘貼上傳本地圖片,並生成圖片地址,HTML和Markdown三種格式   網頁截圖:註釋&amp;amp;批註 捕獲整個頁面或任何部分，矩形，圓形，箭頭，線條和文字，模糊敏感信息，一鍵上傳分享註釋。支持PNG和鏈接   網易雲音樂 不用打開網頁，收聽網易雲音樂，更簡單更易用。 網易雲音樂Chrome擴展，追求簡單體驗，不用打開網頁不用客戶端即可收聽網易雲音樂，歌單，大牌DJ，我的收藏。與其他終端同步，更簡單，更易用。   Stylish Stylish 是一款用戶樣式管理器，可讓您調整網頁的樣式。   SimpleUndoClose 簡單的恢復您曾經關閉的網站標籤   Proxy SwitchyOmega 輕鬆快捷地管理和切換多個代理設置。你懂的~   小樂圖客(ZIG) 取圖(網頁圖片批量下載) + 截圖(矢量標記) + 美圖 + 拼圖   Prism Pretty 前端神器 代碼高亮顯示網頁HTML/CSS/JS   Eye Dropper 設計獅神器 網頁取色器   Google 輸入工具 谷歌業界良心的雲輸入法 可以支持輸入90多種國家的語言文字   發微 / Fawave Chrome上的微博插件，支持多微博，真正的實時同步發送微博，多微博發送不再煩。目前支持的微博有騰訊微博(qq)、新浪微博(sina)、搜狐微博(sohu)、飯否、做啥、嘀咕(digu)、人間網、雷猴、豆瓣、Google Buzz、網易微博(163)和一些不存在的網站。 功能全面、強大，還可以批量發送圖片。   Pocket 輕鬆地保存文章、視頻等供以後查看。有了 Pocket，您的所有內容可匯聚到一個地方，以便在任何設備上隨時查看。甚至不需要網絡連接。   tampermonkey 用戶腳本管理 Chrome上面的油猴腳本管理器 添加你的自定義功能請去https://greasyfork.</description>
+    </item>
+    
+    <item>
+      <title>謹賀新年2015</title>
+      <link>https://via.moe/2015-chinese-new-year/</link>
+      <pubDate>Wed, 18 Feb 2015 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/2015-chinese-new-year/</guid>
+      <description>生肖更迭，辭舊迎新，又是一年團聚時。
+世上再美的風景也不及回家的那段路，外面的世界再精彩，也不及團圓時分帶來的留戀。
+願新年 吉祥如意 平安喜樂</description>
+    </item>
+    
+    <item>
+      <title>支持 Android 5.x 下 Chrome 的標題欄沉浸顏色</title>
+      <link>https://via.moe/support-for-theme-color-in-chrome-39-for-android/</link>
+      <pubDate>Thu, 29 Jan 2015 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/support-for-theme-color-in-chrome-39-for-android/</guid>
+      <description>此效果要求：Android版本5.x + Chrome 39+
+後臺多任務效果是這樣的
+代碼就一行 加在網頁的 &amp;lt;head&amp;gt; 標籤內 顏色選個你喜歡的就可以了
+&amp;lt;meta name=&amp;quot;theme-color&amp;quot; content=&amp;quot;#ffffff&amp;quot;&amp;gt;  網站favicon推薦64x64的ico文件
+&amp;lt;link href=&amp;quot;../favicon.ico&amp;quot; rel=&amp;quot;shortcut icon&amp;quot; type=&amp;quot;image/x-icon&amp;quot; /&amp;gt;  </description>
+    </item>
+    
+    <item>
+      <title>開源的廣告攔截工具 µBlock</title>
+      <link>https://via.moe/ublock/</link>
+      <pubDate>Sat, 09 Aug 2014 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/ublock/</guid>
+      <description>一款基於 Chromium 瀏覽器的高效廣告攔截工具，超低的 CPU 與內存使用。 一款高效的廣告攔截工具：超低的內存和 CPU 佔用，和其他常見的廣告攔截工具相比，可以加載並執行上千條過濾規則。 效率概述說明： https://github.com/gorhill/uBlock/wiki/%C2%B5Block-vs.-ABP:-efficiency-compared
+用法：點擊彈出窗口中的電源按鈕，µBlock 將對於當前網頁永久禁用 / 啓用廣告攔截功能。 它只適用於當前網頁，而不是全局按鈕。
+Chrome 商店地址 https://chrome.google.com/webstore/detail/%C2%B5block/cjpalhdlnbpafiamejdnhcphjbkeiagm
+它不只是一個廣告攔截工具，它還可以從 hosts 文件裏讀取和創建過濾規則。 初始默認加載和執行下列過濾規則： -EasyList -EasyPrivacy - Malware domains - Long-lived malware domains - Peter Lowe’s Ad server list - Malware Domains List 這裏還擁有更多的過濾規則供你選擇：
+  Fanboy’s Enhanced Tracking List
+  Dan Pollock’s hosts file
+  hpHosts’s Ad and tracking servers
+  MVPS HOSTS
+  Spam404
+  Etc.</description>
+    </item>
+    
+    <item>
+      <title>Google 的正確使用方法</title>
+      <link>https://via.moe/use-google/</link>
+      <pubDate>Sun, 22 Jun 2014 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/use-google/</guid>
+      <description>Google在大陸已經封了差不多有20天 訪問是極其的困難
+##下面我會介紹幾種輕輕鬆鬆訪問Google的方法
+你需要個靠譜的DNS服務器 比如 https://code.google.com/p/openerdns/ 或者 http://alidns.com/
+推薦各位使用Chrome瀏覽器 對自己家的Google有神祕加成 http://ippotsuko.com/open-google/
+或許你還需要http://jingyun.org 這樣你就可以訪問其他受限制的網站了 支持全平臺 包括Windows,Mac,Linux,iOS,Android等等 甚至你家的路由器也可以用）
+ Google搜索服務優化 Google會根據你的地區自動切換搜索的語言 在大陸是自動跳轉到谷歌香港 你懂的 如果你要搜索一些奇奇怪怪的東西 是很難的 因爲google香港禁用了安全搜索 這個時候你需要 https://google.com/ncr 打開這個網址 Google就不會自動跳轉了 或者進入https://encrypted.google.com 解除google的搜索限制 這個是完全加密的
+ Chrome瀏覽器可以用地址欄搜索 用ncr的參數應該是
+設置爲默認即可 如圖：
+以上都不行 也可以試試大神自己搭建的反向代理 g.ttlsa.com 或者 wen.lu
+然後 你應該就可以正常的使用Google了~
+ 登不上Google 怪我咯？</description>
+    </item>
+    
+    <item>
+      <title>Autoproxy 規則編輯說明</title>
+      <link>https://via.moe/edit-autoproxy-rules/</link>
+      <pubDate>Mon, 24 Mar 2014 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/edit-autoproxy-rules/</guid>
+      <description>你需要這幾樣東西 notepad++ sublime text 2 和一個base64轉換器
+首先把編寫好的gfvvlist.txt 轉爲base64的加密字符
+把剛剛得到的base64加密字符粘貼到notepad++裏去 注意格式是UNIX換行 編碼爲UTF-8或者ANSI
+把第一行控制到65個字符 回車 把notepad++的窗口拉到65個字符的位置
+按下CTRL+I 分隔行
+複製已經分割好行數的文本粘貼到sublime 轉換爲json格式
+修改文件擴展名爲.txt 大功告成
+ </description>
+    </item>
+    
+    <item>
+      <title>探訪谷歌上海辦公室</title>
+      <link>https://via.moe/visit-google-shanghai/</link>
+      <pubDate>Fri, 12 Jul 2013 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/visit-google-shanghai/</guid>
+      <description>2012年4月25日 Google 上海正式搬入了環球金融中心，新辦公室的設計充滿了中國元素的風情。我們一起來看看工程師們的聖地。
+  山水屏幕——揚子江上獨釣老翁
+福利——茶歇水果，應有盡有
+上面的文章來自谷歌搬到新家的報道
+接下來是今天我自己拍的 我也是匆忙收到谷歌的一個電話 讓我去參觀的 (:з」∠)
+這是我的Pass 那個藍色的圓形帖紙是進入餐廳要用的
+由於谷歌幾年前被迫離開中國 在大陸的業務就剩下廣告了 (:з」∠)
+這是入口處
+路過谷歌的餐廳 等會要來這裏吃飯的 ^_^
+谷歌內置的咖啡廳 名字叫：海 Cafe
+我朝小朋友給Google畫的Doodle~ 很可愛啊~ 很童趣
+地板上的字
+谷歌的前臺 （妹子很漂亮哦~
+入口處有個很寬的落地窗 放眼望去 是整個陸家嘴的鳥瞰
+旁邊的我朝特色的大門
+ Chrome和安德猴的雕塑
+入口還放了一個谷歌 地球的 設備 可以看全立體的地圖影像
+   每個辦公室都有一個名字 這個叫做：黃河
+由於辦公區域不能拍照 只能口述了
+谷歌在環球金融中心有兩個樓層 61和62 單單辦公室 佔了一個樓層多
+辦公室裏 可以騎車 可以遛狗 看到有人在辦公室裏養了只狗。。。
+辦公室的音樂&amp;mdash;留聲機
+每個辦公區域 都有個中文名稱 我看到的有 仁 義 智 信 孝 （沒見到 「禮」 出自《仁義八行》吧？ 仁 智 義 忠 信 禮 孝 悌</description>
+    </item>
+    
+  </channel>
+</rss>

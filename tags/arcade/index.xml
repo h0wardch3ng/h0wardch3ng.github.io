@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>arcade on Siege</title>
+    <link>https://via.moe/tags/arcade/</link>
+    <description>Recent content in arcade on Siege</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sun, 04 Mar 2018 19:32:59 +0800</lastBuildDate><atom:link href="https://via.moe/tags/arcade/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用街機模擬器 TeknoParrot 玩頭文字 D8 Infinity / D7 AAX / 灣岸 5</title>
+      <link>https://via.moe/arcade-game-emulator/</link>
+      <pubDate>Sun, 04 Mar 2018 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/arcade-game-emulator/</guid>
+      <description>首先下載免費版的 TeknoParrot ，如果有錢可以支持一下作者的 patreon
+遊戲下載 頭文字 D8 Infinity
+遊戲下載完成后先把 ID8_Update.7z 解压覆蓋遊戲根目錄，再把 InitialD8_GLW_RE_SBZZ_redumped_.7z 解压覆蓋遊戲根目錄
+頭文字 D7 AAX
+灣岸 5（Wangan Midnight 5）
+内有補丁文件，請覆蓋后執行 delete_old.bat
+模擬器設置 啓動 TeknoParrotUi.exe
+設置遊戲 InitialD7_GLW_RE_SBYD_dumped_.exe 路徑
+設置網絡(可選)
+頭文字 D 手柄設置 推薦使用 XBOX 手柄 或者 DS4 手柄
+DS4 手柄可以使用 DS4Windows 模擬 XBOX 手柄
+連接成功后按照下方圖片設置鍵位
+另外使用 IDASL 可以登錄聯機
+灣岸 5 手柄設置 </description>
+    </item>
+    
+  </channel>
+</rss>

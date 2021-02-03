@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<script>var url=window.location.href;url.indexOf("https")<0&&(url=url.replace("http:","https:"),window.location.replace(url));</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="theme-color" content="#2e2e33">
+<meta name="robots" content="index, follow">
+<title>關於Chrome的那些小技巧 | Siege</title>
+
+<meta name="keywords" content="chrome" />
+<meta name="description" content="Chrome是Google公司開發的一個現代化的網頁瀏覽器，作爲三大瀏覽器之一 它搭載了被稱爲V8的高效率Javascript引擎。
+由於簡潔的界面風格 和便捷易用的特點 Chrome的市場份額已經升至45% ，一舉超越了Internet Explorer和Mozilla Firefox成爲全球第一大瀏覽器。(數據來自Wikipedia)
+作爲一個現代化的瀏覽器，就像智能手機的APP ，每裝一個APP，意味着你的手機又多了一個功能。Chrome瀏覽器也是如此，Google也提供了網上應用商店供人下載擴展自定義使用。
+接下來我會介紹一些大家常用的擴展
+  ABP廣告過濾 / Adblock Plus 超過5000萬人使用，適用於 Chrome 的免費的廣告攔截器，可阻止所有煩人的廣告及惡意軟件和跟蹤。 享受沒有惱人廣告的網絡世界。   更好的歷史記錄 / Better History 替換瀏覽器自帶的歷史查看頁面。本擴展能更好地查看您的歷史記錄。爲查看您的歷史記錄帶來最好的搜索體驗，最清晰的界面和最有幫助的篩選。   印象筆記 剪藏 / Evernote Web Clipper 使用印象筆記擴展程序一鍵保存精彩網頁內容到印象筆記帳戶。 印象筆記•剪藏，以最快的速度，幫你保存網頁、截取屏幕、添加標註、輕鬆歸檔，隨時隨地快速找到所需一切。   環聊 / Hangouts 環聊讓對話更生動有趣：不但可以發送圖片和表情符，還能免費視頻聊天。 環聊融入了照片、表情符和視頻，讓一對一和多人對話更加生動有趣，而且完全免費。你可以通過手機、計算機和平板電腦與朋友溝通交流。   新浪微博眼不見心不煩 新浪微博（weibo.com）非官方功能增強插件，可以無限制地屏蔽關鍵詞、用戶、來源，去除頁面廣告和推廣微博，反刷屏，還您一個清爽乾淨的微博！   新浪微博圖牀 簡單好用的新浪微博圖牀,支持選擇/拖拽/粘貼上傳本地圖片,並生成圖片地址,HTML和Markdown三種格式   網頁截圖:註釋&amp;批註 捕獲整個頁面或任何部分，矩形，圓形，箭頭，線條和文字，模糊敏感信息，一鍵上傳分享註釋。支持PNG和鏈接   網易雲音樂 不用打開網頁，收聽網易雲音樂，更簡單更易用。 網易雲音樂Chrome擴展，追求簡單體驗，不用打開網頁不用客戶端即可收聽網易雲音樂，歌單，大牌DJ，我的收藏。與其他終端同步，更簡單，更易用。   Stylish Stylish 是一款用戶樣式管理器，可讓您調整網頁的樣式。   SimpleUndoClose 簡單的恢復您曾經關閉的網站標籤   Proxy SwitchyOmega 輕鬆快捷地管理和切換多個代理設置。你懂的~   小樂圖客(ZIG) 取圖(網頁圖片批量下載) &#43; 截圖(矢量標記) &#43; 美圖 &#43; 拼圖   Prism Pretty 前端神器 代碼高亮顯示網頁HTML/CSS/JS   Eye Dropper 設計獅神器 網頁取色器   Google 輸入工具 谷歌業界良心的雲輸入法 可以支持輸入90多種國家的語言文字   發微 / Fawave Chrome上的微博插件，支持多微博，真正的實時同步發送微博，多微博發送不再煩。目前支持的微博有騰訊微博(qq)、新浪微博(sina)、搜狐微博(sohu)、飯否、做啥、嘀咕(digu)、人間網、雷猴、豆瓣、Google Buzz、網易微博(163)和一些不存在的網站。 功能全面、強大，還可以批量發送圖片。   Pocket 輕鬆地保存文章、視頻等供以後查看。有了 Pocket，您的所有內容可匯聚到一個地方，以便在任何設備上隨時查看。甚至不需要網絡連接。   tampermonkey 用戶腳本管理 Chrome上面的油猴腳本管理器 添加你的自定義功能請去https://greasyfork.">
+<meta name="author" content="">
+<link rel="canonical" href="https://via.moe/chrome-tips/" />
+<link href="/assets/css/stylesheet.min.5c4f6d85b7abfcfea458637c672d16a7a9c38c37f002753cfdc7f314b6d3c8f2.css" integrity="sha256-XE9thber/P6kWGN8Zy0Wp6nDjDfwAnU8/cfzFLbTyPI=" rel="preload stylesheet"
+    as="style">
+
+<link rel="icon" href="https://via.moe/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://via.moe/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://via.moe/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://via.moe/apple-touch-icon.png">
+<link rel="mask-icon" href="https://via.moe/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.80.0" />
+
+
+<meta property="og:title" content="關於Chrome的那些小技巧" />
+<meta property="og:description" content="Chrome是Google公司開發的一個現代化的網頁瀏覽器，作爲三大瀏覽器之一 它搭載了被稱爲V8的高效率Javascript引擎。
+由於簡潔的界面風格 和便捷易用的特點 Chrome的市場份額已經升至45% ，一舉超越了Internet Explorer和Mozilla Firefox成爲全球第一大瀏覽器。(數據來自Wikipedia)
+作爲一個現代化的瀏覽器，就像智能手機的APP ，每裝一個APP，意味着你的手機又多了一個功能。Chrome瀏覽器也是如此，Google也提供了網上應用商店供人下載擴展自定義使用。
+接下來我會介紹一些大家常用的擴展
+  ABP廣告過濾 / Adblock Plus 超過5000萬人使用，適用於 Chrome 的免費的廣告攔截器，可阻止所有煩人的廣告及惡意軟件和跟蹤。 享受沒有惱人廣告的網絡世界。   更好的歷史記錄 / Better History 替換瀏覽器自帶的歷史查看頁面。本擴展能更好地查看您的歷史記錄。爲查看您的歷史記錄帶來最好的搜索體驗，最清晰的界面和最有幫助的篩選。   印象筆記 剪藏 / Evernote Web Clipper 使用印象筆記擴展程序一鍵保存精彩網頁內容到印象筆記帳戶。 印象筆記•剪藏，以最快的速度，幫你保存網頁、截取屏幕、添加標註、輕鬆歸檔，隨時隨地快速找到所需一切。   環聊 / Hangouts 環聊讓對話更生動有趣：不但可以發送圖片和表情符，還能免費視頻聊天。 環聊融入了照片、表情符和視頻，讓一對一和多人對話更加生動有趣，而且完全免費。你可以通過手機、計算機和平板電腦與朋友溝通交流。   新浪微博眼不見心不煩 新浪微博（weibo.com）非官方功能增強插件，可以無限制地屏蔽關鍵詞、用戶、來源，去除頁面廣告和推廣微博，反刷屏，還您一個清爽乾淨的微博！   新浪微博圖牀 簡單好用的新浪微博圖牀,支持選擇/拖拽/粘貼上傳本地圖片,並生成圖片地址,HTML和Markdown三種格式   網頁截圖:註釋&amp;批註 捕獲整個頁面或任何部分，矩形，圓形，箭頭，線條和文字，模糊敏感信息，一鍵上傳分享註釋。支持PNG和鏈接   網易雲音樂 不用打開網頁，收聽網易雲音樂，更簡單更易用。 網易雲音樂Chrome擴展，追求簡單體驗，不用打開網頁不用客戶端即可收聽網易雲音樂，歌單，大牌DJ，我的收藏。與其他終端同步，更簡單，更易用。   Stylish Stylish 是一款用戶樣式管理器，可讓您調整網頁的樣式。   SimpleUndoClose 簡單的恢復您曾經關閉的網站標籤   Proxy SwitchyOmega 輕鬆快捷地管理和切換多個代理設置。你懂的~   小樂圖客(ZIG) 取圖(網頁圖片批量下載) &#43; 截圖(矢量標記) &#43; 美圖 &#43; 拼圖   Prism Pretty 前端神器 代碼高亮顯示網頁HTML/CSS/JS   Eye Dropper 設計獅神器 網頁取色器   Google 輸入工具 谷歌業界良心的雲輸入法 可以支持輸入90多種國家的語言文字   發微 / Fawave Chrome上的微博插件，支持多微博，真正的實時同步發送微博，多微博發送不再煩。目前支持的微博有騰訊微博(qq)、新浪微博(sina)、搜狐微博(sohu)、飯否、做啥、嘀咕(digu)、人間網、雷猴、豆瓣、Google Buzz、網易微博(163)和一些不存在的網站。 功能全面、強大，還可以批量發送圖片。   Pocket 輕鬆地保存文章、視頻等供以後查看。有了 Pocket，您的所有內容可匯聚到一個地方，以便在任何設備上隨時查看。甚至不需要網絡連接。   tampermonkey 用戶腳本管理 Chrome上面的油猴腳本管理器 添加你的自定義功能請去https://greasyfork." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://via.moe/chrome-tips/" />
+<meta property="article:published_time" content="2015-02-27T19:32:59+08:00" />
+<meta property="article:modified_time" content="2015-02-27T19:32:59+08:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="關於Chrome的那些小技巧"/>
+<meta name="twitter:description" content="Chrome是Google公司開發的一個現代化的網頁瀏覽器，作爲三大瀏覽器之一 它搭載了被稱爲V8的高效率Javascript引擎。
+由於簡潔的界面風格 和便捷易用的特點 Chrome的市場份額已經升至45% ，一舉超越了Internet Explorer和Mozilla Firefox成爲全球第一大瀏覽器。(數據來自Wikipedia)
+作爲一個現代化的瀏覽器，就像智能手機的APP ，每裝一個APP，意味着你的手機又多了一個功能。Chrome瀏覽器也是如此，Google也提供了網上應用商店供人下載擴展自定義使用。
+接下來我會介紹一些大家常用的擴展
+  ABP廣告過濾 / Adblock Plus 超過5000萬人使用，適用於 Chrome 的免費的廣告攔截器，可阻止所有煩人的廣告及惡意軟件和跟蹤。 享受沒有惱人廣告的網絡世界。   更好的歷史記錄 / Better History 替換瀏覽器自帶的歷史查看頁面。本擴展能更好地查看您的歷史記錄。爲查看您的歷史記錄帶來最好的搜索體驗，最清晰的界面和最有幫助的篩選。   印象筆記 剪藏 / Evernote Web Clipper 使用印象筆記擴展程序一鍵保存精彩網頁內容到印象筆記帳戶。 印象筆記•剪藏，以最快的速度，幫你保存網頁、截取屏幕、添加標註、輕鬆歸檔，隨時隨地快速找到所需一切。   環聊 / Hangouts 環聊讓對話更生動有趣：不但可以發送圖片和表情符，還能免費視頻聊天。 環聊融入了照片、表情符和視頻，讓一對一和多人對話更加生動有趣，而且完全免費。你可以通過手機、計算機和平板電腦與朋友溝通交流。   新浪微博眼不見心不煩 新浪微博（weibo.com）非官方功能增強插件，可以無限制地屏蔽關鍵詞、用戶、來源，去除頁面廣告和推廣微博，反刷屏，還您一個清爽乾淨的微博！   新浪微博圖牀 簡單好用的新浪微博圖牀,支持選擇/拖拽/粘貼上傳本地圖片,並生成圖片地址,HTML和Markdown三種格式   網頁截圖:註釋&amp;批註 捕獲整個頁面或任何部分，矩形，圓形，箭頭，線條和文字，模糊敏感信息，一鍵上傳分享註釋。支持PNG和鏈接   網易雲音樂 不用打開網頁，收聽網易雲音樂，更簡單更易用。 網易雲音樂Chrome擴展，追求簡單體驗，不用打開網頁不用客戶端即可收聽網易雲音樂，歌單，大牌DJ，我的收藏。與其他終端同步，更簡單，更易用。   Stylish Stylish 是一款用戶樣式管理器，可讓您調整網頁的樣式。   SimpleUndoClose 簡單的恢復您曾經關閉的網站標籤   Proxy SwitchyOmega 輕鬆快捷地管理和切換多個代理設置。你懂的~   小樂圖客(ZIG) 取圖(網頁圖片批量下載) &#43; 截圖(矢量標記) &#43; 美圖 &#43; 拼圖   Prism Pretty 前端神器 代碼高亮顯示網頁HTML/CSS/JS   Eye Dropper 設計獅神器 網頁取色器   Google 輸入工具 谷歌業界良心的雲輸入法 可以支持輸入90多種國家的語言文字   發微 / Fawave Chrome上的微博插件，支持多微博，真正的實時同步發送微博，多微博發送不再煩。目前支持的微博有騰訊微博(qq)、新浪微博(sina)、搜狐微博(sohu)、飯否、做啥、嘀咕(digu)、人間網、雷猴、豆瓣、Google Buzz、網易微博(163)和一些不存在的網站。 功能全面、強大，還可以批量發送圖片。   Pocket 輕鬆地保存文章、視頻等供以後查看。有了 Pocket，您的所有內容可匯聚到一個地方，以便在任何設備上隨時查看。甚至不需要網絡連接。   tampermonkey 用戶腳本管理 Chrome上面的油猴腳本管理器 添加你的自定義功能請去https://greasyfork."/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "關於Chrome的那些小技巧",
+  "name": "關於Chrome的那些小技巧",
+  "description": "Chrome是Google公司開發的一個現代化的網頁瀏覽器，作爲三大瀏覽器之一 它搭載了被稱爲V8的高效率Javascript引擎。\n由於簡潔的界面風格 和便捷易用的特點 Chrome的市場份額已經升至45% ，一舉超越了Internet Explorer和Mozilla Firefox成爲全球第一大瀏覽器。(數據來自Wikipedia)\n作爲一個現代化的瀏 …",
+  "keywords": [
+    "chrome"
+  ],
+  "articleBody": "Chrome是Google公司開發的一個現代化的網頁瀏覽器，作爲三大瀏覽器之一 它搭載了被稱爲V8的高效率Javascript引擎。\n由於簡潔的界面風格 和便捷易用的特點 Chrome的市場份額已經升至45% ，一舉超越了Internet Explorer和Mozilla Firefox成爲全球第一大瀏覽器。(數據來自Wikipedia)\n作爲一個現代化的瀏覽器，就像智能手機的APP ，每裝一個APP，意味着你的手機又多了一個功能。Chrome瀏覽器也是如此，Google也提供了網上應用商店供人下載擴展自定義使用。\n接下來我會介紹一些大家常用的擴展\n  ABP廣告過濾 / Adblock Plus 超過5000萬人使用，適用於 Chrome 的免費的廣告攔截器，可阻止所有煩人的廣告及惡意軟件和跟蹤。 享受沒有惱人廣告的網絡世界。   更好的歷史記錄 / Better History 替換瀏覽器自帶的歷史查看頁面。本擴展能更好地查看您的歷史記錄。爲查看您的歷史記錄帶來最好的搜索體驗，最清晰的界面和最有幫助的篩選。   印象筆記 剪藏 / Evernote Web Clipper 使用印象筆記擴展程序一鍵保存精彩網頁內容到印象筆記帳戶。 印象筆記•剪藏，以最快的速度，幫你保存網頁、截取屏幕、添加標註、輕鬆歸檔，隨時隨地快速找到所需一切。   環聊 / Hangouts 環聊讓對話更生動有趣：不但可以發送圖片和表情符，還能免費視頻聊天。 環聊融入了照片、表情符和視頻，讓一對一和多人對話更加生動有趣，而且完全免費。你可以通過手機、計算機和平板電腦與朋友溝通交流。   新浪微博眼不見心不煩 新浪微博（weibo.com）非官方功能增強插件，可以無限制地屏蔽關鍵詞、用戶、來源，去除頁面廣告和推廣微博，反刷屏，還您一個清爽乾淨的微博！   新浪微博圖牀 簡單好用的新浪微博圖牀,支持選擇/拖拽/粘貼上傳本地圖片,並生成圖片地址,HTML和Markdown三種格式   網頁截圖:註釋\u0026批註 捕獲整個頁面或任何部分，矩形，圓形，箭頭，線條和文字，模糊敏感信息，一鍵上傳分享註釋。支持PNG和鏈接   網易雲音樂 不用打開網頁，收聽網易雲音樂，更簡單更易用。 網易雲音樂Chrome擴展，追求簡單體驗，不用打開網頁不用客戶端即可收聽網易雲音樂，歌單，大牌DJ，我的收藏。與其他終端同步，更簡單，更易用。   Stylish Stylish 是一款用戶樣式管理器，可讓您調整網頁的樣式。   SimpleUndoClose 簡單的恢復您曾經關閉的網站標籤   Proxy SwitchyOmega 輕鬆快捷地管理和切換多個代理設置。你懂的~   小樂圖客(ZIG) 取圖(網頁圖片批量下載) + 截圖(矢量標記) + 美圖 + 拼圖   Prism Pretty 前端神器 代碼高亮顯示網頁HTML/CSS/JS   Eye Dropper 設計獅神器 網頁取色器   Google 輸入工具 谷歌業界良心的雲輸入法 可以支持輸入90多種國家的語言文字   發微 / Fawave Chrome上的微博插件，支持多微博，真正的實時同步發送微博，多微博發送不再煩。目前支持的微博有騰訊微博(qq)、新浪微博(sina)、搜狐微博(sohu)、飯否、做啥、嘀咕(digu)、人間網、雷猴、豆瓣、Google Buzz、網易微博(163)和一些不存在的網站。 功能全面、強大，還可以批量發送圖片。   Pocket 輕鬆地保存文章、視頻等供以後查看。有了 Pocket，您的所有內容可匯聚到一個地方，以便在任何設備上隨時查看。甚至不需要網絡連接。   tampermonkey 用戶腳本管理 Chrome上面的油猴腳本管理器 添加你的自定義功能請去https://greasyfork.org/zh-CN/ 尋找   惠惠購物助手 砍手黨必備擴展 在您網購瀏覽商品的同時，自動對比其他優質電商同款商品價格，並提供商品價格歷史，幫您輕鬆抄底，聰明網購不吃虧！   Google翻譯 適合外語學習者 哪裏不會劃哪裏 so easy~   rikaikun 可以把網頁中的日文漢字顯示平假名和羅馬音 適合日語學習者   我最喜歡的兩個Chrome擴展是Evernote和Pocket了 前者可以很詳細的記錄自己的筆記 後者是一個強大的在線收藏夾 雖然前者也有收藏夾的功能 但是非付費用戶每月限制60MB流量 如果要收藏的網頁有許多圖片 可能就不夠用了 所以我選擇了Pocket 把喜歡的網頁全部藏進Pocket 找也好找 兩個一起用簡直神器 學習工作效率也能上去不少\n身在牆內，或許很多人不習慣這個來自國外的瀏覽器產品，有許許多多的「適合」國人使用習慣的瀏覽器 比如大數字極速/安全瀏覽器、傲遊瀏覽器、搜狗瀏覽器、獵豹瀏覽器 甚至國外有名的Opera瀏覽器都是基於Chromium(Chrome的開放源代碼版本)的「套殼」瀏覽器，因爲開源所以會很容易衍生出很多的第三方版本，同時Chrome的擴展也基本(除非有些改的面目全非←_←)適用於它們。\n下面介紹一些Chrome的自定義優化設置\n比如我喜歡讓我的瀏覽器把顯示字體強制爲Google的Noto字體 就可以用剛剛介紹的Stylish這個擴展自定義css\n*:not([class*=\"icon\"]):not([class*=\"mui-amount\"]):not([class*=\"chaoshi\"]):not([class*=\"top-nav\"]):not([href*=\"ju.taobao.com\"]):not([class*=\"Icon\"]):not([class*=\"prev\"]):not([class*=\"next\"]):not([class*=\"pay-\"]):not([class*=\"tm-shop-list-\"]):not(b):not(ins):not(i):not(s){font-family:\"Noto Sans CJK SC Regular\"!important;}  或者讓文字URL鏈接的下劃線消失\n* {text-decoration:none!important;}  或者自定義瀏覽器的滾動條樣式 參考鏈接 *新版本Chrome或許取消此功能\n::-webkit-scrollbar{ width:3px; height:6px; background-color:#fff; } ::-webkit-scrollbar:hover{ background-color:#eee; } ::-webkit-scrollbar-thumb{ min-height:5px; min-width:5px; -webkit-border-radius:20px;border:1px solid#888; ::-webkit-border-radius:1px; background-color: #AAA; } ::-webkit-scrollbar-thumb:hover{ min-height:4px; min-width:4px; -webkit-border-radius:20px;border:1px solid#444; background-color: #AAA; } ::-webkit-scrollbar-thumb:active{ -webkit-border-radius:20px;border:1px solid#444; background-color: #AAA; }  更多的css樣式可以去https://userstyles.org 獲取\nChrome本身還有很多強大的功能 下面推薦幾個常用的隱藏設置 我也不是專業的前端人員 下面就簡單的介紹一下常用的幾個工具 自帶的開發者工具 繼承了webkit的一些功能 左上角的手機圖標按鈕是開發者工具的模擬器 可以通過改變UA等設置模擬顯示移動設備的網頁兼容情況 最下面還有模擬器的更多設置 開發者工具還有個常用的網頁元素嗅探功能 可以用這個功能找到一些你想要的頁面內的元素 比如禁止保存的圖片 音頻 視頻等 也可以獲知此頁面內元素的加載狀況 如果頁面內容顯示或者功能不正常 可以嘗試清除Cookie(此文件記錄了用戶的一些信息 打碼處理(//∇//) 或者頁面Cache緩存 在開發者工具打開的情況下 清除頁面緩存可以長時間單擊左上角的刷新按鈕 出現清理的菜單選項 另外長按返回按鈕 可以選擇曾經打開過的頁面（這個不需要開啓開發者工具 接下來介紹一些Chrome的隱藏調試設置 地址欄打開 chrome://flags 按下 Ctrl+F或者 Command+F 頁面內搜索 quic 啓用實驗性QUIC協議和SPDY/4（HTTP/2標準）訪問那些不存在的網站可能有加速的效果 你懂的~\n非Mac用戶建議開啓重疊式滾動條 開啓之後 頁面內的滾動條會消失 直到你滾動頁面纔會漸漸出現 非Windows用戶強烈推薦禁用Flash插件 保證瀏覽器的流暢和穩定_(:з」∠)、 打開chrome://plugins找到Adobe Flash Player這個插件 停用即可 並改用HTML5的播放器 http://zythum.sinaapp.com/youkuhtml5playerbookmark/\n或者添加書籤\njavascript:(function(){var l = document.createElement('link');l.setAttribute('rel','stylesheet');l.setAttribute('media','all');l.setAttribute('href','http://zythum.sinaapp.com/youkuhtml5playerbookmark/youkuhtml5playerbookmark2.css');document.body.appendChild(l);var s = document.createElement('script');s.setAttribute('src','http://zythum.sinaapp.com/youkuhtml5playerbookmark/youkuhtml5playerbookmark2.js');document.body.appendChild(s);})();  打開含有視頻的網頁 點擊書籤即可使用HTML5播放器 畫質也彆強求 國內的視頻網站都是一票裏貨色 國外那個不存在的視頻網站已經捨棄該死的Flash播放器全面HTML5化了 視頻清晰度也是最高達到4K _(:з」∠)/ 國內的1080p還要買會員呢 不買會員還要乖乖看60秒的廣告 如果是個10幾秒的短視頻也要看60秒的廣告先 如果廣告加載卡住 對不起 刷新頁面之後再看一段60秒的廣告吧~ 真是去年買表←_←\n如果需要訪問某些不存在的網站強制HTTPS可以安裝HTTPS Everywhere這個擴展\n也可以在chrome://net-internals/#hsts裏面設置網址列表\n列如把維基百科 https://wikipedia.org/ 和所有子域名（記得勾選關於subdomin的兩個選項）加入HSTS列表\n然後打開頁面就是強制使用HTTPS加密連接了 打開 chrome://chrome-urls/你可以找到很多隱藏的設置入口 慢慢探索吧 騷年們~\n一行代碼，還可以把Chrome瀏覽器變臨時的文字編輯器(來自伯樂在線\ndata:text/html,  這是用了數據URI的格式（Data URI’s format），並告訴瀏覽器渲染 HTML。不過 contenteditable 是 HTML5 的一個新全局屬性，所以這個小技巧只能用於支持該屬性的現代瀏覽器。 除了複製粘貼文字 也可以粘貼圖片\njakeonrails大神然後改了一下 支持了代碼高亮 參考https://gist.github.com/jakeonrails/4666256\ndata:text/html, #e{position:absolute;top:0;right:0;bottom:0;left:0;}var e=ace.edit(\"e\");e.setTheme(\"ace/theme/monokai\");e.getSession().setMode(\"ace/mode/python\");  提示說：如果把上面的 ace/mode/python 改成 ace/mode/ruby，那麼就得到了一個 Ruby 版的編輯器咯。其他語言依此類推。\n改造成支持其他語言語法高亮的，可把 ace/mode/ruby 替換爲：\nPython - ace/mode/python C/C++ - ace/mode/c_cpp Javscript - ace/mode/javascript Java - ace/mode/java Scala - ace/mode/scala Markdown - ace/mode/markdown CoffeeScript - ace/mode/coffee 其他……\njakeonrails 語法高亮風格用的是 monokai。 如果需要換成其他風格，，可把 ace/theme/monokai 替換爲：\nEclipse - ace/theme/eclipse TextMate - ace/theme/textmate 其他……\n不想複製粘貼代碼的懶漢童鞋，可以直接戳下面這些鏈接：\n關於Chrome的快捷鍵 參考官方說明 和知乎\n 想把網頁保存爲PDF？按快捷鍵Ctrl+P，然後在顯示出來的打印頁面上把目標打印機更改爲「另存爲PDF」，最後按保存就完成了，逼格爆滿。 Ctrl+Shift+N，打開隱身模式。你的瀏覽記錄和Cookies就不會被保留。盡情享受吧。 苦於Chrome打開太多的頁面以至於太卡？只要按Shift+Esc就可以打開任務管理器，想關那裏就關那裏，再也不用Ctrl+W一個一個關閉了。 組合鍵Ctrl+Shift+T用於恢復不小心關掉的頁面。 Alt+Home快速返回你設置你的主頁。 Ctrl+H快速查看歷史記錄。 Ctrl+J快速查看下載記錄。 想要快速選定地址欄？按F6，等同於按Ctrl+L，再等同於Alt+D 想快速刪除你的瀏覽記錄，只要按住Ctrl+Shift+Delete鍵就可以快速刪除。 Ctrl+Tab從左到右切換頁面標籤，Ctrl+Shift+Tab則是從右到左切換。 Ctrl+1用於快速返回最開始（即最左邊的頁面），Ctrl+9快速返回最右邊的頁面。 想要看各種小說卻又抱怨屏幕太小？按F11立刻享受全屏帶來的快感。  沒有PDF閱覽器 沒關係 直接把pdf文件拖到Chrome窗口裏面就可以查看了~ 重要的網頁標籤可以固定 防止誤關閉 更多關於Chrome的奇技淫巧等你發現~\n本博客採用 署名-相同方式共享 4.0 許可協議進行許可。\nThis site is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.\n",
+  "wordCount" : "347",
+  "inLanguage": "en",
+  "datePublished": "2015-02-27T19:32:59+08:00",
+  "dateModified": "2015-02-27T19:32:59+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://via.moe/chrome-tips/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Siege",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://via.moe/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<noscript>
+    <style type="text/css">
+        .theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://via.moe/" accesskey="h" title="Siege (Alt + H)">Siege</a>
+            <span class="logo-switches">
+                <span class="theme-toggle" title="(Alt + T)">
+                    <a id="theme-toggle" accesskey="t">
+                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </a>
+                </span>
+                
+            </span>
+        </div>
+        <ul class="menu" id="menu" onscroll="menu_on_scroll()">
+            <li>
+                <a href="https://via.moe/" title="Index">
+                    <span>Index</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://via.moe/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://via.moe/rss.xml" title="RSS">
+                    <span>RSS</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://via.moe/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li></ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">
+      關於Chrome的那些小技巧
+    </h1>
+    <div class="post-description">
+      
+    </div>
+    <div class="post-meta">February 27, 2015
+
+    </div>
+  </header> 
+
+  <div class="post-content">
+<p>Chrome是Google公司開發的一個現代化的網頁瀏覽器，作爲三大瀏覽器之一 它搭載了被稱爲V8的高效率Javascript引擎。</p>
+<p><img src="http://ww4.sinaimg.cn/large/6d9bd6a5gw1epn9m03252j20rs0hswgk.jpg" alt=""></p>
+<p>由於簡潔的界面風格 和便捷易用的特點  Chrome的市場份額已經升至45% ，一舉超越了Internet Explorer和Mozilla Firefox成爲全球第一大瀏覽器。(數據來自Wikipedia)</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p>作爲一個現代化的瀏覽器，就像智能手機的APP ，每裝一個APP，意味着你的手機又多了一個功能。Chrome瀏覽器也是如此，Google也提供了<a href="https://chrome.google.com/webstore/category/extensions?hl=zh-CN">網上應用商店</a>供人下載擴展自定義使用。</p>
+<p>接下來我會介紹一些大家常用的擴展</p>
+<ul>
+<li>
+<p><a href="https://chrome.google.com/webstore/detail/adblock-plus/cfhdojbkjhnklbpkdaibdccddilifddb">ABP廣告過濾 / Adblock Plus</a>
+超過5000萬人使用，適用於 Chrome 的免費的廣告攔截器，可阻止所有煩人的廣告及惡意軟件和跟蹤。
+享受沒有惱人廣告的網絡世界。
+<img src="http://ww1.sinaimg.cn/large/6d9bd6a5gw1epnaugo0rnj20gc0a4ab7.jpg" alt=""></p>
+</li>
+<li>
+<p><a href="https://chrome.google.com/webstore/detail/better-history/obciceimmggglbmelaidpjlmodcebijb">更好的歷史記錄 / Better History</a>
+替換瀏覽器自帶的歷史查看頁面。本擴展能更好地查看您的歷史記錄。爲查看您的歷史記錄帶來最好的搜索體驗，最清晰的界面和最有幫助的篩選。
+<img src="http://ww2.sinaimg.cn/large/6d9bd6a5gw1epnawzvjabj20hd0b2404.jpg" alt=""></p>
+</li>
+<li>
+<p><a href="https://chrome.google.com/webstore/detail/evernote-web-clipper/pioclpoplcdbaefihamjohnefbikjilc">印象筆記 剪藏 / Evernote Web Clipper</a>
+使用印象筆記擴展程序一鍵保存精彩網頁內容到印象筆記帳戶。
+印象筆記•剪藏，以最快的速度，幫你保存網頁、截取屏幕、添加標註、輕鬆歸檔，隨時隨地快速找到所需一切。
+<img src="http://ww2.sinaimg.cn/large/6d9bd6a5gw1epnazdgwsmj20h00a1jso.jpg" alt=""></p>
+</li>
+<li>
+<p><a href="https://chrome.google.com/webstore/detail/hangouts/nckgahadagoaajjgafhacjanaoiihapd">環聊 / Hangouts</a>
+環聊讓對話更生動有趣：不但可以發送圖片和表情符，還能免費視頻聊天。
+環聊融入了照片、表情符和視頻，讓一對一和多人對話更加生動有趣，而且完全免費。你可以通過手機、計算機和平板電腦與朋友溝通交流。
+<img src="http://ww3.sinaimg.cn/large/6d9bd6a5gw1epnb2kdzn6j20d6095ta5.jpg" alt=""></p>
+</li>
+<li>
+<p><a href="https://chrome.google.com/webstore/detail/%E7%9C%BC%E4%B8%8D%E8%A6%8B%E5%BF%83%E4%B8%8D%E7%85%A9%EF%BC%88%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A%EF%BC%89/aognaapdfnnldnjglanfbbklaakbpejm">新浪微博眼不見心不煩</a>
+新浪微博（weibo.com）非官方功能增強插件，可以無限制地屏蔽關鍵詞、用戶、來源，去除頁面廣告和推廣微博，反刷屏，還您一個清爽乾淨的微博！
+<img src="http://ww4.sinaimg.cn/large/6d9bd6a5gw1epnb4fbixej20hi0avgoa.jpg" alt=""></p>
+</li>
+<li>
+<p><a href="https://chrome.google.com/webstore/detail/%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A%E5%9C%96%E7%89%80/fdfdnfpdplfbbnemmmoklbfjbhecpnhf">新浪微博圖牀</a>
+簡單好用的新浪微博圖牀,支持選擇/拖拽/粘貼上傳本地圖片,並生成圖片地址,HTML和Markdown三種格式
+<img src="http://ww1.sinaimg.cn/large/6d9bd6a5gw1epnb95jkgtj20gv07ht8u.jpg" alt=""></p>
+</li>
+<li>
+<p><a href="https://chrome.google.com/webstore/detail/awesome-screenshot-captur/alelhddbbhepgpmgidjdcjakblofbmce">網頁截圖:註釋&amp;批註</a>
+捕獲整個頁面或任何部分，矩形，圓形，箭頭，線條和文字，模糊敏感信息，一鍵上傳分享註釋。支持PNG和鏈接
+<img src="http://ww1.sinaimg.cn/large/6d9bd6a5gw1epnb82kafbj20gu091tb4.jpg" alt=""></p>
+</li>
+<li>
+<p><a href="https://chrome.google.com/webstore/detail/%E7%B6%B2%E6%98%93%E9%9B%B2%E9%9F%B3%E6%A8%82/cojibhccojpmllbgpmhcoidohgbpdhkj">網易雲音樂</a>
+不用打開網頁，收聽網易雲音樂，更簡單更易用。
+網易雲音樂Chrome擴展，追求簡單體驗，不用打開網頁不用客戶端即可收聽網易雲音樂，歌單，大牌DJ，我的收藏。與其他終端同步，更簡單，更易用。
+<img src="http://ww2.sinaimg.cn/large/6d9bd6a5gw1epnbakh6naj20h00amq51.jpg" alt=""></p>
+</li>
+<li>
+<p><a href="https://chrome.google.com/webstore/detail/stylish/fjnbnpbmkenffdnngjfgmeleoegfcffe">Stylish</a>
+Stylish 是一款用戶樣式管理器，可讓您調整網頁的樣式。
+<img src="http://ww2.sinaimg.cn/large/6d9bd6a5gw1epnbbs4tw5j20hg090t9s.jpg" alt=""></p>
+</li>
+<li>
+<p><a href="https://chrome.google.com/webstore/detail/simpleundoclose/emhohdghchmjepmigjojkehidlielknj">SimpleUndoClose</a>
+簡單的恢復您曾經關閉的網站標籤
+<img src="http://ww1.sinaimg.cn/large/6d9bd6a5gw1epnbwmw11zj20c10atmyl.jpg" alt=""></p>
+</li>
+<li>
+<p><a href="https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif">Proxy SwitchyOmega</a>
+輕鬆快捷地管理和切換多個代理設置。你懂的~
+<img src="http://ww4.sinaimg.cn/large/6d9bd6a5gw1epnbzdwvv7j20ek08g0td.jpg" alt=""></p>
+</li>
+<li>
+<p><a href="https://chrome.google.com/webstore/detail/bulk-download-imageszig/gfjhimhkjmipphnaminnnnjpnlneeplk">小樂圖客(ZIG)</a>
+取圖(網頁圖片批量下載) + 截圖(矢量標記) + 美圖 + 拼圖
+<img src="http://ww2.sinaimg.cn/large/6d9bd6a5gw1epnfw9tiuij20hr0ao777.jpg" alt=""></p>
+</li>
+<li>
+<p><a href="https://chrome.google.com/webstore/detail/prism-pretty/hjjcdjnncffbbhlglkipjhljmocnehim">Prism Pretty</a>
+前端神器  代碼高亮顯示網頁HTML/CSS/JS
+<img src="http://ww2.sinaimg.cn/large/6d9bd6a5gw1epncazn7moj20hn0awmyx.jpg" alt=""></p>
+</li>
+<li>
+<p><a href="https://chrome.google.com/webstore/detail/eye-dropper/hmdcmlfkchdmnmnmheododdhjedfccka">Eye Dropper</a>
+設計獅神器  網頁取色器
+<img src="http://ww2.sinaimg.cn/large/6d9bd6a5gw1epncnjun7bj20g70at0um.jpg" alt=""></p>
+</li>
+<li>
+<p><a href="https://chrome.google.com/webstore/detail/google-input-tools/mclkkofklkfljcocdinagocijmpgbhab">Google 輸入工具</a>
+谷歌業界良心的雲輸入法  可以支持輸入90多種國家的語言文字
+<img src="http://ww1.sinaimg.cn/large/6d9bd6a5gw1epncovvvhuj20fq09xgnl.jpg" alt=""></p>
+</li>
+<li>
+<p><a href="https://chrome.google.com/webstore/detail/fawave/aicelmgbddfgmpieedjiggifabdpcnln">發微 / Fawave</a>
+Chrome上的微博插件，支持多微博，真正的實時同步發送微博，多微博發送不再煩。目前支持的微博有騰訊微博(qq)、新浪微博(sina)、搜狐微博(sohu)、飯否、做啥、嘀咕(digu)、人間網、雷猴、豆瓣、Google Buzz、網易微博(163)和一些不存在的網站。 功能全面、強大，還可以批量發送圖片。
+<img src="http://ww4.sinaimg.cn/large/6d9bd6a5gw1epncqfg6tfj20hr0ajtce.jpg" alt=""></p>
+</li>
+<li>
+<p><a href="https://chrome.google.com/webstore/detail/save-to-pocket/niloccemoadcdkdjlinkgdfekeahmflj">Pocket</a>
+輕鬆地保存文章、視頻等供以後查看。有了 Pocket，您的所有內容可匯聚到一個地方，以便在任何設備上隨時查看。甚至不需要網絡連接。
+<img src="http://ww2.sinaimg.cn/large/6d9bd6a5gw1epncrnf0zdj20gw0avwf9.jpg" alt=""></p>
+</li>
+<li>
+<p><a href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo">tampermonkey</a>
+用戶腳本管理 Chrome上面的油猴腳本管理器
+添加你的自定義功能請去https://greasyfork.org/zh-CN/ 尋找
+<img src="http://ww2.sinaimg.cn/large/6d9bd6a5gw1epnchg5lp7j20hh0a80v3.jpg" alt=""></p>
+</li>
+<li>
+<p><a href="https://chrome.google.com/webstore/detail/%E6%83%A0%E6%83%A0%E8%B3%BC%E7%89%A9%E5%8A%A9%E6%89%8B/ohjkicjidmohhfcjjlahfppkdblibkkb">惠惠購物助手</a>
+砍手黨必備擴展 在您網購瀏覽商品的同時，自動對比其他優質電商同款商品價格，並提供商品價格歷史，幫您輕鬆抄底，聰明網購不吃虧！
+<img src="http://ww1.sinaimg.cn/large/6d9bd6a5gw1epnckxpt9vj20h70azq4q.jpg" alt=""></p>
+</li>
+<li>
+<p><a href="https://chrome.google.com/webstore/detail/google-translate/aapbdbdomjkkjkaonfhkkikfgjllcleb">Google翻譯</a>
+適合外語學習者 哪裏不會劃哪裏  so easy~
+<img src="http://ww2.sinaimg.cn/large/6d9bd6a5gw1epncdi7t54j20hj0akdhx.jpg" alt=""></p>
+</li>
+<li>
+<p><a href="https://chrome.google.com/webstore/detail/rikaikun/jipdnfibhldikgcjhfnomkfpcebammhp">rikaikun</a>
+可以把網頁中的日文漢字顯示平假名和羅馬音 適合日語學習者
+<img src="http://ww4.sinaimg.cn/large/6d9bd6a5gw1epnc8uuq5tj20gy09xmyw.jpg" alt=""></p>
+</li>
+</ul>
+<p>我最喜歡的兩個Chrome擴展是Evernote和Pocket了
+前者可以很詳細的記錄自己的筆記  後者是一個強大的在線收藏夾 雖然前者也有收藏夾的功能 但是非付費用戶每月限制60MB流量  如果要收藏的網頁有許多圖片  可能就不夠用了  所以我選擇了Pocket  把喜歡的網頁全部藏進Pocket 找也好找  兩個一起用簡直神器  學習工作效率也能上去不少</p>
+<p>身在牆內，或許很多人不習慣這個來自國外的瀏覽器產品，有許許多多的「適合」國人使用習慣的瀏覽器 比如大數字極速/安全瀏覽器、傲遊瀏覽器、搜狗瀏覽器、獵豹瀏覽器 甚至國外有名的Opera瀏覽器都是基於Chromium(Chrome的開放源代碼版本)的「套殼」瀏覽器，因爲開源所以會很容易衍生出很多的第三方版本，同時Chrome的擴展也基本(除非有些改的面目全非←_←)適用於它們。</p>
+<p>下面介紹一些Chrome的自定義優化設置</p>
+<p>比如我喜歡讓我的瀏覽器把顯示字體強制爲Google的Noto字體 就可以用剛剛介紹的Stylish這個擴展自定義css</p>
+<pre><code>*:not([class*=&quot;icon&quot;]):not([class*=&quot;mui-amount&quot;]):not([class*=&quot;chaoshi&quot;]):not([class*=&quot;top-nav&quot;]):not([href*=&quot;ju.taobao.com&quot;]):not([class*=&quot;Icon&quot;]):not([class*=&quot;prev&quot;]):not([class*=&quot;next&quot;]):not([class*=&quot;pay-&quot;]):not([class*=&quot;tm-shop-list-&quot;]):not(b):not(ins):not(i):not(s){font-family:&quot;Noto Sans CJK SC Regular&quot;!important;}
+</code></pre>
+<p>或者讓文字URL鏈接的下劃線消失</p>
+<pre><code>* {text-decoration:none!important;}
+</code></pre>
+<p>或者自定義瀏覽器的滾動條樣式 <a href="http://www.yuxiaoxi.com/2013-05-21-css-custom-scroll-bar-style.html">參考鏈接</a> *新版本Chrome或許取消此功能</p>
+<pre><code>::-webkit-scrollbar{
+width:3px;
+height:6px;
+background-color:#fff;
+}
+::-webkit-scrollbar:hover{
+background-color:#eee;
+}
+::-webkit-scrollbar-thumb{
+min-height:5px;
+min-width:5px;
+-webkit-border-radius:20px;border:1px solid#888;
+::-webkit-border-radius:1px;
+background-color: #AAA;
+}
+::-webkit-scrollbar-thumb:hover{
+min-height:4px;
+min-width:4px;
+-webkit-border-radius:20px;border:1px solid#444;
+background-color: #AAA;
+}
+::-webkit-scrollbar-thumb:active{
+-webkit-border-radius:20px;border:1px solid#444;
+background-color: #AAA;
+}
+</code></pre>
+<p>更多的css樣式可以去https://userstyles.org 獲取</p>
+<p>Chrome本身還有很多強大的功能 下面推薦幾個常用的隱藏設置
+我也不是專業的前端人員  下面就簡單的介紹一下常用的幾個工具
+自帶的開發者工具  繼承了webkit的一些功能
+<img src="http://ww4.sinaimg.cn/large/6d9bd6a5gw1epnd435w6ej20tv04at9l.jpg" alt=""></p>
+<p>左上角的手機圖標按鈕是開發者工具的模擬器  可以通過改變UA等設置模擬顯示移動設備的網頁兼容情況
+<img src="http://ww4.sinaimg.cn/large/6d9bd6a5gw1epnd5i22qhj20pt1a1th5.jpg" alt=""></p>
+<p>最下面還有模擬器的更多設置
+<img src="http://ww2.sinaimg.cn/large/6d9bd6a5gw1epnd6f63ioj20fy0rojvh.jpg" alt=""></p>
+<p>開發者工具還有個常用的網頁元素嗅探功能
+可以用這個功能找到一些你想要的頁面內的元素  比如禁止保存的圖片 音頻 視頻等
+<img src="http://ww4.sinaimg.cn/large/6d9bd6a5gw1epndf039g9j20sr09odht.jpg" alt=""></p>
+<p>也可以獲知此頁面內元素的加載狀況
+<img src="http://ww2.sinaimg.cn/large/6d9bd6a5gw1epndfadq1yj20us0870uz.jpg" alt=""></p>
+<p>如果頁面內容顯示或者功能不正常  可以嘗試清除Cookie(此文件記錄了用戶的一些信息 打碼處理(//∇//)  或者頁面Cache緩存
+<img src="http://ww4.sinaimg.cn/large/6d9bd6a5gw1epndmjgx7dj20vq08ejuc.jpg" alt=""></p>
+<p>在開發者工具打開的情況下  清除頁面緩存可以長時間單擊左上角的刷新按鈕 出現清理的菜單選項
+<img src="http://ww3.sinaimg.cn/large/6d9bd6a5gw1epndqedkluj20jm0aajt4.jpg" alt=""></p>
+<p>另外長按返回按鈕 可以選擇曾經打開過的頁面（這個不需要開啓開發者工具
+<img src="http://ww2.sinaimg.cn/large/6d9bd6a5gw1epnduj5nqij20hh0jg41n.jpg" alt=""></p>
+<p>接下來介紹一些Chrome的隱藏調試設置
+地址欄打開 <code>chrome://flags</code>
+按下 <code>Ctrl+F</code>或者 <code>Command+F</code> 頁面內搜索 <code>quic</code>
+啓用實驗性QUIC協議和SPDY/4（HTTP/2標準）訪問那些不存在的網站可能有加速的效果 你懂的~</p>
+<p><img src="http://ww4.sinaimg.cn/large/6d9bd6a5gw1epndzb9w49j20ow0ky0xi.jpg" alt=""></p>
+<p>非Mac用戶建議開啓重疊式滾動條
+開啓之後  頁面內的滾動條會消失  直到你滾動頁面纔會漸漸出現
+<img src="http://ww4.sinaimg.cn/large/6d9bd6a5gw1epne1rw2m6j20hl05f0u6.jpg" alt=""></p>
+<p>非Windows用戶強烈推薦禁用Flash插件 保證瀏覽器的流暢和穩定_(:з」∠)、
+打開<code>chrome://plugins</code>找到Adobe Flash Player這個插件  停用即可
+<img src="http://ww1.sinaimg.cn/large/6d9bd6a5gw1epne5dhzjwj20se05lq3r.jpg" alt=""></p>
+<p>並改用HTML5的播放器  <a href="http://zythum.sinaapp.com/youkuhtml5playerbookmark/">http://zythum.sinaapp.com/youkuhtml5playerbookmark/</a></p>
+<p>或者添加書籤</p>
+<pre><code>javascript:(function(){var l = document.createElement('link');l.setAttribute('rel','stylesheet');l.setAttribute('media','all');l.setAttribute('href','http://zythum.sinaapp.com/youkuhtml5playerbookmark/youkuhtml5playerbookmark2.css');document.body.appendChild(l);var s = document.createElement('script');s.setAttribute('src','http://zythum.sinaapp.com/youkuhtml5playerbookmark/youkuhtml5playerbookmark2.js');document.body.appendChild(s);})();
+</code></pre>
+<p>打開含有視頻的網頁 點擊書籤即可使用HTML5播放器
+畫質也彆強求  國內的視頻網站都是一票裏貨色  國外那個不存在的視頻網站已經捨棄該死的Flash播放器全面HTML5化了  視頻清晰度也是最高達到4K _(:з」∠)/ 國內的1080p還要買會員呢 不買會員還要乖乖看60秒的廣告 如果是個10幾秒的短視頻也要看60秒的廣告先  如果廣告加載卡住  對不起 刷新頁面之後再看一段60秒的廣告吧~  真是去年買表←_←</p>
+<p><img src="http://ww1.sinaimg.cn/large/6d9bd6a5gw1epne5dhzjwj20se05lq3r.jpg" alt=""></p>
+<p>如果需要訪問某些不存在的網站強制HTTPS可以安裝<a href="https://chrome.google.com/webstore/detail/https-everywhere/gcbommkclmclpchllfjekcdonpmejbdp">HTTPS Everywhere</a>這個擴展</p>
+<p>也可以在<code>chrome://net-internals/#hsts</code>裏面設置網址列表</p>
+<p>列如把維基百科 <a href="https://wikipedia.org/">https://wikipedia.org/</a>  和所有子域名（記得勾選關於subdomin的兩個選項）加入HSTS列表</p>
+<p><img src="http://ww1.sinaimg.cn/large/6d9bd6a5gw1epnep9f4abj20s209cac4.jpg" alt=""></p>
+<p>然後打開頁面就是強制使用HTTPS加密連接了
+<img src="http://ww4.sinaimg.cn/large/6d9bd6a5gw1epner2fhafj20t50ghgpi.jpg" alt=""></p>
+<p>打開 <code>chrome://chrome-urls/</code>你可以找到很多隱藏的設置入口
+慢慢探索吧 騷年們~</p>
+<p>一行代碼，還可以把Chrome瀏覽器變臨時的文字編輯器(來自<a href="http://blog.jobbole.com/32823/">伯樂在線</a></p>
+<pre><code>data:text/html, &lt;html contenteditable&gt;
+</code></pre>
+<p><img src="http://ww2.sinaimg.cn/large/6d9bd6a5gw1epnfr0oo8uj20rp0djta1.jpg" alt=""></p>
+<p>這是用了數據URI的格式（Data URI’s format），並告訴瀏覽器渲染 HTML。不過 contenteditable 是 HTML5 的一個新全局屬性，所以這個小技巧只能用於支持該屬性的現代瀏覽器。
+除了複製粘貼文字  也可以粘貼圖片</p>
+<p>jakeonrails大神然後改了一下 支持了代碼高亮 參考https://gist.github.com/jakeonrails/4666256</p>
+<pre><code>data:text/html, &lt;style type=&quot;text/css&quot;&gt;#e{position:absolute;top:0;right:0;bottom:0;left:0;}&lt;/style&gt;&lt;div id=&quot;e&quot;&gt;&lt;/div&gt;&lt;script src=&quot;http://d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js&quot; type=&quot;text/javascript&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;&lt;script&gt;var e=ace.edit(&quot;e&quot;);e.setTheme(&quot;ace/theme/monokai&quot;);e.getSession().setMode(&quot;ace/mode/python&quot;);&lt;/script&gt;
+</code></pre>
+<p><img src="http://ww1.sinaimg.cn/large/6d9bd6a5gw1epnfrjlnf1j20u20c540h.jpg" alt=""></p>
+<p>提示說：如果把上面的 ace/mode/python 改成 ace/mode/ruby，那麼就得到了一個 Ruby 版的編輯器咯。其他語言依此類推。</p>
+<p>改造成支持其他語言語法高亮的，可把 ace/mode/ruby 替換爲：</p>
+<p>Python -&gt; ace/mode/python
+C/C++ -&gt; ace/mode/c_cpp
+Javscript -&gt; ace/mode/javascript
+Java -&gt; ace/mode/java
+Scala -&gt; ace/mode/scala
+Markdown -&gt; ace/mode/markdown
+CoffeeScript -&gt; ace/mode/coffee
+其他……</p>
+<p>jakeonrails 語法高亮風格用的是 monokai。
+如果需要換成其他風格，，可把 ace/theme/monokai 替換爲：</p>
+<p>Eclipse -&gt; ace/theme/eclipse
+TextMate -&gt; ace/theme/textmate
+其他……</p>
+<p>不想複製粘貼代碼的懶漢童鞋，可以直接戳下面這些鏈接：</p>
+<!-- raw HTML omitted -->
+<p>關於Chrome的快捷鍵 參考<a href="https://support.google.com/chrome/answer/157179?hl=zh-Hans">官方說明</a> 和<a href="http://zhi.hu/b38W">知乎</a></p>
+<ul>
+<li>想把網頁保存爲PDF？按快捷鍵Ctrl+P，然後在顯示出來的打印頁面上把目標打印機更改爲「另存爲PDF」，最後按保存就完成了，逼格爆滿。</li>
+<li>Ctrl+Shift+N，打開隱身模式。你的瀏覽記錄和Cookies就不會被保留。盡情享受吧。</li>
+<li>苦於Chrome打開太多的頁面以至於太卡？只要按Shift+Esc就可以打開任務管理器，想關那裏就關那裏，再也不用Ctrl+W一個一個關閉了。</li>
+<li>組合鍵Ctrl+Shift+T用於恢復不小心關掉的頁面。</li>
+<li>Alt+Home快速返回你設置你的主頁。</li>
+<li>Ctrl+H快速查看歷史記錄。</li>
+<li>Ctrl+J快速查看下載記錄。</li>
+<li>想要快速選定地址欄？按F6，等同於按Ctrl+L，再等同於Alt+D</li>
+<li>想快速刪除你的瀏覽記錄，只要按住Ctrl+Shift+Delete鍵就可以快速刪除。</li>
+<li>Ctrl+Tab從左到右切換頁面標籤，Ctrl+Shift+Tab則是從右到左切換。</li>
+<li>Ctrl+1用於快速返回最開始（即最左邊的頁面），Ctrl+9快速返回最右邊的頁面。</li>
+<li>想要看各種小說卻又抱怨屏幕太小？按F11立刻享受全屏帶來的快感。</li>
+</ul>
+<p>沒有PDF閱覽器  沒關係 直接把pdf文件拖到Chrome窗口裏面就可以查看了~
+<img src="http://ww3.sinaimg.cn/large/6d9bd6a5gw1epng1lmxp9j21kw17kdpq.jpg" alt=""></p>
+<p>重要的網頁標籤可以固定 防止誤關閉
+<img src="http://ww4.sinaimg.cn/large/6d9bd6a5gw1epnfy16qdej20i90cw0v1.jpg" alt=""></p>
+<p>更多關於Chrome的奇技淫巧等你發現~</p>
+<p>本博客採用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh_TW">署名-相同方式共享 4.0 許可協議</a>進行許可。</p>
+<p>This site is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+
+</div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://via.moe/tags/chrome/">chrome</a></li>
+    </ul>
+  </footer>
+</article>
+    </main><footer class="footer">
+    
+    <span>本博客除另外說明，都採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW">署名-非商業性使用-相同方式共享 4.0 協議</a> 進行許可<br>Except where otherwise noted, content on this site is licensed under a<br><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a> license</span>
+    
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
+    <button class="top-link" id="top-link" type="button" accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </button>
+</a>
+
+
+
+<script defer src="/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<script>
+    window.onload = function () {
+        if (localStorage.getItem("menu-scroll-position")) {
+            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
+        }
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.replaceState(null, null, `#${id}`);
+            }
+        });
+    });
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+    function menu_on_scroll() {
+        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+    }
+
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-70500040-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-70500040-1');
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+</body>
+
+</html>

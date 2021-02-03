@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<script>var url=window.location.href;url.indexOf("https")<0&&(url=url.replace("http:","https:"),window.location.replace(url));</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="theme-color" content="#2e2e33">
+<meta name="robots" content="index, follow">
+<title>使用 Aria2 建立私有離綫下載服務 | Siege</title>
+
+<meta name="keywords" content="aria2" />
+<meta name="description" content="aria2 是一個輕量級的多協議和多源命令行下載工具。 它支持 HTTP / HTTPS，FTP，SFTP，BitTorrent 和 Metalink 的傳輸協議。 aria2 可以通過內置的 JSON-RPC 和 XML-RPC 接口進行操作。
+現在的迅雷離綫也差不多掛了，QQ旋風也提示用戶即將關閉，短短一個七月，感覺又倒車回到了過去。加上看不見的那堵墻有日益增高，普通下載工具根本沒有速度。
+我們先從路邊買碟，然後村裏通網了，資源都從網上挂 BT 下載，然後到了在綫點播視頻的時代，然而現在各種下載網站/在綫網盤封的封，關的關，又回到了 BT 下載的時候，不知道以後我們會不會高速倒車到衹能在路邊買碟，一夜回到 解leon放haam前。
+安裝後端 aria2c 服務 Ubuntu 可以直接通過包管理器安裝
+apt install aria2 -y 其他系統安裝方法見官方 Github 頁面
+推薦編譯安裝
+apt update -y apt install libgnutls28-dev nettle-dev libgmp-dev libssh2-1-dev libc-ares-dev libxml2-dev zlib1g-dev libsqlite3-dev pkg-config libcppunit-dev autoconf automake autotools-dev autopoint libtool git gcc g&#43;&#43; libxml2-dev make quilt -y wget https://github.com/aria2/aria2/releases/download/release-1.33.0/aria2-1.33.0.tar.gz &amp;&amp; tar zxvf aria2-1.33.0.tar.gz ./configure make cp ~/aria2/src/aria2c /usr/bin 配置文件内容 寫在 ~/.">
+<meta name="author" content="">
+<link rel="canonical" href="https://via.moe/aria2c-installation/" />
+<link href="/assets/css/stylesheet.min.5c4f6d85b7abfcfea458637c672d16a7a9c38c37f002753cfdc7f314b6d3c8f2.css" integrity="sha256-XE9thber/P6kWGN8Zy0Wp6nDjDfwAnU8/cfzFLbTyPI=" rel="preload stylesheet"
+    as="style">
+
+<link rel="icon" href="https://via.moe/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://via.moe/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://via.moe/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://via.moe/apple-touch-icon.png">
+<link rel="mask-icon" href="https://via.moe/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.80.0" />
+
+
+<meta property="og:title" content="使用 Aria2 建立私有離綫下載服務" />
+<meta property="og:description" content="aria2 是一個輕量級的多協議和多源命令行下載工具。 它支持 HTTP / HTTPS，FTP，SFTP，BitTorrent 和 Metalink 的傳輸協議。 aria2 可以通過內置的 JSON-RPC 和 XML-RPC 接口進行操作。
+現在的迅雷離綫也差不多掛了，QQ旋風也提示用戶即將關閉，短短一個七月，感覺又倒車回到了過去。加上看不見的那堵墻有日益增高，普通下載工具根本沒有速度。
+我們先從路邊買碟，然後村裏通網了，資源都從網上挂 BT 下載，然後到了在綫點播視頻的時代，然而現在各種下載網站/在綫網盤封的封，關的關，又回到了 BT 下載的時候，不知道以後我們會不會高速倒車到衹能在路邊買碟，一夜回到 解leon放haam前。
+安裝後端 aria2c 服務 Ubuntu 可以直接通過包管理器安裝
+apt install aria2 -y 其他系統安裝方法見官方 Github 頁面
+推薦編譯安裝
+apt update -y apt install libgnutls28-dev nettle-dev libgmp-dev libssh2-1-dev libc-ares-dev libxml2-dev zlib1g-dev libsqlite3-dev pkg-config libcppunit-dev autoconf automake autotools-dev autopoint libtool git gcc g&#43;&#43; libxml2-dev make quilt -y wget https://github.com/aria2/aria2/releases/download/release-1.33.0/aria2-1.33.0.tar.gz &amp;&amp; tar zxvf aria2-1.33.0.tar.gz ./configure make cp ~/aria2/src/aria2c /usr/bin 配置文件内容 寫在 ~/." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://via.moe/aria2c-installation/" />
+<meta property="article:published_time" content="2017-08-06T19:32:59+08:00" />
+<meta property="article:modified_time" content="2017-08-06T19:32:59+08:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="使用 Aria2 建立私有離綫下載服務"/>
+<meta name="twitter:description" content="aria2 是一個輕量級的多協議和多源命令行下載工具。 它支持 HTTP / HTTPS，FTP，SFTP，BitTorrent 和 Metalink 的傳輸協議。 aria2 可以通過內置的 JSON-RPC 和 XML-RPC 接口進行操作。
+現在的迅雷離綫也差不多掛了，QQ旋風也提示用戶即將關閉，短短一個七月，感覺又倒車回到了過去。加上看不見的那堵墻有日益增高，普通下載工具根本沒有速度。
+我們先從路邊買碟，然後村裏通網了，資源都從網上挂 BT 下載，然後到了在綫點播視頻的時代，然而現在各種下載網站/在綫網盤封的封，關的關，又回到了 BT 下載的時候，不知道以後我們會不會高速倒車到衹能在路邊買碟，一夜回到 解leon放haam前。
+安裝後端 aria2c 服務 Ubuntu 可以直接通過包管理器安裝
+apt install aria2 -y 其他系統安裝方法見官方 Github 頁面
+推薦編譯安裝
+apt update -y apt install libgnutls28-dev nettle-dev libgmp-dev libssh2-1-dev libc-ares-dev libxml2-dev zlib1g-dev libsqlite3-dev pkg-config libcppunit-dev autoconf automake autotools-dev autopoint libtool git gcc g&#43;&#43; libxml2-dev make quilt -y wget https://github.com/aria2/aria2/releases/download/release-1.33.0/aria2-1.33.0.tar.gz &amp;&amp; tar zxvf aria2-1.33.0.tar.gz ./configure make cp ~/aria2/src/aria2c /usr/bin 配置文件内容 寫在 ~/."/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "使用 Aria2 建立私有離綫下載服務",
+  "name": "使用 Aria2 建立私有離綫下載服務",
+  "description": "aria2 是一個輕量級的多協議和多源命令行下載工具。 它支持 HTTP / HTTPS，FTP，SFTP，BitTorrent 和 Metalink 的傳輸協議。 aria2 可以通過內置的 JSON-RPC 和 XML-RPC 接口進行操作。\n現在的迅雷離綫也差不多掛了，QQ旋風也提示用戶即將關閉，短短一個七月，感覺又倒車回到了過去。加上看不見的那堵墻有 …",
+  "keywords": [
+    "aria2"
+  ],
+  "articleBody": "aria2 是一個輕量級的多協議和多源命令行下載工具。 它支持 HTTP / HTTPS，FTP，SFTP，BitTorrent 和 Metalink 的傳輸協議。 aria2 可以通過內置的 JSON-RPC 和 XML-RPC 接口進行操作。\n現在的迅雷離綫也差不多掛了，QQ旋風也提示用戶即將關閉，短短一個七月，感覺又倒車回到了過去。加上看不見的那堵墻有日益增高，普通下載工具根本沒有速度。\n我們先從路邊買碟，然後村裏通網了，資源都從網上挂 BT 下載，然後到了在綫點播視頻的時代，然而現在各種下載網站/在綫網盤封的封，關的關，又回到了 BT 下載的時候，不知道以後我們會不會高速倒車到衹能在路邊買碟，一夜回到 解leon放haam前。\n安裝後端 aria2c 服務 Ubuntu 可以直接通過包管理器安裝\napt install aria2 -y 其他系統安裝方法見官方 Github 頁面\n推薦編譯安裝\napt update -y apt install libgnutls28-dev nettle-dev libgmp-dev libssh2-1-dev libc-ares-dev libxml2-dev zlib1g-dev libsqlite3-dev pkg-config libcppunit-dev autoconf automake autotools-dev autopoint libtool git gcc g++ libxml2-dev make quilt -y wget https://github.com/aria2/aria2/releases/download/release-1.33.0/aria2-1.33.0.tar.gz \u0026\u0026 tar zxvf aria2-1.33.0.tar.gz ./configure make cp ~/aria2/src/aria2c /usr/bin 配置文件内容 寫在 ~/.aria2/aria2.conf 路徑\n#允許rpc\renable-rpc=true\r#允許所有來源, web界面跨域權限需要\rrpc-allow-origin-all=true\r#允許非外部訪問\rrpc-listen-all=true\r#RPC端口, 僅當默認端口被佔用時修改\r#rpc-listen-port=6800\r進階配置文件\n#允許rpc\renable-rpc=true\r#允許所有來源, web界面跨域權限需要\rrpc-allow-origin-all=true\rrpc-listen-all=true\r#RPC端口, 僅當默認端口被佔用時修改\r#rpc-listen-port=6800\r#最大同時下載數(任務數), 路由建議值: 3\rmax-concurrent-downloads=5\r#斷點續傳\rcontinue=true\r#同服務器連接數\rmax-connection-per-server=5\r#最小文件分片大小, 下載線程數上限取決於能分出多少片, 對於小文件重要\rmin-split-size=10M\r#單文件最大線程數, 路由建議值: 5\rsplit=10\r#下載速度限制\rmax-overall-download-limit=0\r#單文件速度限制\rmax-download-limit=0\r#上傳速度限制\rmax-overall-upload-limit=0\r#單文件速度限制\rmax-upload-limit=0\rseed-time=360\rseed-ratio=1 #斷開速度過慢的連接\r#lowest-speed-limit=0\r#驗證用，需要1.16.1之後的release版本\r#referer=*\r#input-file=/root/.aria2/aria2.session\r#save-session=/root/.aria2/aria2.session\r#定時保存會話，需要1.16.1之後的release版\r#save-session-interval=60\r#啓用本地節點查找\rbt-enable-lpd=true\r#添加額外的tracker\rbt-tracker=udp://tracker.pirateparty.gr:6969\r#單種子最大連接數\r#bt-max-peers=55\r#強制加密, 防迅雷必備\r#bt-require-crypto=true\r#當下載的文件是一個種子(以.torrent結尾)時, 自動下載BT\rfollow-torrent=true\r#BT監聽端口, 當端口屏蔽時使用\r#listen-port=6881-6999\r完整進階配置(附帶 BT Tracker)文件見本人的 Github Gist\n推薦启动使用 screen 方式進行後臺化\nscreen -R aria2c aria2c --conf-path=/.aria2/aria2.conf --check-certificate=false crtl+a+d 離開後臺\n安裝前端 webui-aria2 服務 先安裝 nodejs , ubuntu 可以添加 ppa 進行安裝。\ncurl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - sudo apt-get install -y nodejs 其他系統見 nodejs 安裝官方説明\n推薦启动使用 screen 或 tmux 方式進行啓動 webui-aria2 後臺化\nscreen -R webui-aria2 git clone https://github.com/ziahamza/webui-aria2.git cd webui-aria2 node node-server.js crtl+a+d 離開後臺\n之後進入你的服務器 IP 或者 域名，打開 http(s)://youdomain.website:8888/ 就可以使用網頁界面控制下載了\n可以選擇以下 VPS 作為自己的離線下載服務器\nGoogle Compute Engine\nAmazon Web Services EC2\nVultr\nLinode\nAlibaba Cloud\n 文本參考來源\nhttps://binux.blog/2012/12/aria2-examples/\n",
+  "wordCount" : "229",
+  "inLanguage": "en",
+  "datePublished": "2017-08-06T19:32:59+08:00",
+  "dateModified": "2017-08-06T19:32:59+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://via.moe/aria2c-installation/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Siege",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://via.moe/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<noscript>
+    <style type="text/css">
+        .theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://via.moe/" accesskey="h" title="Siege (Alt + H)">Siege</a>
+            <span class="logo-switches">
+                <span class="theme-toggle" title="(Alt + T)">
+                    <a id="theme-toggle" accesskey="t">
+                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </a>
+                </span>
+                
+            </span>
+        </div>
+        <ul class="menu" id="menu" onscroll="menu_on_scroll()">
+            <li>
+                <a href="https://via.moe/" title="Index">
+                    <span>Index</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://via.moe/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://via.moe/rss.xml" title="RSS">
+                    <span>RSS</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://via.moe/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li></ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">
+      使用 Aria2 建立私有離綫下載服務
+    </h1>
+    <div class="post-description">
+      
+    </div>
+    <div class="post-meta">August 6, 2017
+
+    </div>
+  </header> 
+
+  <div class="post-content">
+<p>aria2 是一個輕量級的多協議和多源命令行下載工具。 它支持 HTTP / HTTPS，FTP，SFTP，BitTorrent 和 Metalink 的傳輸協議。 aria2 可以通過內置的 JSON-RPC 和 XML-RPC 接口進行操作。</p>
+<p>現在的迅雷離綫也差不多掛了，QQ旋風也提示用戶即將關閉，短短一個七月，感覺又倒車回到了過去。加上看不見的那堵墻有日益增高，普通下載工具根本沒有速度。</p>
+<p>我們先從路邊買碟，然後村裏通網了，資源都從網上挂 BT 下載，然後到了在綫點播視頻的時代，然而現在各種下載網站/在綫網盤封的封，關的關，又回到了 BT 下載的時候，不知道以後我們會不會高速倒車到衹能在路邊買碟，一夜回到 <!-- raw HTML omitted -->解<!-- raw HTML omitted --> leon<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->放<!-- raw HTML omitted -->haam<!-- raw HTML omitted --><!-- raw HTML omitted --> 前。</p>
+<h3 id="安裝後端-aria2c-服務">安裝後端 aria2c 服務<a hidden class="anchor" aria-hidden="true" href="#安裝後端-aria2c-服務">#</a></h3>
+<p>Ubuntu 可以直接通過包管理器安裝</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">apt install aria2 -y
+</code></pre></div><p>其他系統安裝方法見官方 <a href="https://github.com/aria2/aria2/releases">Github</a> 頁面</p>
+<p>推薦編譯安裝</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">apt update -y
+apt install libgnutls28-dev nettle-dev libgmp-dev libssh2-1-dev libc-ares-dev libxml2-dev zlib1g-dev libsqlite3-dev pkg-config libcppunit-dev autoconf automake autotools-dev autopoint libtool git gcc g++ libxml2-dev make quilt -y
+wget https://github.com/aria2/aria2/releases/download/release-1.33.0/aria2-1.33.0.tar.gz <span style="color:#f92672">&amp;&amp;</span> tar zxvf aria2-1.33.0.tar.gz
+./configure
+make
+cp ~/aria2/src/aria2c /usr/bin
+</code></pre></div><p>配置文件内容 寫在 <code>~/.aria2/aria2.conf</code> 路徑</p>
+<pre><code class="language-conf" data-lang="conf">#允許rpc
+enable-rpc=true
+#允許所有來源, web界面跨域權限需要
+rpc-allow-origin-all=true
+#允許非外部訪問
+rpc-listen-all=true
+#RPC端口, 僅當默認端口被佔用時修改
+#rpc-listen-port=6800
+</code></pre><p>進階配置文件</p>
+<pre><code class="language-conf" data-lang="conf">#允許rpc
+enable-rpc=true
+#允許所有來源, web界面跨域權限需要
+rpc-allow-origin-all=true
+rpc-listen-all=true
+#RPC端口, 僅當默認端口被佔用時修改
+#rpc-listen-port=6800
+
+#最大同時下載數(任務數), 路由建議值: 3
+max-concurrent-downloads=5
+#斷點續傳
+continue=true
+#同服務器連接數
+max-connection-per-server=5
+#最小文件分片大小, 下載線程數上限取決於能分出多少片, 對於小文件重要
+min-split-size=10M
+#單文件最大線程數, 路由建議值: 5
+split=10
+#下載速度限制
+max-overall-download-limit=0
+#單文件速度限制
+max-download-limit=0
+#上傳速度限制
+max-overall-upload-limit=0
+#單文件速度限制
+max-upload-limit=0
+seed-time=360
+seed-ratio=1  
+#斷開速度過慢的連接
+#lowest-speed-limit=0
+#驗證用，需要1.16.1之後的release版本
+#referer=*
+
+#input-file=/root/.aria2/aria2.session
+#save-session=/root/.aria2/aria2.session
+#定時保存會話，需要1.16.1之後的release版
+#save-session-interval=60
+
+#啓用本地節點查找
+bt-enable-lpd=true
+#添加額外的tracker
+bt-tracker=udp://tracker.pirateparty.gr:6969
+#單種子最大連接數
+#bt-max-peers=55
+#強制加密, 防迅雷必備
+#bt-require-crypto=true
+#當下載的文件是一個種子(以.torrent結尾)時, 自動下載BT
+follow-torrent=true
+#BT監聽端口, 當端口屏蔽時使用
+#listen-port=6881-6999
+</code></pre><p>完整進階配置(附帶 BT Tracker)文件見本人的 <a href="https://gist.github.com/ky0ncheng/4338e4495104fb269ef6fd2c0b4cbd42">Github Gist</a></p>
+<p>推薦启动使用 screen 方式進行後臺化</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">screen -R aria2c
+aria2c --conf-path<span style="color:#f92672">=</span>/.aria2/aria2.conf --check-certificate<span style="color:#f92672">=</span>false
+</code></pre></div><p><code>crtl+a+d</code> 離開後臺</p>
+<h3 id="安裝前端-webui-aria2-服務">安裝前端 webui-aria2 服務<a hidden class="anchor" aria-hidden="true" href="#安裝前端-webui-aria2-服務">#</a></h3>
+<p>先安裝 nodejs , ubuntu 可以添加 ppa 進行安裝。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+sudo apt-get install -y nodejs
+</code></pre></div><p>其他系統見 <a href="https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions">nodejs 安裝官方説明</a></p>
+<p>推薦启动使用 screen 或 tmux 方式進行啓動 webui-aria2 後臺化</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">screen -R webui-aria2
+git clone https://github.com/ziahamza/webui-aria2.git
+cd webui-aria2
+node node-server.js
+</code></pre></div><p><code>crtl+a+d</code> 離開後臺</p>
+<p>之後進入你的服務器 IP 或者 域名，打開 <code>http(s)://youdomain.website:8888/</code> 就可以使用網頁界面控制下載了</p>
+<p><img src="https://imgur.via.moe/Dccs80d.png" alt=""></p>
+<p><img src="https://imgur.via.moe/HJudGS5.png" alt=""></p>
+<p>可以選擇以下 VPS 作為自己的離線下載服務器</p>
+<p><a href="https://cloud.google.com/compute/">Google Compute Engine</a></p>
+<p><a href="https://aws.amazon.com/ec2">Amazon Web Services EC2</a></p>
+<p><a href="https://www.vultr.com/?ref=7152154">Vultr</a></p>
+<p><a href="https://www.linode.com/?r=2453330f833950bb646c3c0e1138cf1c058334f0">Linode</a></p>
+<p><a href="https://account-intl.aliyun.com/register/intl_register.htm?biz_params=%7B%22intl%22%3A%22%7B%5C%22referralCode%5C%22%3A%5C%22amtoh2%5C%22%7D%22%7D">Alibaba Cloud</a></p>
+<hr>
+<p>文本參考來源</p>
+<p><a href="https://binux.blog/2012/12/aria2-examples/">https://binux.blog/2012/12/aria2-examples/</a></p>
+
+</div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://via.moe/tags/aria2/">aria2</a></li>
+    </ul>
+  </footer>
+</article>
+    </main><footer class="footer">
+    
+    <span>本博客除另外說明，都採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW">署名-非商業性使用-相同方式共享 4.0 協議</a> 進行許可<br>Except where otherwise noted, content on this site is licensed under a<br><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a> license</span>
+    
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
+    <button class="top-link" id="top-link" type="button" accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </button>
+</a>
+
+
+
+<script defer src="/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<script>
+    window.onload = function () {
+        if (localStorage.getItem("menu-scroll-position")) {
+            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
+        }
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.replaceState(null, null, `#${id}`);
+            }
+        });
+    });
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+    function menu_on_scroll() {
+        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+    }
+
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-70500040-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-70500040-1');
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+</body>
+
+</html>

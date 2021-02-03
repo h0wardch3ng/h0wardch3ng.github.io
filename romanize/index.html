@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="./dist/assets/img/name-tag.svg" />
+  <title>姓名拼音查詢</title>
+  <script>
+    console.log('Hello,World!');
+    var url = window.location.href;
+    if (url.indexOf("https") < 0) {
+      url = url.replace("http:", "https:");
+      window.location.replace(url);
+    }
+  </script>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.8/semantic.css">
+  <link rel="stylesheet" type="text/css" href="./dist/assets/css/bundle.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.0/sweetalert.min.css" media="screen" title="no title"
+    charset="utf-8">
+</head>
+
+<body>
+  <div class="ui middle aligned center aligned grid">
+    <div class="column">
+      <h2 class="ui teal image header">
+        <div class="content">
+          <img src="./dist/assets/img/name-tag.svg" class="title-img" alt="" /><span> 姓名拼音轉換小幫手 </span>
+          <div class="ui buttons">
+            <a class="ui olive button" href="https://github.com/electronize/romanize-names-desktop/releases" target="_blank"><i class="apple icon"></i>桌面版</a>
+            <div class="or"></div>
+            <a class="ui blue button" href="https://github.com/electronize/romanize-names-desktop/releases"><i class="windows icon"></i>桌面版</a>
+          </div>
+        </div>
+      </h2>
+      <form class="ui large form">
+
+        <div class="ui stacked segment">
+
+          <div class="ui right left icon input">
+            <textarea rows="8" cols="40" type="text" placeholder="輸入姓名(多行輸入翻譯多個姓名)" id="input"></textarea>
+          </div>
+          <div class="ui divided selection list" id="output">
+            <div class="item">
+              蔡盈文 <i class="arrow circle outline right icon olive" style="display: inline !important;"></i>
+              <a class="ui red horizontal label" href="https://zh.wikipedia.org/zh-tw/%E5%A8%81%E5%A6%A5%E7%91%AA%E6%8B%BC%E9%9F%B3" target="_blank">威妥瑪拼音(WG)</a>
+              <span class="wg-output">Ying-Wen Tsai</span>
+              <a class="ui purple horizontal label" href="https://zh.wikipedia.org/wiki/%E5%9C%8B%E8%AA%9E%E6%B3%A8%E9%9F%B3%E7%AC%A6%E8%99%9F%E7%AC%AC%E4%BA%8C%E5%BC%8F"
+                target="_blank">國音第二式拼音(MPS-II)</a>
+              <span class="mps-output">Ying-Wen Tsai</span>
+              <a class="ui black horizontal label" href="https://zh.wikipedia.org/wiki/%E6%B1%89%E8%AF%AD%E6%8B%BC%E9%9F%B3" target="_blank">漢語拼音(Hanyu)</a>
+              <span class="hanyu-output">Ying-Wun Cai</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="ui error message"></div>
+      </form>
+    </div>
+  </div>
+  <textarea class="copy-text" style="position: absolute; opacity:0;"></textarea>
+  <footer>
+    <i class="help icon"></i>小技巧: 點拼音名字即可馬上複製!<br/> # Credited to <a href="https://github.com/muan/romanize-names" target="_blank"> muan/romanize-names </a>,
+    # <a href="https://github.com/electronize/romanize" target="_blank">Github Repo</a>
+  </footer>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <!-- Semantic Dependencies -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.8/semantic.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.0/sweetalert.min.js" charset="utf-8"></script>
+  <script type="text/javascript" src="./dist/assets/js/build.min.js"></script>
+
+</body>
+
+</html>

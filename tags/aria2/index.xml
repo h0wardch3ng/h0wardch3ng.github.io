@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>aria2 on Siege</title>
+    <link>https://via.moe/tags/aria2/</link>
+    <description>Recent content in aria2 on Siege</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sun, 06 Aug 2017 19:32:59 +0800</lastBuildDate><atom:link href="https://via.moe/tags/aria2/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用 Aria2 建立私有離綫下載服務</title>
+      <link>https://via.moe/aria2c-installation/</link>
+      <pubDate>Sun, 06 Aug 2017 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/aria2c-installation/</guid>
+      <description>aria2 是一個輕量級的多協議和多源命令行下載工具。 它支持 HTTP / HTTPS，FTP，SFTP，BitTorrent 和 Metalink 的傳輸協議。 aria2 可以通過內置的 JSON-RPC 和 XML-RPC 接口進行操作。
+現在的迅雷離綫也差不多掛了，QQ旋風也提示用戶即將關閉，短短一個七月，感覺又倒車回到了過去。加上看不見的那堵墻有日益增高，普通下載工具根本沒有速度。
+我們先從路邊買碟，然後村裏通網了，資源都從網上挂 BT 下載，然後到了在綫點播視頻的時代，然而現在各種下載網站/在綫網盤封的封，關的關，又回到了 BT 下載的時候，不知道以後我們會不會高速倒車到衹能在路邊買碟，一夜回到 解leon放haam前。
+安裝後端 aria2c 服務 Ubuntu 可以直接通過包管理器安裝
+apt install aria2 -y 其他系統安裝方法見官方 Github 頁面
+推薦編譯安裝
+apt update -y apt install libgnutls28-dev nettle-dev libgmp-dev libssh2-1-dev libc-ares-dev libxml2-dev zlib1g-dev libsqlite3-dev pkg-config libcppunit-dev autoconf automake autotools-dev autopoint libtool git gcc g++ libxml2-dev make quilt -y wget https://github.com/aria2/aria2/releases/download/release-1.33.0/aria2-1.33.0.tar.gz &amp;amp;&amp;amp; tar zxvf aria2-1.33.0.tar.gz ./configure make cp ~/aria2/src/aria2c /usr/bin 配置文件内容 寫在 ~/.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>nginx on Siege</title>
+    <link>https://via.moe/tags/nginx/</link>
+    <description>Recent content in nginx on Siege</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Thu, 10 Mar 2016 19:32:59 +0800</lastBuildDate><atom:link href="https://via.moe/tags/nginx/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>牆內 Google 開</title>
+      <link>https://via.moe/ngx-http-google-filter-module/</link>
+      <pubDate>Thu, 10 Mar 2016 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/ngx-http-google-filter-module/</guid>
+      <description>配上免費的 letsencrypt SSL/TLS 證書，一個個安全快速的谷歌又出現了。
+依賴庫  pcre 正則 ngx_http_proxy_module 反向代理 ngx_http_substitutions_filter_module 多重替換  安裝  以 ubuntu 14.04 爲例 i386, x86_64 均適用
+ 最簡安裝 # # 安裝 gcc &amp;amp; git # apt-get install build-essential git gcc g++ make # # 下載最新版源碼 # nginx 官網: # http://nginx.org/en/download.html # wget &amp;#34;http://nginx.org/download/nginx-1.9.12.tar.gz&amp;#34; # # 下載最新版 pcre # pcre 官網: # http://www.pcre.org/ # wget &amp;#34;ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.38.tar.gz&amp;#34; # # 下載最新版 openssl # opessl 官網: # https://www.openssl.org/ # wget &amp;#34;https://www.</description>
+    </item>
+    
+  </channel>
+</rss>

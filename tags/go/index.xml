@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>go on Siege</title>
+    <link>https://via.moe/tags/go/</link>
+    <description>Recent content in go on Siege</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Tue, 26 Jan 2021 19:32:59 +0800</lastBuildDate><atom:link href="https://via.moe/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>遛狗指南 - 配置 Katago 與 Leela-Zero</title>
+      <link>https://via.moe/katago-vs-leelazero/</link>
+      <pubDate>Tue, 26 Jan 2021 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/katago-vs-leelazero/</guid>
+      <description>1 前言 AlphaGo（「Go」為日文「碁」字發音轉寫，是圍棋的西方名稱），直譯為阿爾法圍棋，亦被音譯為阿爾法狗，是於 2014 年開始由英國倫敦 Google DeepMind 開發的人工智慧圍棋軟體，以及對應的電影紀錄片《 AlphaGo 世紀對決》。
+專業術語上來說，AlphaGo 的做法是使用了蒙地卡羅樹搜尋與兩個深度神經網路相結合的方法，一個是以藉助估值網路（value network）來評估大量的選點，一個是藉助走棋網路（policy network）來選擇落子，並使用強化學習進一步改善它。在這種設計下，電腦可以結合樹狀圖的長遠推斷，又可像人類的大腦一樣自發學習進行直覺訓練，以提高下棋實力。
+2016 年 3 月 9 、10 和 12 日的三局對戰均為 AlphaGo 獲勝，而 13 日的對戰則為李世乭獲勝，15 日的最終局則又是 AlphaGo 獲勝。因此對弈結果為 AlphaGo 4:1 戰勝了李世乭。這次比賽在網路上引發了人們對此次比賽和人工智慧的廣泛討論。
+AlphaGo 在 2017 年 5 月 23、25 和 27日這三天，柯潔與 AlphaGo 下三番棋，用時為每方 3 小時，5 次 1 分鐘讀秒。此外在 5 月 26 日，時越、羋昱廷、唐韋星、陳耀燁和周睿羊 5 人將進行團隊賽，他們將聯合與 AlphaGo 對弈，用時為每方 2 小時 30 分鐘，3 次 1 分鐘讀秒。最終，AlphaGo 以 3：0 戰勝柯潔。
+同日下午，中國的五名九段棋手組團對抗 AlphaGo。他們分別是時越、羋昱廷、唐韋星、陳耀燁和周睿羊。其結局為 AlphaGo 執白盤中獲勝。</description>
+    </item>
+    
+  </channel>
+</rss>

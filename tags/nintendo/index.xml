@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>nintendo on Siege</title>
+    <link>https://via.moe/tags/nintendo/</link>
+    <description>Recent content in nintendo on Siege</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sun, 14 May 2017 19:32:59 +0800</lastBuildDate><atom:link href="https://via.moe/tags/nintendo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>自製 Nintendo Amiibo 卡片</title>
+      <link>https://via.moe/diy-your-amiibo/</link>
+      <pubDate>Sun, 14 May 2017 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/diy-your-amiibo/</guid>
+      <description>所需工具：
+1.支持 NFC 的安卓手機一臺(自備) 2.TagMo 以及對應的解鎖 Key 文件 3.需要寫入的 Amiibo 的 bin 文件 4.空白 Ntag215 NFC 卡若干(X寶1-2元一張)
+製作步驟：
+1.手機打開 NFC 功能
+2.安裝 TagMo 應用
+3.打開 TagMo ，然後按右上角菜單按鈕，選擇 load key file 選項
+4.然後分別加載 locked-secret.bin 與 unfixed-info.bin 兩個文件，加載成功的話 Have retail locked keys 與 Have retail unfixed keys 兩個文字後面會顯示 true
+5.再點擊右上角菜單按鈕，選擇 load tag file 選項，然後選擇想要刷入的 Amiibo 的 bin文件
+6.界面顯示loaded tag file就表示加載成功
+7.然後再點擊右上角的菜單按鈕，選擇 Write to tag(auto) 選項，這時候屏幕會顯示 place phone on the(blank)tag 文字
+8.這時候將空的 nfc 卡放到手機後方，等待寫入，寫入完成會顯示 tag detected 然後下方一個 done，看到這個文字就表示寫入完成了</description>
+    </item>
+    
+  </channel>
+</rss>

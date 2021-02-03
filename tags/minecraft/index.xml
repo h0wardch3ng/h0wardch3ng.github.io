@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>minecraft on Siege</title>
+    <link>https://via.moe/tags/minecraft/</link>
+    <description>Recent content in minecraft on Siege</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Mon, 14 May 2018 19:32:59 +0800</lastBuildDate><atom:link href="https://via.moe/tags/minecraft/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用 Spigot 架設 Minecraft 服務器</title>
+      <link>https://via.moe/setup-minecraft-spigot-server/</link>
+      <pubDate>Mon, 14 May 2018 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/setup-minecraft-spigot-server/</guid>
+      <description>Minecraft是一個開放世界的遊戲, 沒有具體的目標要玩家來完成, 讓玩家有非常高的自由度選擇如何玩遊戲。在默認情況下, 該遊戲是第一人稱, 但玩家可以選擇第三人稱（按F5）。核心玩法大多圍繞打破、挖掘、砍伐方塊。遊戲的世界主要由粗糙的3D方塊（或稱立方體）組成, 表面有些固定的網格(點陣)圖案, 代表不同的材料, 如泥土、石頭、各種礦石、水和樹幹。雖然玩家可以在世界各地自由移動, 但方塊只能被放置在整數的網格座標上, 除了實體之外。玩家可以收集這些材料方塊, 並將其放置在你要的地方, 從而進行各項建設。
+&amp;ndash; via Wikipedia
+本文服務器環境說明：
+Ubuntu 16.04.2 LTS (Xenial Xerus) Openjdk-8-jre
+配置運行環境
+apt install openjdk-8-jre -y 下載已經編譯完成的 spigot 執行文件, 需要自己編譯的可以使用 BuildTools.jar
+wget https://cdn.getbukkit.org/spigot/spigot-1.12.jar 建議使用 screen 後台運行 spigot 服務端, 可以使用 -Xmx4096m -Xms2048m 參數進行設置最大和最小使用內存
+screen -R spigot java -jar -Xmx4096m -Xms2048m -XX:MaxPermSize=512M -Dfile.encoding=utf-8 -Duser.timezone=Asia/Hong_Kong spigot.jar 此時會生成 eula.txt 和提示未同意 eula, 服務端運行失敗, 需要手動修改 eula.txt
+nano eula.txt 找到 eula=false 改成 eula=true
+Ctrl+O 和 Ctrl+X 保存退出</description>
+    </item>
+    
+  </channel>
+</rss>

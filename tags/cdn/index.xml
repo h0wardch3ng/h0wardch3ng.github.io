@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>cdn on Siege</title>
+    <link>https://via.moe/tags/cdn/</link>
+    <description>Recent content in cdn on Siege</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Mon, 02 Dec 2019 19:32:59 +0800</lastBuildDate><atom:link href="https://via.moe/tags/cdn/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Backblaze B2 數據存儲使用 Cloudflare Workers 加速</title>
+      <link>https://via.moe/backblaze-use-cf-cdn/</link>
+      <pubDate>Mon, 02 Dec 2019 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/backblaze-use-cf-cdn/</guid>
+      <description>1. 在 Backblaze B2 文件上傳后 此時生成的外鏈 URL 為 https://f000.backblazeb2.com/file/{bucketName}/test.jpg
+2. 前往 Cloudflare Workers 新建一個 Workers // Website you intended to retrieve for users. const upstream = &#39;f000.backblazeb2.com&#39; // Website you intended to retrieve for users using mobile devices. const upstream_mobile = &#39;f000.backblazeb2.com&#39; // Countries and regions where you wish to suspend your service. const blocked_region = [] // IP addresses which you wish to block from using your service. const blocked_ip_address = [&#39;0.</description>
+    </item>
+    
+  </channel>
+</rss>

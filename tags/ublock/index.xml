@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ublock on Siege</title>
+    <link>https://via.moe/tags/ublock/</link>
+    <description>Recent content in ublock on Siege</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sat, 09 Aug 2014 19:32:59 +0800</lastBuildDate><atom:link href="https://via.moe/tags/ublock/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>開源的廣告攔截工具 µBlock</title>
+      <link>https://via.moe/ublock/</link>
+      <pubDate>Sat, 09 Aug 2014 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/ublock/</guid>
+      <description>一款基於 Chromium 瀏覽器的高效廣告攔截工具，超低的 CPU 與內存使用。 一款高效的廣告攔截工具：超低的內存和 CPU 佔用，和其他常見的廣告攔截工具相比，可以加載並執行上千條過濾規則。 效率概述說明： https://github.com/gorhill/uBlock/wiki/%C2%B5Block-vs.-ABP:-efficiency-compared
+用法：點擊彈出窗口中的電源按鈕，µBlock 將對於當前網頁永久禁用 / 啓用廣告攔截功能。 它只適用於當前網頁，而不是全局按鈕。
+Chrome 商店地址 https://chrome.google.com/webstore/detail/%C2%B5block/cjpalhdlnbpafiamejdnhcphjbkeiagm
+它不只是一個廣告攔截工具，它還可以從 hosts 文件裏讀取和創建過濾規則。 初始默認加載和執行下列過濾規則： -EasyList -EasyPrivacy - Malware domains - Long-lived malware domains - Peter Lowe’s Ad server list - Malware Domains List 這裏還擁有更多的過濾規則供你選擇：
+  Fanboy’s Enhanced Tracking List
+  Dan Pollock’s hosts file
+  hpHosts’s Ad and tracking servers
+  MVPS HOSTS
+  Spam404
+  Etc.</description>
+    </item>
+    
+  </channel>
+</rss>

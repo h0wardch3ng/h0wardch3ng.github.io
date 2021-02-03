@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>youtube on Siege</title>
+    <link>https://via.moe/tags/youtube/</link>
+    <description>Recent content in youtube on Siege</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Thu, 18 May 2017 19:32:59 +0800</lastBuildDate><atom:link href="https://via.moe/tags/youtube/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用 youtube-dl 下載視頻</title>
+      <link>https://via.moe/use-youtube-dl/</link>
+      <pubDate>Thu, 18 May 2017 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/use-youtube-dl/</guid>
+      <description>youtube-dl 是一個使用 Python 編寫的腳本, 在視頻下載方面極其強悍, 比在線解析網站的下載速度更穩定更快, 並且對於 YouTube 的 1080p 及以上的視頻可以自動合併音視頻(需要 ffmpeg);由於這是一個命令腳本工具, 沒有UI界面, 因此它強大的功能就要靠參數來實現, 借用不同的參數可以實現不同的下載方式, 比如指定格式, 下載視頻字幕, 批量下載, 代理下載等等。
+安裝 youtube-dl 所有 UNIX 用戶可通過 curl 下載
+sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl sudo chmod a+rx /usr/local/bin/youtube-dl 通過 pip
+sudo pip install --upgrade youtube_dl macOS 用戶通過 brew
+brew install youtube-dl 查詢 youtube 視頻格式 youtube-dl -F [url] 下載指定 youtube 視頻格式 youtube-dl -f [format code] [url] 如果需要下載 1080p 視頻與音頻合併 [format code] 填寫 137+140</description>
+    </item>
+    
+  </channel>
+</rss>

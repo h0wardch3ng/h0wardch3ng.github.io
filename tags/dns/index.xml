@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>dns on Siege</title>
+    <link>https://via.moe/tags/dns/</link>
+    <description>Recent content in dns on Siege</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Wed, 29 Jul 2020 19:32:59 +0800</lastBuildDate><atom:link href="https://via.moe/tags/dns/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Public DNS List</title>
+      <link>https://via.moe/dns/</link>
+      <pubDate>Wed, 29 Jul 2020 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/dns/</guid>
+      <description>Google DNS Google DNS is a free, global DNS resolution service that you can use as an alternative to your current DNS provider.
+   Protocol Address      DNS, IPv4 8.8.8.8 and 8.8.4.4    DNS, IPv6 2001:4860:4860::8888 and 2001:4860:4860::8844    DNS-over-HTTPS https://dns.google/dns-query    DNS-over-TLS tls://dns.google     Cloudflare DNS Cloudflare DNS is a free and fast DNS service which functions as a recursive name server providing domain name resolution for any host on the Internet.</description>
+    </item>
+    
+    <item>
+      <title>自建無汙染的 DNS 服務器</title>
+      <link>https://via.moe/against-dns-poisoning-in-china/</link>
+      <pubDate>Thu, 01 Mar 2018 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/against-dns-poisoning-in-china/</guid>
+      <description>Twitter 被解析到了 Facebook 的 CDN 上，提示證書錯誤
+查看 openDNS 和 AliDNS 的數據，下面的 31.13.xx.xx / 67.15.xx.xx 都是 Facebook 的 CDN
+對於大陸境內通過 UDP 53 端口傳輸的數據都會被檢測，又沒有任何認證機制，而且域名查詢通常基於無連接不可靠的UDP協議，查詢者只能接受最先到達的格式正確結果，並丟棄之後的結果，造成域名解析被惡意篡改。
+via Wikipedia
+之前 clowwindy 開源 的 chinaDNS 項目已經很久沒有更新，也不能提交 PR 了，那自建 Fork 一份改了上游 DNS 的源。
+https://github.com/ky0ncheng/ChinaDNS
+目前使用 TCP 去查詢上游的權威 DNS 數據，去除使用 UDP 查詢 8.8.8.8 的設定，目前採用 USTC DNS 和 openDNS 作為權威 DNS 服務器。
+目前缺點是每次都是重新查詢，沒有緩存，如果需要緩存，chinaDNS 設置監聽 127.0.0.1:5353，可以再部屬一個 unbound
+nano /etc/unbound/unbound.conf num-threads: 2 # 線程數可以修改爲物理核心數 interface: 0.0.0.0 # 偵聽所有 IPv4 地址 interface: ::0 # 偵聽所有 IPv6 地址 # 如果只需要本機使用，則一個 interface: 127.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>kcptun on Siege</title>
+    <link>https://via.moe/tags/kcptun/</link>
+    <description>Recent content in kcptun on Siege</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Tue, 09 Aug 2016 19:32:59 +0800</lastBuildDate><atom:link href="https://via.moe/tags/kcptun/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kcptun 服務端與客戶端啟用筆記</title>
+      <link>https://via.moe/kcptun/</link>
+      <pubDate>Tue, 09 Aug 2016 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/kcptun/</guid>
+      <description>原理圖
+目前支持情況
+   Platform Windows macOS Linux Android iOS     cli O O O O X   gui O(第三方) X X O X   x86 O O O O X   x64 O O O O X   arm5 n/a n/a O O n/a   arm6 n/a n/a O O n/a   arm7 n/a n/a O O n/a   arm8 n/a n/a use arm7 O n/a   mips32 n/a n/a O n/a n/a   mips64 n/a n/a O n/a n/a    主要參數優化</description>
+    </item>
+    
+  </channel>
+</rss>

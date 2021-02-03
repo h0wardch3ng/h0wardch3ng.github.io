@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ssh on Siege</title>
+    <link>https://via.moe/tags/ssh/</link>
+    <description>Recent content in ssh on Siege</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Mon, 19 Oct 2015 19:32:59 +0800</lastBuildDate><atom:link href="https://via.moe/tags/ssh/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>FBI Warning 樣式的 SSH 登錄提示</title>
+      <link>https://via.moe/fbi-warning-ssh-notification/</link>
+      <pubDate>Mon, 19 Oct 2015 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/fbi-warning-ssh-notification/</guid>
+      <description>在微博上看到秋大的 SSH 登錄提示 覺得很有意思
+其實我什麼都不知道 深藏功與名
+我嘗試著修改 /etc/motd 發現並不支持顏色顯示 噗。。。
+然後微博上的小夥伴告訴我這個是修改 shell 的 rc 文件，每次啟動 terminal 的時候執行 sh 腳本就可以了
+代碼參考自 http://blog.depressedmarvin.com/2015/10/13/fbi-warning-ssh-banner/
+修改了最後的居中文本
+  打開 https://gist.github.com/ky0ncheng/aa936fe51acd064ea25e 將裡面的代碼複製或另存為 xxx.sh
+  保存完成後 chmod +x xxx.sh
+  修改 shell 的 rc 文件最後加入 bash xxx.sh
+  以至於啟動 terminal 後執行 shell 腳本
+ bash shell 修改 /etc/bash.bashrc zsh 修改 ~/.zshrc  效果如圖</description>
+    </item>
+    
+  </channel>
+</rss>

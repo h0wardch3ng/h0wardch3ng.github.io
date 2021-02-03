@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gpg on Siege</title>
+    <link>https://via.moe/tags/gpg/</link>
+    <description>Recent content in gpg on Siege</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Thu, 09 Aug 2018 19:32:59 +0800</lastBuildDate><atom:link href="https://via.moe/tags/gpg/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>如何使用 GPG 安全傳遞加密信息</title>
+      <link>https://via.moe/use-gpg/</link>
+      <pubDate>Thu, 09 Aug 2018 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/use-gpg/</guid>
+      <description>免責聲明：使用本文推薦的專案不能保證你的通訊完全不受監控，請在信任這些軟體處理敏感資訊前自行做更深入的了解。
+認揭露美國政府監控民眾通訊記錄的前中情局職員斯諾登聯絡《衛報》記者時，要求雙方通訊期間要用加密程式把內容加密，以免走漏風聲。這套加密程式名叫 PGP ，到底這個加密法有什麼來頭呢？ 手握機密，步步為營的斯諾登知道自己一旦聯絡記者，就隨時會暴露行蹤，這時候他唯一信任的是稱為 PGP 的加密程式，把自己和記者間的通訊加密。 PGP 的全寫並不高深，就是「相當有私隱」的意思。這是一種出自民間的加密演算法，由美國人齊默曼開發，他在 1991 年把這套 PGP 加密程式在網上免費發布。
+PGP 除了免費，亦相對容易使用，齊默曼希望它可以幫所有平民在政府監察下保住私隱。不過程式剛開始普及，就引起了美國政府的注意。當局指 PGP 程式屬於軍需品，齊默曼在網上發布 PGP ，等同私下出口軍需品，隨時會被檢控。 不過齊默曼沒有屈服，反而想到和麻省理工出版社把 PGP 的程式碼印成一本書出版，因為美國憲法第一修正案表明國民的出版自由不得侵犯，所以政府再沒有藉口阻撓 PGP 普及。
+每個 PGP 的用家都會得到兩條類似密碼的字串，相當於兩條鑰匙，一條是公開的，另一條不會公開，公開的稱為公鑰，用來加密，不公開的是密鑰，用來解密。 以斯諾登的情況為例，假設他想告訴記者自己住在哪家酒店，他便先把記者那邊公開的鑰匙複製，用來把地址加密，變成亂碼，然後才把內容經電郵發出。記者收到後，只有輸入自己的密鑰，才可以把內容還原。由於密鑰只有記者知道，所以就算電郵被截獲，亂碼都不會輕易被破解。
+GnuPG（GNU Privacy Guard，GPG）是一種加密軟件，它是 PGP 加密軟件的滿足 GPL 協議的替代物。GnuPG 依照由 IETF 制定的 OpenPGP 技術標準設計。GnuPG 是用於加密、數字簽章及產生非對稱匙對的軟件。GPG 兼容 PGP（Pretty Good Privacy）的功能。
+安装 gpg Linux / Windows
+查看 https://gnupg.org/download/index.html
+macOS
+brew install gpg 生成密鑰 gpg --full-gen-key --expert gpg (GnuPG) 2.2.9; Copyright (C) 2018 Free Software Foundation, Inc. This is free software: you are free to change and redistribute it.</description>
+    </item>
+    
+  </channel>
+</rss>

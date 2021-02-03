@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vscode on Siege</title>
+    <link>https://via.moe/tags/vscode/</link>
+    <description>Recent content in vscode on Siege</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Fri, 10 May 2019 19:32:59 +0800</lastBuildDate><atom:link href="https://via.moe/tags/vscode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>將 VSCode 設置成透明背景的方法</title>
+      <link>https://via.moe/make-vscode-transparent/</link>
+      <pubDate>Fri, 10 May 2019 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/make-vscode-transparent/</guid>
+      <description>請安裝 Vibrancy 擴展即可。
+ 以下內容已經過期
+1.安裝 Custom CSS and JS Loader 擴展
+2.編輯編輯器自定義樣式
+路徑：file:///Users/MyUserName/Documents/custom.css
+內容：
+html { background: transparent !important; } .scroll-decoration { box-shadow: none !important; } .minimap { opacity: 0.6; } .editor-container { background: transparent !important; } .search-view .search-widget .input-box, .search-view .search-widget .input-box .monaco-inputbox, .monaco-workbench&amp;gt;.part.editor&amp;gt;.content&amp;gt;.one-editor-silo&amp;gt;.container&amp;gt;.title .tabs-container&amp;gt;.tab, .monaco-editor-background, .monaco-editor .margin, .monaco-workbench&amp;gt;.part&amp;gt;.content, .monaco-workbench&amp;gt;.editor&amp;gt;.content&amp;gt;.one-editor-silo.editor-one, .monaco-workbench&amp;gt;.part.editor&amp;gt;.content&amp;gt;.one-editor-silo&amp;gt;.container&amp;gt;.title, .monaco-workbench&amp;gt;.part&amp;gt;.title, .monaco-workbench, .monaco-workbench&amp;gt;.part, body { background: transparent !important; } .editor-group-container&amp;gt;.tabs { background-color: rgba(37, 37, 37,0.2) !important; } .</description>
+    </item>
+    
+    <item>
+      <title>M$ 大法好 Visual Studio Code 閃亮登場</title>
+      <link>https://via.moe/visual-studio-code/</link>
+      <pubDate>Thu, 30 Apr 2015 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/visual-studio-code/</guid>
+      <description>昨天M$的Build 2015大會 釋出了一個面向全平臺的編輯器 Visual Studio Code
+看了一下 根據 Github 的 Atom 編輯器改的 雖然不是類似完整的 Visual Studio 這種 IDE , 但是作爲一個輕量的IDE
+改變的了以往Atom的卡慢情況 不知道他們該怎麼想。。23333 M$ 的魔改真心 diao 炸天
+下載地址
+具體評測還是看知乎上同♂志們的體驗吧~</description>
+    </item>
+    
+  </channel>
+</rss>

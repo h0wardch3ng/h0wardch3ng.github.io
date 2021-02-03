@@ -1,0 +1,39 @@
+
+
+
+
+
+/*
+     FILE ARCHIVED ON 18:18:27 七月 23, 2014 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 8:01:33 八月 10, 2016.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+body{
+  width: 100%;
+  background: #337BC5;
+  height: 100%;
+}
+h1{
+  font-family: Gotham, Helvetica, san-serif;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 2em 0;
+}
+div{
+  width: 90%;
+  margin: 0 auto;
+}
+svg{
+  width: 100%;
+  height: 75%;
+}
+path{ 
+  
+-webkit-transition: stroke-dashoffset 2s ease-in-out; 
+  transition: stroke-dashoffset 2s ease-in-out;
+}       

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<script>var url=window.location.href;url.indexOf("https")<0&&(url=url.replace("http:","https:"),window.location.replace(url));</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="theme-color" content="#2e2e33">
+<meta name="robots" content="index, follow">
+<title>自製 Nintendo Amiibo 卡片 | Siege</title>
+
+<meta name="keywords" content="nintendo, amiibo, switch" />
+<meta name="description" content="所需工具：
+1.支持 NFC 的安卓手機一臺(自備) 2.TagMo 以及對應的解鎖 Key 文件 3.需要寫入的 Amiibo 的 bin 文件 4.空白 Ntag215 NFC 卡若干(X寶1-2元一張)
+製作步驟：
+1.手機打開 NFC 功能
+2.安裝 TagMo 應用
+3.打開 TagMo ，然後按右上角菜單按鈕，選擇 load key file 選項
+4.然後分別加載 locked-secret.bin 與 unfixed-info.bin 兩個文件，加載成功的話 Have retail locked keys 與 Have retail unfixed keys 兩個文字後面會顯示 true
+5.再點擊右上角菜單按鈕，選擇 load tag file 選項，然後選擇想要刷入的 Amiibo 的 bin文件
+6.界面顯示loaded tag file就表示加載成功
+7.然後再點擊右上角的菜單按鈕，選擇 Write to tag(auto) 選項，這時候屏幕會顯示 place phone on the(blank)tag 文字
+8.這時候將空的 nfc 卡放到手機後方，等待寫入，寫入完成會顯示 tag detected 然後下方一個 done，看到這個文字就表示寫入完成了">
+<meta name="author" content="">
+<link rel="canonical" href="https://via.moe/diy-your-amiibo/" />
+<link href="/assets/css/stylesheet.min.5c4f6d85b7abfcfea458637c672d16a7a9c38c37f002753cfdc7f314b6d3c8f2.css" integrity="sha256-XE9thber/P6kWGN8Zy0Wp6nDjDfwAnU8/cfzFLbTyPI=" rel="preload stylesheet"
+    as="style">
+
+<link rel="icon" href="https://via.moe/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://via.moe/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://via.moe/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://via.moe/apple-touch-icon.png">
+<link rel="mask-icon" href="https://via.moe/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.80.0" />
+
+
+<meta property="og:title" content="自製 Nintendo Amiibo 卡片" />
+<meta property="og:description" content="所需工具：
+1.支持 NFC 的安卓手機一臺(自備) 2.TagMo 以及對應的解鎖 Key 文件 3.需要寫入的 Amiibo 的 bin 文件 4.空白 Ntag215 NFC 卡若干(X寶1-2元一張)
+製作步驟：
+1.手機打開 NFC 功能
+2.安裝 TagMo 應用
+3.打開 TagMo ，然後按右上角菜單按鈕，選擇 load key file 選項
+4.然後分別加載 locked-secret.bin 與 unfixed-info.bin 兩個文件，加載成功的話 Have retail locked keys 與 Have retail unfixed keys 兩個文字後面會顯示 true
+5.再點擊右上角菜單按鈕，選擇 load tag file 選項，然後選擇想要刷入的 Amiibo 的 bin文件
+6.界面顯示loaded tag file就表示加載成功
+7.然後再點擊右上角的菜單按鈕，選擇 Write to tag(auto) 選項，這時候屏幕會顯示 place phone on the(blank)tag 文字
+8.這時候將空的 nfc 卡放到手機後方，等待寫入，寫入完成會顯示 tag detected 然後下方一個 done，看到這個文字就表示寫入完成了" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://via.moe/diy-your-amiibo/" />
+<meta property="article:published_time" content="2017-05-14T19:32:59+08:00" />
+<meta property="article:modified_time" content="2017-05-14T19:32:59+08:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="自製 Nintendo Amiibo 卡片"/>
+<meta name="twitter:description" content="所需工具：
+1.支持 NFC 的安卓手機一臺(自備) 2.TagMo 以及對應的解鎖 Key 文件 3.需要寫入的 Amiibo 的 bin 文件 4.空白 Ntag215 NFC 卡若干(X寶1-2元一張)
+製作步驟：
+1.手機打開 NFC 功能
+2.安裝 TagMo 應用
+3.打開 TagMo ，然後按右上角菜單按鈕，選擇 load key file 選項
+4.然後分別加載 locked-secret.bin 與 unfixed-info.bin 兩個文件，加載成功的話 Have retail locked keys 與 Have retail unfixed keys 兩個文字後面會顯示 true
+5.再點擊右上角菜單按鈕，選擇 load tag file 選項，然後選擇想要刷入的 Amiibo 的 bin文件
+6.界面顯示loaded tag file就表示加載成功
+7.然後再點擊右上角的菜單按鈕，選擇 Write to tag(auto) 選項，這時候屏幕會顯示 place phone on the(blank)tag 文字
+8.這時候將空的 nfc 卡放到手機後方，等待寫入，寫入完成會顯示 tag detected 然後下方一個 done，看到這個文字就表示寫入完成了"/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "自製 Nintendo Amiibo 卡片",
+  "name": "自製 Nintendo Amiibo 卡片",
+  "description": "所需工具：\n1.支持 NFC 的安卓手機一臺(自備) 2.TagMo 以及對應的解鎖 Key 文件 3.需要寫入的 Amiibo 的 bin 文件 4.空白 Ntag215 NFC 卡若干(X寶1-2元一張)\n製作步驟：\n1.手機打開 NFC 功能\n2.安裝 TagMo 應用\n3.打開 TagMo ，然後按右上角菜單按鈕，選擇 load key file 選 …",
+  "keywords": [
+    "nintendo", "amiibo", "switch"
+  ],
+  "articleBody": "所需工具：\n1.支持 NFC 的安卓手機一臺(自備) 2.TagMo 以及對應的解鎖 Key 文件 3.需要寫入的 Amiibo 的 bin 文件 4.空白 Ntag215 NFC 卡若干(X寶1-2元一張)\n製作步驟：\n1.手機打開 NFC 功能\n2.安裝 TagMo 應用\n3.打開 TagMo ，然後按右上角菜單按鈕，選擇 load key file 選項\n4.然後分別加載 locked-secret.bin 與 unfixed-info.bin 兩個文件，加載成功的話 Have retail locked keys 與 Have retail unfixed keys 兩個文字後面會顯示 true\n5.再點擊右上角菜單按鈕，選擇 load tag file 選項，然後選擇想要刷入的 Amiibo 的 bin文件\n6.界面顯示loaded tag file就表示加載成功\n7.然後再點擊右上角的菜單按鈕，選擇 Write to tag(auto) 選項，這時候屏幕會顯示 place phone on the(blank)tag 文字\n8.這時候將空的 nfc 卡放到手機後方，等待寫入，寫入完成會顯示 tag detected 然後下方一個 done，看到這個文字就表示寫入完成了\n9.Enjoy~\n工具包下載(包含 塞爾達傳説：荒野之息 + 馬里奧賽車8 豪華版)：\nhttps://mega.nz/#!81YwkbZR!9VQTFr8rDGKOThATBeMi0jJUnmeWPEKZ8ZhcLxz3hiY\n資料來自 nfcbank\n",
+  "wordCount" : "84",
+  "inLanguage": "en",
+  "datePublished": "2017-05-14T19:32:59+08:00",
+  "dateModified": "2017-05-14T19:32:59+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://via.moe/diy-your-amiibo/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Siege",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://via.moe/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<noscript>
+    <style type="text/css">
+        .theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://via.moe/" accesskey="h" title="Siege (Alt + H)">Siege</a>
+            <span class="logo-switches">
+                <span class="theme-toggle" title="(Alt + T)">
+                    <a id="theme-toggle" accesskey="t">
+                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </a>
+                </span>
+                
+            </span>
+        </div>
+        <ul class="menu" id="menu" onscroll="menu_on_scroll()">
+            <li>
+                <a href="https://via.moe/" title="Index">
+                    <span>Index</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://via.moe/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://via.moe/rss.xml" title="RSS">
+                    <span>RSS</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://via.moe/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li></ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">
+      自製 Nintendo Amiibo 卡片
+    </h1>
+    <div class="post-description">
+      
+    </div>
+    <div class="post-meta">May 14, 2017
+
+    </div>
+  </header> 
+
+  <div class="post-content">
+<p><img src="https://imgur.via.moe/VoFhfwW.jpg" alt="">
+<img src="https://imgur.via.moe/IvNZVeY.jpg" alt=""></p>
+<p>所需工具：</p>
+<p>1.支持 NFC 的安卓手機一臺(自備)
+2.<a href="https://github.com/HiddenRambler/TagMo/releases">TagMo</a> 以及對應的解鎖 Key 文件
+3.需要寫入的 Amiibo 的 bin 文件
+4.空白 Ntag215 NFC 卡若干(X寶1-2元一張)</p>
+<p>製作步驟：</p>
+<p>1.手機打開 NFC 功能</p>
+<p>2.安裝 TagMo 應用</p>
+<p><img src="https://imgur.via.moe/IRM26KL.png" alt=""></p>
+<p>3.打開 TagMo ，然後按右上角菜單按鈕，選擇 load key file 選項</p>
+<p><img src="https://imgur.via.moe/l5HFCjU.png" alt=""></p>
+<p>4.然後分別加載 locked-secret.bin 與 unfixed-info.bin 兩個文件，加載成功的話 Have retail locked keys 與 Have retail unfixed keys 兩個文字後面會顯示 true</p>
+<p>5.再點擊右上角菜單按鈕，選擇 load tag file 選項，然後選擇想要刷入的 Amiibo 的 bin文件</p>
+<p><img src="https://imgur.via.moe/a6jfPFN.png" alt=""></p>
+<p>6.界面顯示loaded tag file就表示加載成功</p>
+<p>7.然後再點擊右上角的菜單按鈕，選擇 Write to tag(auto) 選項，這時候屏幕會顯示 place phone on the(blank)tag 文字</p>
+<p>8.這時候將空的 nfc 卡放到手機後方，等待寫入，寫入完成會顯示 tag detected 然後下方一個 done，看到這個文字就表示寫入完成了</p>
+<p>9.Enjoy~</p>
+<p>工具包下載(包含 塞爾達傳説：荒野之息 + 馬里奧賽車8 豪華版)：</p>
+<p><a href="https://mega.nz/#!81YwkbZR!9VQTFr8rDGKOThATBeMi0jJUnmeWPEKZ8ZhcLxz3hiY">https://mega.nz/#!81YwkbZR!9VQTFr8rDGKOThATBeMi0jJUnmeWPEKZ8ZhcLxz3hiY</a></p>
+<p>資料來自 <a href="https://nfc-bank.com/bins.php?categoryid=2">nfcbank</a></p>
+
+</div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://via.moe/tags/nintendo/">nintendo</a></li>
+      <li><a href="https://via.moe/tags/amiibo/">amiibo</a></li>
+      <li><a href="https://via.moe/tags/switch/">switch</a></li>
+    </ul>
+  </footer>
+</article>
+    </main><footer class="footer">
+    
+    <span>本博客除另外說明，都採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW">署名-非商業性使用-相同方式共享 4.0 協議</a> 進行許可<br>Except where otherwise noted, content on this site is licensed under a<br><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a> license</span>
+    
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
+    <button class="top-link" id="top-link" type="button" accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </button>
+</a>
+
+
+
+<script defer src="/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<script>
+    window.onload = function () {
+        if (localStorage.getItem("menu-scroll-position")) {
+            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
+        }
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.replaceState(null, null, `#${id}`);
+            }
+        });
+    });
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+    function menu_on_scroll() {
+        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+    }
+
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-70500040-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-70500040-1');
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<script>var url=window.location.href;url.indexOf("https")<0&&(url=url.replace("http:","https:"),window.location.replace(url));</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="theme-color" content="#2e2e33">
+<meta name="robots" content="index, follow">
+<title>OSMC 配置筆記 | Siege</title>
+
+<meta name="keywords" content="raspberrypi" />
+<meta name="description" content="樹莓派（Raspberry Pi），是一款基於 Linux 系統的只有信用卡大小的單片機。它由英國的樹莓派基金會所開發，目的是以低價硬件及自由軟件刺激在學校的基本計算機科學教育。
+2015年2月，樹莓派基金會發布了第二代產品——樹莓派2，售價 35 美元。樹莓派2 採用 4 核 Broadcom BCM2836 (ARMv7-A) 芯片、雙核 VideoCore IV GPU 和 1GB 內存，其餘配置與 樹莓派B&#43; 型一致，除了支持第一代樹莓派支持的操作系統外，樹莓派2 將能夠運行Windows 10 IOT 以及 Snappy Ubuntu Core。
+樹莓派基金會於 2016年 2月 發布了樹莓派3,較前一代樹莓派2，樹莓派3 的處理器升級為了 64 位元的博通 BCM2837，並首次加入了 Wi-Fi 無線網路及藍牙功能，而售價仍然是 35 美元。
+ 此文供 樹莓派 &#43; OSMC (with Debian Jessie) 操作系統初始化安裝配置 使用。
+一個嶄新的 樹莓派2 需要自備 5V 2A 電源適配器 &#43; MicroUSB 連接線 &#43; 鍵盤(或者配合網線/Wifi模塊 通過 SSH 遠程連接) &#43; 鼠標(可選) &#43; HDMI (rev 1.">
+<meta name="author" content="">
+<link rel="canonical" href="https://via.moe/osmc-init/" />
+<link href="/assets/css/stylesheet.min.5c4f6d85b7abfcfea458637c672d16a7a9c38c37f002753cfdc7f314b6d3c8f2.css" integrity="sha256-XE9thber/P6kWGN8Zy0Wp6nDjDfwAnU8/cfzFLbTyPI=" rel="preload stylesheet"
+    as="style">
+
+<link rel="icon" href="https://via.moe/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://via.moe/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://via.moe/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://via.moe/apple-touch-icon.png">
+<link rel="mask-icon" href="https://via.moe/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.80.0" />
+
+
+<meta property="og:title" content="OSMC 配置筆記" />
+<meta property="og:description" content="樹莓派（Raspberry Pi），是一款基於 Linux 系統的只有信用卡大小的單片機。它由英國的樹莓派基金會所開發，目的是以低價硬件及自由軟件刺激在學校的基本計算機科學教育。
+2015年2月，樹莓派基金會發布了第二代產品——樹莓派2，售價 35 美元。樹莓派2 採用 4 核 Broadcom BCM2836 (ARMv7-A) 芯片、雙核 VideoCore IV GPU 和 1GB 內存，其餘配置與 樹莓派B&#43; 型一致，除了支持第一代樹莓派支持的操作系統外，樹莓派2 將能夠運行Windows 10 IOT 以及 Snappy Ubuntu Core。
+樹莓派基金會於 2016年 2月 發布了樹莓派3,較前一代樹莓派2，樹莓派3 的處理器升級為了 64 位元的博通 BCM2837，並首次加入了 Wi-Fi 無線網路及藍牙功能，而售價仍然是 35 美元。
+ 此文供 樹莓派 &#43; OSMC (with Debian Jessie) 操作系統初始化安裝配置 使用。
+一個嶄新的 樹莓派2 需要自備 5V 2A 電源適配器 &#43; MicroUSB 連接線 &#43; 鍵盤(或者配合網線/Wifi模塊 通過 SSH 遠程連接) &#43; 鼠標(可選) &#43; HDMI (rev 1." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://via.moe/osmc-init/" />
+<meta property="article:published_time" content="2017-05-14T19:32:59+08:00" />
+<meta property="article:modified_time" content="2017-05-14T19:32:59+08:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="OSMC 配置筆記"/>
+<meta name="twitter:description" content="樹莓派（Raspberry Pi），是一款基於 Linux 系統的只有信用卡大小的單片機。它由英國的樹莓派基金會所開發，目的是以低價硬件及自由軟件刺激在學校的基本計算機科學教育。
+2015年2月，樹莓派基金會發布了第二代產品——樹莓派2，售價 35 美元。樹莓派2 採用 4 核 Broadcom BCM2836 (ARMv7-A) 芯片、雙核 VideoCore IV GPU 和 1GB 內存，其餘配置與 樹莓派B&#43; 型一致，除了支持第一代樹莓派支持的操作系統外，樹莓派2 將能夠運行Windows 10 IOT 以及 Snappy Ubuntu Core。
+樹莓派基金會於 2016年 2月 發布了樹莓派3,較前一代樹莓派2，樹莓派3 的處理器升級為了 64 位元的博通 BCM2837，並首次加入了 Wi-Fi 無線網路及藍牙功能，而售價仍然是 35 美元。
+ 此文供 樹莓派 &#43; OSMC (with Debian Jessie) 操作系統初始化安裝配置 使用。
+一個嶄新的 樹莓派2 需要自備 5V 2A 電源適配器 &#43; MicroUSB 連接線 &#43; 鍵盤(或者配合網線/Wifi模塊 通過 SSH 遠程連接) &#43; 鼠標(可選) &#43; HDMI (rev 1."/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "OSMC 配置筆記",
+  "name": "OSMC 配置筆記",
+  "description": "樹莓派（Raspberry Pi），是一款基於 Linux 系統的只有信用卡大小的單片機。它由英國的樹莓派基金會所開發，目的是以低價硬件及自由軟件刺激在學校的基本計算機科學教育。\n2015年2月，樹莓派基金會發布了第二代產品——樹莓派2，售價 35 美元。樹莓派2 採用 4 核 Broadcom BCM2836 (ARMv7-A) 芯片、 …",
+  "keywords": [
+    "raspberrypi"
+  ],
+  "articleBody": "樹莓派（Raspberry Pi），是一款基於 Linux 系統的只有信用卡大小的單片機。它由英國的樹莓派基金會所開發，目的是以低價硬件及自由軟件刺激在學校的基本計算機科學教育。\n2015年2月，樹莓派基金會發布了第二代產品——樹莓派2，售價 35 美元。樹莓派2 採用 4 核 Broadcom BCM2836 (ARMv7-A) 芯片、雙核 VideoCore IV GPU 和 1GB 內存，其餘配置與 樹莓派B+ 型一致，除了支持第一代樹莓派支持的操作系統外，樹莓派2 將能夠運行Windows 10 IOT 以及 Snappy Ubuntu Core。\n樹莓派基金會於 2016年 2月 發布了樹莓派3,較前一代樹莓派2，樹莓派3 的處理器升級為了 64 位元的博通 BCM2837，並首次加入了 Wi-Fi 無線網路及藍牙功能，而售價仍然是 35 美元。\n 此文供 樹莓派 + OSMC (with Debian Jessie) 操作系統初始化安裝配置 使用。\n一個嶄新的 樹莓派2 需要自備 5V 2A 電源適配器 + MicroUSB 連接線 + 鍵盤(或者配合網線/Wifi模塊 通過 SSH 遠程連接) + 鼠標(可選) + HDMI (rev 1.3 \u0026 1.4) 線連接顯示器 + 網線/內置Wifi模塊(Raspberry Pi 3)/某些支持默認驅動的無線網卡 + TF 儲存卡 + 樹莓派保護外殼(可選)\n 下載及燒錄映像檔  先去 OSMC 官方網站 下載系統鏡像壓縮包文件\n下載完成解壓出 img 鏡像文件 使用 Win32 Disk Imager 或者 dd 命令 (for Linux / Mac OS X) 或着適用Mac平臺的 [ApplePi-Baker](http://www.tweaking4all.com/hardware/raspberry-pi/macosx-apple-pi-baker/） 燒寫系統啓動鏡像 參考官方說明\n然後燒寫 TF 儲存卡製作 OSMC 系統啓動盤\n 配置系統  連接完成之後連接電源啓動系統\n推薦使用鍵盤+鼠標(可選) 請鏈接 顯示器 完成操作。 系統默認進入 GUI 界面。\n首次開機會自動調整 root 或儲存卡分割區大小，如下圖所示。\n可以通過 GUI 介面直接設置時區，系統字符編碼等（簡繁中文可以由於字體問題顯示「豆腐方塊」），推薦設置為 English 。\nOMSC 支持很多插件，可以直接在 GUI 介面內安裝。\n如果使用 smb 協議連載自己的遠程文件夾，可以開放 smb 的匿名用戶登錄功能，這樣可以直接使用 OSMC 連接媒體庫。\n以下是 CLI 配置\n  SSH 連接系統  Windows 系統可以使用 Cmder / 日本大神修改的Putty 通過 SSH 連接虛擬終端\nusername: osmc passwd: osmc\n若需要修改默認賬戶密碼\n$ passwd 之後輸入兩次新密碼即可\n設置 root 賬戶密碼，輸入兩次新密碼即可\n$ sudo passwd root 啓用 root 賬戶登錄\n$ sudo passwd --unlock root  安裝常用工具  # apt-get install git bind-utils apt-transport-https psmisc tree wget curl samba htop unzip zip p7zip zsh -y  更新系統軟件源  # apt-get update -y \u0026\u0026 apt-get upgrade -y 編輯 /etc/apt/sources.list 替換系統默認的軟件源\n# nano /etc/apt/sources.list 源地址內容如下\ndeb http://mirrors.ustc.edu.cn/debian jessie main contrib non-free\rdeb http://mirrors.ustc.edu.cn/debian jessie-updates main contrib non-free\rdeb http://mirrors.ustc.edu.cn/debian-security/ jessie/updates main non-free contrib\rdeb http://mirrors.tuna.tsinghua.edu.cn/osmc/osmc/apt/ jessie main\r#deb http://ftp.debian.org/debian jessie main contrib non-free\r#deb http://ftp.debian.org/debian/ jessie-updates main contrib non-free\r#deb http://security.debian.org/ jessie/updates main contrib non-free\r#deb http://apt.osmc.tv jessie main\r更改軟件源之後 請更新系統軟件源\n# apt-get update -y \u0026\u0026 apt-get upgrade -y 之後本人推薦 Zsh 作爲系統默認 Shell 環境\n使用一鍵開箱的 Zsh 的配置 oh-my-zsh\n通過 curl 安裝\n$ sh -c \"$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)\" 或通過 wget 安裝\n$ sh -c \"$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)\" 安裝完成按提示輸入用戶密碼替換系統當前 Shell 環境 如果沒有提升請手動設置 Zsh 爲默認 Shell 環境\n$ chsh -s /bin/zsh 到此爲止 系統基礎的設置已經完成\n接下來可以裝一下自己需要的功能 例如 screen、tree、htop、cow、shadowsocks 、 chinaDNS、xunlei-fastdick 等\nOSMC 的更多高級設置請見 https://osmc.tv/wiki/general/configuration-file-locations/\n切記：請勿隨意斷開電源！ 關閉電源前請執行關機命令 或 重啟命令\n# poweroff 或\n# reboot 靜待系統關閉完成再拔掉電源連接線。\n",
+  "wordCount" : "325",
+  "inLanguage": "en",
+  "datePublished": "2017-05-14T19:32:59+08:00",
+  "dateModified": "2017-05-14T19:32:59+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://via.moe/osmc-init/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Siege",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://via.moe/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<noscript>
+    <style type="text/css">
+        .theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://via.moe/" accesskey="h" title="Siege (Alt + H)">Siege</a>
+            <span class="logo-switches">
+                <span class="theme-toggle" title="(Alt + T)">
+                    <a id="theme-toggle" accesskey="t">
+                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </a>
+                </span>
+                
+            </span>
+        </div>
+        <ul class="menu" id="menu" onscroll="menu_on_scroll()">
+            <li>
+                <a href="https://via.moe/" title="Index">
+                    <span>Index</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://via.moe/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://via.moe/rss.xml" title="RSS">
+                    <span>RSS</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://via.moe/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li></ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">
+      OSMC 配置筆記
+    </h1>
+    <div class="post-description">
+      
+    </div>
+    <div class="post-meta">May 14, 2017
+
+    </div>
+  </header> 
+
+  <div class="post-content">
+<p><img src="https://www.raspberrypi.org/learning/resources/lamp-web-server-with-wordpress/cover.png" alt=""></p>
+<p>樹莓派（Raspberry Pi），是一款基於 Linux 系統的只有信用卡大小的單片機。它由英國的樹莓派基金會所開發，目的是以低價硬件及自由軟件刺激在學校的基本計算機科學教育。</p>
+<p>2015年2月，樹莓派基金會發布了第二代產品——樹莓派2，售價 35 美元。樹莓派2 採用 4 核 Broadcom BCM2836 (ARMv7-A) 芯片、雙核 VideoCore IV GPU 和 1GB 內存，其餘配置與 樹莓派B+ 型一致，除了支持第一代樹莓派支持的操作系統外，樹莓派2 將能夠運行Windows 10 IOT 以及 Snappy Ubuntu Core。</p>
+<p>樹莓派基金會於 2016年 2月 發布了樹莓派3,較前一代樹莓派2，樹莓派3 的處理器升級為了 64 位元的博通 BCM2837，並首次加入了 Wi-Fi 無線網路及藍牙功能，而售價仍然是 35 美元。</p>
+<hr>
+<p><img src="https://osmc.tv/assets/img/osmc_meta.png?v=4b2bdd20f2" alt=""></p>
+<p>此文供 樹莓派 + OSMC (with Debian Jessie) 操作系統初始化安裝配置 使用。</p>
+<p>一個嶄新的 樹莓派2 需要自備 5V 2A 電源適配器 + MicroUSB 連接線 + 鍵盤(或者配合網線/Wifi模塊 通過 SSH 遠程連接) + 鼠標(可選) + HDMI (rev 1.3 &amp; 1.4)
+線連接顯示器 + 網線/內置Wifi模塊(Raspberry Pi 3)/某些支持默認驅動的無線網卡 + TF 儲存卡 + 樹莓派保護外殼(可選)</p>
+<p><img src="https://cdn.via.moe/file/viamoe/img/pi-demo.jpg" alt=""></p>
+<ul>
+<li>下載及燒錄映像檔</li>
+</ul>
+<p>先去  <a href="https://osmc.tv/download/">OSMC 官方網站</a> 下載系統鏡像壓縮包文件</p>
+<p>下載完成解壓出 img 鏡像文件 使用 <a href="http://sourceforge.net/projects/win32diskimager/">Win32 Disk Imager</a> 或者 <a href="https://wiki.archlinux.org/index.php/USB_flash_installation_media_(%E6%AD%A3%E9%AB%94%E4%B8%AD%E6%96%87)#.E4.BD.BF.E7.94.A8_dd">dd 命令 (for Linux / Mac OS X)</a> 或着適用Mac平臺的 [ApplePi-Baker](<a href="http://www.tweaking4all.com/hardware/raspberry-pi/macosx-apple-pi-baker/">http://www.tweaking4all.com/hardware/raspberry-pi/macosx-apple-pi-baker/</a>） 燒寫系統啓動鏡像 參考<a href="https://www.raspberrypi.org/documentation/installation/installing-images/">官方說明</a></p>
+<p>然後燒寫 TF 儲存卡製作 OSMC 系統啓動盤</p>
+<ul>
+<li>配置系統</li>
+</ul>
+<p>連接完成之後連接電源啓動系統</p>
+<p>推薦使用鍵盤+鼠標(可選) 請鏈接 顯示器 完成操作。 系統默認進入 GUI 界面。</p>
+<p>首次開機會自動調整 root 或儲存卡分割區大小，如下圖所示。</p>
+<p><img src="https://cdn.via.moe/file/viamoe/img/gparted_screenshot.png" alt=""></p>
+<p>可以通過 GUI 介面直接設置時區，系統字符編碼等（簡繁中文可以由於字體問題顯示「豆腐方塊」），推薦設置為 English 。</p>
+<p>OMSC 支持很多插件，可以直接在 GUI 介面內安裝。</p>
+<p>如果使用 smb 協議連載自己的遠程文件夾，可以開放 smb 的匿名用戶登錄功能，這樣可以直接使用 OSMC 連接媒體庫。</p>
+<p>以下是 CLI 配置</p>
+<hr>
+<ul>
+<li>SSH 連接系統</li>
+</ul>
+<p>Windows 系統可以使用 <a href="http://cmder.net">Cmder</a> / <a href="http://ice.hotmint.com/putty/">日本大神修改的Putty</a> 通過 SSH 連接虛擬終端</p>
+<p>username: osmc
+passwd: osmc</p>
+<p>若需要修改默認賬戶密碼</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ passwd
+</code></pre></div><p>之後輸入兩次新密碼即可</p>
+<p>設置 root 賬戶密碼，輸入兩次新密碼即可</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo passwd root
+</code></pre></div><p>啓用 root 賬戶登錄</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo passwd --unlock root
+</code></pre></div><ul>
+<li>安裝常用工具</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># apt-get install git bind-utils apt-transport-https psmisc tree wget curl samba htop unzip zip p7zip zsh -y</span>
+</code></pre></div><ul>
+<li>更新系統軟件源</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># apt-get update -y &amp;&amp; apt-get upgrade -y</span>
+</code></pre></div><p>編輯 <code>/etc/apt/sources.list</code> 替換系統默認的軟件源</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># nano /etc/apt/sources.list</span>
+</code></pre></div><p>源地址內容如下</p>
+<pre><code class="language-conf" data-lang="conf">deb http://mirrors.ustc.edu.cn/debian jessie main contrib non-free
+
+deb http://mirrors.ustc.edu.cn/debian jessie-updates main contrib non-free
+
+deb http://mirrors.ustc.edu.cn/debian-security/ jessie/updates main non-free contrib
+
+deb http://mirrors.tuna.tsinghua.edu.cn/osmc/osmc/apt/  jessie main
+
+#deb http://ftp.debian.org/debian jessie main contrib non-free
+
+#deb http://ftp.debian.org/debian/ jessie-updates main contrib non-free
+
+#deb http://security.debian.org/ jessie/updates main contrib non-free
+
+#deb http://apt.osmc.tv jessie main
+</code></pre><p>更改軟件源之後 請更新系統軟件源</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># apt-get update -y &amp;&amp; apt-get upgrade -y</span>
+</code></pre></div><p>之後本人推薦 Zsh 作爲系統默認 Shell 環境</p>
+<p>使用一鍵開箱的 Zsh 的配置 <a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh</a></p>
+<p>通過 curl 安裝</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sh -c <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</code></pre></div><p>或通過 wget 安裝</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sh -c <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</code></pre></div><p>安裝完成按提示輸入用戶密碼替換系統當前 Shell 環境 如果沒有提升請手動設置 Zsh 爲默認 Shell 環境</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ chsh -s /bin/zsh
+</code></pre></div><p>到此爲止 系統基礎的設置已經完成</p>
+<p>接下來可以裝一下自己需要的功能 例如 screen、tree、htop、cow、shadowsocks 、 chinaDNS、xunlei-fastdick 等</p>
+<p>OSMC 的更多高級設置請見 <a href="https://osmc.tv/wiki/general/configuration-file-locations/">https://osmc.tv/wiki/general/configuration-file-locations/</a></p>
+<p>切記：請勿隨意斷開電源！ 關閉電源前請執行關機命令 或 重啟命令</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># poweroff</span>
+</code></pre></div><p>或</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># reboot</span>
+</code></pre></div><p>靜待系統關閉完成再拔掉電源連接線。</p>
+
+</div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://via.moe/tags/raspberrypi/">raspberrypi</a></li>
+    </ul>
+  </footer>
+</article>
+    </main><footer class="footer">
+    
+    <span>本博客除另外說明，都採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW">署名-非商業性使用-相同方式共享 4.0 協議</a> 進行許可<br>Except where otherwise noted, content on this site is licensed under a<br><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a> license</span>
+    
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
+    <button class="top-link" id="top-link" type="button" accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </button>
+</a>
+
+
+
+<script defer src="/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<script>
+    window.onload = function () {
+        if (localStorage.getItem("menu-scroll-position")) {
+            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
+        }
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.replaceState(null, null, `#${id}`);
+            }
+        });
+    });
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+    function menu_on_scroll() {
+        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+    }
+
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-70500040-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-70500040-1');
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+</body>
+
+</html>

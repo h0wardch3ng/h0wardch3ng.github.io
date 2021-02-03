@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>nas on Siege</title>
+    <link>https://via.moe/tags/nas/</link>
+    <description>Recent content in nas on Siege</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Wed, 31 Jul 2019 19:32:59 +0800</lastBuildDate><atom:link href="https://via.moe/tags/nas/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>自建 NAS 筆記</title>
+      <link>https://via.moe/build-your-nas/</link>
+      <pubDate>Wed, 31 Jul 2019 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/build-your-nas/</guid>
+      <description>網路附加儲存(Network Attached Storage)是一種通過電纜或無線連接到家庭或辦公室網絡的存儲設備。它允許所有連接的設備具有正確的權限設置，以訪問內部系統已存儲的文件。目前可以購買成品 NAS，但價格和功能不如自己去組建一台更合算。
+由於衆所周知的原因，你放在所謂國產雲上的文件會隨時被河蟹，所以自己的數據還是放在自己家裡面更安全。之前買過一台 HPE GEN10，由於可升級性太差最終還是出手了。
+自己組 NAS 的好處有以下幾方面：
+ 更低的價格，更好的硬件 升級空間大 可以根據自己的目前需求制定配置 軟件和系統的選擇性更多 後續維修方便  硬件 機箱 要求是存儲盤位盡可能的多，那你應該需要中塔機箱
+ 酷冷至尊(CoolerMaster)特警 365 中塔式電腦主機機箱  我買的是這個機箱，自帶 5 個 HDD 盤位，可以後續買硬盤籠裝在光驅位上，可以再增加 5 個 HDD 盤位，另外還要買 PCIE 轉 SATA 轉換卡。
+ 酷冷至尊 刺客 U3 加強版 ATX 主板 靜音 機箱 遊戲電腦機箱  其實還有很多這種老款式的機箱都可以選擇
+ Tt（Thermaltake）Urban S31 黑色 中塔機箱  新式設計，不過有 5 個 HDD 盤位，預算夠的可以選擇這個
+ 恩傑 NZXT H440 白色 中塔式機箱  不差錢的直接上這個，我目前打游戲的 PC 使用了這個機箱，有 6 個 HDD 盤位，整體感覺就是很穩</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hackintosh on Siege</title>
+    <link>https://via.moe/tags/hackintosh/</link>
+    <description>Recent content in hackintosh on Siege</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Tue, 01 Jan 2019 19:32:59 +0800</lastBuildDate><atom:link href="https://via.moe/tags/hackintosh/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>黑蘋果相關工具筆記</title>
+      <link>https://via.moe/hackintosh-tools-note/</link>
+      <pubDate>Tue, 01 Jan 2019 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/hackintosh-tools-note/</guid>
+      <description>這篇文章只是一個關於黑蘋果安裝完成之後的小工具使用筆記，具體按照步驟見：Tonymacx86
+系統 macOS Mojave 10.14.3 18D42 With Clover 4859 + Transmac 12.3
+系統鏡像下载
+相關工具 Clover
+Clover Configurator
+FakeSMC
+AppleALC
+Multibeast
+Kext Utility
+KCPM Utility Pro
+Kextupdater
+Nvidia Web Driver
+LAN &amp;amp; Wireless Driver
+命令行工具 ohmyzsh
+sh -c &amp;#34;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&amp;#34; brew 包管理器
+/usr/bin/ruby -e &amp;#34;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;#34; </description>
+    </item>
+    
+    <item>
+      <title>黑蘋果升級 High Sierra 系統</title>
+      <link>https://via.moe/hackintosh-upgrade-high-sierra/</link>
+      <pubDate>Fri, 29 Sep 2017 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/hackintosh-upgrade-high-sierra/</guid>
+      <description>需要工具：
+Clover FakeSMC AppleALC APFS.EFI Nvidia Web Driver
+一、準備工作 首先升級 Clover 和 FakeSMC
+之後下載 APFS.EFI 放到 EFI/CLOVER/drivers64UEFI 下
+ 蘋果檔案系統（英語：Apple File System，簡稱APFS）是一個適用於 macOS、iOS、tvOS 和 watchOS 的檔案系統，目前正在由蘋果公司開發和部署。它的目的是解決 HFS+（Mac OS Extend，APFS 的前身）檔案系統的核心問題。APFS 為快閃記憶體和固態儲存裝置最佳化，具有寫入時複製等設計特點，使用 I/O 合併改進效能。
+ APFS.EFI 這個文件也可以在官方鏡像 Install macOS High Sierra.app 中找到，路徑在 Contents\SharedSupport\BaseSystem.dmg\usr\standalone\i386\apfs.efi,自行提取
+安裝完成後，路徑在 /usr/standalone/i386/apfs.efi
+重啟系統後，測試 APFS.EFI 是否正確加載
+bdmesg 如果成功會有文字提示
+...0:112 0:000 === [ LoadDrivers ] =======================================0:116 0:003 Loading FSInject-64.efi status=Success0:118 0:001 Loading OsxFatBinaryDrv-64.efi status=Success0:118 0:000 Loading OsxAptioFix2Drv-64.</description>
+    </item>
+    
+  </channel>
+</rss>

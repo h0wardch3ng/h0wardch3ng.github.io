@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ps4 on Siege</title>
+    <link>https://via.moe/tags/ps4/</link>
+    <description>Recent content in ps4 on Siege</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Mon, 09 Nov 2015 19:32:59 +0800</lastBuildDate><atom:link href="https://via.moe/tags/ps4/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DualShock 4 手柄有線/藍牙無線連接 PC</title>
+      <link>https://via.moe/ds4-for-windows/</link>
+      <pubDate>Mon, 09 Nov 2015 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/ds4-for-windows/</guid>
+      <description>之前寫過一篇用ds4tool這個軟件連接windows的方法
+現在又一個免費開源的連接軟件能幫助大法DualShock 4 手柄有線/藍牙無線連接PC
+首先去 ds4windows 的網站下載最新的版本
+下載到本地之後 打開 ds4windows
+點擊 setting 裡面的 controller driver install 之後 按照提示安裝
+之後插上 USB 連接 PC 或者藍牙連接 都可以 Windows自己也會按照相應的手柄驅動
+成功連接自己的手柄 背後的LED會從白色變成藍色
+這個軟件也有很多的自定義設置 自己慢慢去發現吧
+索尼大法的手柄確實好用，雖然不用 PS4 玩遊戲，但是買一個連接自己的計算機玩遊戲不覺得更好嗎？也可以試試看 https://github.com/x360ce/x360ce 這個軟件。</description>
+    </item>
+    
+    <item>
+      <title>PS4 手柄有線/藍牙無線連接PC</title>
+      <link>https://via.moe/ps4-controller-on-pc/</link>
+      <pubDate>Sat, 28 Mar 2015 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/ps4-controller-on-pc/</guid>
+      <description>本文將講解Windows 7系統下如何將PS4手柄與PC電腦配對，並模擬成Xbox 360手柄的設置
+現在已經是 2017 年了，也有了更好的工具，請見 https://level5.dev/ds4-for-windows/
+需要無線連接之前請先嚐試有線連接是否正常
+ 有線連接  拿一條安卓設備常見的microusb連接線 連接PC等待安裝完驅動即可使用 但此時是兼容的DirectInput遊戲手柄設備 PS4手柄背部此時LED顯示爲黃色常亮
+需要去這個論壇下載 DS4 TO XInput Wrapper 這個軟件模擬XBOX遊戲手柄 *最新版本是DS4TOOL 1.2.2.zip
+下載完成之後解壓壓縮包
+打開Virtual Bus Driver子目錄
+安裝ScpDriver.exe
+然後返回解壓之後的文件根目錄 打開ScpServer.exe 這時主程序最小化到任務欄右下角去了
+連接正常 PS4手柄背部LED燈顯示藍色常亮 DS4TOOL會顯示手柄的mac地址 內置電池電量 和觸控板開啓狀態
+如果沒有正常連接 則沒有顯示 需要重新插拔設備即可
+DS4TOOL支持手柄的更多設置（反正默認夠用
+ 熱鍵說明
+L2+按下觸摸板 | 關閉觸摸板 L2+R2+按下觸摸板 | 開啓觸摸板 雙指上滑/下滑 | 向上/向下滾動
+單擊觸摸板 | 相當於鼠標左鍵
+觸摸板右側單擊後左側單擊 | 相當於鼠標右鍵
+PS鍵+Option鍵 | 關閉藍牙
+  無線設置  如果是搭載了Windows 7/Windows 8/8.1的筆記本 可以打開系統藍牙設置並配對
+如果是臺式機 請買個支持藍牙2.1+EDR的適配器 例如:ORICO 奧睿科 BTA-402 藍牙V4.</description>
+    </item>
+    
+  </channel>
+</rss>

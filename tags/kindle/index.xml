@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>kindle on Siege</title>
+    <link>https://via.moe/tags/kindle/</link>
+    <description>Recent content in kindle on Siege</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sun, 24 Sep 2017 19:32:59 +0800</lastBuildDate><atom:link href="https://via.moe/tags/kindle/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kindle 電子書繁體中文轉換和豎排文字製作</title>
+      <link>https://via.moe/kindle-book-chinese-traditionalize-and-vertical-layout/</link>
+      <pubDate>Sun, 24 Sep 2017 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/kindle-book-chinese-traditionalize-and-vertical-layout/</guid>
+      <description>開始之前請先去除電子書的 DRM
+需要工具：
+Calibre Calibre 中文轉換插件 TradSimpChinese Sigil Kindlegen
+一、轉換繁體中文 安裝 Clibre 和 中文轉換插件 TradSimpChinese
+之後選擇編輯此電子書文件
+點擊編輯文件頂部工具欄的『文』，開始轉換
+轉換完成後，保存此文件，退出編輯模式
+然後選擇轉換書籍到 .epub 格式的電子書文件
+二、豎排文字製作 使用 Sigil 打開 .epub 格式的電子書文件
+找到對應本書的 .css 文件
+最後位置加入代碼：
+body { margin-left: 5%; margin-right: 5%; margin-top: 5%; margin-bottom: 5%; text-align: justify; writing-mode: vertical-rl; -webkit-writing-mode:vertical-rl; -epub-writing-mode: vertical-rl; -epub-line-break: auto; } 加入完成後保存文件
+然後下載對應的 Kindegen 轉換為 Kindle 閱讀器可用的 .mobi 格式電子書文件
+ Windows：  把需要轉換的 .epub 電子書文件放在和 kindlegen 相同目錄層級下
+然後使用 cmd 鍵入命令</description>
+    </item>
+    
+  </channel>
+</rss>

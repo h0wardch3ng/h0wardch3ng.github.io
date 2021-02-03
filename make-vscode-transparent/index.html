@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<script>var url=window.location.href;url.indexOf("https")<0&&(url=url.replace("http:","https:"),window.location.replace(url));</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="theme-color" content="#2e2e33">
+<meta name="robots" content="index, follow">
+<title>將 VSCode 設置成透明背景的方法 | Siege</title>
+
+<meta name="keywords" content="vscode" />
+<meta name="description" content="請安裝 Vibrancy 擴展即可。
+ 以下內容已經過期
+1.安裝 Custom CSS and JS Loader 擴展
+2.編輯編輯器自定義樣式
+路徑：file:///Users/MyUserName/Documents/custom.css
+內容：
+html { background: transparent !important; } .scroll-decoration { box-shadow: none !important; } .minimap { opacity: 0.6; } .editor-container { background: transparent !important; } .search-view .search-widget .input-box, .search-view .search-widget .input-box .monaco-inputbox, .monaco-workbench&gt;.part.editor&gt;.content&gt;.one-editor-silo&gt;.container&gt;.title .tabs-container&gt;.tab, .monaco-editor-background, .monaco-editor .margin, .monaco-workbench&gt;.part&gt;.content, .monaco-workbench&gt;.editor&gt;.content&gt;.one-editor-silo.editor-one, .monaco-workbench&gt;.part.editor&gt;.content&gt;.one-editor-silo&gt;.container&gt;.title, .monaco-workbench&gt;.part&gt;.title, .monaco-workbench, .monaco-workbench&gt;.part, body { background: transparent !important; } .editor-group-container&gt;.tabs { background-color: rgba(37, 37, 37,0.2) !important; } .">
+<meta name="author" content="">
+<link rel="canonical" href="https://via.moe/make-vscode-transparent/" />
+<link href="/assets/css/stylesheet.min.5c4f6d85b7abfcfea458637c672d16a7a9c38c37f002753cfdc7f314b6d3c8f2.css" integrity="sha256-XE9thber/P6kWGN8Zy0Wp6nDjDfwAnU8/cfzFLbTyPI=" rel="preload stylesheet"
+    as="style">
+
+<link rel="icon" href="https://via.moe/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://via.moe/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://via.moe/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://via.moe/apple-touch-icon.png">
+<link rel="mask-icon" href="https://via.moe/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.80.0" />
+
+
+<meta property="og:title" content="將 VSCode 設置成透明背景的方法" />
+<meta property="og:description" content="請安裝 Vibrancy 擴展即可。
+ 以下內容已經過期
+1.安裝 Custom CSS and JS Loader 擴展
+2.編輯編輯器自定義樣式
+路徑：file:///Users/MyUserName/Documents/custom.css
+內容：
+html { background: transparent !important; } .scroll-decoration { box-shadow: none !important; } .minimap { opacity: 0.6; } .editor-container { background: transparent !important; } .search-view .search-widget .input-box, .search-view .search-widget .input-box .monaco-inputbox, .monaco-workbench&gt;.part.editor&gt;.content&gt;.one-editor-silo&gt;.container&gt;.title .tabs-container&gt;.tab, .monaco-editor-background, .monaco-editor .margin, .monaco-workbench&gt;.part&gt;.content, .monaco-workbench&gt;.editor&gt;.content&gt;.one-editor-silo.editor-one, .monaco-workbench&gt;.part.editor&gt;.content&gt;.one-editor-silo&gt;.container&gt;.title, .monaco-workbench&gt;.part&gt;.title, .monaco-workbench, .monaco-workbench&gt;.part, body { background: transparent !important; } .editor-group-container&gt;.tabs { background-color: rgba(37, 37, 37,0.2) !important; } ." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://via.moe/make-vscode-transparent/" />
+<meta property="article:published_time" content="2019-05-10T19:32:59+08:00" />
+<meta property="article:modified_time" content="2019-05-10T19:32:59+08:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="將 VSCode 設置成透明背景的方法"/>
+<meta name="twitter:description" content="請安裝 Vibrancy 擴展即可。
+ 以下內容已經過期
+1.安裝 Custom CSS and JS Loader 擴展
+2.編輯編輯器自定義樣式
+路徑：file:///Users/MyUserName/Documents/custom.css
+內容：
+html { background: transparent !important; } .scroll-decoration { box-shadow: none !important; } .minimap { opacity: 0.6; } .editor-container { background: transparent !important; } .search-view .search-widget .input-box, .search-view .search-widget .input-box .monaco-inputbox, .monaco-workbench&gt;.part.editor&gt;.content&gt;.one-editor-silo&gt;.container&gt;.title .tabs-container&gt;.tab, .monaco-editor-background, .monaco-editor .margin, .monaco-workbench&gt;.part&gt;.content, .monaco-workbench&gt;.editor&gt;.content&gt;.one-editor-silo.editor-one, .monaco-workbench&gt;.part.editor&gt;.content&gt;.one-editor-silo&gt;.container&gt;.title, .monaco-workbench&gt;.part&gt;.title, .monaco-workbench, .monaco-workbench&gt;.part, body { background: transparent !important; } .editor-group-container&gt;.tabs { background-color: rgba(37, 37, 37,0.2) !important; } ."/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "將 VSCode 設置成透明背景的方法",
+  "name": "將 VSCode 設置成透明背景的方法",
+  "description": "請安裝 Vibrancy 擴展即可。\n 以下內容已經過期\n1.安裝 Custom CSS and JS Loader 擴展\n2.編輯編輯器自定義樣式\n路徑：file:///Users/MyUserName/Documents/custom.css\n內容：\nhtml { background: transparent !important; } …",
+  "keywords": [
+    "vscode"
+  ],
+  "articleBody": "請安裝 Vibrancy 擴展即可。\n 以下內容已經過期\n1.安裝 Custom CSS and JS Loader 擴展\n2.編輯編輯器自定義樣式\n路徑：file:///Users/MyUserName/Documents/custom.css\n內容：\nhtml { background: transparent !important; } .scroll-decoration { box-shadow: none !important; } .minimap { opacity: 0.6; } .editor-container { background: transparent !important; } .search-view .search-widget .input-box, .search-view .search-widget .input-box .monaco-inputbox, .monaco-workbench.part.editor.content.one-editor-silo.container.title .tabs-container.tab, .monaco-editor-background, .monaco-editor .margin, .monaco-workbench.part.content, .monaco-workbench.editor.content.one-editor-silo.editor-one, .monaco-workbench.part.editor.content.one-editor-silo.container.title, .monaco-workbench.part.title, .monaco-workbench, .monaco-workbench.part, body { background: transparent !important; } .editor-group-container.tabs { background-color: rgba(37, 37, 37,0.2) !important; } .editor-group-container.tabs .tab { background-color: transparent !important; } .editor-group-container.tabs .tab.active { background-color: rgba(37, 37, 37,0.4) !important; } .monaco-list.settings-toc-tree .monaco-list-row.focused { outline-color: rgb(37, 37, 37,0.6) !important; } .monaco-list.settings-toc-tree .monaco-list-row.selected, .monaco-list.settings-toc-tree .monaco-list-row.focused, .monaco-list .monaco-list-row.selected, .monaco-list.settings-toc-tree:not(.drop-target) .monaco-list-row:hover:not(.selected):not(.focused) { background-color: rgb(37, 37, 37,0.6) !important; } .monaco-list.settings-editor-tree .monaco-list-row { background-color: transparent !important; outline-color: transparent !important; } .monaco-inputbox { background-color: rgba(41, 41, 41,0.2) !important; } .monaco-editor .selected-text { background-color: rgba(58, 61, 65,0.6) !important; } .monaco-editor .focused .selected-text { background-color: rgba(38, 79, 120,0.6) !important; } .monaco-editor .view-overlays .current-line { border-color: rgba(41, 41, 41,0.2) !important; } .extension-editor, .monaco-inputbox.wrapper.input, .monaco-workbench.part.editor.content.one-editor-silo.container.title .tabs-container.tab.active, .preferences-editor.preferences-header, .preferences-editor.preferences-editors-container.side-by-side-preferences-editor .preferences-header-container, .monaco-editor, .monaco-editor .inputarea.ime-input { background: transparent !important; } .editor-group-container.tabs .tab { border: none !important; }  路徑：file:///Users/MyUserName/Documents/custom.js\n內容：\nnodeRequire('electron').remote.getCurrentWindow().setVibrancy('ultra-dark'); 3.編輯 VSCode 編輯器設定文件 settings.json\n\"vscode_custom_css.imports\": [ \"file:///Users/MyUserName/Documents/custom.css\", \"file:///Users/MyUserName/Documents/custom.js\" ], \"vscode_custom_css.policy\": true 4.重新載入自定義 CSS 和 JS 配置\nShift+Command+P\n選擇 Reload Custom CSS and JS，並確定\n5.重啓 VSCode 編輯器即可\n 參考來源：\nhttps://github.com/Microsoft/vscode/issues/32257#issuecomment-489474744\n",
+  "wordCount" : "209",
+  "inLanguage": "en",
+  "datePublished": "2019-05-10T19:32:59+08:00",
+  "dateModified": "2019-05-10T19:32:59+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://via.moe/make-vscode-transparent/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Siege",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://via.moe/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<noscript>
+    <style type="text/css">
+        .theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://via.moe/" accesskey="h" title="Siege (Alt + H)">Siege</a>
+            <span class="logo-switches">
+                <span class="theme-toggle" title="(Alt + T)">
+                    <a id="theme-toggle" accesskey="t">
+                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </a>
+                </span>
+                
+            </span>
+        </div>
+        <ul class="menu" id="menu" onscroll="menu_on_scroll()">
+            <li>
+                <a href="https://via.moe/" title="Index">
+                    <span>Index</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://via.moe/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://via.moe/rss.xml" title="RSS">
+                    <span>RSS</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://via.moe/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li></ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">
+      將 VSCode 設置成透明背景的方法
+    </h1>
+    <div class="post-description">
+      
+    </div>
+    <div class="post-meta">May 10, 2019
+
+    </div>
+  </header> 
+
+  <div class="post-content">
+<p>請安裝 <a href="https://marketplace.visualstudio.com/items?itemName=eyhn.vscode-vibrancy">Vibrancy</a> 擴展即可。</p>
+<hr>
+<p>以下內容已經過期</p>
+<p><img src="https://cdn.via.moe/file/viamoe/img/vscode-transparent.jpg" alt=""></p>
+<p>1.安裝 <a href="https://marketplace.visualstudio.com/items?itemName=be5invis.vscode-custom-css">Custom CSS and JS Loader</a> 擴展</p>
+<p>2.編輯編輯器自定義樣式</p>
+<p>路徑：file:///Users/MyUserName/Documents/custom.css</p>
+<p>內容：</p>
+<pre><code>html {
+    background: transparent !important;
+}
+
+.scroll-decoration {
+    box-shadow: none !important;
+}
+
+.minimap {
+    opacity: 0.6;
+}
+
+.editor-container {
+    background: transparent !important;
+}
+
+.search-view .search-widget .input-box, .search-view .search-widget .input-box .monaco-inputbox,
+.monaco-workbench&gt;.part.editor&gt;.content&gt;.one-editor-silo&gt;.container&gt;.title .tabs-container&gt;.tab,
+.monaco-editor-background,
+.monaco-editor .margin,
+.monaco-workbench&gt;.part&gt;.content,
+.monaco-workbench&gt;.editor&gt;.content&gt;.one-editor-silo.editor-one,
+.monaco-workbench&gt;.part.editor&gt;.content&gt;.one-editor-silo&gt;.container&gt;.title,
+.monaco-workbench&gt;.part&gt;.title,
+.monaco-workbench,
+.monaco-workbench&gt;.part,
+body {
+    background: transparent !important;
+}
+
+.editor-group-container&gt;.tabs {
+    background-color: rgba(37, 37, 37,0.2) !important;
+}
+
+.editor-group-container&gt;.tabs .tab {
+    background-color: transparent !important;
+}
+
+.editor-group-container&gt;.tabs .tab.active {
+    background-color: rgba(37, 37, 37,0.4) !important;
+}
+
+.monaco-list.settings-toc-tree .monaco-list-row.focused {
+    outline-color: rgb(37, 37, 37,0.6) !important;
+}
+
+.monaco-list.settings-toc-tree .monaco-list-row.selected,
+.monaco-list.settings-toc-tree .monaco-list-row.focused,
+.monaco-list .monaco-list-row.selected,
+.monaco-list.settings-toc-tree:not(.drop-target) .monaco-list-row:hover:not(.selected):not(.focused) {
+    background-color: rgb(37, 37, 37,0.6) !important;
+}
+
+.monaco-list.settings-editor-tree .monaco-list-row {
+    background-color: transparent !important;
+    outline-color: transparent !important;
+}
+
+.monaco-inputbox {
+    background-color: rgba(41, 41, 41,0.2) !important;
+}
+
+.monaco-editor .selected-text {
+    background-color: rgba(58, 61, 65,0.6) !important;
+}
+
+.monaco-editor .focused .selected-text {
+    background-color: rgba(38, 79, 120,0.6) !important;
+}
+
+.monaco-editor .view-overlays .current-line {
+    border-color: rgba(41, 41, 41,0.2) !important;
+}
+
+.extension-editor,
+.monaco-inputbox&gt;.wrapper&gt;.input,
+.monaco-workbench&gt;.part.editor&gt;.content&gt;.one-editor-silo&gt;.container&gt;.title .tabs-container&gt;.tab.active,
+.preferences-editor&gt;.preferences-header,
+.preferences-editor&gt;.preferences-editors-container.side-by-side-preferences-editor .preferences-header-container,
+.monaco-editor, .monaco-editor .inputarea.ime-input {
+    background: transparent !important;
+}
+
+.editor-group-container&gt;.tabs .tab {
+    border: none !important;
+}
+</code></pre><hr>
+<p>路徑：file:///Users/MyUserName/Documents/custom.js</p>
+<p>內容：</p>
+<pre><code>nodeRequire('electron').remote.getCurrentWindow().setVibrancy('ultra-dark');
+</code></pre><p>3.編輯 VSCode 編輯器設定文件 settings.json</p>
+<pre><code>&quot;vscode_custom_css.imports&quot;: [
+  &quot;file:///Users/MyUserName/Documents/custom.css&quot;,
+  &quot;file:///Users/MyUserName/Documents/custom.js&quot;
+],
+&quot;vscode_custom_css.policy&quot;: true
+</code></pre><p>4.重新載入自定義 CSS 和 JS 配置</p>
+<p><code>Shift</code>+<code>Command</code>+<code>P</code></p>
+<p>選擇 Reload Custom CSS and JS，並確定</p>
+<p>5.重啓 VSCode 編輯器即可</p>
+<hr>
+<p>參考來源：</p>
+<p><a href="https://github.com/Microsoft/vscode/issues/32257#issuecomment-489474744">https://github.com/Microsoft/vscode/issues/32257#issuecomment-489474744</a></p>
+
+</div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://via.moe/tags/vscode/">vscode</a></li>
+    </ul>
+  </footer>
+</article>
+    </main><footer class="footer">
+    
+    <span>本博客除另外說明，都採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW">署名-非商業性使用-相同方式共享 4.0 協議</a> 進行許可<br>Except where otherwise noted, content on this site is licensed under a<br><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a> license</span>
+    
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
+    <button class="top-link" id="top-link" type="button" accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </button>
+</a>
+
+
+
+<script defer src="/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<script>
+    window.onload = function () {
+        if (localStorage.getItem("menu-scroll-position")) {
+            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
+        }
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.replaceState(null, null, `#${id}`);
+            }
+        });
+    });
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+    function menu_on_scroll() {
+        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+    }
+
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-70500040-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-70500040-1');
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+</body>
+
+</html>

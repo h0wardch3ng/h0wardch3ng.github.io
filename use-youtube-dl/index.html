@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<script>var url=window.location.href;url.indexOf("https")<0&&(url=url.replace("http:","https:"),window.location.replace(url));</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="theme-color" content="#2e2e33">
+<meta name="robots" content="index, follow">
+<title>使用 youtube-dl 下載視頻 | Siege</title>
+
+<meta name="keywords" content="youtube" />
+<meta name="description" content="youtube-dl 是一個使用 Python 編寫的腳本, 在視頻下載方面極其強悍, 比在線解析網站的下載速度更穩定更快, 並且對於 YouTube 的 1080p 及以上的視頻可以自動合併音視頻(需要 ffmpeg);由於這是一個命令腳本工具, 沒有UI界面, 因此它強大的功能就要靠參數來實現, 借用不同的參數可以實現不同的下載方式, 比如指定格式, 下載視頻字幕, 批量下載, 代理下載等等。
+安裝 youtube-dl 所有 UNIX 用戶可通過 curl 下載
+sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl sudo chmod a&#43;rx /usr/local/bin/youtube-dl 通過 pip
+sudo pip install --upgrade youtube_dl macOS 用戶通過 brew
+brew install youtube-dl 查詢 youtube 視頻格式 youtube-dl -F [url] 下載指定 youtube 視頻格式 youtube-dl -f [format code] [url] 如果需要下載 1080p 視頻與音頻合併 [format code] 填寫 137&#43;140">
+<meta name="author" content="">
+<link rel="canonical" href="https://via.moe/use-youtube-dl/" />
+<link href="/assets/css/stylesheet.min.5c4f6d85b7abfcfea458637c672d16a7a9c38c37f002753cfdc7f314b6d3c8f2.css" integrity="sha256-XE9thber/P6kWGN8Zy0Wp6nDjDfwAnU8/cfzFLbTyPI=" rel="preload stylesheet"
+    as="style">
+
+<link rel="icon" href="https://via.moe/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://via.moe/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://via.moe/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://via.moe/apple-touch-icon.png">
+<link rel="mask-icon" href="https://via.moe/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.80.0" />
+
+
+<meta property="og:title" content="使用 youtube-dl 下載視頻" />
+<meta property="og:description" content="youtube-dl 是一個使用 Python 編寫的腳本, 在視頻下載方面極其強悍, 比在線解析網站的下載速度更穩定更快, 並且對於 YouTube 的 1080p 及以上的視頻可以自動合併音視頻(需要 ffmpeg);由於這是一個命令腳本工具, 沒有UI界面, 因此它強大的功能就要靠參數來實現, 借用不同的參數可以實現不同的下載方式, 比如指定格式, 下載視頻字幕, 批量下載, 代理下載等等。
+安裝 youtube-dl 所有 UNIX 用戶可通過 curl 下載
+sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl sudo chmod a&#43;rx /usr/local/bin/youtube-dl 通過 pip
+sudo pip install --upgrade youtube_dl macOS 用戶通過 brew
+brew install youtube-dl 查詢 youtube 視頻格式 youtube-dl -F [url] 下載指定 youtube 視頻格式 youtube-dl -f [format code] [url] 如果需要下載 1080p 視頻與音頻合併 [format code] 填寫 137&#43;140" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://via.moe/use-youtube-dl/" />
+<meta property="article:published_time" content="2017-05-18T19:32:59+08:00" />
+<meta property="article:modified_time" content="2017-05-18T19:32:59+08:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="使用 youtube-dl 下載視頻"/>
+<meta name="twitter:description" content="youtube-dl 是一個使用 Python 編寫的腳本, 在視頻下載方面極其強悍, 比在線解析網站的下載速度更穩定更快, 並且對於 YouTube 的 1080p 及以上的視頻可以自動合併音視頻(需要 ffmpeg);由於這是一個命令腳本工具, 沒有UI界面, 因此它強大的功能就要靠參數來實現, 借用不同的參數可以實現不同的下載方式, 比如指定格式, 下載視頻字幕, 批量下載, 代理下載等等。
+安裝 youtube-dl 所有 UNIX 用戶可通過 curl 下載
+sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl sudo chmod a&#43;rx /usr/local/bin/youtube-dl 通過 pip
+sudo pip install --upgrade youtube_dl macOS 用戶通過 brew
+brew install youtube-dl 查詢 youtube 視頻格式 youtube-dl -F [url] 下載指定 youtube 視頻格式 youtube-dl -f [format code] [url] 如果需要下載 1080p 視頻與音頻合併 [format code] 填寫 137&#43;140"/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "使用 youtube-dl 下載視頻",
+  "name": "使用 youtube-dl 下載視頻",
+  "description": "youtube-dl 是一個使用 Python 編寫的腳本, 在視頻下載方面極其強悍, 比在線解析網站的下載速度更穩定更快, 並且對於 YouTube 的 1080p 及以上的視頻可以自動合併音視頻(需要 ffmpeg);由於這是一個命令腳本工具, 沒有UI界面, 因此它強大的功能就要靠參數來實現, 借用不同的參數可以實現不同的下載方式, 比如指定格式, 下 …",
+  "keywords": [
+    "youtube"
+  ],
+  "articleBody": "youtube-dl 是一個使用 Python 編寫的腳本, 在視頻下載方面極其強悍, 比在線解析網站的下載速度更穩定更快, 並且對於 YouTube 的 1080p 及以上的視頻可以自動合併音視頻(需要 ffmpeg);由於這是一個命令腳本工具, 沒有UI界面, 因此它強大的功能就要靠參數來實現, 借用不同的參數可以實現不同的下載方式, 比如指定格式, 下載視頻字幕, 批量下載, 代理下載等等。\n安裝 youtube-dl 所有 UNIX 用戶可通過 curl 下載\nsudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl sudo chmod a+rx /usr/local/bin/youtube-dl 通過 pip\nsudo pip install --upgrade youtube_dl macOS 用戶通過 brew\nbrew install youtube-dl 查詢 youtube 視頻格式 youtube-dl -F [url] 下載指定 youtube 視頻格式 youtube-dl -f [format code] [url] 如果需要下載 1080p 視頻與音頻合併 [format code] 填寫 137+140\nyoutube-dl -f [format code] [url] 例如\nλ ~ youtube-dl -F https://www.youtube.com/watch\\?v\\=Y2VF8tmLFHw [youtube] Y2VF8tmLFHw: Downloading webpage [youtube] Y2VF8tmLFHw: Downloading video info webpage [youtube] Y2VF8tmLFHw: Extracting video information [youtube] Y2VF8tmLFHw: Downloading MPD manifest [info] Available formats for Y2VF8tmLFHw: format code extension resolution note 139 m4a audio only DASH audio 57k , m4a_dash container, mp4a.40.5@ 48k (22050Hz), 53.63MiB 140 m4a audio only DASH audio 136k , m4a_dash container, mp4a.40.2@128k (44100Hz), 143.24MiB 160 mp4 256x144 DASH video 127k , avc1.4d400c, 30fps, video only, 67.86MiB 133 mp4 426x240 DASH video 285k , avc1.4d4015, 30fps, video only, 148.38MiB 134 mp4 640x360 DASH video 646k , avc1.4d401e, 30fps, video only, 258.74MiB 135 mp4 854x480 DASH video 1172k , avc1.4d401f, 30fps, video only, 510.83MiB 136 mp4 1280x720 DASH video 2359k , avc1.4d401f, 30fps, video only, 1002.76MiB 137 mp4 1920x1080 DASH video 4613k , avc1.640028, 30fps, video only, 2.75GiB 17 3gp 176x144 small , mp4v.20.3, mp4a.40.2@ 24k 36 3gp 320x180 small , mp4v.20.3, mp4a.40.2 18 mp4 640x360 medium , avc1.42001E, mp4a.40.2@ 96k 22 mp4 1280x720 hd720 , avc1.64001F, mp4a.40.2@192k (best) 下載視頻字幕 youtube-dl --write-sub [url] //這樣會下載一個vtt格式的英文字幕和mkv格式的1080p視頻下來 youtube-dl --write-sub --skip-download [url] //下載單獨的vtt字幕文件, 而不會下載視頻 youtube-dl --write-sub --all-subs [url] //下載所有語言的字幕(如果有的話) youtube-dl --write-auto-sub [url] //下載自動生成的字幕(YouTube only) 之後\nyoutube-dl -f 137+140 https://www.youtube.com/watch\\?v\\=Y2VF8tmLFHw 下載視頻列表 youtube-dl -f [format code] [playlist_url] //這種方式可以下載制定清晰度的mp4視頻 youtube-dl [playlist_url] //下載視頻列表, 這種方式下載的視頻可能是mkv格式或者webm格式 youtube-dl -cit [playlist_url] //下載視頻列表, 這種方式下載的視頻可能是mkv格式或者webm格式 youtube-dl --yes-playlist [url] //當鏈接爲視頻列表, 則下載該列表視頻, 跟上面的一樣, 可能是mkv或者webm格式 ",
+  "wordCount" : "290",
+  "inLanguage": "en",
+  "datePublished": "2017-05-18T19:32:59+08:00",
+  "dateModified": "2017-05-18T19:32:59+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://via.moe/use-youtube-dl/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Siege",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://via.moe/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<noscript>
+    <style type="text/css">
+        .theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://via.moe/" accesskey="h" title="Siege (Alt + H)">Siege</a>
+            <span class="logo-switches">
+                <span class="theme-toggle" title="(Alt + T)">
+                    <a id="theme-toggle" accesskey="t">
+                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </a>
+                </span>
+                
+            </span>
+        </div>
+        <ul class="menu" id="menu" onscroll="menu_on_scroll()">
+            <li>
+                <a href="https://via.moe/" title="Index">
+                    <span>Index</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://via.moe/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://via.moe/rss.xml" title="RSS">
+                    <span>RSS</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://via.moe/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li></ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">
+      使用 youtube-dl 下載視頻
+    </h1>
+    <div class="post-description">
+      
+    </div>
+    <div class="post-meta">May 18, 2017
+
+    </div>
+  </header> 
+
+  <div class="post-content">
+<p>youtube-dl 是一個使用 Python 編寫的腳本, 在視頻下載方面極其強悍, 比在線解析網站的下載速度更穩定更快, 並且對於 YouTube 的 1080p 及以上的視頻可以自動合併音視頻(需要 ffmpeg);由於這是一個命令腳本工具, 沒有UI界面, 因此它強大的功能就要靠參數來實現, 借用不同的參數可以實現不同的下載方式, 比如指定格式, 下載視頻字幕, 批量下載, 代理下載等等。</p>
+<h3 id="安裝-youtube-dl">安裝 youtube-dl<a hidden class="anchor" aria-hidden="true" href="#安裝-youtube-dl">#</a></h3>
+<p>所有 UNIX 用戶可通過 curl 下載</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
+
+sudo chmod a+rx /usr/local/bin/youtube-dl
+</code></pre></div><p>通過 pip</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo pip install --upgrade youtube_dl
+</code></pre></div><p>macOS 用戶通過 brew</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">brew install youtube-dl
+</code></pre></div><h3 id="查詢-youtube-視頻格式">查詢 youtube 視頻格式<a hidden class="anchor" aria-hidden="true" href="#查詢-youtube-視頻格式">#</a></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">youtube-dl -F <span style="color:#f92672">[</span>url<span style="color:#f92672">]</span>
+</code></pre></div><h3 id="下載指定-youtube-視頻格式">下載指定 youtube 視頻格式<a hidden class="anchor" aria-hidden="true" href="#下載指定-youtube-視頻格式">#</a></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">youtube-dl -f <span style="color:#f92672">[</span>format code<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>url<span style="color:#f92672">]</span>
+</code></pre></div><p>如果需要下載 1080p 視頻與音頻合併
+[format code] 填寫 137+140</p>
+<pre><code>youtube-dl -f [format code] [url]
+</code></pre><p>例如</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">λ  ~ youtube-dl -F https://www.youtube.com/watch<span style="color:#ae81ff">\?</span>v<span style="color:#ae81ff">\=</span>Y2VF8tmLFHw
+<span style="color:#f92672">[</span>youtube<span style="color:#f92672">]</span> Y2VF8tmLFHw: Downloading webpage
+<span style="color:#f92672">[</span>youtube<span style="color:#f92672">]</span> Y2VF8tmLFHw: Downloading video info webpage
+<span style="color:#f92672">[</span>youtube<span style="color:#f92672">]</span> Y2VF8tmLFHw: Extracting video information
+<span style="color:#f92672">[</span>youtube<span style="color:#f92672">]</span> Y2VF8tmLFHw: Downloading MPD manifest
+<span style="color:#f92672">[</span>info<span style="color:#f92672">]</span> Available formats <span style="color:#66d9ef">for</span> Y2VF8tmLFHw:
+format code  extension  resolution note
+<span style="color:#ae81ff">139</span>          m4a        audio only DASH audio   57k ,  m4a_dash container,  mp4a.40.5@ 48k <span style="color:#f92672">(</span>22050Hz<span style="color:#f92672">)</span>,  53.63MiB
+<span style="color:#ae81ff">140</span>          m4a        audio only DASH audio  136k ,  m4a_dash container,  mp4a.40.2@128k <span style="color:#f92672">(</span>44100Hz<span style="color:#f92672">)</span>,  143.24MiB
+<span style="color:#ae81ff">160</span>          mp4        256x144    DASH video  127k ,  avc1.4d400c,  30fps,  video only,  67.86MiB
+<span style="color:#ae81ff">133</span>          mp4        426x240    DASH video  285k ,  avc1.4d4015,  30fps,  video only,  148.38MiB
+<span style="color:#ae81ff">134</span>          mp4        640x360    DASH video  646k ,  avc1.4d401e,  30fps,  video only,  258.74MiB
+<span style="color:#ae81ff">135</span>          mp4        854x480    DASH video 1172k ,  avc1.4d401f,  30fps,  video only,  510.83MiB
+<span style="color:#ae81ff">136</span>          mp4        1280x720   DASH video 2359k ,  avc1.4d401f,  30fps,  video only,  1002.76MiB
+<span style="color:#ae81ff">137</span>          mp4        1920x1080  DASH video 4613k ,  avc1.640028,  30fps,  video only,  2.75GiB
+<span style="color:#ae81ff">17</span>           3gp        176x144    small ,  mp4v.20.3,  mp4a.40.2@ 24k
+<span style="color:#ae81ff">36</span>           3gp        320x180    small ,  mp4v.20.3,  mp4a.40.2
+<span style="color:#ae81ff">18</span>           mp4        640x360    medium ,  avc1.42001E,  mp4a.40.2@ 96k
+<span style="color:#ae81ff">22</span>           mp4        1280x720   hd720 ,  avc1.64001F,  mp4a.40.2@192k <span style="color:#f92672">(</span>best<span style="color:#f92672">)</span>
+</code></pre></div><h3 id="下載視頻字幕">下載視頻字幕<a hidden class="anchor" aria-hidden="true" href="#下載視頻字幕">#</a></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">youtube-dl --write-sub <span style="color:#f92672">[</span>url<span style="color:#f92672">]</span> //這樣會下載一個vtt格式的英文字幕和mkv格式的1080p視頻下來
+
+youtube-dl --write-sub --skip-download <span style="color:#f92672">[</span>url<span style="color:#f92672">]</span> //下載單獨的vtt字幕文件, 而不會下載視頻
+
+youtube-dl --write-sub --all-subs <span style="color:#f92672">[</span>url<span style="color:#f92672">]</span> //下載所有語言的字幕<span style="color:#f92672">(</span>如果有的話<span style="color:#f92672">)</span>
+
+youtube-dl --write-auto-sub <span style="color:#f92672">[</span>url<span style="color:#f92672">]</span> //下載自動生成的字幕<span style="color:#f92672">(</span>YouTube only<span style="color:#f92672">)</span>
+</code></pre></div><p>之後</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">youtube-dl -f 137+140 https://www.youtube.com/watch<span style="color:#ae81ff">\?</span>v<span style="color:#ae81ff">\=</span>Y2VF8tmLFHw
+</code></pre></div><h3 id="下載視頻列表">下載視頻列表<a hidden class="anchor" aria-hidden="true" href="#下載視頻列表">#</a></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">youtube-dl -f <span style="color:#f92672">[</span>format code<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>playlist_url<span style="color:#f92672">]</span> //這種方式可以下載制定清晰度的mp4視頻
+
+youtube-dl <span style="color:#f92672">[</span>playlist_url<span style="color:#f92672">]</span> //下載視頻列表, 這種方式下載的視頻可能是mkv格式或者webm格式
+
+youtube-dl -cit <span style="color:#f92672">[</span>playlist_url<span style="color:#f92672">]</span> //下載視頻列表, 這種方式下載的視頻可能是mkv格式或者webm格式
+
+youtube-dl --yes-playlist <span style="color:#f92672">[</span>url<span style="color:#f92672">]</span> //當鏈接爲視頻列表, 則下載該列表視頻, 跟上面的一樣, 可能是mkv或者webm格式
+</code></pre></div>
+</div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://via.moe/tags/youtube/">youtube</a></li>
+    </ul>
+  </footer>
+</article>
+    </main><footer class="footer">
+    
+    <span>本博客除另外說明，都採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW">署名-非商業性使用-相同方式共享 4.0 協議</a> 進行許可<br>Except where otherwise noted, content on this site is licensed under a<br><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a> license</span>
+    
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
+    <button class="top-link" id="top-link" type="button" accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </button>
+</a>
+
+
+
+<script defer src="/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<script>
+    window.onload = function () {
+        if (localStorage.getItem("menu-scroll-position")) {
+            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
+        }
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.replaceState(null, null, `#${id}`);
+            }
+        });
+    });
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+    function menu_on_scroll() {
+        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+    }
+
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-70500040-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-70500040-1');
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+</body>
+
+</html>
