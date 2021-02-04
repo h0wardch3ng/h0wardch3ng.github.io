@@ -1,193 +1,55 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
-
-<head><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<script>var url=window.location.href;url.indexOf("https")<0&&(url=url.replace("http:","https:"),window.location.replace(url));</script>
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="theme-color" content="#2e2e33">
-<meta name="robots" content="index, follow">
-<title>Linux TCP 性能調優筆記 | Siege</title>
-
-<meta name="keywords" content="linux" />
-<meta name="description" content="本文參考自 Linux Tuning
-本文可以幫助您的服務器提高 并發數量 和改善 高延遲掉包 情況。
-目前文中涉及的 hybla 和 htcp 算法已經很火星了，具體釋義請自行 Google 搜索。
-本文於 2017 年 1 月 1 日更新加入對 Google TCP BBR 算法的開啟，相關技術解釋見 知乎 討論
-不推薦使用 openvz 虛擬化技術的 VPS 此類權限較低 推薦使用 KVM 架構的虛擬 Linux VPS 。
-開啟 Google TCP BBR 請先自行將系統內核更新到 Linux Kernel 4.9 版本。
-下載 Linux Kernel 4.9 内核
-wget -O linux-image-4.9.0-amd64.deb http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.9/linux-image-4.9.0-040900-generic_4.9.0-040900.201612111631_amd64.deb 安裝內核
-dpkg -i linux-image-4.9.0-amd64.deb 卸載舊版本內核
-dpkg -l | grep linux-image | awk &#39;{print $2}&#39; | grep -v &#39;linux-image-4.">
-<meta name="author" content="">
-<link rel="canonical" href="https://via.moe/linux-tcp-tuning/" />
-<link href="/assets/css/stylesheet.min.5c4f6d85b7abfcfea458637c672d16a7a9c38c37f002753cfdc7f314b6d3c8f2.css" integrity="sha256-XE9thber/P6kWGN8Zy0Wp6nDjDfwAnU8/cfzFLbTyPI=" rel="preload stylesheet"
-    as="style">
-
-<link rel="icon" href="https://via.moe/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://via.moe/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://via.moe/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://via.moe/apple-touch-icon.png">
-<link rel="mask-icon" href="https://via.moe/safari-pinned-tab.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.80.0" />
-
-
-<meta property="og:title" content="Linux TCP 性能調優筆記" />
-<meta property="og:description" content="本文參考自 Linux Tuning
-本文可以幫助您的服務器提高 并發數量 和改善 高延遲掉包 情況。
-目前文中涉及的 hybla 和 htcp 算法已經很火星了，具體釋義請自行 Google 搜索。
-本文於 2017 年 1 月 1 日更新加入對 Google TCP BBR 算法的開啟，相關技術解釋見 知乎 討論
-不推薦使用 openvz 虛擬化技術的 VPS 此類權限較低 推薦使用 KVM 架構的虛擬 Linux VPS 。
-開啟 Google TCP BBR 請先自行將系統內核更新到 Linux Kernel 4.9 版本。
-下載 Linux Kernel 4.9 内核
-wget -O linux-image-4.9.0-amd64.deb http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.9/linux-image-4.9.0-040900-generic_4.9.0-040900.201612111631_amd64.deb 安裝內核
-dpkg -i linux-image-4.9.0-amd64.deb 卸載舊版本內核
-dpkg -l | grep linux-image | awk &#39;{print $2}&#39; | grep -v &#39;linux-image-4." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://via.moe/linux-tcp-tuning/" />
-<meta property="article:published_time" content="2017-01-01T19:32:59+08:00" />
-<meta property="article:modified_time" content="2017-01-01T19:32:59+08:00" />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Linux TCP 性能調優筆記"/>
-<meta name="twitter:description" content="本文參考自 Linux Tuning
-本文可以幫助您的服務器提高 并發數量 和改善 高延遲掉包 情況。
-目前文中涉及的 hybla 和 htcp 算法已經很火星了，具體釋義請自行 Google 搜索。
-本文於 2017 年 1 月 1 日更新加入對 Google TCP BBR 算法的開啟，相關技術解釋見 知乎 討論
-不推薦使用 openvz 虛擬化技術的 VPS 此類權限較低 推薦使用 KVM 架構的虛擬 Linux VPS 。
-開啟 Google TCP BBR 請先自行將系統內核更新到 Linux Kernel 4.9 版本。
-下載 Linux Kernel 4.9 内核
-wget -O linux-image-4.9.0-amd64.deb http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.9/linux-image-4.9.0-040900-generic_4.9.0-040900.201612111631_amd64.deb 安裝內核
-dpkg -i linux-image-4.9.0-amd64.deb 卸載舊版本內核
-dpkg -l | grep linux-image | awk &#39;{print $2}&#39; | grep -v &#39;linux-image-4."/>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Linux TCP 性能調優筆記",
-  "name": "Linux TCP 性能調優筆記",
-  "description": "本文參考自 Linux Tuning\n本文可以幫助您的服務器提高 并發數量 和改善 高延遲掉包 情況。\n目前文中涉及的 hybla 和 htcp 算法已經很火星了，具體釋義請自行 Google 搜索。\n本文於 2017 年 1 月 1 日更新加入對 Google TCP BBR 算法的開啟，相關技術解釋見 知乎 討論\n不推薦使用 openvz …",
-  "keywords": [
-    "linux"
-  ],
-  "articleBody": "本文參考自 Linux Tuning\n本文可以幫助您的服務器提高 并發數量 和改善 高延遲掉包 情況。\n目前文中涉及的 hybla 和 htcp 算法已經很火星了，具體釋義請自行 Google 搜索。\n本文於 2017 年 1 月 1 日更新加入對 Google TCP BBR 算法的開啟，相關技術解釋見 知乎 討論\n不推薦使用 openvz 虛擬化技術的 VPS 此類權限較低 推薦使用 KVM 架構的虛擬 Linux VPS 。\n開啟 Google TCP BBR 請先自行將系統內核更新到 Linux Kernel 4.9 版本。\n下載 Linux Kernel 4.9 内核\nwget -O linux-image-4.9.0-amd64.deb http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.9/linux-image-4.9.0-040900-generic_4.9.0-040900.201612111631_amd64.deb 安裝內核\ndpkg -i linux-image-4.9.0-amd64.deb 卸載舊版本內核\ndpkg -l | grep linux-image | awk '{print $2}' | grep -v 'linux-image-4.9.0-040900-generic'|xargs -n1 dpkg --purge 更新系統引導和重啟\ngurb update-grub reboot 重新進入系統後查看系統內核版本號\nuname -r 寫入 bbr 配置文件\necho \"net.core.default_qdisc=fq\"  /etc/sysctl.conf echo \"net.ipv4.tcp_congestion_control=bbr\"  /etc/sysctl.conf 載入配置\nsysctl -p 檢查 bbr 是否開啟\nlsmod | grep bbr 本方法適用於 Ubuntu 14.04 LTS* / 16.04\n其他系統開啟方法見 https://teddysun.com/489.html\n 內核非 4.9 版本請先啓用 hybla 和 htcp 算法\n/sbin/modprobe tcp_htcp /sbin/modprobe tcp_hybla 然後查看是否啓用成功\nsysctl net.ipv4.tcp_available_congestion_control 終端返回以下文字表示啓用成功\nsysctl net.ipv4.tcp_available_congestion_control = htcp cubic reno hybla 接著設置 /etc/sysctl.conf\nfs.file-max = 51200 #提高整個系統的文件限制 net.ipv4.tcp_syncookies = 1 #表示開啓SYN Cookies。當出現SYN等待隊列溢出時，啓用cookies來處理，可防範少量SYN攻擊，默認爲0，表示關閉； net.ipv4.tcp_tw_reuse = 1 #表示開啓重用。允許將TIME-WAIT sockets重新用於新的TCP連接，默認爲0，表示關閉； #表示開啓TCP連接中TIME-WAIT sockets的快速回收，默認爲0，表示關閉； net.ipv4.tcp_tw_recycle = 0 #爲了對NAT設備更友好，建議設置爲0。 #修改TW快速回收的問題以更好的兼容移動設備。 net.ipv4.tcp_fin_timeout = 30 #修改系統默認的 TIMEOUT 時間。 net.ipv4.tcp_keepalive_time = 1200 #表示當keepalive起用的時候，TCP發送keepalive消息的頻度。缺省是2小時，改爲20分鐘。 net.ipv4.ip_local_port_range = 10000 65000 #表示用於向外連接的端口範圍。缺省情況下很小：32768到61000，改爲10000到65000。（注意：這裏不要將最低值設的太低，否則可能會佔用掉正常的端口！） net.ipv4.tcp_max_syn_backlog = 8192 #表示SYN隊列的長度，默認爲1024，加大隊列長度爲8192，可以容納更多等待連接的網絡連接數。 net.ipv4.tcp_max_tw_buckets = 5000 #表示系統同時保持TIME_WAIT的最大數量，如果超過這個數字，TIME_WAIT將立刻被清除並打印警告信息。 #額外的，對於內核版本新於**3.7.1**的，我們可以開啓tcp_fastopen： net.ipv4.tcp_fastopen = 3 increase TCP max buffer size settable using setsockopt() net.core.rmem_max = 67108864 net.core.wmem_max = 67108864 increase Linux autotuning TCP buffer limit net.ipv4.tcp_rmem = 4096 87380 67108864 net.ipv4.tcp_wmem = 4096 65536 67108864 increase the length of the processor input queue net.core.netdev_max_backlog = 250000 recommended for hosts with jumbo frames enabled net.ipv4.tcp_mtu_probing=1 #美帝VPS推薦設置TCP擁塞算法爲 hybla 算法， 十一區VPS推薦設置 htcp 算法 net.ipv4.tcp_congestion_control=htcp 設置文件寫完后執行\nsysctl -p Enjoy~\n各算法優劣對比請見 CSDN 大神的 分析\n本文參考 https://github.com/iMeiji/shadowsocks_install/wiki/%E5%BC%80%E5%90%AFTCP-BBR%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6%E7%AE%97%E6%B3%95\n",
-  "wordCount" : "252",
-  "inLanguage": "en",
-  "datePublished": "2017-01-01T19:32:59+08:00",
-  "dateModified": "2017-01-01T19:32:59+08:00",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://via.moe/linux-tcp-tuning/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Siege",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://via.moe/favicon.ico"
-    }
-  }
-}
-</script>
-
-
-
-</head>
-
-<body class="" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
-<noscript>
-    <style type="text/css">
-        .theme-toggle,
-        .top-link {
-            display: none;
-        }
-
-    </style>
-</noscript>
-<header class="header">
-    <nav class="nav">
-        <div class="logo">
-            <a href="https://via.moe/" accesskey="h" title="Siege (Alt + H)">Siege</a>
-            <span class="logo-switches">
-                <span class="theme-toggle" title="(Alt + T)">
-                    <a id="theme-toggle" accesskey="t">
-                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                        </svg>
-                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="5"></circle>
-                            <line x1="12" y1="1" x2="12" y2="3"></line>
-                            <line x1="12" y1="21" x2="12" y2="23"></line>
-                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                            <line x1="1" y1="12" x2="3" y2="12"></line>
-                            <line x1="21" y1="12" x2="23" y2="12"></line>
-                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                        </svg>
-                    </a>
-                </span>
-                
-            </span>
-        </div>
-        <ul class="menu" id="menu" onscroll="menu_on_scroll()">
-            <li>
-                <a href="https://via.moe/" title="Index">
-                    <span>Index</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://via.moe/archives" title="Archive">
-                    <span>Archive</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://via.moe/rss.xml" title="RSS">
-                    <span>RSS</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://via.moe/about/" title="About">
-                    <span>About</span>
-                </a>
-            </li></ul>
-    </nav>
-</header>
-
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script>var url=window.location.href;url.indexOf("https")<0&&(url=url.replace("http:","https:"),window.location.replace(url));</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Linux TCP 性能調優筆記 - Siege</title>
+    
+    <meta name="description" content="Wherever we want to go, we go.">
+    <meta name="author" content="h0wardch3ng">
+    
+    <link href="https://via.moe/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://via.moe/style.css" rel="stylesheet">
+    <link href="https://via.moe/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://via.moe/apple-touch-icon.png">
+    <link rel="icon" href="https://via.moe/favicon.ico">
+    <meta name="generator" content="Hugo 0.80.0" />
+    
+    
+  </head>
+  <body class="single">
+    <header class="header">
+      <nav class="nav">
+        <p class="logo"><a href="https://via.moe/">Siege</a></p>
+        <ul class="menu">
+          <li>
+            <a href="/">Index</a>
+          </li>
+          <li>
+            <a href="/archives">Archive</a>
+          </li>
+          <li>
+            <a href="/rss.xml">RSS</a>
+          </li>
+          <li>
+            <a href="/about/">About</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
     <main class="main">
+
 
 <article class="post-single">
   <header class="post-header">
-    <h1 class="post-title">
-      Linux TCP 性能調優筆記
-    </h1>
-    <div class="post-description">
-      
-    </div>
-    <div class="post-meta">January 1, 2017
-
-    </div>
-  </header> 
-
-  <div class="post-content">
-<p><img src="https://imgur.via.moe/qYObyhi.jpg" alt=""></p>
+    <h1 class="post-title">Linux TCP 性能調優筆記</h1>
+    <div class="post-meta">January 1, 2017</div>
+  </header>
+  <div class="post-content"><p><img src="https://imgur.via.moe/qYObyhi.jpg" alt=""></p>
 <p>本文參考自 <a href="http://fasterdata.es.net/host-tuning/linux/">Linux Tuning</a></p>
 <p>本文可以幫助您的服務器提高 <code>并發數量</code> 和改善 <code>高延遲掉包</code> 情況。</p>
 <p>目前文中涉及的 hybla 和 htcp 算法已經很火星了，具體釋義請自行 Google 搜索。</p>
@@ -260,71 +122,22 @@ net.ipv4.tcp_congestion_control=htcp
 </code></pre></div><p>Enjoy~</p>
 <p>各算法優劣對比請見 CSDN 大神的 <a href="http://blog.csdn.net/zhangskd/article/details/6715751">分析</a></p>
 <p>本文參考 <a href="https://github.com/iMeiji/shadowsocks_install/wiki/%E5%BC%80%E5%90%AFTCP-BBR%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6%E7%AE%97%E6%B3%95">https://github.com/iMeiji/shadowsocks_install/wiki/%E5%BC%80%E5%90%AFTCP-BBR%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6%E7%AE%97%E6%B3%95</a></p>
-
 </div>
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://via.moe/tags/linux/">linux</a></li>
+      <li><a href="https://via.moe/tags/linux">linux</a></li>
     </ul>
   </footer>
-</article>
-    </main><footer class="footer">
-    
-    <span>本博客除另外說明，都採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW">署名-非商業性使用-相同方式共享 4.0 協議</a> 進行許可<br>Except where otherwise noted, content on this site is licensed under a<br><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a> license</span>
-    
+  
+</article></main>
+<footer class="footer">
+  <span>本博客除另外說明，都採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW">署名-非商業性使用-相同方式共享 4.0 協議</a> 進行許可<br>Except where otherwise noted, content on this site is licensed under a<br><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a> license</span>
 </footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
-    <button class="top-link" id="top-link" type="button" accesskey="g">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-            <path d="M12 6H0l6-6z" />
-        </svg>
-    </button>
-</a>
-
-
-
-<script defer src="/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
-    onload="hljs.initHighlightingOnLoad();"></script>
+<script src="https://via.moe/highlight.min.js"></script>
 <script>
-    window.onload = function () {
-        if (localStorage.getItem("menu-scroll-position")) {
-            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
-        }
-    }
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
-            } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-            }
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.replaceState(null, null, `#${id}`);
-            }
-        });
-    });
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
-
-    function menu_on_scroll() {
-        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
-    }
-
+  hljs.initHighlightingOnLoad();
 </script>
+
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-70500040-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -333,19 +146,6 @@ net.ipv4.tcp_congestion_control=htcp
 
   gtag('config', 'UA-70500040-1');
 </script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            document.body.classList.add('dark');
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
-
-</script>
 
 </body>
-
 </html>

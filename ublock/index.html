@@ -1,193 +1,55 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
-
-<head><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<script>var url=window.location.href;url.indexOf("https")<0&&(url=url.replace("http:","https:"),window.location.replace(url));</script>
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="theme-color" content="#2e2e33">
-<meta name="robots" content="index, follow">
-<title>開源的廣告攔截工具 µBlock | Siege</title>
-
-<meta name="keywords" content="ublock" />
-<meta name="description" content="一款基於 Chromium 瀏覽器的高效廣告攔截工具，超低的 CPU 與內存使用。 一款高效的廣告攔截工具：超低的內存和 CPU 佔用，和其他常見的廣告攔截工具相比，可以加載並執行上千條過濾規則。 效率概述說明： https://github.com/gorhill/uBlock/wiki/%C2%B5Block-vs.-ABP:-efficiency-compared
-用法：點擊彈出窗口中的電源按鈕，µBlock 將對於當前網頁永久禁用 / 啓用廣告攔截功能。 它只適用於當前網頁，而不是全局按鈕。
-Chrome 商店地址 https://chrome.google.com/webstore/detail/%C2%B5block/cjpalhdlnbpafiamejdnhcphjbkeiagm
-它不只是一個廣告攔截工具，它還可以從 hosts 文件裏讀取和創建過濾規則。 初始默認加載和執行下列過濾規則： -EasyList -EasyPrivacy - Malware domains - Long-lived malware domains - Peter Lowe’s Ad server list - Malware Domains List 這裏還擁有更多的過濾規則供你選擇：
-  Fanboy’s Enhanced Tracking List
-  Dan Pollock’s hosts file
-  hpHosts’s Ad and tracking servers
-  MVPS HOSTS
-  Spam404
-  Etc.">
-<meta name="author" content="">
-<link rel="canonical" href="https://via.moe/ublock/" />
-<link href="/assets/css/stylesheet.min.5c4f6d85b7abfcfea458637c672d16a7a9c38c37f002753cfdc7f314b6d3c8f2.css" integrity="sha256-XE9thber/P6kWGN8Zy0Wp6nDjDfwAnU8/cfzFLbTyPI=" rel="preload stylesheet"
-    as="style">
-
-<link rel="icon" href="https://via.moe/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://via.moe/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://via.moe/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://via.moe/apple-touch-icon.png">
-<link rel="mask-icon" href="https://via.moe/safari-pinned-tab.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.80.0" />
-
-
-<meta property="og:title" content="開源的廣告攔截工具 µBlock" />
-<meta property="og:description" content="一款基於 Chromium 瀏覽器的高效廣告攔截工具，超低的 CPU 與內存使用。 一款高效的廣告攔截工具：超低的內存和 CPU 佔用，和其他常見的廣告攔截工具相比，可以加載並執行上千條過濾規則。 效率概述說明： https://github.com/gorhill/uBlock/wiki/%C2%B5Block-vs.-ABP:-efficiency-compared
-用法：點擊彈出窗口中的電源按鈕，µBlock 將對於當前網頁永久禁用 / 啓用廣告攔截功能。 它只適用於當前網頁，而不是全局按鈕。
-Chrome 商店地址 https://chrome.google.com/webstore/detail/%C2%B5block/cjpalhdlnbpafiamejdnhcphjbkeiagm
-它不只是一個廣告攔截工具，它還可以從 hosts 文件裏讀取和創建過濾規則。 初始默認加載和執行下列過濾規則： -EasyList -EasyPrivacy - Malware domains - Long-lived malware domains - Peter Lowe’s Ad server list - Malware Domains List 這裏還擁有更多的過濾規則供你選擇：
-  Fanboy’s Enhanced Tracking List
-  Dan Pollock’s hosts file
-  hpHosts’s Ad and tracking servers
-  MVPS HOSTS
-  Spam404
-  Etc." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://via.moe/ublock/" />
-<meta property="article:published_time" content="2014-08-09T19:32:59+08:00" />
-<meta property="article:modified_time" content="2014-08-09T19:32:59+08:00" />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="開源的廣告攔截工具 µBlock"/>
-<meta name="twitter:description" content="一款基於 Chromium 瀏覽器的高效廣告攔截工具，超低的 CPU 與內存使用。 一款高效的廣告攔截工具：超低的內存和 CPU 佔用，和其他常見的廣告攔截工具相比，可以加載並執行上千條過濾規則。 效率概述說明： https://github.com/gorhill/uBlock/wiki/%C2%B5Block-vs.-ABP:-efficiency-compared
-用法：點擊彈出窗口中的電源按鈕，µBlock 將對於當前網頁永久禁用 / 啓用廣告攔截功能。 它只適用於當前網頁，而不是全局按鈕。
-Chrome 商店地址 https://chrome.google.com/webstore/detail/%C2%B5block/cjpalhdlnbpafiamejdnhcphjbkeiagm
-它不只是一個廣告攔截工具，它還可以從 hosts 文件裏讀取和創建過濾規則。 初始默認加載和執行下列過濾規則： -EasyList -EasyPrivacy - Malware domains - Long-lived malware domains - Peter Lowe’s Ad server list - Malware Domains List 這裏還擁有更多的過濾規則供你選擇：
-  Fanboy’s Enhanced Tracking List
-  Dan Pollock’s hosts file
-  hpHosts’s Ad and tracking servers
-  MVPS HOSTS
-  Spam404
-  Etc."/>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "開源的廣告攔截工具 µBlock",
-  "name": "開源的廣告攔截工具 µBlock",
-  "description": "一款基於 Chromium 瀏覽器的高效廣告攔截工具，超低的 CPU 與內存使用。 一款高效的廣告攔截工具：超低的內存和 CPU 佔用，和其他常見的廣告攔截工具相比，可以加載並執行上千條過濾規則。 效率概述說明： …",
-  "keywords": [
-    "ublock"
-  ],
-  "articleBody": "一款基於 Chromium 瀏覽器的高效廣告攔截工具，超低的 CPU 與內存使用。 一款高效的廣告攔截工具：超低的內存和 CPU 佔用，和其他常見的廣告攔截工具相比，可以加載並執行上千條過濾規則。 效率概述說明： https://github.com/gorhill/uBlock/wiki/%C2%B5Block-vs.-ABP:-efficiency-compared\n用法：點擊彈出窗口中的電源按鈕，µBlock 將對於當前網頁永久禁用 / 啓用廣告攔截功能。 它只適用於當前網頁，而不是全局按鈕。\nChrome 商店地址 https://chrome.google.com/webstore/detail/%C2%B5block/cjpalhdlnbpafiamejdnhcphjbkeiagm\n它不只是一個廣告攔截工具，它還可以從 hosts 文件裏讀取和創建過濾規則。 初始默認加載和執行下列過濾規則： -EasyList -EasyPrivacy - Malware domains - Long-lived malware domains - Peter Lowe’s Ad server list - Malware Domains List 這裏還擁有更多的過濾規則供你選擇：\n  Fanboy’s Enhanced Tracking List\n  Dan Pollock’s hosts file\n  hpHosts’s Ad and tracking servers\n  MVPS HOSTS\n  Spam404\n  Etc. 啓用越多的過濾規則就會產生越多的內存佔用。 然而，即使在添加 Fanboy 額外的兩個規則和 hpHosts’s Ad and tracking servers，µBlock 的內存佔用依然比其他常見的過濾工具要小的多。 另外，請注意選擇的一些額外的列表可能會導致網頁破損可能性增高 — — 尤其是那些通常用作 hosts 文件的列表。\n     沒有這些過濾規則列表，這個擴展就沒有了意義。 所以如果你真的想要做點兒貢獻，想想那些努力維護廣告過濾規則列表的人們，至少這一切可以免費使用。         免費。 開放源代碼與公共許可證 (GPLv3) 一切爲了用戶。 貢獻者 @ Github： https://github.com/gorhill/uBlock/graphs/contributors 貢獻者 @ Crowdin： https://crowdin.net/project/ublock * * * 它是一個非常早期的版本，當你評論的時候記住這一點。 項目更改日誌：      https://github.com/gorhill/uBlock/wiki/Change-log * * * 大陸境內推薦設置 勾選 Easylisty China\n此擴展自定義過濾語法同 ABP\n",
-  "wordCount" : "104",
-  "inLanguage": "en",
-  "datePublished": "2014-08-09T19:32:59+08:00",
-  "dateModified": "2014-08-09T19:32:59+08:00",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://via.moe/ublock/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Siege",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://via.moe/favicon.ico"
-    }
-  }
-}
-</script>
-
-
-
-</head>
-
-<body class="" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
-<noscript>
-    <style type="text/css">
-        .theme-toggle,
-        .top-link {
-            display: none;
-        }
-
-    </style>
-</noscript>
-<header class="header">
-    <nav class="nav">
-        <div class="logo">
-            <a href="https://via.moe/" accesskey="h" title="Siege (Alt + H)">Siege</a>
-            <span class="logo-switches">
-                <span class="theme-toggle" title="(Alt + T)">
-                    <a id="theme-toggle" accesskey="t">
-                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                        </svg>
-                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="5"></circle>
-                            <line x1="12" y1="1" x2="12" y2="3"></line>
-                            <line x1="12" y1="21" x2="12" y2="23"></line>
-                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                            <line x1="1" y1="12" x2="3" y2="12"></line>
-                            <line x1="21" y1="12" x2="23" y2="12"></line>
-                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                        </svg>
-                    </a>
-                </span>
-                
-            </span>
-        </div>
-        <ul class="menu" id="menu" onscroll="menu_on_scroll()">
-            <li>
-                <a href="https://via.moe/" title="Index">
-                    <span>Index</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://via.moe/archives" title="Archive">
-                    <span>Archive</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://via.moe/rss.xml" title="RSS">
-                    <span>RSS</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://via.moe/about/" title="About">
-                    <span>About</span>
-                </a>
-            </li></ul>
-    </nav>
-</header>
-
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script>var url=window.location.href;url.indexOf("https")<0&&(url=url.replace("http:","https:"),window.location.replace(url));</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>開源的廣告攔截工具 µBlock - Siege</title>
+    
+    <meta name="description" content="Wherever we want to go, we go.">
+    <meta name="author" content="h0wardch3ng">
+    
+    <link href="https://via.moe/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://via.moe/style.css" rel="stylesheet">
+    <link href="https://via.moe/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://via.moe/apple-touch-icon.png">
+    <link rel="icon" href="https://via.moe/favicon.ico">
+    <meta name="generator" content="Hugo 0.80.0" />
+    
+    
+  </head>
+  <body class="single">
+    <header class="header">
+      <nav class="nav">
+        <p class="logo"><a href="https://via.moe/">Siege</a></p>
+        <ul class="menu">
+          <li>
+            <a href="/">Index</a>
+          </li>
+          <li>
+            <a href="/archives">Archive</a>
+          </li>
+          <li>
+            <a href="/rss.xml">RSS</a>
+          </li>
+          <li>
+            <a href="/about/">About</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
     <main class="main">
+
 
 <article class="post-single">
   <header class="post-header">
-    <h1 class="post-title">
-      開源的廣告攔截工具 µBlock
-    </h1>
-    <div class="post-description">
-      
-    </div>
-    <div class="post-meta">August 9, 2014
-
-    </div>
-  </header> 
-
-  <div class="post-content">
-<p>一款基於 Chromium 瀏覽器的高效廣告攔截工具，超低的 CPU 與內存使用。 一款高效的廣告攔截工具：超低的內存和 CPU 佔用，和其他常見的廣告攔截工具相比，可以加載並執行上千條過濾規則。 <img src="http://wx3.sinaimg.cn/wp-content/uploads/2014/08/ublock1.png" alt=""> 效率概述說明： <a href="https://github.com/gorhill/uBlock/wiki/%C2%B5Block-vs.-ABP:-efficiency-compared">https://github.com/gorhill/uBlock/wiki/%C2%B5Block-vs.-ABP:-efficiency-compared</a></p>
+    <h1 class="post-title">開源的廣告攔截工具 µBlock</h1>
+    <div class="post-meta">August 9, 2014</div>
+  </header>
+  <div class="post-content"><p>一款基於 Chromium 瀏覽器的高效廣告攔截工具，超低的 CPU 與內存使用。 一款高效的廣告攔截工具：超低的內存和 CPU 佔用，和其他常見的廣告攔截工具相比，可以加載並執行上千條過濾規則。 <img src="http://wx3.sinaimg.cn/wp-content/uploads/2014/08/ublock1.png" alt=""> 效率概述說明： <a href="https://github.com/gorhill/uBlock/wiki/%C2%B5Block-vs.-ABP:-efficiency-compared">https://github.com/gorhill/uBlock/wiki/%C2%B5Block-vs.-ABP:-efficiency-compared</a></p>
 <p>用法：點擊彈出窗口中的電源按鈕，µBlock 將對於當前網頁永久禁用 / 啓用廣告攔截功能。 它只適用於當前網頁，而不是全局按鈕。</p>
 <p>Chrome 商店地址 <a href="https://chrome.google.com/webstore/detail/%C2%B5block/cjpalhdlnbpafiamejdnhcphjbkeiagm">https://chrome.google.com/webstore/detail/%C2%B5block/cjpalhdlnbpafiamejdnhcphjbkeiagm</a></p>
 <p>它不只是一個廣告攔截工具，它還可以從 hosts 文件裏讀取和創建過濾規則。 初始默認加載和執行下列過濾規則： -EasyList -EasyPrivacy - Malware domains - Long-lived malware domains - Peter Lowe’s Ad server list - Malware Domains List 這裏還擁有更多的過濾規則供你選擇：</p>
@@ -233,71 +95,22 @@ Chrome 商店地址 https://chrome.google.com/webstore/detail/%C2%B5block/cjpalh
 <p><a href="https://github.com/gorhill/uBlock/wiki/Change-log">https://github.com/gorhill/uBlock/wiki/Change-log</a> * * * 大陸境內推薦設置 勾選 Easylisty China</p>
 <p><img src="http://wx3.sinaimg.cn/wp-content/uploads/2014/08/ublockget.png" alt="">
 此擴展自定義過濾語法同 ABP</p>
-
 </div>
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://via.moe/tags/ublock/">ublock</a></li>
+      <li><a href="https://via.moe/tags/ublock">ublock</a></li>
     </ul>
   </footer>
-</article>
-    </main><footer class="footer">
-    
-    <span>本博客除另外說明，都採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW">署名-非商業性使用-相同方式共享 4.0 協議</a> 進行許可<br>Except where otherwise noted, content on this site is licensed under a<br><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a> license</span>
-    
+  
+</article></main>
+<footer class="footer">
+  <span>本博客除另外說明，都採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW">署名-非商業性使用-相同方式共享 4.0 協議</a> 進行許可<br>Except where otherwise noted, content on this site is licensed under a<br><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a> license</span>
 </footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
-    <button class="top-link" id="top-link" type="button" accesskey="g">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-            <path d="M12 6H0l6-6z" />
-        </svg>
-    </button>
-</a>
-
-
-
-<script defer src="/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
-    onload="hljs.initHighlightingOnLoad();"></script>
+<script src="https://via.moe/highlight.min.js"></script>
 <script>
-    window.onload = function () {
-        if (localStorage.getItem("menu-scroll-position")) {
-            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
-        }
-    }
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
-            } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-            }
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.replaceState(null, null, `#${id}`);
-            }
-        });
-    });
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
-
-    function menu_on_scroll() {
-        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
-    }
-
+  hljs.initHighlightingOnLoad();
 </script>
+
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-70500040-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -306,19 +119,6 @@ Chrome 商店地址 https://chrome.google.com/webstore/detail/%C2%B5block/cjpalh
 
   gtag('config', 'UA-70500040-1');
 </script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            document.body.classList.add('dark');
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
-
-</script>
 
 </body>
-
 </html>

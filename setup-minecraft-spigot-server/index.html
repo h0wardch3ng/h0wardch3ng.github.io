@@ -1,193 +1,55 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
-
-<head><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<script>var url=window.location.href;url.indexOf("https")<0&&(url=url.replace("http:","https:"),window.location.replace(url));</script>
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="theme-color" content="#2e2e33">
-<meta name="robots" content="index, follow">
-<title>使用 Spigot 架設 Minecraft 服務器 | Siege</title>
-
-<meta name="keywords" content="minecraft" />
-<meta name="description" content="Minecraft是一個開放世界的遊戲, 沒有具體的目標要玩家來完成, 讓玩家有非常高的自由度選擇如何玩遊戲。在默認情況下, 該遊戲是第一人稱, 但玩家可以選擇第三人稱（按F5）。核心玩法大多圍繞打破、挖掘、砍伐方塊。遊戲的世界主要由粗糙的3D方塊（或稱立方體）組成, 表面有些固定的網格(點陣)圖案, 代表不同的材料, 如泥土、石頭、各種礦石、水和樹幹。雖然玩家可以在世界各地自由移動, 但方塊只能被放置在整數的網格座標上, 除了實體之外。玩家可以收集這些材料方塊, 並將其放置在你要的地方, 從而進行各項建設。
-&ndash; via Wikipedia
-本文服務器環境說明：
-Ubuntu 16.04.2 LTS (Xenial Xerus) Openjdk-8-jre
-配置運行環境
-apt install openjdk-8-jre -y 下載已經編譯完成的 spigot 執行文件, 需要自己編譯的可以使用 BuildTools.jar
-wget https://cdn.getbukkit.org/spigot/spigot-1.12.jar 建議使用 screen 後台運行 spigot 服務端, 可以使用 -Xmx4096m -Xms2048m 參數進行設置最大和最小使用內存
-screen -R spigot java -jar -Xmx4096m -Xms2048m -XX:MaxPermSize=512M -Dfile.encoding=utf-8 -Duser.timezone=Asia/Hong_Kong spigot.jar 此時會生成 eula.txt 和提示未同意 eula, 服務端運行失敗, 需要手動修改 eula.txt
-nano eula.txt 找到 eula=false 改成 eula=true
-Ctrl&#43;O 和 Ctrl&#43;X 保存退出">
-<meta name="author" content="">
-<link rel="canonical" href="https://via.moe/setup-minecraft-spigot-server/" />
-<link href="/assets/css/stylesheet.min.5c4f6d85b7abfcfea458637c672d16a7a9c38c37f002753cfdc7f314b6d3c8f2.css" integrity="sha256-XE9thber/P6kWGN8Zy0Wp6nDjDfwAnU8/cfzFLbTyPI=" rel="preload stylesheet"
-    as="style">
-
-<link rel="icon" href="https://via.moe/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://via.moe/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://via.moe/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://via.moe/apple-touch-icon.png">
-<link rel="mask-icon" href="https://via.moe/safari-pinned-tab.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.80.0" />
-
-
-<meta property="og:title" content="使用 Spigot 架設 Minecraft 服務器" />
-<meta property="og:description" content="Minecraft是一個開放世界的遊戲, 沒有具體的目標要玩家來完成, 讓玩家有非常高的自由度選擇如何玩遊戲。在默認情況下, 該遊戲是第一人稱, 但玩家可以選擇第三人稱（按F5）。核心玩法大多圍繞打破、挖掘、砍伐方塊。遊戲的世界主要由粗糙的3D方塊（或稱立方體）組成, 表面有些固定的網格(點陣)圖案, 代表不同的材料, 如泥土、石頭、各種礦石、水和樹幹。雖然玩家可以在世界各地自由移動, 但方塊只能被放置在整數的網格座標上, 除了實體之外。玩家可以收集這些材料方塊, 並將其放置在你要的地方, 從而進行各項建設。
-&ndash; via Wikipedia
-本文服務器環境說明：
-Ubuntu 16.04.2 LTS (Xenial Xerus) Openjdk-8-jre
-配置運行環境
-apt install openjdk-8-jre -y 下載已經編譯完成的 spigot 執行文件, 需要自己編譯的可以使用 BuildTools.jar
-wget https://cdn.getbukkit.org/spigot/spigot-1.12.jar 建議使用 screen 後台運行 spigot 服務端, 可以使用 -Xmx4096m -Xms2048m 參數進行設置最大和最小使用內存
-screen -R spigot java -jar -Xmx4096m -Xms2048m -XX:MaxPermSize=512M -Dfile.encoding=utf-8 -Duser.timezone=Asia/Hong_Kong spigot.jar 此時會生成 eula.txt 和提示未同意 eula, 服務端運行失敗, 需要手動修改 eula.txt
-nano eula.txt 找到 eula=false 改成 eula=true
-Ctrl&#43;O 和 Ctrl&#43;X 保存退出" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://via.moe/setup-minecraft-spigot-server/" />
-<meta property="article:published_time" content="2018-05-14T19:32:59+08:00" />
-<meta property="article:modified_time" content="2018-05-14T19:32:59+08:00" />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="使用 Spigot 架設 Minecraft 服務器"/>
-<meta name="twitter:description" content="Minecraft是一個開放世界的遊戲, 沒有具體的目標要玩家來完成, 讓玩家有非常高的自由度選擇如何玩遊戲。在默認情況下, 該遊戲是第一人稱, 但玩家可以選擇第三人稱（按F5）。核心玩法大多圍繞打破、挖掘、砍伐方塊。遊戲的世界主要由粗糙的3D方塊（或稱立方體）組成, 表面有些固定的網格(點陣)圖案, 代表不同的材料, 如泥土、石頭、各種礦石、水和樹幹。雖然玩家可以在世界各地自由移動, 但方塊只能被放置在整數的網格座標上, 除了實體之外。玩家可以收集這些材料方塊, 並將其放置在你要的地方, 從而進行各項建設。
-&ndash; via Wikipedia
-本文服務器環境說明：
-Ubuntu 16.04.2 LTS (Xenial Xerus) Openjdk-8-jre
-配置運行環境
-apt install openjdk-8-jre -y 下載已經編譯完成的 spigot 執行文件, 需要自己編譯的可以使用 BuildTools.jar
-wget https://cdn.getbukkit.org/spigot/spigot-1.12.jar 建議使用 screen 後台運行 spigot 服務端, 可以使用 -Xmx4096m -Xms2048m 參數進行設置最大和最小使用內存
-screen -R spigot java -jar -Xmx4096m -Xms2048m -XX:MaxPermSize=512M -Dfile.encoding=utf-8 -Duser.timezone=Asia/Hong_Kong spigot.jar 此時會生成 eula.txt 和提示未同意 eula, 服務端運行失敗, 需要手動修改 eula.txt
-nano eula.txt 找到 eula=false 改成 eula=true
-Ctrl&#43;O 和 Ctrl&#43;X 保存退出"/>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "使用 Spigot 架設 Minecraft 服務器",
-  "name": "使用 Spigot 架設 Minecraft 服務器",
-  "description": "Minecraft是一個開放世界的遊戲, 沒有具體的目標要玩家來完成, 讓玩家有非常高的自由度選擇如何玩遊戲。在默認情況下, 該遊戲是第一人稱, 但玩家可以選擇第三人稱（按F5）。核心玩法大多圍繞打破、挖掘、砍伐方塊。遊戲的世界主要由粗糙的3D方塊（或稱立方體）組成, 表面有些固定的網格(點陣)圖案, 代表不同的材料, 如泥土、石頭、各種礦石、水和樹幹。雖然 …",
-  "keywords": [
-    "minecraft"
-  ],
-  "articleBody": "Minecraft是一個開放世界的遊戲, 沒有具體的目標要玩家來完成, 讓玩家有非常高的自由度選擇如何玩遊戲。在默認情況下, 該遊戲是第一人稱, 但玩家可以選擇第三人稱（按F5）。核心玩法大多圍繞打破、挖掘、砍伐方塊。遊戲的世界主要由粗糙的3D方塊（或稱立方體）組成, 表面有些固定的網格(點陣)圖案, 代表不同的材料, 如泥土、石頭、各種礦石、水和樹幹。雖然玩家可以在世界各地自由移動, 但方塊只能被放置在整數的網格座標上, 除了實體之外。玩家可以收集這些材料方塊, 並將其放置在你要的地方, 從而進行各項建設。\n– via Wikipedia\n本文服務器環境說明：\nUbuntu 16.04.2 LTS (Xenial Xerus) Openjdk-8-jre\n配置運行環境\napt install openjdk-8-jre -y 下載已經編譯完成的 spigot 執行文件, 需要自己編譯的可以使用 BuildTools.jar\nwget https://cdn.getbukkit.org/spigot/spigot-1.12.jar 建議使用 screen 後台運行 spigot 服務端, 可以使用 -Xmx4096m -Xms2048m 參數進行設置最大和最小使用內存\nscreen -R spigot java -jar -Xmx4096m -Xms2048m -XX:MaxPermSize=512M -Dfile.encoding=utf-8 -Duser.timezone=Asia/Hong_Kong spigot.jar 此時會生成 eula.txt 和提示未同意 eula, 服務端運行失敗, 需要手動修改 eula.txt\nnano eula.txt 找到 eula=false 改成 eula=true\nCtrl+O 和 Ctrl+X 保存退出\n編輯服務端配置文件 server.properties\n#Minecraft server properties #Tue Jul 08 10:45:07 HKT 2014 generator-settings=\t#用於設定超平坦世界的函數, 留空即可 op-permission-level=4\t#設定OP的許可權等級 allow-nether=true\t#是否允許生成/進入下界 level-name=world\t#世界名稱及其文件夾名 enable-query=false\t#允許使用GameSpy4協議的服務器監聽器（用於收集服務器信息） allow-flight=false\t#是否允許玩家在生存模式透過MOD飛行 announce-player-achievements=true\t#是否公開顯示玩家成就 server-port=25565\t#服務器端口（默認為25565） level-type=DEFAULT\t#世界類型 enable-rcon=false\t#是否允許遠程訪問服務器控制台 level-seed=\t#世界種子 force-gamemode=false\t#玩家是否總是以默認游戲模式進入服務器 server-ip=\t#服務器IP, 填寫當前服務器IP max-build-height=256\t#最高建築高度（最高256） spawn-npcs=true\t#是否生成村民NPC white-list=false\t#是否開啟白名單認證 spawn-animals=true\t#是否生成動物 hardcore=false\t#是否開啟極限模式 snooper-enabled=true\t#是否允許服務器定期發送統計數據 online-mode=true\t#是否開啟正版認證（開啟後只有正版玩家可進入） resource-pack=\t#資源包URL（可讓玩家選擇是否使用服務器提供的資源包） pvp=true\t#可否PVP difficulty=1\t#難度 enable-command-block=false\t#是否可以使用命令方塊 gamemode=0\t#默認游戲生存模式 player-idle-timeout=0\t#如果該玩家無反應超過設定值（單位：分鐘）, 將會被踢出 max-players=20\t#最大玩家數量 spawn-monsters=true\t#是否生成怪物 generate-structures=true\t#是否生成建築物 view-distance=10\t#客戶端視野距離的上限 motd=A Minecraft Server\t#服務器在服務器列表頁所顯示的信息 更多服務器配置參數見 http://minecraft-zh.gamepedia.com/Server.properties\n保存配置文件後重新啟動服務端即可\nCtrl+Alt+A 進入後台運行, 並返回之前的用戶終端介面\n",
-  "wordCount" : "155",
-  "inLanguage": "en",
-  "datePublished": "2018-05-14T19:32:59+08:00",
-  "dateModified": "2018-05-14T19:32:59+08:00",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://via.moe/setup-minecraft-spigot-server/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Siege",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://via.moe/favicon.ico"
-    }
-  }
-}
-</script>
-
-
-
-</head>
-
-<body class="" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
-<noscript>
-    <style type="text/css">
-        .theme-toggle,
-        .top-link {
-            display: none;
-        }
-
-    </style>
-</noscript>
-<header class="header">
-    <nav class="nav">
-        <div class="logo">
-            <a href="https://via.moe/" accesskey="h" title="Siege (Alt + H)">Siege</a>
-            <span class="logo-switches">
-                <span class="theme-toggle" title="(Alt + T)">
-                    <a id="theme-toggle" accesskey="t">
-                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                        </svg>
-                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="5"></circle>
-                            <line x1="12" y1="1" x2="12" y2="3"></line>
-                            <line x1="12" y1="21" x2="12" y2="23"></line>
-                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                            <line x1="1" y1="12" x2="3" y2="12"></line>
-                            <line x1="21" y1="12" x2="23" y2="12"></line>
-                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                        </svg>
-                    </a>
-                </span>
-                
-            </span>
-        </div>
-        <ul class="menu" id="menu" onscroll="menu_on_scroll()">
-            <li>
-                <a href="https://via.moe/" title="Index">
-                    <span>Index</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://via.moe/archives" title="Archive">
-                    <span>Archive</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://via.moe/rss.xml" title="RSS">
-                    <span>RSS</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://via.moe/about/" title="About">
-                    <span>About</span>
-                </a>
-            </li></ul>
-    </nav>
-</header>
-
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script>var url=window.location.href;url.indexOf("https")<0&&(url=url.replace("http:","https:"),window.location.replace(url));</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>使用 Spigot 架設 Minecraft 服務器 - Siege</title>
+    
+    <meta name="description" content="Wherever we want to go, we go.">
+    <meta name="author" content="h0wardch3ng">
+    
+    <link href="https://via.moe/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://via.moe/style.css" rel="stylesheet">
+    <link href="https://via.moe/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://via.moe/apple-touch-icon.png">
+    <link rel="icon" href="https://via.moe/favicon.ico">
+    <meta name="generator" content="Hugo 0.80.0" />
+    
+    
+  </head>
+  <body class="single">
+    <header class="header">
+      <nav class="nav">
+        <p class="logo"><a href="https://via.moe/">Siege</a></p>
+        <ul class="menu">
+          <li>
+            <a href="/">Index</a>
+          </li>
+          <li>
+            <a href="/archives">Archive</a>
+          </li>
+          <li>
+            <a href="/rss.xml">RSS</a>
+          </li>
+          <li>
+            <a href="/about/">About</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
     <main class="main">
+
 
 <article class="post-single">
   <header class="post-header">
-    <h1 class="post-title">
-      使用 Spigot 架設 Minecraft 服務器
-    </h1>
-    <div class="post-description">
-      
-    </div>
-    <div class="post-meta">May 14, 2018
-
-    </div>
-  </header> 
-
-  <div class="post-content">
-<p><img src="https://imgur.via.moe/gbhtZZp.png" alt=""></p>
+    <h1 class="post-title">使用 Spigot 架設 Minecraft 服務器</h1>
+    <div class="post-meta">May 14, 2018</div>
+  </header>
+  <div class="post-content"><p><img src="https://imgur.via.moe/gbhtZZp.png" alt=""></p>
 <p>Minecraft是一個開放世界的遊戲, 沒有具體的目標要玩家來完成, 讓玩家有非常高的自由度選擇如何玩遊戲。在默認情況下, 該遊戲是第一人稱, 但玩家可以選擇第三人稱（按F5）。核心玩法大多圍繞打破、挖掘、砍伐方塊。遊戲的世界主要由粗糙的3D方塊（或稱立方體）組成, 表面有些固定的網格(點陣)圖案, 代表不同的材料, 如泥土、石頭、各種礦石、水和樹幹。雖然玩家可以在世界各地自由移動, 但方塊只能被放置在整數的網格座標上, 除了實體之外。玩家可以收集這些材料方塊, 並將其放置在你要的地方, 從而進行各項建設。</p>
 <p>&ndash; via <a href="https://zh.wikipedia.org/wiki/%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C#.E6.B8.B8.E6.88.8F.E4.BB.8B.E7.BB.8D">Wikipedia</a></p>
 <p>本文服務器環境說明：</p>
@@ -241,71 +103,22 @@ motd=A Minecraft Server				#服務器在服務器列表頁所顯示的信息
 </code></pre><p>更多服務器配置參數見 <a href="http://minecraft-zh.gamepedia.com/Server.properties">http://minecraft-zh.gamepedia.com/Server.properties</a></p>
 <p>保存配置文件後重新啟動服務端即可</p>
 <p>Ctrl+Alt+A 進入後台運行, 並返回之前的用戶終端介面</p>
-
 </div>
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://via.moe/tags/minecraft/">minecraft</a></li>
+      <li><a href="https://via.moe/tags/minecraft">minecraft</a></li>
     </ul>
   </footer>
-</article>
-    </main><footer class="footer">
-    
-    <span>本博客除另外說明，都採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW">署名-非商業性使用-相同方式共享 4.0 協議</a> 進行許可<br>Except where otherwise noted, content on this site is licensed under a<br><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a> license</span>
-    
+  
+</article></main>
+<footer class="footer">
+  <span>本博客除另外說明，都採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW">署名-非商業性使用-相同方式共享 4.0 協議</a> 進行許可<br>Except where otherwise noted, content on this site is licensed under a<br><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a> license</span>
 </footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
-    <button class="top-link" id="top-link" type="button" accesskey="g">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-            <path d="M12 6H0l6-6z" />
-        </svg>
-    </button>
-</a>
-
-
-
-<script defer src="/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
-    onload="hljs.initHighlightingOnLoad();"></script>
+<script src="https://via.moe/highlight.min.js"></script>
 <script>
-    window.onload = function () {
-        if (localStorage.getItem("menu-scroll-position")) {
-            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
-        }
-    }
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
-            } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-            }
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.replaceState(null, null, `#${id}`);
-            }
-        });
-    });
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
-
-    function menu_on_scroll() {
-        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
-    }
-
+  hljs.initHighlightingOnLoad();
 </script>
+
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-70500040-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -314,19 +127,6 @@ motd=A Minecraft Server				#服務器在服務器列表頁所顯示的信息
 
   gtag('config', 'UA-70500040-1');
 </script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            document.body.classList.add('dark');
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
-
-</script>
 
 </body>
-
 </html>

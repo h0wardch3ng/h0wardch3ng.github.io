@@ -1,172 +1,55 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
-
-<head><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<script>var url=window.location.href;url.indexOf("https")<0&&(url=url.replace("http:","https:"),window.location.replace(url));</script>
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="theme-color" content="#2e2e33">
-<meta name="robots" content="index, follow">
-<title>樹莓派2 上手 | Siege</title>
-
-<meta name="keywords" content="raspberrypi" />
-<meta name="description" content="第二代樹莓派（Raspberry Pi 2）於2015/02/03正式發佈，同現有的Model B&#43;售價相同，爲$35，用戶可以通過element14 和 RS Components兩家合作商進行選購。樹莓派2採用了900MHz的四核ARM Cortex-A7處理器（性能是前代的6倍以上），1GB的LPDDR2 SDRAM（內存提升兩倍），並完美兼容第一代樹莓派。因爲採用了ARMv7處理器，所以能夠運行所有ARM GNU/Linux分支版本，包括Snappy Ubuntu Core和微軟的Windows 10系統。
-全新的樹莓派2的硬件規格如下：
- 處理器：博通BCM2836（CPU, GPU, DSP, SDRAM和一個USB端口) CPU：900MHz的四核ARM Cortex A7（ARMv7架構） GPU：博通VideoCore IV @ 250 MHz OpenGL ES 2.0 (24 GFLOPS) 1080P 30 MPEG-2和VC-1解碼器 (帶授權證書) 1080p30的H.264 / MPEG - 4 AVC高調解碼器和編碼器 內存：1GB（同GPU共享） USB端口：4個 視頻輸入：15針的MIPI攝像頭接口（CSI）控制器 視頻輸出：HDMI、通過3.5mm套件的複合視頻（PAL和NTSC） 音頻輸出： I²S 音頻輸入：3.5mm耳機套件，通過HDMI和 I²S進行數字輸入 存儲：MicroSD卡 網絡：10/100 Mbit/s Ethernet 外設：17 GPIO加特殊功能，和HAT ID總線 電源:800 mA (4.0 W) 電源來源：通過MicroUSB或者GPIO頭的5V電 尺寸： 85.60 mm × 56.5 mm 重量：45g  新型樹莓派2 代B型板可兼容以往創建的所有樹莓派項目。同時，它還具備擴展GPIO引腳並可提供高級電源管理和連接性能，因而可連接多達4個USB設備，包括一些如硬盤驅動器的功率器件。其40針擴展GPIO接口使其能夠添加更多傳感器、連接器及擴展板，前26針引腳與A型板和B型板保持一致，可100%向後兼容。">
-<meta name="author" content="">
-<link rel="canonical" href="https://via.moe/raspberry-pi-2/" />
-<link href="/assets/css/stylesheet.min.5c4f6d85b7abfcfea458637c672d16a7a9c38c37f002753cfdc7f314b6d3c8f2.css" integrity="sha256-XE9thber/P6kWGN8Zy0Wp6nDjDfwAnU8/cfzFLbTyPI=" rel="preload stylesheet"
-    as="style">
-
-<link rel="icon" href="https://via.moe/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://via.moe/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://via.moe/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://via.moe/apple-touch-icon.png">
-<link rel="mask-icon" href="https://via.moe/safari-pinned-tab.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.80.0" />
-
-
-<meta property="og:title" content="樹莓派2 上手" />
-<meta property="og:description" content="第二代樹莓派（Raspberry Pi 2）於2015/02/03正式發佈，同現有的Model B&#43;售價相同，爲$35，用戶可以通過element14 和 RS Components兩家合作商進行選購。樹莓派2採用了900MHz的四核ARM Cortex-A7處理器（性能是前代的6倍以上），1GB的LPDDR2 SDRAM（內存提升兩倍），並完美兼容第一代樹莓派。因爲採用了ARMv7處理器，所以能夠運行所有ARM GNU/Linux分支版本，包括Snappy Ubuntu Core和微軟的Windows 10系統。
-全新的樹莓派2的硬件規格如下：
- 處理器：博通BCM2836（CPU, GPU, DSP, SDRAM和一個USB端口) CPU：900MHz的四核ARM Cortex A7（ARMv7架構） GPU：博通VideoCore IV @ 250 MHz OpenGL ES 2.0 (24 GFLOPS) 1080P 30 MPEG-2和VC-1解碼器 (帶授權證書) 1080p30的H.264 / MPEG - 4 AVC高調解碼器和編碼器 內存：1GB（同GPU共享） USB端口：4個 視頻輸入：15針的MIPI攝像頭接口（CSI）控制器 視頻輸出：HDMI、通過3.5mm套件的複合視頻（PAL和NTSC） 音頻輸出： I²S 音頻輸入：3.5mm耳機套件，通過HDMI和 I²S進行數字輸入 存儲：MicroSD卡 網絡：10/100 Mbit/s Ethernet 外設：17 GPIO加特殊功能，和HAT ID總線 電源:800 mA (4.0 W) 電源來源：通過MicroUSB或者GPIO頭的5V電 尺寸： 85.60 mm × 56.5 mm 重量：45g  新型樹莓派2 代B型板可兼容以往創建的所有樹莓派項目。同時，它還具備擴展GPIO引腳並可提供高級電源管理和連接性能，因而可連接多達4個USB設備，包括一些如硬盤驅動器的功率器件。其40針擴展GPIO接口使其能夠添加更多傳感器、連接器及擴展板，前26針引腳與A型板和B型板保持一致，可100%向後兼容。" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://via.moe/raspberry-pi-2/" />
-<meta property="article:published_time" content="2015-03-22T19:32:59+08:00" />
-<meta property="article:modified_time" content="2015-03-22T19:32:59+08:00" />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="樹莓派2 上手"/>
-<meta name="twitter:description" content="第二代樹莓派（Raspberry Pi 2）於2015/02/03正式發佈，同現有的Model B&#43;售價相同，爲$35，用戶可以通過element14 和 RS Components兩家合作商進行選購。樹莓派2採用了900MHz的四核ARM Cortex-A7處理器（性能是前代的6倍以上），1GB的LPDDR2 SDRAM（內存提升兩倍），並完美兼容第一代樹莓派。因爲採用了ARMv7處理器，所以能夠運行所有ARM GNU/Linux分支版本，包括Snappy Ubuntu Core和微軟的Windows 10系統。
-全新的樹莓派2的硬件規格如下：
- 處理器：博通BCM2836（CPU, GPU, DSP, SDRAM和一個USB端口) CPU：900MHz的四核ARM Cortex A7（ARMv7架構） GPU：博通VideoCore IV @ 250 MHz OpenGL ES 2.0 (24 GFLOPS) 1080P 30 MPEG-2和VC-1解碼器 (帶授權證書) 1080p30的H.264 / MPEG - 4 AVC高調解碼器和編碼器 內存：1GB（同GPU共享） USB端口：4個 視頻輸入：15針的MIPI攝像頭接口（CSI）控制器 視頻輸出：HDMI、通過3.5mm套件的複合視頻（PAL和NTSC） 音頻輸出： I²S 音頻輸入：3.5mm耳機套件，通過HDMI和 I²S進行數字輸入 存儲：MicroSD卡 網絡：10/100 Mbit/s Ethernet 外設：17 GPIO加特殊功能，和HAT ID總線 電源:800 mA (4.0 W) 電源來源：通過MicroUSB或者GPIO頭的5V電 尺寸： 85.60 mm × 56.5 mm 重量：45g  新型樹莓派2 代B型板可兼容以往創建的所有樹莓派項目。同時，它還具備擴展GPIO引腳並可提供高級電源管理和連接性能，因而可連接多達4個USB設備，包括一些如硬盤驅動器的功率器件。其40針擴展GPIO接口使其能夠添加更多傳感器、連接器及擴展板，前26針引腳與A型板和B型板保持一致，可100%向後兼容。"/>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "樹莓派2 上手",
-  "name": "樹莓派2 上手",
-  "description": "第二代樹莓派（Raspberry Pi 2）於2015/02/03正式發佈，同現有的Model B+售價相同，爲$35，用戶可以通過element14 和 RS Components兩家合作商進行選購。樹莓派2採用了900MHz的四核ARM Cortex-A7處理器（性能是前代的6倍以上），1GB的LPDDR2 SDRAM（內存提升兩倍），並完美兼容第一代樹 …",
-  "keywords": [
-    "raspberrypi"
-  ],
-  "articleBody": "第二代樹莓派（Raspberry Pi 2）於2015/02/03正式發佈，同現有的Model B+售價相同，爲$35，用戶可以通過element14 和 RS Components兩家合作商進行選購。樹莓派2採用了900MHz的四核ARM Cortex-A7處理器（性能是前代的6倍以上），1GB的LPDDR2 SDRAM（內存提升兩倍），並完美兼容第一代樹莓派。因爲採用了ARMv7處理器，所以能夠運行所有ARM GNU/Linux分支版本，包括Snappy Ubuntu Core和微軟的Windows 10系統。\n全新的樹莓派2的硬件規格如下：\n 處理器：博通BCM2836（CPU, GPU, DSP, SDRAM和一個USB端口) CPU：900MHz的四核ARM Cortex A7（ARMv7架構） GPU：博通VideoCore IV @ 250 MHz OpenGL ES 2.0 (24 GFLOPS) 1080P 30 MPEG-2和VC-1解碼器 (帶授權證書) 1080p30的H.264 / MPEG - 4 AVC高調解碼器和編碼器 內存：1GB（同GPU共享） USB端口：4個 視頻輸入：15針的MIPI攝像頭接口（CSI）控制器 視頻輸出：HDMI、通過3.5mm套件的複合視頻（PAL和NTSC） 音頻輸出： I²S 音頻輸入：3.5mm耳機套件，通過HDMI和 I²S進行數字輸入 存儲：MicroSD卡 網絡：10/100 Mbit/s Ethernet 外設：17 GPIO加特殊功能，和HAT ID總線 電源:800 mA (4.0 W) 電源來源：通過MicroUSB或者GPIO頭的5V電 尺寸： 85.60 mm × 56.5 mm 重量：45g  新型樹莓派2 代B型板可兼容以往創建的所有樹莓派項目。同時，它還具備擴展GPIO引腳並可提供高級電源管理和連接性能，因而可連接多達4個USB設備，包括一些如硬盤驅動器的功率器件。其40針擴展GPIO接口使其能夠添加更多傳感器、連接器及擴展板，前26針引腳與A型板和B型板保持一致，可100%向後兼容。\n我預訂了一個RS的腐國產的樹莓派2 順便入了一個亞克力殼和一個小風扇和兩個銅片散熱器\n拿到手之後 在TF卡上燒了官方的debain發行版做引導系統\n什麼都沒開的系統佔用\n接下來準備搭個dns服務器負責整個寢室的地址解析 順便架個nginx\n有時間再折騰吧~ XD\n",
-  "wordCount" : "79",
-  "inLanguage": "en",
-  "datePublished": "2015-03-22T19:32:59+08:00",
-  "dateModified": "2015-03-22T19:32:59+08:00",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://via.moe/raspberry-pi-2/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Siege",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://via.moe/favicon.ico"
-    }
-  }
-}
-</script>
-
-
-
-</head>
-
-<body class="" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
-<noscript>
-    <style type="text/css">
-        .theme-toggle,
-        .top-link {
-            display: none;
-        }
-
-    </style>
-</noscript>
-<header class="header">
-    <nav class="nav">
-        <div class="logo">
-            <a href="https://via.moe/" accesskey="h" title="Siege (Alt + H)">Siege</a>
-            <span class="logo-switches">
-                <span class="theme-toggle" title="(Alt + T)">
-                    <a id="theme-toggle" accesskey="t">
-                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                        </svg>
-                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="5"></circle>
-                            <line x1="12" y1="1" x2="12" y2="3"></line>
-                            <line x1="12" y1="21" x2="12" y2="23"></line>
-                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                            <line x1="1" y1="12" x2="3" y2="12"></line>
-                            <line x1="21" y1="12" x2="23" y2="12"></line>
-                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                        </svg>
-                    </a>
-                </span>
-                
-            </span>
-        </div>
-        <ul class="menu" id="menu" onscroll="menu_on_scroll()">
-            <li>
-                <a href="https://via.moe/" title="Index">
-                    <span>Index</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://via.moe/archives" title="Archive">
-                    <span>Archive</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://via.moe/rss.xml" title="RSS">
-                    <span>RSS</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://via.moe/about/" title="About">
-                    <span>About</span>
-                </a>
-            </li></ul>
-    </nav>
-</header>
-
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script>var url=window.location.href;url.indexOf("https")<0&&(url=url.replace("http:","https:"),window.location.replace(url));</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>樹莓派2 上手 - Siege</title>
+    
+    <meta name="description" content="Wherever we want to go, we go.">
+    <meta name="author" content="h0wardch3ng">
+    
+    <link href="https://via.moe/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://via.moe/style.css" rel="stylesheet">
+    <link href="https://via.moe/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://via.moe/apple-touch-icon.png">
+    <link rel="icon" href="https://via.moe/favicon.ico">
+    <meta name="generator" content="Hugo 0.80.0" />
+    
+    
+  </head>
+  <body class="single">
+    <header class="header">
+      <nav class="nav">
+        <p class="logo"><a href="https://via.moe/">Siege</a></p>
+        <ul class="menu">
+          <li>
+            <a href="/">Index</a>
+          </li>
+          <li>
+            <a href="/archives">Archive</a>
+          </li>
+          <li>
+            <a href="/rss.xml">RSS</a>
+          </li>
+          <li>
+            <a href="/about/">About</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
     <main class="main">
+
 
 <article class="post-single">
   <header class="post-header">
-    <h1 class="post-title">
-      樹莓派2 上手
-    </h1>
-    <div class="post-description">
-      
-    </div>
-    <div class="post-meta">March 22, 2015
-
-    </div>
-  </header> 
-
-  <div class="post-content">
-<p><img src="http://ww4.sinaimg.cn/large/6d9bd6a5gw1eqecwrgxl9j20go0b3wfk.jpg" alt=""></p>
+    <h1 class="post-title">樹莓派2 上手</h1>
+    <div class="post-meta">March 22, 2015</div>
+  </header>
+  <div class="post-content"><p><img src="http://ww4.sinaimg.cn/large/6d9bd6a5gw1eqecwrgxl9j20go0b3wfk.jpg" alt=""></p>
 <p>第二代樹莓派（Raspberry Pi 2）於2015/02/03正式發佈，同現有的Model  B+售價相同，爲$35，用戶可以通過<a href="http://www.element14.com/community/community/raspberry-pi">element14</a> 和 <a href="http://uk.rs-online.com/web/generalDisplay.html?id=raspberrypi">RS Components</a>兩家合作商進行選購。樹莓派2採用了900MHz的四核ARM Cortex-A7處理器（性能是前代的6倍以上），1GB的LPDDR2 SDRAM（內存提升兩倍），並完美兼容第一代樹莓派。因爲採用了ARMv7處理器，所以能夠運行所有ARM GNU/Linux分支版本，包括<a href="http://www.raspberrypi.org/downloads/">Snappy Ubuntu Core</a>和微軟的<a href="http://dev.windows.com/en-us/featured/raspberrypi2support">Windows 10</a>系統。</p>
 <p>全新的樹莓派2的硬件規格如下：</p>
 <ul>
@@ -204,71 +87,22 @@
 <p><img src="http://ww1.sinaimg.cn/large/6d9bd6a5gw1eqep7kbcgmj212y0nch7b.jpg" alt=""></p>
 <p>接下來準備搭個dns服務器負責整個寢室的地址解析  順便架個nginx</p>
 <p>有時間再折騰吧~  XD</p>
-
 </div>
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://via.moe/tags/raspberrypi/">raspberrypi</a></li>
+      <li><a href="https://via.moe/tags/raspberrypi">raspberrypi</a></li>
     </ul>
   </footer>
-</article>
-    </main><footer class="footer">
-    
-    <span>本博客除另外說明，都採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW">署名-非商業性使用-相同方式共享 4.0 協議</a> 進行許可<br>Except where otherwise noted, content on this site is licensed under a<br><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a> license</span>
-    
+  
+</article></main>
+<footer class="footer">
+  <span>本博客除另外說明，都採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW">署名-非商業性使用-相同方式共享 4.0 協議</a> 進行許可<br>Except where otherwise noted, content on this site is licensed under a<br><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a> license</span>
 </footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
-    <button class="top-link" id="top-link" type="button" accesskey="g">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-            <path d="M12 6H0l6-6z" />
-        </svg>
-    </button>
-</a>
-
-
-
-<script defer src="/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
-    onload="hljs.initHighlightingOnLoad();"></script>
+<script src="https://via.moe/highlight.min.js"></script>
 <script>
-    window.onload = function () {
-        if (localStorage.getItem("menu-scroll-position")) {
-            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
-        }
-    }
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
-            } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-            }
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.replaceState(null, null, `#${id}`);
-            }
-        });
-    });
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
-
-    function menu_on_scroll() {
-        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
-    }
-
+  hljs.initHighlightingOnLoad();
 </script>
+
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-70500040-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -277,19 +111,6 @@
 
   gtag('config', 'UA-70500040-1');
 </script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            document.body.classList.add('dark');
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
-
-</script>
 
 </body>
-
 </html>

@@ -1,178 +1,55 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
-
-<head><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<script>var url=window.location.href;url.indexOf("https")<0&&(url=url.replace("http:","https:"),window.location.replace(url));</script>
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="theme-color" content="#2e2e33">
-<meta name="robots" content="index, follow">
-<title>遛狗指南 - 配置 Katago 與 Leela-Zero | Siege</title>
-
-<meta name="keywords" content="go" />
-<meta name="description" content="1 前言 AlphaGo（「Go」為日文「碁」字發音轉寫，是圍棋的西方名稱），直譯為阿爾法圍棋，亦被音譯為阿爾法狗，是於 2014 年開始由英國倫敦 Google DeepMind 開發的人工智慧圍棋軟體，以及對應的電影紀錄片《 AlphaGo 世紀對決》。
-專業術語上來說，AlphaGo 的做法是使用了蒙地卡羅樹搜尋與兩個深度神經網路相結合的方法，一個是以藉助估值網路（value network）來評估大量的選點，一個是藉助走棋網路（policy network）來選擇落子，並使用強化學習進一步改善它。在這種設計下，電腦可以結合樹狀圖的長遠推斷，又可像人類的大腦一樣自發學習進行直覺訓練，以提高下棋實力。
-2016 年 3 月 9 、10 和 12 日的三局對戰均為 AlphaGo 獲勝，而 13 日的對戰則為李世乭獲勝，15 日的最終局則又是 AlphaGo 獲勝。因此對弈結果為 AlphaGo 4:1 戰勝了李世乭。這次比賽在網路上引發了人們對此次比賽和人工智慧的廣泛討論。
-AlphaGo 在 2017 年 5 月 23、25 和 27日這三天，柯潔與 AlphaGo 下三番棋，用時為每方 3 小時，5 次 1 分鐘讀秒。此外在 5 月 26 日，時越、羋昱廷、唐韋星、陳耀燁和周睿羊 5 人將進行團隊賽，他們將聯合與 AlphaGo 對弈，用時為每方 2 小時 30 分鐘，3 次 1 分鐘讀秒。最終，AlphaGo 以 3：0 戰勝柯潔。
-同日下午，中國的五名九段棋手組團對抗 AlphaGo。他們分別是時越、羋昱廷、唐韋星、陳耀燁和周睿羊。其結局為 AlphaGo 執白盤中獲勝。">
-<meta name="author" content="">
-<link rel="canonical" href="https://via.moe/katago-vs-leelazero/" />
-<link href="/assets/css/stylesheet.min.5c4f6d85b7abfcfea458637c672d16a7a9c38c37f002753cfdc7f314b6d3c8f2.css" integrity="sha256-XE9thber/P6kWGN8Zy0Wp6nDjDfwAnU8/cfzFLbTyPI=" rel="preload stylesheet"
-    as="style">
-
-<link rel="icon" href="https://via.moe/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://via.moe/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://via.moe/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://via.moe/apple-touch-icon.png">
-<link rel="mask-icon" href="https://via.moe/safari-pinned-tab.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.80.0" />
-
-
-<meta property="og:title" content="遛狗指南 - 配置 Katago 與 Leela-Zero" />
-<meta property="og:description" content="1 前言 AlphaGo（「Go」為日文「碁」字發音轉寫，是圍棋的西方名稱），直譯為阿爾法圍棋，亦被音譯為阿爾法狗，是於 2014 年開始由英國倫敦 Google DeepMind 開發的人工智慧圍棋軟體，以及對應的電影紀錄片《 AlphaGo 世紀對決》。
-專業術語上來說，AlphaGo 的做法是使用了蒙地卡羅樹搜尋與兩個深度神經網路相結合的方法，一個是以藉助估值網路（value network）來評估大量的選點，一個是藉助走棋網路（policy network）來選擇落子，並使用強化學習進一步改善它。在這種設計下，電腦可以結合樹狀圖的長遠推斷，又可像人類的大腦一樣自發學習進行直覺訓練，以提高下棋實力。
-2016 年 3 月 9 、10 和 12 日的三局對戰均為 AlphaGo 獲勝，而 13 日的對戰則為李世乭獲勝，15 日的最終局則又是 AlphaGo 獲勝。因此對弈結果為 AlphaGo 4:1 戰勝了李世乭。這次比賽在網路上引發了人們對此次比賽和人工智慧的廣泛討論。
-AlphaGo 在 2017 年 5 月 23、25 和 27日這三天，柯潔與 AlphaGo 下三番棋，用時為每方 3 小時，5 次 1 分鐘讀秒。此外在 5 月 26 日，時越、羋昱廷、唐韋星、陳耀燁和周睿羊 5 人將進行團隊賽，他們將聯合與 AlphaGo 對弈，用時為每方 2 小時 30 分鐘，3 次 1 分鐘讀秒。最終，AlphaGo 以 3：0 戰勝柯潔。
-同日下午，中國的五名九段棋手組團對抗 AlphaGo。他們分別是時越、羋昱廷、唐韋星、陳耀燁和周睿羊。其結局為 AlphaGo 執白盤中獲勝。" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://via.moe/katago-vs-leelazero/" />
-<meta property="article:published_time" content="2021-01-26T19:32:59+08:00" />
-<meta property="article:modified_time" content="2021-01-26T19:32:59+08:00" />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="遛狗指南 - 配置 Katago 與 Leela-Zero"/>
-<meta name="twitter:description" content="1 前言 AlphaGo（「Go」為日文「碁」字發音轉寫，是圍棋的西方名稱），直譯為阿爾法圍棋，亦被音譯為阿爾法狗，是於 2014 年開始由英國倫敦 Google DeepMind 開發的人工智慧圍棋軟體，以及對應的電影紀錄片《 AlphaGo 世紀對決》。
-專業術語上來說，AlphaGo 的做法是使用了蒙地卡羅樹搜尋與兩個深度神經網路相結合的方法，一個是以藉助估值網路（value network）來評估大量的選點，一個是藉助走棋網路（policy network）來選擇落子，並使用強化學習進一步改善它。在這種設計下，電腦可以結合樹狀圖的長遠推斷，又可像人類的大腦一樣自發學習進行直覺訓練，以提高下棋實力。
-2016 年 3 月 9 、10 和 12 日的三局對戰均為 AlphaGo 獲勝，而 13 日的對戰則為李世乭獲勝，15 日的最終局則又是 AlphaGo 獲勝。因此對弈結果為 AlphaGo 4:1 戰勝了李世乭。這次比賽在網路上引發了人們對此次比賽和人工智慧的廣泛討論。
-AlphaGo 在 2017 年 5 月 23、25 和 27日這三天，柯潔與 AlphaGo 下三番棋，用時為每方 3 小時，5 次 1 分鐘讀秒。此外在 5 月 26 日，時越、羋昱廷、唐韋星、陳耀燁和周睿羊 5 人將進行團隊賽，他們將聯合與 AlphaGo 對弈，用時為每方 2 小時 30 分鐘，3 次 1 分鐘讀秒。最終，AlphaGo 以 3：0 戰勝柯潔。
-同日下午，中國的五名九段棋手組團對抗 AlphaGo。他們分別是時越、羋昱廷、唐韋星、陳耀燁和周睿羊。其結局為 AlphaGo 執白盤中獲勝。"/>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "遛狗指南 - 配置 Katago 與 Leela-Zero",
-  "name": "遛狗指南 - 配置 Katago 與 Leela-Zero",
-  "description": "1 前言 AlphaGo（「Go」為日文「碁」字發音轉寫，是圍棋的西方名稱），直譯為阿爾法圍棋，亦被音譯為阿爾法狗，是於 2014 年開始由英國倫敦 Google DeepMind 開發的人工智慧圍棋軟體，以及對應的電影紀錄片《 AlphaGo 世紀對決》。\n專業術語上來說，AlphaGo 的做法是使用了蒙地卡羅樹搜尋與兩個深度神經網路相結合的方法，一個是以 …",
-  "keywords": [
-    "go"
-  ],
-  "articleBody": "1 前言 AlphaGo（「Go」為日文「碁」字發音轉寫，是圍棋的西方名稱），直譯為阿爾法圍棋，亦被音譯為阿爾法狗，是於 2014 年開始由英國倫敦 Google DeepMind 開發的人工智慧圍棋軟體，以及對應的電影紀錄片《 AlphaGo 世紀對決》。\n專業術語上來說，AlphaGo 的做法是使用了蒙地卡羅樹搜尋與兩個深度神經網路相結合的方法，一個是以藉助估值網路（value network）來評估大量的選點，一個是藉助走棋網路（policy network）來選擇落子，並使用強化學習進一步改善它。在這種設計下，電腦可以結合樹狀圖的長遠推斷，又可像人類的大腦一樣自發學習進行直覺訓練，以提高下棋實力。\n2016 年 3 月 9 、10 和 12 日的三局對戰均為 AlphaGo 獲勝，而 13 日的對戰則為李世乭獲勝，15 日的最終局則又是 AlphaGo 獲勝。因此對弈結果為 AlphaGo 4:1 戰勝了李世乭。這次比賽在網路上引發了人們對此次比賽和人工智慧的廣泛討論。\nAlphaGo 在 2017 年 5 月 23、25 和 27日這三天，柯潔與 AlphaGo 下三番棋，用時為每方 3 小時，5 次 1 分鐘讀秒。此外在 5 月 26 日，時越、羋昱廷、唐韋星、陳耀燁和周睿羊 5 人將進行團隊賽，他們將聯合與 AlphaGo 對弈，用時為每方 2 小時 30 分鐘，3 次 1 分鐘讀秒。最終，AlphaGo 以 3：0 戰勝柯潔。\n同日下午，中國的五名九段棋手組團對抗 AlphaGo。他們分別是時越、羋昱廷、唐韋星、陳耀燁和周睿羊。其結局為 AlphaGo 執白盤中獲勝。\n 此外，AlphaGo 團隊也在 Nature 上公開發佈了相關的論文\nMastering the game of Go with deep neural networks and tree search\nMastering the game of Go without human knowledge\n根據論文中展示的相關運行原理，Github 上許多大神也相繼開發出了更多的圍棋 AI。\n更多關於 AlphaGo 的信息可以參考 Wikipedia 和官方網站的介紹。\n2 配置 Katago KataGo 是新的開源圍棋AI，支持所有貼目、所有路數的矩形棋盤（甚至包括長方形），棋風不退讓，支持中國規則和日本規則（數目規則）。下一個版本，KataGo 還將支持日本規則中的特例、中國古棋規則（還棋頭）、非矩形的不規則棋盤 和 Button Go！\n2.1 下載 Katago 前往 https://github.com/lightvector/KataGo/releases 下載執行文件\n擁有 Nvidia 10 系以上的顯卡可以使用 cuda 版本，在使用前還需安裝 Nvidia cuDNN\n其他顯卡可以使用 opencl 版本\n2.1.1 配置 Katago 先下載和配置權重文件，權重文件包含目前 AI 的訓練勝率統計結果，AlphaGo Zero 采集了目前各類圍棋專業比賽的棋盤數據，如果使用家用游戲顯卡（例如 Nvidia GTX 1080 Ti）進行 AI 訓練，大概需要 1700 年的時間，為了節約時間可以下載網絡上已經訓練完成的權重文件，當然也可以自己拿相關棋盤數據進行訓練。\n方式一：前往 Katago 官網的 Network 中下載權重壓縮包，可以選擇純文本或二進制包\nhttps://katagotraining.org/networks/\n下載純文本包完成后需要解壓\n方式二：前往 katago-public/g170/neuralnets 中下載權重壓縮包，可以選擇純文本或二進制包\nhttps://d3dndmfyhecmj0.cloudfront.net/g170/neuralnets/index.html\n下載純文本包完成后需要解壓\n2.1.2 配置 Katago 權重 進入終端執行\nkatago.exe genconfig -model g170e-b20c256x2-s2430231552-d525879064.bin.gz -output gtp_custom.cfg\r其中 g170e-b20c256x2-s2430231552-d525879064.bin.gz 為剛剛下載的權重文件，如果是純文本文件，則為 g170e20b.txt\n之後配置程序會詢問圍棋進行規則和相關參數設置\nRULES\rWhat rules should KataGo use by default for play and analysis?\r(chinese, japanese, korean, tromp-taylor, aga, chinese-ogs, new-zealand, bga, stone-scoring, aga-button):\r這是問菜刀默認的圍棋規則是什麼，貌似你甚至可以選擇還棋頭，感興趣的同學可以自行了解，我們這裏就選中國規則（應氏規則，貼7.5），\n輸入：chinese，然後回車。\nSEARCH LIMITS\rWhen playing games, KataGo will always obey the time controls given by the GUI/tournament/match/online server.\rBut you can specify an additional limit to make KataGo move much faster. This does NOT affect analysis/review,\ronly affects playing games. Add a limit? (y/n) (default n):\r這是問是否需要對讀秒之類的時間規則加個額外限制，我們這裏選不用。\n輸入：n，然後回車。\n接著看到提示\nNOTE: No limits configured for KataGo. KataGo will obey time controls provided by the GUI or server or match script\rbut if they don't specify any, when playing games KataGo may think forever without moving. (press enter to continue)\r繼續回車。\nWhen playing games, KataGo can optionally ponder during the opponent's turn. This gives faster/stronger play\rin real games but should NOT be enabled if you are running tests with fixed limits (pondering may exceed those\rlimits), or to avoid stealing the opponent's compute time when testing two bots on the same machine.\rEnable pondering? (y/n, default n):\r這是問是否允許在對手讀秒的時候思考，然後這麼做要注意什麼，默認是否。\n所以直接回車。\nGPUS AND RAM\rFinding available GPU-like devices...\rFound OpenCL Device 0: GeForce GTX 1070 Ti (NVIDIA Corporation) (score 11000102)\rSpecify devices/GPUs to use (for example \"0,1,2\" to use devices 0, 1, and 2). Leave blank for a default SINGLE-GPU config:\r0\r根據硬件配置，每個人看到的不一樣，這是問要使用哪個計算核心，每個選項最後面都有一個數字，選那個數字最大的就好。\n我只有一張獨立顯卡，所以我直接回車。如果有多個計算核心，請輸入相應的數字後回車即可。\nBy default, KataGo will cache up to about 3GB of positions in memory (RAM), in addition to\rwhatever the current search is using. Specify a different max in GB or leave blank for default:\r這是在問 Katago 運行時的內存上限設置為多少。上限而已，那我們直接拉滿就好\n建議電腦經常卡的輸入： 1\n建議偶爾會卡的輸入： 2\n建議直接回車。\nPERFORMANCE TUNING\rSpecify number of visits to use test/tune performance with, leave blank for default based on GPU speed.\rUse large number for more accurate results, small if your GPU is old and this is taking forever:\r直接回車，最後會刷出來一堆提示信息。\n2021-01-31 21:54:01+0800: Loading model and initializing benchmark...\rRunning quick initial benchmark at 16 threads!\r2021-01-31 21:54:01+0800: nnRandSeed0 = 967512229685620723\r2021-01-31 21:54:01+0800: After dedups: nnModelFile0 = kata1-b40c256-s5942610176-d1431052518.bin.gz useFP16 auto useNHWC auto\r2021-01-31 21:54:03+0800: Found OpenCL Platform 0: NVIDIA CUDA (NVIDIA Corporation) (OpenCL 1.2 CUDA 11.2.109)\r2021-01-31 21:54:03+0800: Found 1 device(s) on platform 0 with type CPU or GPU or Accelerator\r2021-01-31 21:54:03+0800: Found OpenCL Device 0: GeForce GTX 1070 Ti (NVIDIA Corporation) (score 11000102)\r2021-01-31 21:54:03+0800: Creating context for OpenCL Platform: NVIDIA CUDA (NVIDIA Corporation) (OpenCL 1.2 CUDA 11.2.109)\r2021-01-31 21:54:03+0800: Using OpenCL Device 0: GeForce GTX 1070 Ti (NVIDIA Corporation) OpenCL 1.2 CUDA (Extensions: cl_khr_global_int32_base_atomics cl_khr_global_int32_extended_atomics cl_khr_local_int32_base_atomics cl_khr_local_int32_extended_atomics cl_khr_fp64 cl_khr_byte_addressable_store cl_khr_icd cl_khr_gl_sharing cl_nv_compiler_options cl_nv_device_attribute_query cl_nv_pragma_unroll cl_nv_d3d10_sharing cl_khr_d3d10_sharing cl_nv_d3d11_sharing cl_nv_copy_opts cl_nv_create_buffer cl_khr_int64_base_atomics cl_khr_int64_extended_atomics cl_khr_device_uuid)\r2021-01-31 21:54:03+0800: No existing tuning parameters found or parseable or valid at: D:\\AI\\katago/KataGoData/opencltuning/tune8_gpuGeForceGTX1070Ti_x19_y19_c256_mv10.txt\r2021-01-31 21:54:03+0800: Performing autotuning\r2021-01-31 21:54:03+0800: *** On some systems, this may take several minutes, please be patient ***\r2021-01-31 21:54:03+0800: Found OpenCL Platform 0: NVIDIA CUDA (NVIDIA Corporation) (OpenCL 1.2 CUDA 11.2.109)\r2021-01-31 21:54:03+0800: Found 1 device(s) on platform 0 with type CPU or GPU or Accelerator\r2021-01-31 21:54:03+0800: Found OpenCL Device 0: GeForce GTX 1070 Ti (NVIDIA Corporation) (score 11000102)\r2021-01-31 21:54:03+0800: Creating context for OpenCL Platform: NVIDIA CUDA (NVIDIA Corporation) (OpenCL 1.2 CUDA 11.2.109)\r2021-01-31 21:54:03+0800: Using OpenCL Device 0: GeForce GTX 1070 Ti (NVIDIA Corporation) OpenCL 1.2 CUDA (Extensions: cl_khr_global_int32_base_atomics cl_khr_global_int32_extended_atomics cl_khr_local_int32_base_atomics cl_khr_local_int32_extended_atomics cl_khr_fp64 cl_khr_byte_addressable_store cl_khr_icd cl_khr_gl_sharing cl_nv_compiler_options cl_nv_device_attribute_query cl_nv_pragma_unroll cl_nv_d3d10_sharing cl_khr_d3d10_sharing cl_nv_d3d11_sharing cl_nv_copy_opts cl_nv_create_buffer cl_khr_int64_base_atomics cl_khr_int64_extended_atomics cl_khr_device_uuid)\rSetting winograd3x3TileSize = 4\r------------------------------------------------------\rTuning xGemmDirect for 1x1 convolutions and matrix mult\rTesting 56 different configs\rTuning 0/56 (reference) Calls/sec 792.653 L2Error 0 WGD=8 MDIMCD=1 NDIMCD=1 MDIMAD=1 NDIMBD=1 KWID=1 VWMD=1 VWND=1 PADA=1 PADB=1\rTuning 2/56 Calls/sec 6680.96 L2Error 0 WGD=8 MDIMCD=8 NDIMCD=8 MDIMAD=8 NDIMBD=8 KWID=1 VWMD=1 VWND=1 PADA=1 PADB=1\rTuning 3/56 Calls/sec 13272 L2Error 0 WGD=16 MDIMCD=8 NDIMCD=8 MDIMAD=8 NDIMBD=8 KWID=1 VWMD=1 VWND=1 PADA=1 PADB=1\rTuning 4/56 Calls/sec 22568.9 L2Error 0 WGD=32 MDIMCD=8 NDIMCD=8 MDIMAD=16 NDIMBD=8 KWID=2 VWMD=2 VWND=2 PADA=1 PADB=1\rTuning 6/56 Calls/sec 22606.4 L2Error 0 WGD=32 MDIMCD=8 NDIMCD=8 MDIMAD=8 NDIMBD=16 KWID=2 VWMD=2 VWND=2 PADA=1 PADB=1\rTuning 8/56 Calls/sec 23462 L2Error 0 WGD=32 MDIMCD=8 NDIMCD=8 MDIMAD=16 NDIMBD=8 KWID=2 VWMD=2 VWND=4 PADA=1 PADB=1\rTuning 11/56 Calls/sec 23972.3 L2Error 0 WGD=32 MDIMCD=8 NDIMCD=8 MDIMAD=16 NDIMBD=16 KWID=2 VWMD=2 VWND=2 PADA=1 PADB=1\rTuning 40/56 ...\r------------------------------------------------------\rTuning xGemm for convolutions\rTesting 70 different configs\rTuning 0/70 (reference) Calls/sec 418.777 L2Error 0 MWG=8 NWG=8 KWG=8 MDIMC=1 NDIMC=1 MDIMA=1 NDIMB=1 KWI=1 VWM=1 VWN=1 STRM=0 STRN=0 SA=0 SB=0\rTuning 2/70 Calls/sec 1457.92 L2Error 0 MWG=8 NWG=8 KWG=8 MDIMC=8 NDIMC=8 MDIMA=8 NDIMB=8 KWI=1 VWM=1 VWN=1 STRM=0 STRN=0 SA=0 SB=0\rTuning 3/70 Calls/sec 2508.42 L2Error 0 MWG=16 NWG=16 KWG=16 MDIMC=8 NDIMC=8 MDIMA=8 NDIMB=8 KWI=1 VWM=1 VWN=1 STRM=0 STRN=0 SA=0 SB=0\rTuning 4/70 Calls/sec 3688.01 L2Error 0 MWG=32 NWG=32 KWG=32 MDIMC=16 NDIMC=8 MDIMA=16 NDIMB=8 KWI=2 VWM=2 VWN=2 STRM=0 STRN=0 SA=0 SB=0\rTuning 5/70 Calls/sec 10323 L2Error 0 MWG=32 NWG=32 KWG=16 MDIMC=8 NDIMC=8 MDIMA=8 NDIMB=8 KWI=2 VWM=2 VWN=2 STRM=0 STRN=0 SA=1 SB=1\rTuning 6/70 Calls/sec 10866.7 L2Error 0 MWG=64 NWG=64 KWG=16 MDIMC=8 NDIMC=8 MDIMA=8 NDIMB=8 KWI=2 VWM=4 VWN=4 STRM=0 STRN=0 SA=1 SB=1\rTuning 12/70 Calls/sec 11658.7 L2Error 0 MWG=64 NWG=64 KWG=32 MDIMC=16 NDIMC=8 MDIMA=16 NDIMB=8 KWI=2 VWM=4 VWN=4 STRM=0 STRN=0 SA=1 SB=1\rTuning 40/70 ...\rTuning 60/70 ...\rTuning 62/70 Calls/sec 11666.6 L2Error 0 MWG=32 NWG=32 KWG=16 MDIMC=8 NDIMC=8 MDIMA=8 NDIMB=8 KWI=2 VWM=4 VWN=4 STRM=0 STRN=0 SA=1 SB=1\r------------------------------------------------------\rTuning hGemmWmma for convolutions\rTesting 146 different configs\rFP16 tensor core tuning failed, assuming no FP16 tensor core support\r------------------------------------------------------\rTuning xGemm for convolutions - trying with FP16 storage\rTesting 70 different configs\rTuning 0/70 (reference) Calls/sec 395.485 L2Error 0 MWG=8 NWG=8 KWG=8 MDIMC=1 NDIMC=1 MDIMA=1 NDIMB=1 KWI=1 VWM=1 VWN=1 STRM=0 STRN=0 SA=0 SB=0\rTuning 1/70 Calls/sec 11471.6 L2Error 0 MWG=32 NWG=32 KWG=16 MDIMC=8 NDIMC=8 MDIMA=8 NDIMB=8 KWI=2 VWM=4 VWN=4 STRM=0 STRN=0 SA=1 SB=1\rTuning 4/70 Calls/sec 13676.1 L2Error 0 MWG=64 NWG=64 KWG=16 MDIMC=8 NDIMC=16 MDIMA=8 NDIMB=16 KWI=2 VWM=4 VWN=4 STRM=0 STRN=0 SA=1 SB=1\rTuning 20/70 ...\rTuning 40/70 ...\rTuning 54/70 Calls/sec 13692.4 L2Error 0 MWG=64 NWG=64 KWG=16 MDIMC=16 NDIMC=8 MDIMA=16 NDIMB=8 KWI=2 VWM=4 VWN=4 STRM=0 STRN=0 SA=1 SB=1\rFP16 storage not significantly faster, not enabling on its own\r------------------------------------------------------\rUsing FP32 storage!\rUsing FP32 compute!\r------------------------------------------------------\rTuning winograd transform for convolutions\rTesting 47 different configs\rTuning 0/47 (reference) Calls/sec 9501.37 L2Error 0 transLocalSize0=1 transLocalSize1=1\rTuning 2/47 Calls/sec 17277.9 L2Error 0 transLocalSize0=1 transLocalSize1=8\rTuning 3/47 Calls/sec 49638.2 L2Error 0 transLocalSize0=4 transLocalSize1=2\rTuning 5/47 Calls/sec 50017.8 L2Error 0 transLocalSize0=4 transLocalSize1=32\rTuning 6/47 Calls/sec 55704.1 L2Error 0 transLocalSize0=32 transLocalSize1=1\rTuning 15/47 Calls/sec 60302.3 L2Error 0 transLocalSize0=16 transLocalSize1=4\rTuning 17/47 Calls/sec 61963 L2Error 0 transLocalSize0=16 transLocalSize1=8\rTuning 40/47 ...\r------------------------------------------------------\rTuning winograd untransform for convolutions\rTesting 111 different configs\rTuning 0/111 (reference) Calls/sec 13785.4 L2Error 0 untransLocalSize0=1 untransLocalSize1=1 untransLocalSize2=1\rTuning 1/111 Calls/sec 13793.5 L2Error 0 untransLocalSize0=1 untransLocalSize1=1 untransLocalSize2=1\rTuning 2/111 Calls/sec 38954.3 L2Error 0 untransLocalSize0=1 untransLocalSize1=32 untransLocalSize2=1\rTuning 3/111 Calls/sec 40903.1 L2Error 0 untransLocalSize0=2 untransLocalSize1=32 untransLocalSize2=16\rTuning 4/111 Calls/sec 44728.1 L2Error 0 untransLocalSize0=8 untransLocalSize1=4 untransLocalSize2=16\rTuning 10/111 Calls/sec 48208.8 L2Error 0 untransLocalSize0=8 untransLocalSize1=1 untransLocalSize2=4\rTuning 13/111 Calls/sec 49402.8 L2Error 0 untransLocalSize0=8 untransLocalSize1=2 untransLocalSize2=8\rTuning 16/111 Calls/sec 52025.5 L2Error 0 untransLocalSize0=8 untransLocalSize1=1 untransLocalSize2=2\rTuning 40/111 ...\rTuning 60/111 ...\rTuning 63/111 Calls/sec 52354.8 L2Error 0 untransLocalSize0=16 untransLocalSize1=1 untransLocalSize2=2\rTuning 80/111 ...\rTuning 100/111 ...\r------------------------------------------------------\rTuning global pooling strides\rTesting 73 different configs\rTuning 0/73 (reference) Calls/sec 129696 L2Error 0 XYSTRIDE=1 CHANNELSTRIDE=1 BATCHSTRIDE=1\rTuning 2/73 Calls/sec 243640 L2Error 3.4579e-12 XYSTRIDE=8 CHANNELSTRIDE=2 BATCHSTRIDE=1\rTuning 8/73 Calls/sec 247602 L2Error 3.38951e-12 XYSTRIDE=16 CHANNELSTRIDE=2 BATCHSTRIDE=2\rTuning 13/73 Calls/sec 259166 L2Error 3.38951e-12 XYSTRIDE=16 CHANNELSTRIDE=4 BATCHSTRIDE=2\rTuning 40/73 ...\rTuning 60/73 ...\rDone tuning\r------------------------------------------------------\r2021-01-31 21:54:49+0800: Done tuning, saved results to D:\\AI\\katago/KataGoData/opencltuning/tune8_gpuGeForceGTX1070Ti_x19_y19_c256_mv10.txt\r2021-01-31 21:54:51+0800: OpenCL backend thread 0: Model version 10\r2021-01-31 21:54:51+0800: OpenCL backend thread 0: Model name: kata1-b40c256-s5942610176-d1431052518\r2021-01-31 21:54:52+0800: OpenCL backend thread 0: FP16Storage false FP16Compute false FP16TensorCores false\rnumSearchThreads = 16: 3 / 3 positions, visits/s = 259.09 nnEvals/s = 221.89 nnBatches/s = 28.50 avgBatchSize = 7.78 (9.4 secs)\r=========================================================================\rTUNING NOW\rTuning using 500 visits.\rAutomatically trying different numbers of threads to home in on the best:\rPossible numbers of threads to test: 1, 2, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24, 32,\rnumSearchThreads = 5: 10 / 10 positions, visits/s = 210.68 nnEvals/s = 183.63 nnBatches/s = 73.99 avgBatchSize = 2.48 (23.9 secs)\rnumSearchThreads = 12: 10 / 10 positions, visits/s = 235.81 nnEvals/s = 211.49 nnBatches/s = 36.09 avgBatchSize = 5.86 (21.7 secs)\rnumSearchThreads = 10: 10 / 10 positions, visits/s = 228.77 nnEvals/s = 202.48 nnBatches/s = 41.31 avgBatchSize = 4.90 (22.2 secs)\rnumSearchThreads = 20: 10 / 10 positions, visits/s = 234.74 nnEvals/s = 216.51 nnBatches/s = 22.52 avgBatchSize = 9.61 (22.1 secs)\rnumSearchThreads = 8: 10 / 10 positions, visits/s = 230.31 nnEvals/s = 202.28 nnBatches/s = 51.24 avgBatchSize = 3.95 (22.0 secs)\rnumSearchThreads = 6: 10 / 10 positions, visits/s = 236.61 nnEvals/s = 205.45 nnBatches/s = 69.20 avgBatchSize = 2.97 (21.3 secs)\rOrdered summary of results:\rnumSearchThreads = 5: 10 / 10 positions, visits/s = 210.68 nnEvals/s = 183.63 nnBatches/s = 73.99 avgBatchSize = 2.48 (23.9 secs) (EloDiff baseline)\rnumSearchThreads = 6: 10 / 10 positions, visits/s = 236.61 nnEvals/s = 205.45 nnBatches/s = 69.20 avgBatchSize = 2.97 (21.3 secs) (EloDiff +38)\rnumSearchThreads = 8: 10 / 10 positions, visits/s = 230.31 nnEvals/s = 202.28 nnBatches/s = 51.24 avgBatchSize = 3.95 (22.0 secs) (EloDiff +16)\rnumSearchThreads = 10: 10 / 10 positions, visits/s = 228.77 nnEvals/s = 202.48 nnBatches/s = 41.31 avgBatchSize = 4.90 (22.2 secs) (EloDiff +1)\rnumSearchThreads = 12: 10 / 10 positions, visits/s = 235.81 nnEvals/s = 211.49 nnBatches/s = 36.09 avgBatchSize = 5.86 (21.7 secs) (EloDiff +1)\rnumSearchThreads = 20: 10 / 10 positions, visits/s = 234.74 nnEvals/s = 216.51 nnBatches/s = 22.52 avgBatchSize = 9.61 (22.1 secs) (EloDiff -47)\rBased on some test data, each speed doubling gains perhaps ~250 Elo by searching deeper.\rBased on some test data, each thread costs perhaps 7 Elo if using 800 visits, and 2 Elo if using 5000 visits (by making MCTS worse).\rSo APPROXIMATELY based on this benchmark, if you intend to do a 5 second search:\rnumSearchThreads = 5: (baseline)\rnumSearchThreads = 6: +38 Elo (recommended)\rnumSearchThreads = 8: +16 Elo\rnumSearchThreads = 10: +1 Elo\rnumSearchThreads = 12: +1 Elo\rnumSearchThreads = 20: -47 Elo\rUsing 6 numSearchThreads!\r=========================================================================\rDONE\rWriting new config file to gtp_custom.cfg\rYou should be now able to run KataGo with this config via something like:\rkatago.exe gtp -model 'kata1-b40c256-s5942610176-d1431052518.bin.gz' -config 'gtp_custom.cfg'\rFeel free to look at and edit the above config file further by hand in a txt editor.\rFor more detailed notes about performance and what options in the config do, see:\rhttps://github.com/lightvector/KataGo/blob/master/cpp/configs/gtp_example.cfg\r此時配置文件已經完成，可以進行下一步配置 GUI 棋盤，但建議此終端窗口暫時不要關閉。\n2.2 配置適用於 Kotako 的 Sabaki 棋盤 此處介紹 Sabaki 的配置方法，此外還有 Lizzie 可供使用\n2.2.1 下載 Sabaki 前往 Sabaki 的 Github 項目頁面下載程序包\nhttps://github.com/SabakiHQ/Sabaki/releases\n選擇相應系統的程序包，下載完成后解壓\n2.2.2 配置 Sabaki 首先勾選 Englines 菜單内的 Show Engines Sidebar\n側欄進入 Engine 管理\n之後設置 Kotago 的路徑和運行參數\n我的設置是\ngtp -model D:\\AI\\katago\\kata1-b40c256-s5942610176-d1431052518.bin.gz -config D:\\AI\\katago\\gtp_custom.cfg\r和\ntime_settings 10 15 1\r在中國規則（應氏規則）中，上面這個意思就是計時 10 分鐘，15 秒每次，超時計 1 點。\n之後右下角 Close 退出自動保存，Kotago 就設置完成了\n3 配置 Leela-Zero Leela Zero 是由比利時程式設計師 Gian-Carlo Pascutto 起頭所開發的電腦圍棋軟體，以及相關的運算計畫。\n3.1 下載 Leela-Zero 前往 https://github.com/leela-zero/leela-zero/releases 下載執行文件\n沒有獨立顯卡可以使用 cpuonly 版本\n3.2 配置適用於 Leela-Zero 的 Sabaki 棋盤 同 2.2.2，進入 Engine 管理，設置 Leela-Zero 的路徑和運行參數\n4 選擇棋局對戰雙方和規則設置 Sabaki 右下角進入 info 棋局設置\n選擇棋局對戰 AI或人類玩家\n棋局規則設置\nKomi：貼目\nHandicap：讓子，默認不讓子\nBoard Size：默認只支持 19X19\n之後選擇 OK 設置完成\n5 開始對戰 進入 Englines 菜單内的 Start Engine vs. Engine Game\n之後就可以進行自動 AI 對戰，Sabaki 也提供了每一步的勝率計算和下子坐標推薦\n",
-  "wordCount" : "2027",
-  "inLanguage": "en",
-  "datePublished": "2021-01-26T19:32:59+08:00",
-  "dateModified": "2021-01-26T19:32:59+08:00",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://via.moe/katago-vs-leelazero/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Siege",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://via.moe/favicon.ico"
-    }
-  }
-}
-</script>
-
-
-
-</head>
-
-<body class="" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
-<noscript>
-    <style type="text/css">
-        .theme-toggle,
-        .top-link {
-            display: none;
-        }
-
-    </style>
-</noscript>
-<header class="header">
-    <nav class="nav">
-        <div class="logo">
-            <a href="https://via.moe/" accesskey="h" title="Siege (Alt + H)">Siege</a>
-            <span class="logo-switches">
-                <span class="theme-toggle" title="(Alt + T)">
-                    <a id="theme-toggle" accesskey="t">
-                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                        </svg>
-                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="5"></circle>
-                            <line x1="12" y1="1" x2="12" y2="3"></line>
-                            <line x1="12" y1="21" x2="12" y2="23"></line>
-                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                            <line x1="1" y1="12" x2="3" y2="12"></line>
-                            <line x1="21" y1="12" x2="23" y2="12"></line>
-                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                        </svg>
-                    </a>
-                </span>
-                
-            </span>
-        </div>
-        <ul class="menu" id="menu" onscroll="menu_on_scroll()">
-            <li>
-                <a href="https://via.moe/" title="Index">
-                    <span>Index</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://via.moe/archives" title="Archive">
-                    <span>Archive</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://via.moe/rss.xml" title="RSS">
-                    <span>RSS</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://via.moe/about/" title="About">
-                    <span>About</span>
-                </a>
-            </li></ul>
-    </nav>
-</header>
-
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script>var url=window.location.href;url.indexOf("https")<0&&(url=url.replace("http:","https:"),window.location.replace(url));</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>遛狗指南 - 配置 Katago 與 Leela-Zero - Siege</title>
+    
+    <meta name="description" content="Wherever we want to go, we go.">
+    <meta name="author" content="h0wardch3ng">
+    
+    <link href="https://via.moe/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://via.moe/style.css" rel="stylesheet">
+    <link href="https://via.moe/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://via.moe/apple-touch-icon.png">
+    <link rel="icon" href="https://via.moe/favicon.ico">
+    <meta name="generator" content="Hugo 0.80.0" />
+    
+    
+  </head>
+  <body class="single">
+    <header class="header">
+      <nav class="nav">
+        <p class="logo"><a href="https://via.moe/">Siege</a></p>
+        <ul class="menu">
+          <li>
+            <a href="/">Index</a>
+          </li>
+          <li>
+            <a href="/archives">Archive</a>
+          </li>
+          <li>
+            <a href="/rss.xml">RSS</a>
+          </li>
+          <li>
+            <a href="/about/">About</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
     <main class="main">
+
 
 <article class="post-single">
   <header class="post-header">
-    <h1 class="post-title">
-      遛狗指南 - 配置 Katago 與 Leela-Zero
-    </h1>
-    <div class="post-description">
-      
-    </div>
-    <div class="post-meta">January 26, 2021
-
-    </div>
-  </header> 
-
-  <div class="post-content">
-<h1 id="1-前言">1 前言<a hidden class="anchor" aria-hidden="true" href="#1-前言">#</a></h1>
+    <h1 class="post-title">遛狗指南 - 配置 Katago 與 Leela-Zero</h1>
+    <div class="post-meta">January 26, 2021</div>
+  </header>
+  <div class="post-content"><h1 id="1-前言">1 前言</h1>
 <p><img src="https://cdn.via.moe/file/viamoe/img/DeepMind-AlphaGo.png" alt=""></p>
 <p>AlphaGo（「Go」為日文「碁」字發音轉寫，是圍棋的西方名稱），直譯為阿爾法圍棋，亦被音譯為阿爾法狗，是於 2014 年開始由英國倫敦 Google DeepMind 開發的人工智慧圍棋軟體，以及對應的電影紀錄片<a href="https://www.youtube.com/watch?v=WXuK6gekU1Y">《 AlphaGo 世紀對決》</a>。</p>
 <p>專業術語上來說，AlphaGo 的做法是使用了蒙地卡羅樹搜尋與兩個深度神經網路相結合的方法，一個是以藉助估值網路（value network）來評估大量的選點，一個是藉助走棋網路（policy network）來選擇落子，並使用強化學習進一步改善它。在這種設計下，電腦可以結合樹狀圖的長遠推斷，又可像人類的大腦一樣自發學習進行直覺訓練，以提高下棋實力。</p>
@@ -188,13 +65,13 @@ AlphaGo 在 2017 年 5 月 23、25 和 27日這三天，柯潔與 AlphaGo 下三
 <p><a href="https://www.nature.com/articles/nature24270">Mastering the game of Go without human knowledge</a></p>
 <p>根據論文中展示的相關運行原理，Github 上許多大神也相繼開發出了更多的圍棋 AI。</p>
 <p>更多關於 AlphaGo 的信息可以參考 <a href="https://zh.wikipedia.org/wiki/AlphaGo">Wikipedia</a> 和<a href="https://deepmind.com/research/case-studies/alphago-the-story-so-far">官方網站</a>的介紹。</p>
-<h1 id="2-配置-katago">2 配置 Katago<a hidden class="anchor" aria-hidden="true" href="#2-配置-katago">#</a></h1>
+<h1 id="2-配置-katago">2 配置 Katago</h1>
 <p>KataGo 是新的開源圍棋AI，支持所有貼目、所有路數的矩形棋盤（甚至包括長方形），棋風不退讓，支持中國規則和日本規則（數目規則）。下一個版本，KataGo 還將支持日本規則中的特例、中國古棋規則（還棋頭）、非矩形的不規則棋盤 和 Button Go！</p>
-<h2 id="21-下載-katago">2.1 下載 Katago<a hidden class="anchor" aria-hidden="true" href="#21-下載-katago">#</a></h2>
+<h2 id="21-下載-katago">2.1 下載 Katago</h2>
 <p>前往 <a href="https://github.com/lightvector/KataGo/releases">https://github.com/lightvector/KataGo/releases</a> 下載執行文件</p>
 <p>擁有 Nvidia 10 系以上的顯卡可以使用 cuda 版本，在使用前還需安裝 <a href="https://developer.nvidia.com/CUDnn">Nvidia cuDNN</a></p>
 <p>其他顯卡可以使用 opencl 版本</p>
-<h3 id="211-配置-katago">2.1.1 配置 Katago<a hidden class="anchor" aria-hidden="true" href="#211-配置-katago">#</a></h3>
+<h3 id="211-配置-katago">2.1.1 配置 Katago</h3>
 <p>先下載和配置權重文件，權重文件包含目前 AI 的訓練勝率統計結果，AlphaGo Zero 采集了目前各類圍棋專業比賽的棋盤數據，如果使用家用游戲顯卡（例如 Nvidia GTX 1080 Ti）進行 AI 訓練，大概需要 <a href="http://computer-go.org/pipermail/computer-go/2017-October/010307.html">1700 年的時間</a>，為了節約時間可以下載網絡上已經訓練完成的權重文件，當然也可以自己拿相關棋盤數據進行訓練。</p>
 <p>方式一：前往 Katago 官網的 Network 中下載權重壓縮包，可以選擇純文本或二進制包</p>
 <p><a href="https://katagotraining.org/networks/">https://katagotraining.org/networks/</a></p>
@@ -202,7 +79,7 @@ AlphaGo 在 2017 年 5 月 23、25 和 27日這三天，柯潔與 AlphaGo 下三
 <p>方式二：前往 katago-public/g170/neuralnets 中下載權重壓縮包，可以選擇純文本或二進制包</p>
 <p><a href="https://d3dndmfyhecmj0.cloudfront.net/g170/neuralnets/index.html">https://d3dndmfyhecmj0.cloudfront.net/g170/neuralnets/index.html</a></p>
 <p>下載純文本包完成后需要解壓</p>
-<h3 id="212-配置-katago-權重">2.1.2 配置 Katago 權重<a hidden class="anchor" aria-hidden="true" href="#212-配置-katago-權重">#</a></h3>
+<h3 id="212-配置-katago-權重">2.1.2 配置 Katago 權重</h3>
 <p>進入終端執行</p>
 <pre><code>katago.exe genconfig -model g170e-b20c256x2-s2430231552-d525879064.bin.gz -output gtp_custom.cfg
 </code></pre><p>其中 <code>g170e-b20c256x2-s2430231552-d525879064.bin.gz</code> 為剛剛下載的權重文件，如果是純文本文件，則為 <code>g170e20b.txt</code></p>
@@ -406,13 +283,13 @@ Feel free to look at and edit the above config file further by hand in a txt edi
 For more detailed notes about performance and what options in the config do, see:
 https://github.com/lightvector/KataGo/blob/master/cpp/configs/gtp_example.cfg
 </code></pre><p>此時配置文件已經完成，可以進行下一步配置 GUI 棋盤，但建議此終端窗口暫時不要關閉。</p>
-<h2 id="22-配置適用於-kotako-的-sabaki-棋盤">2.2 配置適用於 Kotako 的 Sabaki 棋盤<a hidden class="anchor" aria-hidden="true" href="#22-配置適用於-kotako-的-sabaki-棋盤">#</a></h2>
+<h2 id="22-配置適用於-kotako-的-sabaki-棋盤">2.2 配置適用於 Kotako 的 Sabaki 棋盤</h2>
 <p>此處介紹 Sabaki 的配置方法，此外還有 <a href="https://github.com/featurecat/lizzie">Lizzie</a> 可供使用</p>
-<h3 id="221-下載-sabaki">2.2.1 下載 Sabaki<a hidden class="anchor" aria-hidden="true" href="#221-下載-sabaki">#</a></h3>
+<h3 id="221-下載-sabaki">2.2.1 下載 Sabaki</h3>
 <p>前往 Sabaki 的 Github 項目頁面下載程序包</p>
 <p><a href="https://github.com/SabakiHQ/Sabaki/releases">https://github.com/SabakiHQ/Sabaki/releases</a></p>
 <p>選擇相應系統的程序包，下載完成后解壓</p>
-<h3 id="222-配置-sabaki">2.2.2 配置 Sabaki<a hidden class="anchor" aria-hidden="true" href="#222-配置-sabaki">#</a></h3>
+<h3 id="222-配置-sabaki">2.2.2 配置 Sabaki</h3>
 <p>首先勾選 <code>Englines</code> 菜單内的 <code>Show Engines Sidebar</code></p>
 <p><img src="https://cdn.via.moe/file/viamoe/img/active-eng-siderbar.jpg" alt=""></p>
 <p>側欄進入 Engine 管理</p>
@@ -426,15 +303,15 @@ https://github.com/lightvector/KataGo/blob/master/cpp/configs/gtp_example.cfg
 </code></pre><p>在中國規則（應氏規則）中，上面這個意思就是計時 10 分鐘，15 秒每次，超時計 1 點。</p>
 <p>之後右下角 <code>Close</code> 退出自動保存，Kotago 就設置完成了</p>
 <p><img src="https://cdn.via.moe/file/viamoe/img/run-kotago.jpg" alt=""></p>
-<h1 id="3-配置-leela-zero">3 配置 Leela-Zero<a hidden class="anchor" aria-hidden="true" href="#3-配置-leela-zero">#</a></h1>
+<h1 id="3-配置-leela-zero">3 配置 Leela-Zero</h1>
 <p>Leela Zero 是由比利時程式設計師 Gian-Carlo Pascutto 起頭所開發的電腦圍棋軟體，以及相關的運算計畫。</p>
-<h2 id="31-下載-leela-zero">3.1 下載 Leela-Zero<a hidden class="anchor" aria-hidden="true" href="#31-下載-leela-zero">#</a></h2>
+<h2 id="31-下載-leela-zero">3.1 下載 Leela-Zero</h2>
 <p>前往 <a href="https://github.com/leela-zero/leela-zero/releases">https://github.com/leela-zero/leela-zero/releases</a> 下載執行文件</p>
 <p>沒有獨立顯卡可以使用 cpuonly 版本</p>
-<h2 id="32-配置適用於-leela-zero-的-sabaki-棋盤">3.2 配置適用於 Leela-Zero 的 Sabaki 棋盤<a hidden class="anchor" aria-hidden="true" href="#32-配置適用於-leela-zero-的-sabaki-棋盤">#</a></h2>
+<h2 id="32-配置適用於-leela-zero-的-sabaki-棋盤">3.2 配置適用於 Leela-Zero 的 Sabaki 棋盤</h2>
 <p>同 2.2.2，進入 Engine 管理，設置 Leela-Zero 的路徑和運行參數</p>
 <p><img src="https://cdn.via.moe/file/viamoe/img/set-leela-path.jpg" alt=""></p>
-<h1 id="4-選擇棋局對戰雙方和規則設置">4 選擇棋局對戰雙方和規則設置<a hidden class="anchor" aria-hidden="true" href="#4-選擇棋局對戰雙方和規則設置">#</a></h1>
+<h1 id="4-選擇棋局對戰雙方和規則設置">4 選擇棋局對戰雙方和規則設置</h1>
 <p>Sabaki 右下角進入 <code>info</code> 棋局設置</p>
 <p><img src="https://cdn.via.moe/file/viamoe/img/set-info.jpg" alt=""></p>
 <p>選擇棋局對戰 AI或人類玩家</p>
@@ -444,76 +321,27 @@ https://github.com/lightvector/KataGo/blob/master/cpp/configs/gtp_example.cfg
 <p>Handicap：讓子，默認不讓子</p>
 <p>Board Size：默認只支持 19X19</p>
 <p>之後選擇 <code>OK</code> 設置完成</p>
-<h1 id="5-開始對戰">5 開始對戰<a hidden class="anchor" aria-hidden="true" href="#5-開始對戰">#</a></h1>
+<h1 id="5-開始對戰">5 開始對戰</h1>
 <p>進入 <code>Englines</code> 菜單内的 <code>Start Engine vs. Engine Game</code></p>
 <p><img src="https://cdn.via.moe/file/viamoe/img/ai-result.jpg" alt=""></p>
 <p>之後就可以進行自動 AI 對戰，Sabaki 也提供了每一步的勝率計算和下子坐標推薦</p>
 <p><img src="https://cdn.via.moe/file/viamoe/img/sabaki-ui-functions.jpg" alt=""></p>
-
 </div>
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://via.moe/tags/go/">go</a></li>
+      <li><a href="https://via.moe/tags/go">go</a></li>
     </ul>
   </footer>
-</article>
-    </main><footer class="footer">
-    
-    <span>本博客除另外說明，都採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW">署名-非商業性使用-相同方式共享 4.0 協議</a> 進行許可<br>Except where otherwise noted, content on this site is licensed under a<br><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a> license</span>
-    
+  
+</article></main>
+<footer class="footer">
+  <span>本博客除另外說明，都採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW">署名-非商業性使用-相同方式共享 4.0 協議</a> 進行許可<br>Except where otherwise noted, content on this site is licensed under a<br><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a> license</span>
 </footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
-    <button class="top-link" id="top-link" type="button" accesskey="g">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-            <path d="M12 6H0l6-6z" />
-        </svg>
-    </button>
-</a>
-
-
-
-<script defer src="/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
-    onload="hljs.initHighlightingOnLoad();"></script>
+<script src="https://via.moe/highlight.min.js"></script>
 <script>
-    window.onload = function () {
-        if (localStorage.getItem("menu-scroll-position")) {
-            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
-        }
-    }
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
-            } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-            }
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.replaceState(null, null, `#${id}`);
-            }
-        });
-    });
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
-
-    function menu_on_scroll() {
-        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
-    }
-
+  hljs.initHighlightingOnLoad();
 </script>
+
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-70500040-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -522,19 +350,6 @@ https://github.com/lightvector/KataGo/blob/master/cpp/configs/gtp_example.cfg
 
   gtag('config', 'UA-70500040-1');
 </script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            document.body.classList.add('dark');
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
-
-</script>
 
 </body>
-
 </html>

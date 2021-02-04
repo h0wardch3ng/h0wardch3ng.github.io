@@ -1,221 +1,65 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
-
-<head><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<script>var url=window.location.href;url.indexOf("https")<0&&(url=url.replace("http:","https:"),window.location.replace(url));</script>
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="theme-color" content="#2e2e33">
-<meta name="robots" content="index, follow">
-<title>Windows 10 技巧筆記 | Siege</title>
-
-<meta name="keywords" content="windows" />
-<meta name="description" content="如何取得 Windows 10 安裝鏡像？ 個人版本 https://www.microsoft.com/en-us/software-download/windows10ISO
-如果不能支持下載 ISO 鏡像文件, 可以嘗試切換 User Agent 即可
-Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36ed2k://|file|en_windows_10_consumer_edition_version_1809_updated_sept_2018_x64_dvd_491ea967.iso|5075539968|DB1263D45D2303CEC64E09D9FAE2A329|/企業版本 https://www.microsoft.com/en-us/evalcenter/evaluate-windows-10-enterprise
-ed2k://|file|en_windows_10_enterprise_ltsc_2019_x64_dvd_be3c8ffb.iso|4056717312|17B62BAE00F77F162247008710F55AF0|/如何使用 Windows 10 鏡像文件 方法一: 使用 PE
-微 PE
-之後掛載 ISO 鏡像文件即可
-方法二: 燒錄 ISO 鏡像文件到 USB 存儲
-Windows 平臺:
-Rufus
-Win32 Disk Imager
-Mac 平臺:
-Etcher
-如何激活 Windows 10 你懂的
-https://docs.microsoft.com/en-us/windows-server/get-started/kmsclientkeys
-找到對應的 key
-slmgr -ipk YOUR-WINDOWS-KEYslmgr -skms kms.gitcafe.org:: slmgr -smks kms.">
-<meta name="author" content="">
-<link rel="canonical" href="https://via.moe/windows10-tips/" />
-<link href="/assets/css/stylesheet.min.5c4f6d85b7abfcfea458637c672d16a7a9c38c37f002753cfdc7f314b6d3c8f2.css" integrity="sha256-XE9thber/P6kWGN8Zy0Wp6nDjDfwAnU8/cfzFLbTyPI=" rel="preload stylesheet"
-    as="style">
-
-<link rel="icon" href="https://via.moe/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://via.moe/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://via.moe/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://via.moe/apple-touch-icon.png">
-<link rel="mask-icon" href="https://via.moe/safari-pinned-tab.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.80.0" />
-
-
-<meta property="og:title" content="Windows 10 技巧筆記" />
-<meta property="og:description" content="如何取得 Windows 10 安裝鏡像？ 個人版本 https://www.microsoft.com/en-us/software-download/windows10ISO
-如果不能支持下載 ISO 鏡像文件, 可以嘗試切換 User Agent 即可
-Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36ed2k://|file|en_windows_10_consumer_edition_version_1809_updated_sept_2018_x64_dvd_491ea967.iso|5075539968|DB1263D45D2303CEC64E09D9FAE2A329|/企業版本 https://www.microsoft.com/en-us/evalcenter/evaluate-windows-10-enterprise
-ed2k://|file|en_windows_10_enterprise_ltsc_2019_x64_dvd_be3c8ffb.iso|4056717312|17B62BAE00F77F162247008710F55AF0|/如何使用 Windows 10 鏡像文件 方法一: 使用 PE
-微 PE
-之後掛載 ISO 鏡像文件即可
-方法二: 燒錄 ISO 鏡像文件到 USB 存儲
-Windows 平臺:
-Rufus
-Win32 Disk Imager
-Mac 平臺:
-Etcher
-如何激活 Windows 10 你懂的
-https://docs.microsoft.com/en-us/windows-server/get-started/kmsclientkeys
-找到對應的 key
-slmgr -ipk YOUR-WINDOWS-KEYslmgr -skms kms.gitcafe.org:: slmgr -smks kms." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://via.moe/windows10-tips/" />
-<meta property="article:published_time" content="2019-02-02T19:32:59+08:00" />
-<meta property="article:modified_time" content="2019-02-02T19:32:59+08:00" />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Windows 10 技巧筆記"/>
-<meta name="twitter:description" content="如何取得 Windows 10 安裝鏡像？ 個人版本 https://www.microsoft.com/en-us/software-download/windows10ISO
-如果不能支持下載 ISO 鏡像文件, 可以嘗試切換 User Agent 即可
-Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36ed2k://|file|en_windows_10_consumer_edition_version_1809_updated_sept_2018_x64_dvd_491ea967.iso|5075539968|DB1263D45D2303CEC64E09D9FAE2A329|/企業版本 https://www.microsoft.com/en-us/evalcenter/evaluate-windows-10-enterprise
-ed2k://|file|en_windows_10_enterprise_ltsc_2019_x64_dvd_be3c8ffb.iso|4056717312|17B62BAE00F77F162247008710F55AF0|/如何使用 Windows 10 鏡像文件 方法一: 使用 PE
-微 PE
-之後掛載 ISO 鏡像文件即可
-方法二: 燒錄 ISO 鏡像文件到 USB 存儲
-Windows 平臺:
-Rufus
-Win32 Disk Imager
-Mac 平臺:
-Etcher
-如何激活 Windows 10 你懂的
-https://docs.microsoft.com/en-us/windows-server/get-started/kmsclientkeys
-找到對應的 key
-slmgr -ipk YOUR-WINDOWS-KEYslmgr -skms kms.gitcafe.org:: slmgr -smks kms."/>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Windows 10 技巧筆記",
-  "name": "Windows 10 技巧筆記",
-  "description": "如何取得 Windows 10 安裝鏡像？ 個人版本 https://www.microsoft.com/en-us/software-download/windows10ISO\n如果不能支持下載 ISO 鏡像文件, 可以嘗試切換 User Agent 即可\nMozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) …",
-  "keywords": [
-    "windows"
-  ],
-  "articleBody": "如何取得 Windows 10 安裝鏡像？ 個人版本 https://www.microsoft.com/en-us/software-download/windows10ISO\n如果不能支持下載 ISO 鏡像文件, 可以嘗試切換 User Agent 即可\nMozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36\red2k://|file|en_windows_10_consumer_edition_version_1809_updated_sept_2018_x64_dvd_491ea967.iso|5075539968|DB1263D45D2303CEC64E09D9FAE2A329|/\r企業版本 https://www.microsoft.com/en-us/evalcenter/evaluate-windows-10-enterprise\ned2k://|file|en_windows_10_enterprise_ltsc_2019_x64_dvd_be3c8ffb.iso|4056717312|17B62BAE00F77F162247008710F55AF0|/\r如何使用 Windows 10 鏡像文件 方法一: 使用 PE\n微 PE\n之後掛載 ISO 鏡像文件即可\n方法二: 燒錄 ISO 鏡像文件到 USB 存儲\nWindows 平臺:\nRufus\nWin32 Disk Imager\nMac 平臺:\nEtcher\n如何激活 Windows 10 你懂的\nhttps://docs.microsoft.com/en-us/windows-server/get-started/kmsclientkeys\n找到對應的 key\nslmgr -ipk YOUR-WINDOWS-KEY\rslmgr -skms kms.gitcafe.org\r:: slmgr -smks kms.03k.org\r:: slmgr -skms kms.library.hk\rslmgr -ato\rslmgr -dlv\rWindows 10 優化腳本 推薦使用 DISM++\n開機之後發現鎖屏時數字小鍵盤沒有自動開 可以修改註冊表解決，另存爲 bootNumberLock.reg 管理員運行權限執行\nWindows Registry Editor Version 5.00\n[HKEY_USERS\\.DEFAULT\\Control Panel\\Keyboard]\r\"InitialKeyboardIndicators\"=\"80000002\"\r在 Windows8 / 8.1 /10 下，其數值爲：80000002 （在 Windows 7 中數值取十六進制值最後一位爲：2\n80000000 – 關閉全部鎖定 (包括 NumLock, CapsLock, ScrollLock)\n80000001 – 開啓 CapsLock\n80000002 – 開啓 NumLock\n80000003 – 開啓 CapsLock 和 NumLock\n80000004 – 開啓 ScrollLock\n80000005 – 開啓 CapsLock 和 ScrollLock\n80000006 – 開啓 NumLock 和 ScrollLock\n80000007 – 開啓全部鎖定 (包括 NumLock, CapsLock, ScrollLock)\n這些具體數值 M$ 的 TechNet 也偷懶不寫 https://technet.microsoft.com/en-us/library/cc978657.aspx 輪子哥就知道整天刷知乎。。。\n此方法僅限 BIOS/EFI/UEFI 開啓鍵盤功能的情況下\n其他解決方法可以試試看下面這個（懶得翻，自己看。\n  If the above doesn’t work, maybe you have to set the NumLock state to ON in BIOS settings. So, you have to enter into your BIOS and change the NumLock state to ON. To do that:\n  Power On your computer and press 「DEL」 or 「F1」 or 「F2」 or 「F10」 to enter BIOS (CMOS) setup utility. (The way to enter into BIOS Settings depends on the computer manufacturer).\n  Inside BIOS find the POST Behavior menu.\n  Set the NumLock key (state) option to ON.\n  Save and exit from BIOS settings.\n  In some HP laptops the only way to keep NumLock ON, is to search for all 「InitialKeyboardIndicators」 strings with numeric values inside the registry and set the value to 「2147483650」 (without quotes). To do that:\n  Open Registry Editor.\n  From main menu click Edit and choose Find.\n  Inside Find What box, type InitialKeyboardIndicators and click Find Next.\n  Change the value data to 「2147483650」 in every 「InitialKeyboardIndicators」 string inside registry, by using the F3 key to find all of them.\n  Windows 10 聚焦壁紙路徑 %localappdata%\\Packages\\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\\LocalState\\Assets\rren *.* *.jpg\r開啓卓越性能模式 powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61\r去除桌面的快捷方式小箭頭 批處理腳本解決 另存爲 clearArrow.bat 管理員運行權限執行\nreg add \"HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Shell Icons\" /v 29 /d \"%systemroot%\\system32\\imageres.dll,197\" /t reg_sz /f\rtaskkill /f /im explorer.exe\rattrib -s -r -h \"%userprofile%\\AppData\\Local\\iconcache.db\"\rdel \"%userprofile%\\AppData\\Local\\iconcache.db\" /f /q\rstart explorer\rpause\r恢復小箭頭也可以批處理腳本解決 另存爲 recArrow.bat 管理員運行權限執行\nreg delete \"HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Shell Icons\" /v 29 /f\rtaskkill /f /im explorer.exe\rattrib -s -r -h \"%userprofile%\\AppData\\Local\\iconcache.db\"\rdel \"%userprofile%\\AppData\\Local\\iconcache.db\" /f /q\rstart explorer\rpause\r安裝 Linux 子系統 打開系統設置-更新和安全-針對開發者人員，打開開發者模式\n接着通過系統自帶搜索鍵入「Windows 功能」，進入「啓用或關閉 Windows 功能」頁面，在提供的功能列表中，開啓「Windows Subsystem for Linux」，之後打開命令提示符\n安裝 Linux 子系統\nlxrun /install\r安裝完成後, 輸入 bash 進入子系統\n卸載子系統和重裝\nlxrun /uninstall /full lxrun /install\rGTA 全系列用戶音樂軟鏈接 cd C:\\Users\\%USERNAME%\\Documents\\Rockstar Games\\GTA V\\User Music\rfor /r \"E:\\MusicPath\" %I in (*.mp3) do mklink \"%~nxI\" \"%I\"\r 時間同步 設定要同步的 NTP Server\nw32tm /config /update /manualpeerlist:cn.pool.ntp.org\r開始進行同步\nw32tm /resync\r開機自動同步 NTP 時間\nWindows Registry Editor Version 5.00\r[HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\W32Time\\TimeProviders\\NtpClient]\r\"SpecialPollInterval\"=dword:0000003c\r重建系統圖標緩存 ie4uinit.exe -show taskkill /IM explorer.exe /F DEL /A /Q \"%localappdata%\\IconCache.db\" DEL /A /F /Q \"%localappdata%\\Microsoft\\Windows\\Explorer\\iconcache*\"\rshutdown -l\r時間同步 UTC 格式 Windows Registry Editor Version 5.00\r[HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\TimeZoneInformation]\r\"RealTimeIsUniversal\"=dword:00000001\r清除 SMB 服務器連接記錄 HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Map Network Drive MRU\r修改網絡名稱 HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\NetworkList\\Profiles\r另外牆裂推薦 Visual Studio Code 或 Notepad++ 替代系統自帶的文本編輯器。\n修復 Adobe XD 閃退 Windows Registry Editor Version 5.00\r[HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Associations]\r\"BlockProtocolElevation\"=dword:00000000\r TrafficMonitor\nMactype\nWTG 輔助工具\nBootice\nRoadkil’s Disk Image\n",
-  "wordCount" : "528",
-  "inLanguage": "en",
-  "datePublished": "2019-02-02T19:32:59+08:00",
-  "dateModified": "2019-02-02T19:32:59+08:00",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://via.moe/windows10-tips/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Siege",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://via.moe/favicon.ico"
-    }
-  }
-}
-</script>
-
-
-
-</head>
-
-<body class="" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
-<noscript>
-    <style type="text/css">
-        .theme-toggle,
-        .top-link {
-            display: none;
-        }
-
-    </style>
-</noscript>
-<header class="header">
-    <nav class="nav">
-        <div class="logo">
-            <a href="https://via.moe/" accesskey="h" title="Siege (Alt + H)">Siege</a>
-            <span class="logo-switches">
-                <span class="theme-toggle" title="(Alt + T)">
-                    <a id="theme-toggle" accesskey="t">
-                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                        </svg>
-                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="5"></circle>
-                            <line x1="12" y1="1" x2="12" y2="3"></line>
-                            <line x1="12" y1="21" x2="12" y2="23"></line>
-                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                            <line x1="1" y1="12" x2="3" y2="12"></line>
-                            <line x1="21" y1="12" x2="23" y2="12"></line>
-                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                        </svg>
-                    </a>
-                </span>
-                
-            </span>
-        </div>
-        <ul class="menu" id="menu" onscroll="menu_on_scroll()">
-            <li>
-                <a href="https://via.moe/" title="Index">
-                    <span>Index</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://via.moe/archives" title="Archive">
-                    <span>Archive</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://via.moe/rss.xml" title="RSS">
-                    <span>RSS</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://via.moe/about/" title="About">
-                    <span>About</span>
-                </a>
-            </li></ul>
-    </nav>
-</header>
-
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script>var url=window.location.href;url.indexOf("https")<0&&(url=url.replace("http:","https:"),window.location.replace(url));</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Windows 10 技巧筆記 - Siege</title>
+    
+    <meta name="description" content="Wherever we want to go, we go.">
+    <meta name="author" content="h0wardch3ng">
+    
+    <link href="https://via.moe/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://via.moe/style.css" rel="stylesheet">
+    <link href="https://via.moe/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://via.moe/apple-touch-icon.png">
+    <link rel="icon" href="https://via.moe/favicon.ico">
+    <meta name="generator" content="Hugo 0.80.0" />
+    
+    
+  </head>
+  <body class="single">
+    <header class="header">
+      <nav class="nav">
+        <p class="logo"><a href="https://via.moe/">Siege</a></p>
+        <ul class="menu">
+          <li>
+            <a href="/">Index</a>
+          </li>
+          <li>
+            <a href="/archives">Archive</a>
+          </li>
+          <li>
+            <a href="/rss.xml">RSS</a>
+          </li>
+          <li>
+            <a href="/about/">About</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
     <main class="main">
+
 
 <article class="post-single">
   <header class="post-header">
-    <h1 class="post-title">
-      Windows 10 技巧筆記
-    </h1>
-    <div class="post-description">
-      
-    </div>
-    <div class="post-meta">February 2, 2019
-
-    </div>
-  </header> 
-
-  <div class="post-content">
-<p><img src="https://c.s-microsoft.com/zh-hk/CMSImages/Device_Overview_1399_Panel2_CenterVideo.jpg?version=8c01f20a-093c-9333-a2fa-4f983c259fe0" alt=""></p>
-<h3 id="如何取得-windows-10-安裝鏡像">如何取得 Windows 10 安裝鏡像？<a hidden class="anchor" aria-hidden="true" href="#如何取得-windows-10-安裝鏡像">#</a></h3>
-<h4 id="個人版本">個人版本<a hidden class="anchor" aria-hidden="true" href="#個人版本">#</a></h4>
+    <h1 class="post-title">Windows 10 技巧筆記</h1>
+    <div class="post-meta">February 2, 2019</div>
+  </header>
+  <div class="post-content"><p><img src="https://c.s-microsoft.com/zh-hk/CMSImages/Device_Overview_1399_Panel2_CenterVideo.jpg?version=8c01f20a-093c-9333-a2fa-4f983c259fe0" alt=""></p>
+<h3 id="如何取得-windows-10-安裝鏡像">如何取得 Windows 10 安裝鏡像？</h3>
+<h4 id="個人版本">個人版本</h4>
 <p><a href="https://www.microsoft.com/en-us/software-download/windows10ISO">https://www.microsoft.com/en-us/software-download/windows10ISO</a></p>
 <p>如果不能支持下載 ISO 鏡像文件, 可以嘗試切換 User Agent 即可</p>
 <pre><code>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36
 </code></pre><pre><code>ed2k://|file|en_windows_10_consumer_edition_version_1809_updated_sept_2018_x64_dvd_491ea967.iso|5075539968|DB1263D45D2303CEC64E09D9FAE2A329|/
-</code></pre><h4 id="企業版本">企業版本<a hidden class="anchor" aria-hidden="true" href="#企業版本">#</a></h4>
+</code></pre><h4 id="企業版本">企業版本</h4>
 <p><a href="https://www.microsoft.com/en-us/evalcenter/evaluate-windows-10-enterprise">https://www.microsoft.com/en-us/evalcenter/evaluate-windows-10-enterprise</a></p>
 <pre><code>ed2k://|file|en_windows_10_enterprise_ltsc_2019_x64_dvd_be3c8ffb.iso|4056717312|17B62BAE00F77F162247008710F55AF0|/
-</code></pre><h3 id="如何使用-windows-10-鏡像文件">如何使用 Windows 10 鏡像文件<a hidden class="anchor" aria-hidden="true" href="#如何使用-windows-10-鏡像文件">#</a></h3>
+</code></pre><h3 id="如何使用-windows-10-鏡像文件">如何使用 Windows 10 鏡像文件</h3>
 <p>方法一: 使用 PE</p>
 <p><a href="http://www.wepe.com.cn/download.html">微 PE</a></p>
 <p>之後掛載 ISO 鏡像文件即可</p>
@@ -225,7 +69,7 @@ slmgr -ipk YOUR-WINDOWS-KEYslmgr -skms kms.gitcafe.org:: slmgr -smks kms."/>
 <p><a href="https://sourceforge.net/projects/win32diskimager/">Win32 Disk Imager</a></p>
 <p>Mac 平臺:</p>
 <p><a href="https://etcher.io/">Etcher</a></p>
-<h3 id="如何激活-windows-10">如何激活 Windows 10<a hidden class="anchor" aria-hidden="true" href="#如何激活-windows-10">#</a></h3>
+<h3 id="如何激活-windows-10">如何激活 Windows 10</h3>
 <p>你懂的</p>
 <p><a href="https://docs.microsoft.com/en-us/windows-server/get-started/kmsclientkeys">https://docs.microsoft.com/en-us/windows-server/get-started/kmsclientkeys</a></p>
 <p>找到對應的 key</p>
@@ -235,9 +79,9 @@ slmgr -skms kms.gitcafe.org
 :: slmgr -skms kms.library.hk
 slmgr -ato
 slmgr -dlv
-</code></pre><h3 id="windows-10-優化腳本">Windows 10 優化腳本<a hidden class="anchor" aria-hidden="true" href="#windows-10-優化腳本">#</a></h3>
+</code></pre><h3 id="windows-10-優化腳本">Windows 10 優化腳本</h3>
 <p>推薦使用 <a href="https://www.chuyu.me/en/index.html">DISM++</a></p>
-<h4 id="開機之後發現鎖屏時數字小鍵盤沒有自動開">開機之後發現鎖屏時數字小鍵盤沒有自動開<a hidden class="anchor" aria-hidden="true" href="#開機之後發現鎖屏時數字小鍵盤沒有自動開">#</a></h4>
+<h4 id="開機之後發現鎖屏時數字小鍵盤沒有自動開">開機之後發現鎖屏時數字小鍵盤沒有自動開</h4>
 <p>可以修改註冊表解決，另存爲 <code>bootNumberLock.reg</code> 管理員運行權限執行</p>
 <p>Windows Registry Editor Version 5.00</p>
 <pre><code>[HKEY_USERS\.DEFAULT\Control Panel\Keyboard]
@@ -286,13 +130,13 @@ slmgr -dlv
 <p>Change the value data to 「2147483650」 in every 「InitialKeyboardIndicators」 string inside registry, by using the F3 key to find all of them.</p>
 </li>
 </ol>
-<h4 id="windows-10-聚焦壁紙路徑">Windows 10 聚焦壁紙路徑<a hidden class="anchor" aria-hidden="true" href="#windows-10-聚焦壁紙路徑">#</a></h4>
+<h4 id="windows-10-聚焦壁紙路徑">Windows 10 聚焦壁紙路徑</h4>
 <pre><code>%localappdata%\Packages\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\LocalState\Assets
 
 ren *.* *.jpg
-</code></pre><h4 id="開啓卓越性能模式">開啓卓越性能模式<a hidden class="anchor" aria-hidden="true" href="#開啓卓越性能模式">#</a></h4>
+</code></pre><h4 id="開啓卓越性能模式">開啓卓越性能模式</h4>
 <pre><code>powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61
-</code></pre><h4 id="去除桌面的快捷方式小箭頭">去除桌面的快捷方式小箭頭<a hidden class="anchor" aria-hidden="true" href="#去除桌面的快捷方式小箭頭">#</a></h4>
+</code></pre><h4 id="去除桌面的快捷方式小箭頭">去除桌面的快捷方式小箭頭</h4>
 <p>批處理腳本解決 另存爲 clearArrow.bat 管理員運行權限執行</p>
 <pre><code>reg add &quot;HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Icons&quot; /v 29 /d &quot;%systemroot%\system32\imageres.dll,197&quot; /t reg_sz /f
 taskkill /f /im explorer.exe
@@ -307,7 +151,7 @@ attrib -s -r -h &quot;%userprofile%\AppData\Local\iconcache.db&quot;
 del &quot;%userprofile%\AppData\Local\iconcache.db&quot; /f /q
 start explorer
 pause
-</code></pre><h4 id="安裝-linux-子系統">安裝 Linux 子系統<a hidden class="anchor" aria-hidden="true" href="#安裝-linux-子系統">#</a></h4>
+</code></pre><h4 id="安裝-linux-子系統">安裝 Linux 子系統</h4>
 <p>打開系統設置-更新和安全-針對開發者人員，打開開發者模式</p>
 <p>接着通過系統自帶搜索鍵入「Windows 功能」，進入「啓用或關閉 Windows 功能」頁面，在提供的功能列表中，開啓「Windows Subsystem for Linux」，之後打開命令提示符</p>
 <p>安裝 Linux 子系統</p>
@@ -316,11 +160,11 @@ pause
 <p>卸載子系統和重裝</p>
 <pre><code>lxrun /uninstall /full 
 lxrun /install
-</code></pre><h4 id="gta-全系列用戶音樂軟鏈接">GTA 全系列用戶音樂軟鏈接<a hidden class="anchor" aria-hidden="true" href="#gta-全系列用戶音樂軟鏈接">#</a></h4>
+</code></pre><h4 id="gta-全系列用戶音樂軟鏈接">GTA 全系列用戶音樂軟鏈接</h4>
 <pre><code>cd C:\Users\%USERNAME%\Documents\Rockstar Games\GTA V\User Music
 for /r &quot;E:\MusicPath&quot; %I in (*.mp3) do mklink &quot;%~nxI&quot; &quot;%I&quot;
 </code></pre><hr>
-<h4 id="時間同步">時間同步<a hidden class="anchor" aria-hidden="true" href="#時間同步">#</a></h4>
+<h4 id="時間同步">時間同步</h4>
 <p>設定要同步的 NTP Server</p>
 <pre><code>w32tm /config /update /manualpeerlist:cn.pool.ntp.org
 </code></pre><p>開始進行同步</p>
@@ -330,7 +174,7 @@ for /r &quot;E:\MusicPath&quot; %I in (*.mp3) do mklink &quot;%~nxI&quot; &quot;
 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\W32Time\TimeProviders\NtpClient]
 &quot;SpecialPollInterval&quot;=dword:0000003c
-</code></pre><h4 id="重建系統圖標緩存">重建系統圖標緩存<a hidden class="anchor" aria-hidden="true" href="#重建系統圖標緩存">#</a></h4>
+</code></pre><h4 id="重建系統圖標緩存">重建系統圖標緩存</h4>
 <pre><code>ie4uinit.exe -show 
 
 taskkill /IM explorer.exe /F 
@@ -340,17 +184,17 @@ DEL /A /Q &quot;%localappdata%\IconCache.db&quot;
 DEL /A /F /Q &quot;%localappdata%\Microsoft\Windows\Explorer\iconcache*&quot;
 
 shutdown -l
-</code></pre><h4 id="時間同步-utc-格式">時間同步 UTC 格式<a hidden class="anchor" aria-hidden="true" href="#時間同步-utc-格式">#</a></h4>
+</code></pre><h4 id="時間同步-utc-格式">時間同步 UTC 格式</h4>
 <pre><code>Windows Registry Editor Version 5.00
 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation]
 &quot;RealTimeIsUniversal&quot;=dword:00000001
-</code></pre><h4 id="清除-smb-服務器連接記錄">清除 SMB 服務器連接記錄<a hidden class="anchor" aria-hidden="true" href="#清除-smb-服務器連接記錄">#</a></h4>
+</code></pre><h4 id="清除-smb-服務器連接記錄">清除 SMB 服務器連接記錄</h4>
 <pre><code>HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Map Network Drive MRU
-</code></pre><h4 id="修改網絡名稱">修改網絡名稱<a hidden class="anchor" aria-hidden="true" href="#修改網絡名稱">#</a></h4>
+</code></pre><h4 id="修改網絡名稱">修改網絡名稱</h4>
 <pre><code>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Profiles
 </code></pre><p>另外牆裂推薦 <a href="https://code.visualstudio.com/">Visual Studio Code</a> 或 <a href="https://notepad-plus-plus.org/">Notepad++</a> 替代系統自帶的文本編輯器。</p>
-<h4 id="修復-adobe-xd-閃退">修復 Adobe XD 閃退<a hidden class="anchor" aria-hidden="true" href="#修復-adobe-xd-閃退">#</a></h4>
+<h4 id="修復-adobe-xd-閃退">修復 Adobe XD 閃退</h4>
 <pre><code>Windows Registry Editor Version 5.00
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Associations]
 &quot;BlockProtocolElevation&quot;=dword:00000000
@@ -360,71 +204,22 @@ shutdown -l
 <p><a href="https://bbs.luobotou.org/thread-761-1-1.html">WTG 輔助工具</a></p>
 <p><a href="https://www.majorgeeks.com/files/details/bootice_64_bit.html">Bootice</a></p>
 <p><a href="https://www.roadkil.net/program.php?ProgramID=12">Roadkil&rsquo;s Disk Image</a></p>
-
 </div>
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://via.moe/tags/windows/">windows</a></li>
+      <li><a href="https://via.moe/tags/windows">windows</a></li>
     </ul>
   </footer>
-</article>
-    </main><footer class="footer">
-    
-    <span>本博客除另外說明，都採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW">署名-非商業性使用-相同方式共享 4.0 協議</a> 進行許可<br>Except where otherwise noted, content on this site is licensed under a<br><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a> license</span>
-    
+  
+</article></main>
+<footer class="footer">
+  <span>本博客除另外說明，都採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW">署名-非商業性使用-相同方式共享 4.0 協議</a> 進行許可<br>Except where otherwise noted, content on this site is licensed under a<br><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a> license</span>
 </footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
-    <button class="top-link" id="top-link" type="button" accesskey="g">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-            <path d="M12 6H0l6-6z" />
-        </svg>
-    </button>
-</a>
-
-
-
-<script defer src="/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
-    onload="hljs.initHighlightingOnLoad();"></script>
+<script src="https://via.moe/highlight.min.js"></script>
 <script>
-    window.onload = function () {
-        if (localStorage.getItem("menu-scroll-position")) {
-            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
-        }
-    }
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
-            } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-            }
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.replaceState(null, null, `#${id}`);
-            }
-        });
-    });
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
-
-    function menu_on_scroll() {
-        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
-    }
-
+  hljs.initHighlightingOnLoad();
 </script>
+
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-70500040-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -433,19 +228,6 @@ shutdown -l
 
   gtag('config', 'UA-70500040-1');
 </script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            document.body.classList.add('dark');
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
-
-</script>
 
 </body>
-
 </html>

@@ -1,190 +1,55 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
-
-<head><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<script>var url=window.location.href;url.indexOf("https")<0&&(url=url.replace("http:","https:"),window.location.replace(url));</script>
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="theme-color" content="#2e2e33">
-<meta name="robots" content="index, follow">
-<title>如何使用 GPG 安全傳遞加密信息 | Siege</title>
-
-<meta name="keywords" content="gpg" />
-<meta name="description" content="免責聲明：使用本文推薦的專案不能保證你的通訊完全不受監控，請在信任這些軟體處理敏感資訊前自行做更深入的了解。
-認揭露美國政府監控民眾通訊記錄的前中情局職員斯諾登聯絡《衛報》記者時，要求雙方通訊期間要用加密程式把內容加密，以免走漏風聲。這套加密程式名叫 PGP ，到底這個加密法有什麼來頭呢？ 手握機密，步步為營的斯諾登知道自己一旦聯絡記者，就隨時會暴露行蹤，這時候他唯一信任的是稱為 PGP 的加密程式，把自己和記者間的通訊加密。 PGP 的全寫並不高深，就是「相當有私隱」的意思。這是一種出自民間的加密演算法，由美國人齊默曼開發，他在 1991 年把這套 PGP 加密程式在網上免費發布。
-PGP 除了免費，亦相對容易使用，齊默曼希望它可以幫所有平民在政府監察下保住私隱。不過程式剛開始普及，就引起了美國政府的注意。當局指 PGP 程式屬於軍需品，齊默曼在網上發布 PGP ，等同私下出口軍需品，隨時會被檢控。 不過齊默曼沒有屈服，反而想到和麻省理工出版社把 PGP 的程式碼印成一本書出版，因為美國憲法第一修正案表明國民的出版自由不得侵犯，所以政府再沒有藉口阻撓 PGP 普及。
-每個 PGP 的用家都會得到兩條類似密碼的字串，相當於兩條鑰匙，一條是公開的，另一條不會公開，公開的稱為公鑰，用來加密，不公開的是密鑰，用來解密。 以斯諾登的情況為例，假設他想告訴記者自己住在哪家酒店，他便先把記者那邊公開的鑰匙複製，用來把地址加密，變成亂碼，然後才把內容經電郵發出。記者收到後，只有輸入自己的密鑰，才可以把內容還原。由於密鑰只有記者知道，所以就算電郵被截獲，亂碼都不會輕易被破解。
-GnuPG（GNU Privacy Guard，GPG）是一種加密軟件，它是 PGP 加密軟件的滿足 GPL 協議的替代物。GnuPG 依照由 IETF 制定的 OpenPGP 技術標準設計。GnuPG 是用於加密、數字簽章及產生非對稱匙對的軟件。GPG 兼容 PGP（Pretty Good Privacy）的功能。
-安装 gpg Linux / Windows
-查看 https://gnupg.org/download/index.html
-macOS
-brew install gpg 生成密鑰 gpg --full-gen-key --expert gpg (GnuPG) 2.2.9; Copyright (C) 2018 Free Software Foundation, Inc. This is free software: you are free to change and redistribute it.">
-<meta name="author" content="">
-<link rel="canonical" href="https://via.moe/use-gpg/" />
-<link href="/assets/css/stylesheet.min.5c4f6d85b7abfcfea458637c672d16a7a9c38c37f002753cfdc7f314b6d3c8f2.css" integrity="sha256-XE9thber/P6kWGN8Zy0Wp6nDjDfwAnU8/cfzFLbTyPI=" rel="preload stylesheet"
-    as="style">
-
-<link rel="icon" href="https://via.moe/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://via.moe/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://via.moe/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://via.moe/apple-touch-icon.png">
-<link rel="mask-icon" href="https://via.moe/safari-pinned-tab.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.80.0" />
-
-
-<meta property="og:title" content="如何使用 GPG 安全傳遞加密信息" />
-<meta property="og:description" content="免責聲明：使用本文推薦的專案不能保證你的通訊完全不受監控，請在信任這些軟體處理敏感資訊前自行做更深入的了解。
-認揭露美國政府監控民眾通訊記錄的前中情局職員斯諾登聯絡《衛報》記者時，要求雙方通訊期間要用加密程式把內容加密，以免走漏風聲。這套加密程式名叫 PGP ，到底這個加密法有什麼來頭呢？ 手握機密，步步為營的斯諾登知道自己一旦聯絡記者，就隨時會暴露行蹤，這時候他唯一信任的是稱為 PGP 的加密程式，把自己和記者間的通訊加密。 PGP 的全寫並不高深，就是「相當有私隱」的意思。這是一種出自民間的加密演算法，由美國人齊默曼開發，他在 1991 年把這套 PGP 加密程式在網上免費發布。
-PGP 除了免費，亦相對容易使用，齊默曼希望它可以幫所有平民在政府監察下保住私隱。不過程式剛開始普及，就引起了美國政府的注意。當局指 PGP 程式屬於軍需品，齊默曼在網上發布 PGP ，等同私下出口軍需品，隨時會被檢控。 不過齊默曼沒有屈服，反而想到和麻省理工出版社把 PGP 的程式碼印成一本書出版，因為美國憲法第一修正案表明國民的出版自由不得侵犯，所以政府再沒有藉口阻撓 PGP 普及。
-每個 PGP 的用家都會得到兩條類似密碼的字串，相當於兩條鑰匙，一條是公開的，另一條不會公開，公開的稱為公鑰，用來加密，不公開的是密鑰，用來解密。 以斯諾登的情況為例，假設他想告訴記者自己住在哪家酒店，他便先把記者那邊公開的鑰匙複製，用來把地址加密，變成亂碼，然後才把內容經電郵發出。記者收到後，只有輸入自己的密鑰，才可以把內容還原。由於密鑰只有記者知道，所以就算電郵被截獲，亂碼都不會輕易被破解。
-GnuPG（GNU Privacy Guard，GPG）是一種加密軟件，它是 PGP 加密軟件的滿足 GPL 協議的替代物。GnuPG 依照由 IETF 制定的 OpenPGP 技術標準設計。GnuPG 是用於加密、數字簽章及產生非對稱匙對的軟件。GPG 兼容 PGP（Pretty Good Privacy）的功能。
-安装 gpg Linux / Windows
-查看 https://gnupg.org/download/index.html
-macOS
-brew install gpg 生成密鑰 gpg --full-gen-key --expert gpg (GnuPG) 2.2.9; Copyright (C) 2018 Free Software Foundation, Inc. This is free software: you are free to change and redistribute it." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://via.moe/use-gpg/" />
-<meta property="article:published_time" content="2018-08-09T19:32:59+08:00" />
-<meta property="article:modified_time" content="2018-08-09T19:32:59+08:00" />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="如何使用 GPG 安全傳遞加密信息"/>
-<meta name="twitter:description" content="免責聲明：使用本文推薦的專案不能保證你的通訊完全不受監控，請在信任這些軟體處理敏感資訊前自行做更深入的了解。
-認揭露美國政府監控民眾通訊記錄的前中情局職員斯諾登聯絡《衛報》記者時，要求雙方通訊期間要用加密程式把內容加密，以免走漏風聲。這套加密程式名叫 PGP ，到底這個加密法有什麼來頭呢？ 手握機密，步步為營的斯諾登知道自己一旦聯絡記者，就隨時會暴露行蹤，這時候他唯一信任的是稱為 PGP 的加密程式，把自己和記者間的通訊加密。 PGP 的全寫並不高深，就是「相當有私隱」的意思。這是一種出自民間的加密演算法，由美國人齊默曼開發，他在 1991 年把這套 PGP 加密程式在網上免費發布。
-PGP 除了免費，亦相對容易使用，齊默曼希望它可以幫所有平民在政府監察下保住私隱。不過程式剛開始普及，就引起了美國政府的注意。當局指 PGP 程式屬於軍需品，齊默曼在網上發布 PGP ，等同私下出口軍需品，隨時會被檢控。 不過齊默曼沒有屈服，反而想到和麻省理工出版社把 PGP 的程式碼印成一本書出版，因為美國憲法第一修正案表明國民的出版自由不得侵犯，所以政府再沒有藉口阻撓 PGP 普及。
-每個 PGP 的用家都會得到兩條類似密碼的字串，相當於兩條鑰匙，一條是公開的，另一條不會公開，公開的稱為公鑰，用來加密，不公開的是密鑰，用來解密。 以斯諾登的情況為例，假設他想告訴記者自己住在哪家酒店，他便先把記者那邊公開的鑰匙複製，用來把地址加密，變成亂碼，然後才把內容經電郵發出。記者收到後，只有輸入自己的密鑰，才可以把內容還原。由於密鑰只有記者知道，所以就算電郵被截獲，亂碼都不會輕易被破解。
-GnuPG（GNU Privacy Guard，GPG）是一種加密軟件，它是 PGP 加密軟件的滿足 GPL 協議的替代物。GnuPG 依照由 IETF 制定的 OpenPGP 技術標準設計。GnuPG 是用於加密、數字簽章及產生非對稱匙對的軟件。GPG 兼容 PGP（Pretty Good Privacy）的功能。
-安装 gpg Linux / Windows
-查看 https://gnupg.org/download/index.html
-macOS
-brew install gpg 生成密鑰 gpg --full-gen-key --expert gpg (GnuPG) 2.2.9; Copyright (C) 2018 Free Software Foundation, Inc. This is free software: you are free to change and redistribute it."/>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "如何使用 GPG 安全傳遞加密信息",
-  "name": "如何使用 GPG 安全傳遞加密信息",
-  "description": "免責聲明：使用本文推薦的專案不能保證你的通訊完全不受監控，請在信任這些軟體處理敏感資訊前自行做更深入的了解。\n認揭露美國政府監控民眾通訊記錄的前中情局職員斯諾登聯絡《衛報》記者時，要求雙方通訊期間要用加密程式把內容加密，以免走漏風聲。這套加密程式名叫 PGP ，到底這個加密法有什麼來頭呢？ 手握機密，步步為營的斯諾登知道自己一旦聯絡記者，就隨時會暴露行蹤，這 …",
-  "keywords": [
-    "gpg"
-  ],
-  "articleBody": "免責聲明：使用本文推薦的專案不能保證你的通訊完全不受監控，請在信任這些軟體處理敏感資訊前自行做更深入的了解。\n認揭露美國政府監控民眾通訊記錄的前中情局職員斯諾登聯絡《衛報》記者時，要求雙方通訊期間要用加密程式把內容加密，以免走漏風聲。這套加密程式名叫 PGP ，到底這個加密法有什麼來頭呢？ 手握機密，步步為營的斯諾登知道自己一旦聯絡記者，就隨時會暴露行蹤，這時候他唯一信任的是稱為 PGP 的加密程式，把自己和記者間的通訊加密。 PGP 的全寫並不高深，就是「相當有私隱」的意思。這是一種出自民間的加密演算法，由美國人齊默曼開發，他在 1991 年把這套 PGP 加密程式在網上免費發布。\nPGP 除了免費，亦相對容易使用，齊默曼希望它可以幫所有平民在政府監察下保住私隱。不過程式剛開始普及，就引起了美國政府的注意。當局指 PGP 程式屬於軍需品，齊默曼在網上發布 PGP ，等同私下出口軍需品，隨時會被檢控。 不過齊默曼沒有屈服，反而想到和麻省理工出版社把 PGP 的程式碼印成一本書出版，因為美國憲法第一修正案表明國民的出版自由不得侵犯，所以政府再沒有藉口阻撓 PGP 普及。\n每個 PGP 的用家都會得到兩條類似密碼的字串，相當於兩條鑰匙，一條是公開的，另一條不會公開，公開的稱為公鑰，用來加密，不公開的是密鑰，用來解密。 以斯諾登的情況為例，假設他想告訴記者自己住在哪家酒店，他便先把記者那邊公開的鑰匙複製，用來把地址加密，變成亂碼，然後才把內容經電郵發出。記者收到後，只有輸入自己的密鑰，才可以把內容還原。由於密鑰只有記者知道，所以就算電郵被截獲，亂碼都不會輕易被破解。\nGnuPG（GNU Privacy Guard，GPG）是一種加密軟件，它是 PGP 加密軟件的滿足 GPL 協議的替代物。GnuPG 依照由 IETF 制定的 OpenPGP 技術標準設計。GnuPG 是用於加密、數字簽章及產生非對稱匙對的軟件。GPG 兼容 PGP（Pretty Good Privacy）的功能。\n安装 gpg Linux / Windows\n查看 https://gnupg.org/download/index.html\nmacOS\nbrew install gpg 生成密鑰 gpg --full-gen-key --expert gpg (GnuPG) 2.2.9; Copyright (C) 2018 Free Software Foundation, Inc. This is free software: you are free to change and redistribute it. There is NO WARRANTY, to the extent permitted by law. Please select what kind of key you want: (1) RSA and RSA (default) (2) DSA and Elgamal (3) DSA (sign only) (4) RSA (sign only) (7) DSA (set your own capabilities) (8) RSA (set your own capabilities) (9) ECC and ECC (10) ECC (sign only) (11) ECC (set your own capabilities) (13) Existing key Your selection? 1.1 此時輸入 8 選擇 (8) RSA (set your own capabilities)，以生成自定義用途的 RSA 密鑰\nPossible actions for a RSA key: Sign Certify Encrypt Authenticate Current allowed actions: Sign Certify Encrypt (S) Toggle the sign capability (E) Toggle the encrypt capability (A) Toggle the authenticate capability (Q) Finished Your selection? E Possible actions for a RSA key: Sign Certify Encrypt Authenticate Current allowed actions: Sign Certify (S) Toggle the sign capability (E) Toggle the encrypt capability (A) Toggle the authenticate capability (Q) Finished Your selection? S Possible actions for a RSA key: Sign Certify Encrypt Authenticate Current allowed actions: Certify (S) Toggle the sign capability (E) Toggle the encrypt capability (A) Toggle the authenticate capability (Q) Finished Your selection? Q 1.2 反選以啟用簽字和加密和認證功能，完成後輸入 Q 提交\nRSA keys may be between 1024 and 4096 bits long. What keysize do you want? (2048) 4096 Requested keysize is 4096 bits 1.3 輸入 4096 以生成 4096 bits 的密鑰\nRSA keys may be between 1024 and 4096 bits long. What keysize do you want? (2048) 4096 Requested keysize is 4096 bits Please specify how long the key should be valid. 0 = key does not expire  = key expires in n days w = key expires in n weeks m = key expires in n months y = key expires in n years Key is valid for? (0) Key does not expire at all 1.4 選擇密鑰過期時間，建議選擇 0 = key does not expire\nIs this correct? (y/N) y GnuPG needs to construct a user ID to identify your key. 1.5 確認以上設定輸入 y\nGnuPG needs to construct a user ID to identify your key. Real name: yourname Email address: yourname@gmail.com Comment: You selected this USER-ID: \"yourname \" Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit? 1.6 輸入你的名稱/郵箱地址/提示（可留空）\n完成後輸入 O 提交\nWe need to generate a lot of random bytes. It is a good idea to perform some other action (type on the keyboard, move the mouse, utilize the disks) during the prime generation; this gives the random number generator a better chance to gain enough entropy. 1.7 之後提示需要足夠的隨機熵進行生成密鑰\n ┌──────────────────────────────────────────────────────┐ │ Please enter the passphrase to │ │ protect your new key │ │ │ │ Passphrase: *********_______________________________ │ │ │ │   │ └──────────────────────────────────────────────────────┘ 1.8 輸入對此密鑰加密的密碼兩次\ngpg: /Users/yourname/.gnupg/trustdb.gpg: trustdb created gpg: key 55EE41446227A44E marked as ultimately trusted gpg: directory '/Users/yourname/.gnupg/openpgp-revocs.d' created sgpg: revocation certificate stored as '/Users/yourname/.gnupg/openpgp-revocs.d/F552DE2456234B0EA5EE9C7555EE41446227A44E.rev' public and secret key created and signed. pub rsa4096 2018-08-09 [SCEA] F552DE2456234B0EA5EE9C7555EE41446227A44E uid yourname  1.9 成功生成密鑰在 ~/.gnupg/ 目錄下\n查看已生成密鑰列表 gpg --list-keys 會展示出目前系統以導入的密鑰列表\ngpg: checking the trustdb gpg: marginals needed: 3 completes needed: 1 trust model: pgp gpg: depth: 0 valid: 1 signed: 0 trust: 0-, 0q, 0n, 0m, 0f, 1u /Users/ky0n/.gnupg/pubring.kbx ------------------------------ pub rsa4096 2018-08-09 [SCEA] F3S2UEC4F6234B0EA5EE9C7555EE41446227A44E uid [ultimate] yourname  第一行顯示公鑰文件名（pubring.gpg），第二行顯示公鑰特徵（4096 位，Hash 字符串和生成時間），第三行顯示\"用戶 ID\"，第四行顯示私鑰特徵\n如果你要從密鑰列表中刪除某個密鑰，可以使用 delete-key 參數\ngpg --delete-key [用户ID] 導出密鑰 公鑰文件（.gnupg/pubring.gpg）以二進制形式儲存，armor 參數可以將其轉換為 ASCII 碼顯示\ngpg --armor --output public-key.txt --export [用戶ID] “用戶 ID\"指定哪個用戶的公鑰，output 參數指定輸出文件名（public-key.txt）\n類似地，export-secret-keys 參數可以轉換私鑰。\ngpg --armor --output private-key.txt --export-secret-keys 打開 public-key.txt 或 private-key.txt 就能看到公鑰或私鑰內容了\n上傳公鑰 公鑰服務器是網絡上專門儲存用戶公鑰的服務器。send-keys 參數可以將公鑰上傳到服務器\ngpg --keyserver hkp://pgp.mit.edu --search-keys [用戶ID] 使用上面的命令，你的公鑰就被傳到了服務器 pgp.mit.edu，然後通過交換機制，所有的公鑰服務器最終都會包含你的公鑰\n由於公鑰服務器沒有檢查機制，任何人都可以用你的名義上傳公鑰，所以沒有辦法保證服務器上的公鑰的可靠性\n通常，你可以在網站上公佈一個公鑰指紋，讓其他人覈對下載到的公鑰是否爲真。fingerprint參數生成公鑰指紋\ngpg --fingerprint [用戶ID] 附：大陸可用的 Key server 列表\nkeyserver.ubuntu.com pgp.mit.edu subkeys.pgp.net www.gpg-keyserver.de 導入密鑰 除了生成自己的密鑰，還需要將他人的公鑰或者你的其他密鑰輸入系統，這時可以使用 import 參數\ngpg --import [密鑰文件] 為了獲得他人的公鑰，可以讓對方直接發給你，或者到公鑰服務器上尋找\ngpg --keyserver hkp://pgp.mit.edu --search-keys [用戶ID] 正如前面提到的，我們無法保證服務器上的公鑰是否可靠，下載後還需要用其他機制驗證\n加密和解密 我們演示加密和解密的過程，這個過程是對文件進行的，假如我們有一個 test.txt 文件。這個文件中的內容為：\nHELLO WORLD encrypt 參數用於加密。我們使用下邊的命令對這個文件進行加密\n然後我們在 test.txt 的同一目錄下得到了 test_en.txt。\nhexdump test_en.txt 我們打開後可以看到加密後的數據為：\n0000000 85 02 0c 03 55 ee 41 44 62 27 a4 4e 01 10 00 ab 0000010 eb d5 a2 6f bc 64 19 87 ba ab 83 6c f5 88 c3 cd 0000020 7b 88 31 47 aa 91 0c 7a 68 94 2c be 77 0c 5d a7 0000030 4d 48 22 1a d6 43 34 45 b1 00 4d f9 3a 68 84 7b 0000040 86 76 34 c8 f7 84 58 e5 f1 96 50 96 91 ca 55 f2 0000050 4a 8c ca 0c ba 5d b6 24 d6 9a 09 d8 21 51 87 ca 0000060 96 5f ec 08 ec 0f 42 98 6e c6 16 61 e2 d1 77 ee 0000070 cb 0f 95 06 51 c7 ad 4a 06 21 b1 7e a9 6f f6 ee 0000080 24 ec c0 74 3f 05 de 62 25 04 8c 0f df e5 3f b7 0000090 09 76 53 3c bb f8 4d 25 95 23 19 d7 67 a0 40 6e 00000a0 76 fc 5f 4d 95 30 80 a4 96 ab 57 37 68 2d b5 5f 00000b0 f3 05 85 ec a8 e8 9f 1a d5 4a ee fb 30 7f 66 a5 00000c0 f2 d4 9f 8b de fc 88 61 02 1f a0 80 c1 c6 c5 85 00000d0 fa 17 70 63 ed 61 e2 f7 f7 4b 18 88 18 56 2b e3 00000e0 1e 33 b8 2b 77 c1 ef 5e d6 7e 10 c6 b4 72 db 28 00000f0 aa ab 5a 36 26 64 dd e6 ec 17 dd ee ec cf 36 b4 0000100 85 cb 5c 25 65 2f 27 7b f2 77 32 2e e2 a9 85 a5 0000110 74 c7 2a 5f 61 e3 3f f0 36 f7 dd 04 6e a8 c6 8c 0000120 e8 7d ce 01 dd ab 75 65 88 4e e8 18 ce 6e 55 33 0000130 0b 90 be 68 d9 2c f9 9a 7f 06 3c 50 0a 10 10 d4 0000140 ab a2 1d cf 7c 6a f3 f9 6e 3a 78 ca e0 c3 7b ed 0000150 a0 88 e7 f2 3a fa 4f 17 d0 61 6f 60 7f 94 8b 93 0000160 33 e4 79 33 c0 66 37 57 e9 e4 7e 95 d7 b2 04 c5 0000170 0c e4 90 c0 94 73 3c ef b5 cc 2a 4d 42 e1 7b 48 0000180 14 02 94 ed f3 18 6e a2 05 ac c1 cb 16 27 3a f8 0000190 66 6c f2 48 76 03 ac 68 27 c3 e9 19 fd 26 89 b0 00001a0 d7 1b df e5 e4 8d 1c ef df c6 b9 c0 0a 6f ca b8 00001b0 41 66 b4 2a ba 2e c5 ce b1 74 97 1c 0d 57 db f6 00001c0 3a 37 28 8a 8f 40 d0 8a d8 0e 0e d6 26 b6 f8 38 00001d0 cf 9d 9a 69 6b 4b fd 18 7e 99 8c a2 bf 54 6e 13 00001e0 f7 f3 be 4b df 52 35 70 8b eb 9a b9 01 49 1b f3 00001f0 7c 78 1b be 49 01 f8 db 48 b2 37 04 04 db 39 80 0000200 6b 68 c9 0d aa 39 29 12 ae e9 22 fc 19 39 91 d2 0000210 4f 01 25 f4 62 43 fb f7 36 21 2c f2 6d f3 3a 6f 0000220 8e 19 b9 32 b6 9c ad 8b fd 68 b9 6f 7a 79 51 dd 0000230 7f 26 02 70 e6 16 90 67 6c 06 2d 50 46 fa 82 0c 0000240 d0 5a 6e fd a3 f2 5e 72 14 4f 82 59 46 f4 e0 af 0000250 3a b9 82 9f c1 69 08 b8 a4 1b ec 1a 35 d5 37 2a 0000260 recipient 參數指定接收者的公鑰，output 參數指定加密後的文件名，encrypt 參數指定源文件。運行上面的命令後，test_en.txt 就是已加密的文件，可以把它發給對方。\n使用下邊的命令進行解密，之後把解密後的文件存為新文件即可查看\ngpg test_en.txt gpg: WARNING: no command supplied. Trying to guess what you mean ... gpg: encrypted with 4096-bit RSA key, ID 66EF4EFTEC62F7E, created 2018-08-09 \"yourname \" gpg: test_en.txt: unknown suffix Enter new filename [test.txt]: test2.txt cat test2.txt HELLO WORLD 簽名 有時，我們不需要加密文件，只需要對文件簽名，表示這個文件確實是我本人發出的\nsign參數用來簽名\ngpg --sign test.txt 然後生成了一個 test.txt.gpg 文件，我們打開這個文件後，發現這也是一個二進制的數據，這並不是加密後的數據，與上邊的二進制數據不一樣。如果想生成 ASCII 碼的簽名文件，可以使用 clearsign 參數\ngpg --clearsign test.txt 然後生成了一個 test.txt.asc 文件，打開後可以看出：\n-----BEGIN PGP SIGNED MESSAGE----- Hash: SHA256 HELLO WORLD -----BEGIN PGP SIGNATURE----- iQIzBAEBCAAdFiEE9VLeJFYjSw6l7px1Ve5BRGInpE4FAltsCmYACgkQVe5BRGIn pE6OvA//c9NRm62RG18vXJYc41YlhWhtnFpnGzfYhWnJhIGbIK7bSgvVhG4/fLdt d/AwjgTdoQLexOEGWdqJ+K00+AJzorx3MSu3AknkBh01mLpJDiyaPKZOROKyHW46 gtJlFVJez1LUnGqKO9jDWeYkTp/q/4K3vK38sJaEUcRDwkBcKM5ZGFSACoT+QuRA 4HV6596rNWiJzrI+82H7tbdyfVjXRXvRFHLjP3dseViLATJjpBHqDR7mNtplcuUB Hd9aCymd+xdE+vRpPbMHb6sMwmM86fLRHsPlBqASthBVBO/Mj4R5No4qy+89qZVe FsViTB2avht4Mp9D1DzDxpqlHzoINf/lBHwIgojLQgdmjwWvceRuAm2HlNv/bcvC QCr0yNhnrE8UvLjZbYS1+kwGOGQkoRkPYDBbb3p7sJmBBlETQvKuMHms5peE0e88 wMo5XvWlZAkCdql2I6S2ipIsIueIiYgg9l2GXwkEvzNRhAdurafpPq48uV7wo0A7 9q3HXbnESGZKRCvcUEDqn7MLilpXqZ3fQNy4t6qrbSW3EviDDeEB+k2Oaa6dDb4A YuSkVbsJ0czzlYp5ana0PippduoYfg4stKvFijGdVANys0xDfDuGmGoKKmJHB7cj 0Li/7Jq2owWJWmy54uZRPb2QtRxFnY9F0/DKqdOkMSRkQzrpnj8= =4h/4 -----END PGP SIGNATURE----- 如果想生成單獨的簽名文件，與文件內容分開存放，可以使用detach-sign參數。\ngpg --detach-sign test.txt 是一個二進制的數據，如果想採用 ASCII 碼形式，要加上armor參數\ngpg --armor --detach-sign test.txt 簽名+加密 上一節的參數，都是隻簽名不加密。如果想同時簽名和加密，可以使用下面的命令。\ngpg --local-user [發信者ID] --recipient [接收者ID] --armor --sign --encrypt test.txt local-user 參數指定用發信者的私鑰簽名，recipient 參數指定用接收者的公鑰加密，armor 參數表示採用 ASCII 碼形式顯示，sign 參數表示需要簽名，encrypt 參數表示指定源文件。\n驗證簽名 我們收到別人簽名後的文件，需要用對方的公鑰驗證簽名是否爲真。verify 參數用來驗證\ngpg --verify test.txt.asc test.txt 更多保護自己數字安全工具可以查看 https://prism-break.org/zh-TW/all/\n本文參考：\nhttps://www.jianshu.com/p/268064e67719\nhttps://wind.moe/article/59\n",
-  "wordCount" : "1464",
-  "inLanguage": "en",
-  "datePublished": "2018-08-09T19:32:59+08:00",
-  "dateModified": "2018-08-09T19:32:59+08:00",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://via.moe/use-gpg/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Siege",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://via.moe/favicon.ico"
-    }
-  }
-}
-</script>
-
-
-
-</head>
-
-<body class="" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
-<noscript>
-    <style type="text/css">
-        .theme-toggle,
-        .top-link {
-            display: none;
-        }
-
-    </style>
-</noscript>
-<header class="header">
-    <nav class="nav">
-        <div class="logo">
-            <a href="https://via.moe/" accesskey="h" title="Siege (Alt + H)">Siege</a>
-            <span class="logo-switches">
-                <span class="theme-toggle" title="(Alt + T)">
-                    <a id="theme-toggle" accesskey="t">
-                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                        </svg>
-                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="5"></circle>
-                            <line x1="12" y1="1" x2="12" y2="3"></line>
-                            <line x1="12" y1="21" x2="12" y2="23"></line>
-                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                            <line x1="1" y1="12" x2="3" y2="12"></line>
-                            <line x1="21" y1="12" x2="23" y2="12"></line>
-                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                        </svg>
-                    </a>
-                </span>
-                
-            </span>
-        </div>
-        <ul class="menu" id="menu" onscroll="menu_on_scroll()">
-            <li>
-                <a href="https://via.moe/" title="Index">
-                    <span>Index</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://via.moe/archives" title="Archive">
-                    <span>Archive</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://via.moe/rss.xml" title="RSS">
-                    <span>RSS</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://via.moe/about/" title="About">
-                    <span>About</span>
-                </a>
-            </li></ul>
-    </nav>
-</header>
-
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script>var url=window.location.href;url.indexOf("https")<0&&(url=url.replace("http:","https:"),window.location.replace(url));</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>如何使用 GPG 安全傳遞加密信息 - Siege</title>
+    
+    <meta name="description" content="Wherever we want to go, we go.">
+    <meta name="author" content="h0wardch3ng">
+    
+    <link href="https://via.moe/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://via.moe/style.css" rel="stylesheet">
+    <link href="https://via.moe/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://via.moe/apple-touch-icon.png">
+    <link rel="icon" href="https://via.moe/favicon.ico">
+    <meta name="generator" content="Hugo 0.80.0" />
+    
+    
+  </head>
+  <body class="single">
+    <header class="header">
+      <nav class="nav">
+        <p class="logo"><a href="https://via.moe/">Siege</a></p>
+        <ul class="menu">
+          <li>
+            <a href="/">Index</a>
+          </li>
+          <li>
+            <a href="/archives">Archive</a>
+          </li>
+          <li>
+            <a href="/rss.xml">RSS</a>
+          </li>
+          <li>
+            <a href="/about/">About</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
     <main class="main">
+
 
 <article class="post-single">
   <header class="post-header">
-    <h1 class="post-title">
-      如何使用 GPG 安全傳遞加密信息
-    </h1>
-    <div class="post-description">
-      
-    </div>
-    <div class="post-meta">August 9, 2018
-
-    </div>
-  </header> 
-
-  <div class="post-content">
-<p><img src="https://imgur.via.moe/GqHnGYp.jpg" alt=""></p>
+    <h1 class="post-title">如何使用 GPG 安全傳遞加密信息</h1>
+    <div class="post-meta">August 9, 2018</div>
+  </header>
+  <div class="post-content"><p><img src="https://imgur.via.moe/GqHnGYp.jpg" alt=""></p>
 <p>免責聲明：使用本文推薦的專案不能保證你的通訊完全不受監控，請在信任這些軟體處理敏感資訊前自行做更深入的了解。</p>
 <p>認揭露美國政府監控民眾通訊記錄的前中情局職員斯諾登聯絡《衛報》記者時，要求雙方通訊期間要用加密程式把內容加密，以免走漏風聲。這套加密程式名叫 PGP ，到底這個加密法有什麼來頭呢？
 手握機密，步步為營的斯諾登知道自己一旦聯絡記者，就隨時會暴露行蹤，這時候他唯一信任的是稱為 PGP 的加密程式，把自己和記者間的通訊加密。
@@ -194,12 +59,12 @@ PGP 的全寫並不高深，就是「相當有私隱」的意思。這是一種�
 <p>每個 PGP 的用家都會得到兩條類似密碼的字串，相當於兩條鑰匙，一條是公開的，另一條不會公開，公開的稱為公鑰，用來加密，不公開的是密鑰，用來解密。
 以斯諾登的情況為例，假設他想告訴記者自己住在哪家酒店，他便先把記者那邊公開的鑰匙複製，用來把地址加密，變成亂碼，然後才把內容經電郵發出。記者收到後，只有輸入自己的密鑰，才可以把內容還原。由於密鑰只有記者知道，所以就算電郵被截獲，亂碼都不會輕易被破解。</p>
 <p>GnuPG（GNU Privacy Guard，GPG）是一種加密軟件，它是 PGP 加密軟件的滿足 GPL 協議的替代物。GnuPG 依照由 IETF 制定的 OpenPGP 技術標準設計。GnuPG 是用於加密、數字簽章及產生非對稱匙對的軟件。GPG 兼容 PGP（Pretty Good Privacy）的功能。</p>
-<h3 id="安装-gpg">安装 gpg<a hidden class="anchor" aria-hidden="true" href="#安装-gpg">#</a></h3>
+<h3 id="安装-gpg">安装 gpg</h3>
 <p>Linux / Windows</p>
 <p>查看 <a href="https://gnupg.org/download/index.html">https://gnupg.org/download/index.html</a></p>
 <p>macOS</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">brew install gpg
-</code></pre></div><h3 id="生成密鑰">生成密鑰<a hidden class="anchor" aria-hidden="true" href="#生成密鑰">#</a></h3>
+</code></pre></div><h3 id="生成密鑰">生成密鑰</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gpg --full-gen-key --expert
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gpg <span style="color:#f92672">(</span>GnuPG<span style="color:#f92672">)</span> 2.2.9; Copyright <span style="color:#f92672">(</span>C<span style="color:#f92672">)</span> <span style="color:#ae81ff">2018</span> Free Software Foundation, Inc.
 This is free software: you are free to change and redistribute it.
@@ -306,7 +171,7 @@ pub   rsa4096 2018-08-09 [SCEA]
       F552DE2456234B0EA5EE9C7555EE41446227A44E
 uid                      yourname &lt;yourname@gmail.com&gt;
 </code></pre><p>1.9 成功生成密鑰在 <code>~/.gnupg/</code> 目錄下</p>
-<h3 id="查看已生成密鑰列表">查看已生成密鑰列表<a hidden class="anchor" aria-hidden="true" href="#查看已生成密鑰列表">#</a></h3>
+<h3 id="查看已生成密鑰列表">查看已生成密鑰列表</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">gpg --list-keys
 </code></pre></div><p>會展示出目前系統以導入的密鑰列表</p>
 <pre><code>gpg: checking the trustdb
@@ -321,14 +186,14 @@ uid           [ultimate] yourname &lt;yourname@gmail.com&gt;
 </code></pre><p>第一行顯示公鑰文件名（pubring.gpg），第二行顯示公鑰特徵（4096 位，Hash 字符串和生成時間），第三行顯示&quot;用戶 ID&quot;，第四行顯示私鑰特徵</p>
 <p>如果你要從密鑰列表中刪除某個密鑰，可以使用 <code>delete-key</code> 參數</p>
 <pre><code>gpg --delete-key [用户ID]
-</code></pre><h3 id="導出密鑰">導出密鑰<a hidden class="anchor" aria-hidden="true" href="#導出密鑰">#</a></h3>
+</code></pre><h3 id="導出密鑰">導出密鑰</h3>
 <p>公鑰文件（.gnupg/pubring.gpg）以二進制形式儲存，<code>armor</code> 參數可以將其轉換為 ASCII 碼顯示</p>
 <pre><code>gpg --armor --output public-key.txt --export [用戶ID]
 </code></pre><p>&ldquo;用戶 ID&quot;指定哪個用戶的公鑰，<code>output</code> 參數指定輸出文件名（public-key.txt）</p>
 <p>類似地，<code>export-secret-keys</code> 參數可以轉換私鑰。</p>
 <pre><code>gpg --armor --output private-key.txt --export-secret-keys
 </code></pre><p>打開 public-key.txt 或 private-key.txt 就能看到公鑰或私鑰內容了</p>
-<h3 id="上傳公鑰">上傳公鑰<a hidden class="anchor" aria-hidden="true" href="#上傳公鑰">#</a></h3>
+<h3 id="上傳公鑰">上傳公鑰</h3>
 <p>公鑰服務器是網絡上專門儲存用戶公鑰的服務器。<code>send-keys</code> 參數可以將公鑰上傳到服務器</p>
 <pre><code>gpg --keyserver hkp://pgp.mit.edu --search-keys [用戶ID]
 </code></pre><p>使用上面的命令，你的公鑰就被傳到了服務器 <code>pgp.mit.edu</code>，然後通過交換機制，所有的公鑰服務器最終都會包含你的公鑰</p>
@@ -340,13 +205,13 @@ uid           [ultimate] yourname &lt;yourname@gmail.com&gt;
 pgp.mit.edu
 subkeys.pgp.net
 www.gpg-keyserver.de
-</code></pre><h3 id="導入密鑰">導入密鑰<a hidden class="anchor" aria-hidden="true" href="#導入密鑰">#</a></h3>
+</code></pre><h3 id="導入密鑰">導入密鑰</h3>
 <p>除了生成自己的密鑰，還需要將他人的公鑰或者你的其他密鑰輸入系統，這時可以使用 import 參數</p>
 <pre><code>gpg --import [密鑰文件]
 </code></pre><p>為了獲得他人的公鑰，可以讓對方直接發給你，或者到公鑰服務器上尋找</p>
 <pre><code>gpg --keyserver hkp://pgp.mit.edu --search-keys [用戶ID]
 </code></pre><p>正如前面提到的，我們無法保證服務器上的公鑰是否可靠，下載後還需要用其他機制驗證</p>
-<h3 id="加密和解密">加密和解密<a hidden class="anchor" aria-hidden="true" href="#加密和解密">#</a></h3>
+<h3 id="加密和解密">加密和解密</h3>
 <p>我們演示加密和解密的過程，這個過程是對文件進行的，假如我們有一個 <code>test.txt</code> 文件。這個文件中的內容為：</p>
 <pre><code>HELLO WORLD
 </code></pre><p><code>encrypt</code> 參數用於加密。我們使用下邊的命令對這個文件進行加密</p>
@@ -405,7 +270,7 @@ Enter new filename [test.txt]: test2.txt
 cat test2.txt
 
 HELLO WORLD
-</code></pre><h3 id="簽名">簽名<a hidden class="anchor" aria-hidden="true" href="#簽名">#</a></h3>
+</code></pre><h3 id="簽名">簽名</h3>
 <p>有時，我們不需要加密文件，只需要對文件簽名，表示這個文件確實是我本人發出的</p>
 <p><code>sign</code>參數用來簽名</p>
 <pre><code>gpg --sign test.txt
@@ -436,82 +301,33 @@ YuSkVbsJ0czzlYp5ana0PippduoYfg4stKvFijGdVANys0xDfDuGmGoKKmJHB7cj
 <pre><code>gpg --detach-sign test.txt
 </code></pre><p>是一個二進制的數據，如果想採用 ASCII 碼形式，要加上<code>armor</code>參數</p>
 <pre><code>gpg --armor --detach-sign test.txt
-</code></pre><h3 id="簽名加密">簽名+加密<a hidden class="anchor" aria-hidden="true" href="#簽名加密">#</a></h3>
+</code></pre><h3 id="簽名加密">簽名+加密</h3>
 <p>上一節的參數，都是隻簽名不加密。如果想同時簽名和加密，可以使用下面的命令。</p>
 <pre><code>gpg --local-user [發信者ID] --recipient [接收者ID] --armor --sign --encrypt test.txt
 </code></pre><p><code>local-user</code> 參數指定用發信者的私鑰簽名，<code>recipient</code> 參數指定用接收者的公鑰加密，<code>armor</code> 參數表示採用 ASCII 碼形式顯示，<code>sign</code> 參數表示需要簽名，<code>encrypt</code> 參數表示指定源文件。</p>
-<h3 id="驗證簽名">驗證簽名<a hidden class="anchor" aria-hidden="true" href="#驗證簽名">#</a></h3>
+<h3 id="驗證簽名">驗證簽名</h3>
 <p>我們收到別人簽名後的文件，需要用對方的公鑰驗證簽名是否爲真。<code>verify</code> 參數用來驗證</p>
 <pre><code>gpg --verify test.txt.asc test.txt
 </code></pre><p>更多保護自己數字安全工具可以查看 <a href="https://prism-break.org/zh-TW/all/">https://prism-break.org/zh-TW/all/</a></p>
 <p>本文參考：</p>
 <p><a href="https://www.jianshu.com/p/268064e67719">https://www.jianshu.com/p/268064e67719</a></p>
 <p><a href="https://wind.moe/article/59">https://wind.moe/article/59</a></p>
-
 </div>
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://via.moe/tags/gpg/">gpg</a></li>
+      <li><a href="https://via.moe/tags/gpg">gpg</a></li>
     </ul>
   </footer>
-</article>
-    </main><footer class="footer">
-    
-    <span>本博客除另外說明，都採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW">署名-非商業性使用-相同方式共享 4.0 協議</a> 進行許可<br>Except where otherwise noted, content on this site is licensed under a<br><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a> license</span>
-    
+  
+</article></main>
+<footer class="footer">
+  <span>本博客除另外說明，都採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW">署名-非商業性使用-相同方式共享 4.0 協議</a> 進行許可<br>Except where otherwise noted, content on this site is licensed under a<br><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a> license</span>
 </footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
-    <button class="top-link" id="top-link" type="button" accesskey="g">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-            <path d="M12 6H0l6-6z" />
-        </svg>
-    </button>
-</a>
-
-
-
-<script defer src="/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
-    onload="hljs.initHighlightingOnLoad();"></script>
+<script src="https://via.moe/highlight.min.js"></script>
 <script>
-    window.onload = function () {
-        if (localStorage.getItem("menu-scroll-position")) {
-            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
-        }
-    }
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
-            } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-            }
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.replaceState(null, null, `#${id}`);
-            }
-        });
-    });
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
-
-    function menu_on_scroll() {
-        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
-    }
-
+  hljs.initHighlightingOnLoad();
 </script>
+
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-70500040-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -520,19 +336,6 @@ YuSkVbsJ0czzlYp5ana0PippduoYfg4stKvFijGdVANys0xDfDuGmGoKKmJHB7cj
 
   gtag('config', 'UA-70500040-1');
 </script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            document.body.classList.add('dark');
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
-
-</script>
 
 </body>
-
 </html>

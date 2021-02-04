@@ -1,207 +1,72 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
-
-<head><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<script>var url=window.location.href;url.indexOf("https")<0&&(url=url.replace("http:","https:"),window.location.replace(url));</script>
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="theme-color" content="#2e2e33">
-<meta name="robots" content="index, follow">
-<title>Synology DS216j Optware IPKG 介紹 | Siege</title>
-
-<meta name="keywords" content="ipkg, opkg" />
-<meta name="description" content="本文原有内容已經可能不可用，目前可以使用第三方源内的 GUI 工具安裝 Bootstrap
-http://packages.synocommunity.net http://www.cphub.net 安裝 Easy Bootstrap ，選擇 Entware-ng OPKG 即可
- Synology DS216j Optware IPKG 介紹 與 QNAP TS-219P&#43; 一樣，引入一個 Optware IPKG 作為軟件包管理工具。
-DSM 自帶的軟件中心可以安裝需要東西 (比如Git/Subversin/Perl/PHP), 因為已經有了，但你也覺得沒有太大的必要，因為它可能會使用到的機會很少。
-SSH 服務啟動 在 Synology DS216j 系統設置中，請必須啟用 SSH 連接服務。
-控制面板→終端機和SNMP
- 您可以變更加密模式的安全層級，請注意，安全层级不相容可能導致某些用戶端無法連線。  Optware IPKG 安裝 不像 QNAP（現在當我看 QNAP 的 IPKG 已在維護，在後面將不再描述），因為它不能在系統軟件中心裡安裝，只能自己另外安裝。
-安裝必須 與 DS216j 的 CPU 架構 （Marvell Armada 385 88F6820） 相符，可以在以下頁面找到這些信息。
-GitHub - trepmag/ds213j-optware-bootstrap: Synology ds213j (manual) optware bootstrap">
-<meta name="author" content="">
-<link rel="canonical" href="https://via.moe/synology-ds216j-optware-ipkg-init/" />
-<link href="/assets/css/stylesheet.min.5c4f6d85b7abfcfea458637c672d16a7a9c38c37f002753cfdc7f314b6d3c8f2.css" integrity="sha256-XE9thber/P6kWGN8Zy0Wp6nDjDfwAnU8/cfzFLbTyPI=" rel="preload stylesheet"
-    as="style">
-
-<link rel="icon" href="https://via.moe/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://via.moe/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://via.moe/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://via.moe/apple-touch-icon.png">
-<link rel="mask-icon" href="https://via.moe/safari-pinned-tab.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.80.0" />
-
-
-<meta property="og:title" content="Synology DS216j Optware IPKG 介紹" />
-<meta property="og:description" content="本文原有内容已經可能不可用，目前可以使用第三方源内的 GUI 工具安裝 Bootstrap
-http://packages.synocommunity.net http://www.cphub.net 安裝 Easy Bootstrap ，選擇 Entware-ng OPKG 即可
- Synology DS216j Optware IPKG 介紹 與 QNAP TS-219P&#43; 一樣，引入一個 Optware IPKG 作為軟件包管理工具。
-DSM 自帶的軟件中心可以安裝需要東西 (比如Git/Subversin/Perl/PHP), 因為已經有了，但你也覺得沒有太大的必要，因為它可能會使用到的機會很少。
-SSH 服務啟動 在 Synology DS216j 系統設置中，請必須啟用 SSH 連接服務。
-控制面板→終端機和SNMP
- 您可以變更加密模式的安全層級，請注意，安全层级不相容可能導致某些用戶端無法連線。  Optware IPKG 安裝 不像 QNAP（現在當我看 QNAP 的 IPKG 已在維護，在後面將不再描述），因為它不能在系統軟件中心裡安裝，只能自己另外安裝。
-安裝必須 與 DS216j 的 CPU 架構 （Marvell Armada 385 88F6820） 相符，可以在以下頁面找到這些信息。
-GitHub - trepmag/ds213j-optware-bootstrap: Synology ds213j (manual) optware bootstrap" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://via.moe/synology-ds216j-optware-ipkg-init/" />
-<meta property="article:published_time" content="2016-09-05T19:32:59+08:00" />
-<meta property="article:modified_time" content="2016-09-05T19:32:59+08:00" />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Synology DS216j Optware IPKG 介紹"/>
-<meta name="twitter:description" content="本文原有内容已經可能不可用，目前可以使用第三方源内的 GUI 工具安裝 Bootstrap
-http://packages.synocommunity.net http://www.cphub.net 安裝 Easy Bootstrap ，選擇 Entware-ng OPKG 即可
- Synology DS216j Optware IPKG 介紹 與 QNAP TS-219P&#43; 一樣，引入一個 Optware IPKG 作為軟件包管理工具。
-DSM 自帶的軟件中心可以安裝需要東西 (比如Git/Subversin/Perl/PHP), 因為已經有了，但你也覺得沒有太大的必要，因為它可能會使用到的機會很少。
-SSH 服務啟動 在 Synology DS216j 系統設置中，請必須啟用 SSH 連接服務。
-控制面板→終端機和SNMP
- 您可以變更加密模式的安全層級，請注意，安全层级不相容可能導致某些用戶端無法連線。  Optware IPKG 安裝 不像 QNAP（現在當我看 QNAP 的 IPKG 已在維護，在後面將不再描述），因為它不能在系統軟件中心裡安裝，只能自己另外安裝。
-安裝必須 與 DS216j 的 CPU 架構 （Marvell Armada 385 88F6820） 相符，可以在以下頁面找到這些信息。
-GitHub - trepmag/ds213j-optware-bootstrap: Synology ds213j (manual) optware bootstrap"/>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Synology DS216j Optware IPKG 介紹",
-  "name": "Synology DS216j Optware IPKG 介紹",
-  "description": "本文原有内容已經可能不可用，目前可以使用第三方源内的 GUI 工具安裝 Bootstrap\nhttp://packages.synocommunity.net http://www.cphub.net 安裝 Easy Bootstrap ，選擇 Entware-ng OPKG 即可\n Synology DS216j Optware IPKG …",
-  "keywords": [
-    "ipkg", "opkg"
-  ],
-  "articleBody": "本文原有内容已經可能不可用，目前可以使用第三方源内的 GUI 工具安裝 Bootstrap\nhttp://packages.synocommunity.net http://www.cphub.net 安裝 Easy Bootstrap ，選擇 Entware-ng OPKG 即可\n Synology DS216j Optware IPKG 介紹 與 QNAP TS-219P+ 一樣，引入一個 Optware IPKG 作為軟件包管理工具。\nDSM 自帶的軟件中心可以安裝需要東西 (比如Git/Subversin/Perl/PHP), 因為已經有了，但你也覺得沒有太大的必要，因為它可能會使用到的機會很少。\nSSH 服務啟動 在 Synology DS216j 系統設置中，請必須啟用 SSH 連接服務。\n控制面板→終端機和SNMP\n 您可以變更加密模式的安全層級，請注意，安全层级不相容可能導致某些用戶端無法連線。  Optware IPKG 安裝 不像 QNAP（現在當我看 QNAP 的 IPKG 已在維護，在後面將不再描述），因為它不能在系統軟件中心裡安裝，只能自己另外安裝。\n安裝必須 與 DS216j 的 CPU 架構 （Marvell Armada 385 88F6820） 相符，可以在以下頁面找到這些信息。\nGitHub - trepmag/ds213j-optware-bootstrap: Synology ds213j (manual) optware bootstrap\n與 Marvell Armada 這個 CPU 相兼容的 optware-bootstrap 似乎不存在、不過與 Marvell Kirkwood 適配的 Marvell Kirkwoodのoptware-bootstrap 相兼容，可以共用。\n也就是說,試試看吧。(上述頁面的內容完全相同。)\n 用 SSH 進行客戶端連接。 先取得 root 權限。  sudo -i 創建用於存放 optware 的根目錄。  mkdir /volume1/@optware mkdir /opt mount -o bind /volume1/@optware /opt 設置 IPKG  feed=http://ipkg.nslu2-linux.org/feeds/optware/cs08q1armel/cross/unstable ipk_name=`wget -qO- $feed/Packages | awk '/^Filename: ipkg-opt/ {print $2}'` wget $feed/$ipk_name tar -xOvzf $ipk_name ./data.tar.gz | tar -C / -xzvf - mkdir -p /opt/etc/ipkg echo \"src cross $feed\"  /opt/etc/ipkg/feeds.conf 設置 PATH：/etc/profile (用vi等編輯器)打開、在最後一行下面添加。  PATH=/opt/bin:/opt/sbin:$PATH 日文原文沒有提到 source /etc/profile ，如果不想重啟可以 source 一下。\n設置初始化腳本，以便它重新啟動後生效。   以下內容寫入 /etc/rc.local 並設置文件的權限為 (chmod 755) 。  #!/bin/sh  # Optware setup [ -x /etc/rc.optware ] \u0026\u0026 /etc/rc.optware start  如果之前有共享的 rc.local 設置只要複製一下就可以了。  #將文件從 data 文件夾內複製 cp /volume1/data/rc.local /etc/rc.local chmod 755 /etc/rc.local  以下內容寫入 /etc/rc.optware 並設置文件的權限為 (chmod 755) 。  #!/bin/sh  if test -z \"${REAL_OPT_DIR}\"; then # next line to be replaced according to OPTWARE_TARGET REAL_OPT_DIR=/volume1/@optware fi case \"$1\" in start) echo \"Starting Optware.\" if test -n \"${REAL_OPT_DIR}\"; then if ! grep ' /opt ' /proc/mounts /dev/null 2\u00261 ; then mkdir -p /opt mount -o bind ${REAL_OPT_DIR} /opt fi fi [ -x /opt/etc/rc.optware ] \u0026\u0026 /opt/etc/rc.optware ;; reconfig) true ;; stop) echo \"Shutting down Optware.\" true ;; *) echo \"Usage: $0{start|stop|reconfig}\" exit 1 esac exit 0  如果之前有共享的 rc.optware 設置只要複製一下就可以了。  # 將文件從 data 文件夾內複製 cp /volume1/data/rc.optware /etc/rc.optware chmod 755 /etc/rc.optware IPKG 已經可以使用  ipkg -v ipkg version 0.99.163 Optware IPKG 版本太舊了？ Optware IPKG 在 QNAP一直沒有提供其他的版本，它似乎已經被 Entware 取代。 →QNAP 4.1.4固件下 GCC 編譯安裝 - Qiita\n而且，Entware-eg（Entware 的另一個版本？）也可以安裝到 Synology 的設備上。\nInstall on Synology NAS · Entware-ng/Entware-ng Wiki · GitHub\n我已經使用 GCC 編譯安裝了 Entware-NG。您也可以嘗試一下。\n 原文鏈接 http://jasmin.sakura.ne.jp/blog/0244\n看了這篇文章後我在自己的群暉 216J 上安裝了 pip，然後部署了一個 glances 用於監控我的 NAS 系統情況。\n關於群暉上的一些 python 程序安裝可以看看這個 http://www.gebi1.com/thread-84122-1-1.html\n",
-  "wordCount" : "323",
-  "inLanguage": "en",
-  "datePublished": "2016-09-05T19:32:59+08:00",
-  "dateModified": "2016-09-05T19:32:59+08:00",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://via.moe/synology-ds216j-optware-ipkg-init/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Siege",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://via.moe/favicon.ico"
-    }
-  }
-}
-</script>
-
-
-
-</head>
-
-<body class="" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
-<noscript>
-    <style type="text/css">
-        .theme-toggle,
-        .top-link {
-            display: none;
-        }
-
-    </style>
-</noscript>
-<header class="header">
-    <nav class="nav">
-        <div class="logo">
-            <a href="https://via.moe/" accesskey="h" title="Siege (Alt + H)">Siege</a>
-            <span class="logo-switches">
-                <span class="theme-toggle" title="(Alt + T)">
-                    <a id="theme-toggle" accesskey="t">
-                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                        </svg>
-                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="5"></circle>
-                            <line x1="12" y1="1" x2="12" y2="3"></line>
-                            <line x1="12" y1="21" x2="12" y2="23"></line>
-                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                            <line x1="1" y1="12" x2="3" y2="12"></line>
-                            <line x1="21" y1="12" x2="23" y2="12"></line>
-                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                        </svg>
-                    </a>
-                </span>
-                
-            </span>
-        </div>
-        <ul class="menu" id="menu" onscroll="menu_on_scroll()">
-            <li>
-                <a href="https://via.moe/" title="Index">
-                    <span>Index</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://via.moe/archives" title="Archive">
-                    <span>Archive</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://via.moe/rss.xml" title="RSS">
-                    <span>RSS</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://via.moe/about/" title="About">
-                    <span>About</span>
-                </a>
-            </li></ul>
-    </nav>
-</header>
-
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script>var url=window.location.href;url.indexOf("https")<0&&(url=url.replace("http:","https:"),window.location.replace(url));</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Synology DS216j Optware IPKG 介紹 - Siege</title>
+    
+    <meta name="description" content="Wherever we want to go, we go.">
+    <meta name="author" content="h0wardch3ng">
+    
+    <link href="https://via.moe/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://via.moe/style.css" rel="stylesheet">
+    <link href="https://via.moe/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://via.moe/apple-touch-icon.png">
+    <link rel="icon" href="https://via.moe/favicon.ico">
+    <meta name="generator" content="Hugo 0.80.0" />
+    
+    
+  </head>
+  <body class="single">
+    <header class="header">
+      <nav class="nav">
+        <p class="logo"><a href="https://via.moe/">Siege</a></p>
+        <ul class="menu">
+          <li>
+            <a href="/">Index</a>
+          </li>
+          <li>
+            <a href="/archives">Archive</a>
+          </li>
+          <li>
+            <a href="/rss.xml">RSS</a>
+          </li>
+          <li>
+            <a href="/about/">About</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
     <main class="main">
+
 
 <article class="post-single">
   <header class="post-header">
-    <h1 class="post-title">
-      Synology DS216j Optware IPKG 介紹
-    </h1>
-    <div class="post-description">
-      
-    </div>
-    <div class="post-meta">September 5, 2016
-
-    </div>
-  </header> 
-
-  <div class="post-content">
-<p>本文原有内容已經可能不可用，目前可以使用第三方源内的 GUI 工具安裝 Bootstrap</p>
+    <h1 class="post-title">Synology DS216j Optware IPKG 介紹</h1>
+    <div class="post-meta">September 5, 2016</div>
+  </header>
+  <div class="post-content"><p>本文原有内容已經可能不可用，目前可以使用第三方源内的 GUI 工具安裝 Bootstrap</p>
 <pre><code>http://packages.synocommunity.net
 http://www.cphub.net
 </code></pre><p><img src="https://chattim.files.wordpress.com/2016/05/easybootstrapinstaller.png?w=590" alt=""></p>
 <p>安裝 Easy Bootstrap ，選擇 Entware-ng OPKG 即可</p>
 <hr>
-<h5 id="synology-ds216j-optware-ipkg-介紹">Synology DS216j Optware IPKG 介紹<a hidden class="anchor" aria-hidden="true" href="#synology-ds216j-optware-ipkg-介紹">#</a></h5>
+<h5 id="synology-ds216j-optware-ipkg-介紹">Synology DS216j Optware IPKG 介紹</h5>
 <p>與 <a href="http://jasmin.sakura.ne.jp/blog/0118">QNAP TS-219P+</a> 一樣，引入一個 Optware IPKG 作為軟件包管理工具。</p>
 <p>DSM 自帶的軟件中心可以安裝需要東西 (比如Git/Subversin/Perl/PHP), 因為已經有了，但你也覺得沒有太大的必要，因為它可能會使用到的機會很少。</p>
 <p><img src="https://cdn.via.moe/file/viamoe/img/DS216j_0628_01.png" alt=""></p>
-<h5 id="ssh-服務啟動">SSH 服務啟動<a hidden class="anchor" aria-hidden="true" href="#ssh-服務啟動">#</a></h5>
+<h5 id="ssh-服務啟動">SSH 服務啟動</h5>
 <p>在 <a href="http://jasmin.sakura.ne.jp/blog/0242">Synology DS216j 系統設置</a>中，請必須啟用 SSH 連接服務。</p>
 <p>控制面板→終端機和SNMP</p>
 <p><img src="https://cdn.via.moe/file/viamoe/img/DS216j_0628_02.png" alt=""></p>
 <ul>
 <li>您可以變更加密模式的安全層級，請注意，安全层级不相容可能導致某些用戶端無法連線。</li>
 </ul>
-<h5 id="optware-ipkg-安裝">Optware IPKG 安裝<a hidden class="anchor" aria-hidden="true" href="#optware-ipkg-安裝">#</a></h5>
+<h5 id="optware-ipkg-安裝">Optware IPKG 安裝</h5>
 <p>不像 QNAP（現在當我看 QNAP 的 IPKG 已在維護，在後面將不再描述），因為它不能在系統軟件中心裡安裝，只能自己另外安裝。</p>
 <p>安裝必須 與 DS216j 的 CPU 架構 （Marvell Armada 385 88F6820） 相符，可以在以下頁面找到這些信息。</p>
 <p><a href="https://github.com/trepmag/ds213j-optware-bootstrap">GitHub - trepmag/ds213j-optware-bootstrap: Synology ds213j (manual) optware bootstrap</a></p>
@@ -293,7 +158,7 @@ chmod <span style="color:#ae81ff">755</span> /etc/rc.optware
 </ol>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ipkg -v
 ipkg version 0.99.163
-</code></pre></div><h5 id="optware-ipkg-版本太舊了">Optware IPKG 版本太舊了？<a hidden class="anchor" aria-hidden="true" href="#optware-ipkg-版本太舊了">#</a></h5>
+</code></pre></div><h5 id="optware-ipkg-版本太舊了">Optware IPKG 版本太舊了？</h5>
 <p>Optware IPKG 在 QNAP一直沒有提供其他的版本，它似乎已經被 Entware 取代。 →<a href="http://qiita.com/efee/items/5da74eb7e7423e61823c">QNAP 4.1.4固件下 GCC 編譯安裝 - Qiita</a></p>
 <p>而且，Entware-eg（Entware 的另一個版本？）也可以安裝到 Synology 的設備上。</p>
 <p><a href="https://github.com/Entware-ng/Entware-ng/wiki/Install-on-Synology-NAS">Install on Synology NAS · Entware-ng/Entware-ng Wiki · GitHub</a></p>
@@ -302,72 +167,23 @@ ipkg version 0.99.163
 <p>原文鏈接 <a href="http://jasmin.sakura.ne.jp/blog/0244">http://jasmin.sakura.ne.jp/blog/0244</a></p>
 <p>看了這篇文章後我在自己的群暉 216J 上安裝了 <code>pip</code>，然後部署了一個 <a href="https://github.com/nicolargo/glances">glances</a> 用於監控我的 NAS 系統情況。</p>
 <p>關於群暉上的一些 python 程序安裝可以看看這個 <a href="http://www.gebi1.com/thread-84122-1-1.html">http://www.gebi1.com/thread-84122-1-1.html</a></p>
-
 </div>
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://via.moe/tags/ipkg/">ipkg</a></li>
-      <li><a href="https://via.moe/tags/opkg/">opkg</a></li>
+      <li><a href="https://via.moe/tags/ipkg">ipkg</a></li>
+      <li><a href="https://via.moe/tags/opkg">opkg</a></li>
     </ul>
   </footer>
-</article>
-    </main><footer class="footer">
-    
-    <span>本博客除另外說明，都採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW">署名-非商業性使用-相同方式共享 4.0 協議</a> 進行許可<br>Except where otherwise noted, content on this site is licensed under a<br><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a> license</span>
-    
+  
+</article></main>
+<footer class="footer">
+  <span>本博客除另外說明，都採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW">署名-非商業性使用-相同方式共享 4.0 協議</a> 進行許可<br>Except where otherwise noted, content on this site is licensed under a<br><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a> license</span>
 </footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
-    <button class="top-link" id="top-link" type="button" accesskey="g">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-            <path d="M12 6H0l6-6z" />
-        </svg>
-    </button>
-</a>
-
-
-
-<script defer src="/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
-    onload="hljs.initHighlightingOnLoad();"></script>
+<script src="https://via.moe/highlight.min.js"></script>
 <script>
-    window.onload = function () {
-        if (localStorage.getItem("menu-scroll-position")) {
-            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
-        }
-    }
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
-            } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-            }
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.replaceState(null, null, `#${id}`);
-            }
-        });
-    });
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
-
-    function menu_on_scroll() {
-        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
-    }
-
+  hljs.initHighlightingOnLoad();
 </script>
+
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-70500040-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -376,19 +192,6 @@ ipkg version 0.99.163
 
   gtag('config', 'UA-70500040-1');
 </script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            document.body.classList.add('dark');
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
-
-</script>
 
 </body>
-
 </html>
