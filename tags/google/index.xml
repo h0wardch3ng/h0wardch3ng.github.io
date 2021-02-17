@@ -15,9 +15,9 @@
       <guid>https://via.moe/chinese-lunar-calendar/</guid>
       <description>1. 添加訂閱地址 1.1 增加自定義訂閱 填寫來自在線的 .ics 文件 URL 地址
 正體中文 訂閱地址
-https://cdn.via.moe/file/viamoe/file/lunar-calendar-tc.ics
+https://f000.backblazeb2.com/file/viamoe/file/lunar-calendar-tc.ics
 簡體中文 訂閱地址
-https://cdn.via.moe/file/viamoe/file/lunar-calendar-sc.ics
+https://f000.backblazeb2.com/file/viamoe/file/lunar-calendar-sc.ics
 2. 完成訂閱 添加訂閱成功後，即可顯示已添加的農曆日程
  本文參考開源項目 https://github.com/infinet/lunar-calendar</description>
     </item>

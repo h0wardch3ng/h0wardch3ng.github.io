@@ -47,10 +47,10 @@
     <div class="post-meta">December 2, 2019</div>
   </header>
   <div class="post-content"><h3 id="1-在-backblaze-b2-文件上傳后">1. 在 Backblaze B2 文件上傳后</h3>
-<p><img src="https://cdn.via.moe/file/viamoe/img/bb-test-image.jpg" alt=""></p>
+<p><img src="https://f000.backblazeb2.com/file/viamoe/img/bb-test-image.jpg" alt=""></p>
 <p>此時生成的外鏈 URL 為 <code>https://f000.backblazeb2.com/file/{bucketName}/test.jpg</code></p>
 <h3 id="2-前往-cloudflare-workers-新建一個-workers">2. 前往 Cloudflare Workers 新建一個 Workers</h3>
-<p><img src="https://cdn.via.moe/file/viamoe/img/cf-workers-editor.jpg" alt=""></p>
+<p><img src="https://f000.backblazeb2.com/file/viamoe/img/cf-workers-editor.jpg" alt=""></p>
 <pre><code>// Website you intended to retrieve for users.
 const upstream = 'f000.backblazeb2.com'
 
@@ -187,11 +187,11 @@ async function device_status (user_agent_info) {
 </code></pre><p>編輯完成后，點擊 <code>Save and Depoly</code> 后完成部署</p>
 <p>以上代碼來自於 <a href="https://github.com/Siujoeng-Lau/Workers-Proxy/blob/master/src/index.js">https://github.com/Siujoeng-Lau/Workers-Proxy/blob/master/src/index.js</a></p>
 <h3 id="3-前往你的自定義域名後台面板進行-worker-規則設置">3. 前往你的自定義域名後台面板，進行 Worker 規則設置</h3>
-<p><img src="https://cdn.via.moe/file/viamoe/img/cf-panel.jpg" alt=""></p>
+<p><img src="https://f000.backblazeb2.com/file/viamoe/img/cf-panel.jpg" alt=""></p>
 <p>新增一條記錄規則 <code>https://your.domain.here/*</code></p>
-<p><img src="https://cdn.via.moe/file/viamoe/img/cf-workers-setting.jpg" alt=""></p>
+<p><img src="https://f000.backblazeb2.com/file/viamoe/img/cf-workers-setting.jpg" alt=""></p>
 <h3 id="4-前往你的自定義域名-dns-面板進行-dns-解析規則設置">4. 前往你的自定義域名 DNS 面板，進行 DNS 解析規則設置</h3>
-<p><img src="https://cdn.via.moe/file/viamoe/img/cf-dns-setting.jpg" alt=""></p>
+<p><img src="https://f000.backblazeb2.com/file/viamoe/img/cf-dns-setting.jpg" alt=""></p>
 <h3 id="5-之後就可以使用自定義域名去反代-b2-的外鏈-url-了">5. 之後就可以使用自定義域名去反代 B2 的外鏈 URL 了</h3>
 <p><code>https://your.domain.here/file/{bucketName}/test.jpg</code></p>
 <h3 id="6-當然也可以試試看官方給出直接套用-cf-的-cdn-加速的方法">6. 當然也可以試試看官方給出直接套用 CF 的 CDN 加速的方法</h3>

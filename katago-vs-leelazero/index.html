@@ -47,14 +47,14 @@
     <div class="post-meta">January 26, 2021</div>
   </header>
   <div class="post-content"><h1 id="1-前言">1 前言</h1>
-<p><img src="https://cdn.via.moe/file/viamoe/img/DeepMind-AlphaGo.png" alt=""></p>
+<p><img src="https://f000.backblazeb2.com/file/viamoe/img/DeepMind-AlphaGo.png" alt=""></p>
 <p>AlphaGo（「Go」為日文「碁」字發音轉寫，是圍棋的西方名稱），直譯為阿爾法圍棋，亦被音譯為阿爾法狗，是於 2014 年開始由英國倫敦 Google DeepMind 開發的人工智慧圍棋軟體，以及對應的電影紀錄片<a href="https://www.youtube.com/watch?v=WXuK6gekU1Y">《 AlphaGo 世紀對決》</a>。</p>
 <p>專業術語上來說，AlphaGo 的做法是使用了蒙地卡羅樹搜尋與兩個深度神經網路相結合的方法，一個是以藉助估值網路（value network）來評估大量的選點，一個是藉助走棋網路（policy network）來選擇落子，並使用強化學習進一步改善它。在這種設計下，電腦可以結合樹狀圖的長遠推斷，又可像人類的大腦一樣自發學習進行直覺訓練，以提高下棋實力。</p>
-<p><img src="https://cdn.via.moe/file/viamoe/img/lee-sedol-vs-go.jpg" alt=""></p>
+<p><img src="https://f000.backblazeb2.com/file/viamoe/img/lee-sedol-vs-go.jpg" alt=""></p>
 <p>2016 年 3 月 9 、10 和 12 日的三局對戰均為 AlphaGo 獲勝，而 13 日的對戰則為李世乭獲勝，15 日的最終局則又是 AlphaGo 獲勝。因此對弈結果為 AlphaGo 4:1 戰勝了李世乭。這次比賽在網路上引發了人們對此次比賽和人工智慧的廣泛討論。</p>
-<p><img src="https://cdn.via.moe/file/viamoe/img/kejie-vs-go.jpg" alt=""></p>
+<p><img src="https://f000.backblazeb2.com/file/viamoe/img/kejie-vs-go.jpg" alt=""></p>
 <p>AlphaGo 在 2017 年 5 月 23、25 和 27日這三天，柯潔與 AlphaGo 下三番棋，用時為每方 3 小時，5 次 1 分鐘讀秒。此外在 5 月 26 日，時越、羋昱廷、唐韋星、陳耀燁和周睿羊 5 人將進行團隊賽，他們將聯合與 AlphaGo 對弈，用時為每方 2 小時 30 分鐘，3 次 1 分鐘讀秒。最終，AlphaGo 以 3：0 戰勝柯潔。</p>
-<p><img src="https://cdn.via.moe/file/viamoe/img/cn-5-vs-go.jpg" alt=""></p>
+<p><img src="https://f000.backblazeb2.com/file/viamoe/img/cn-5-vs-go.jpg" alt=""></p>
 <p>同日下午，中國的五名九段棋手組團對抗 AlphaGo。他們分別是時越、羋昱廷、唐韋星、陳耀燁和周睿羊。其結局為 AlphaGo 執白盤中獲勝。</p>
 <hr>
 <p>此外，AlphaGo 團隊也在 Nature 上公開發佈了相關的論文</p>
@@ -288,18 +288,18 @@ https://github.com/lightvector/KataGo/blob/master/cpp/configs/gtp_example.cfg
 <p>選擇相應系統的程序包，下載完成后解壓</p>
 <h3 id="222-配置-sabaki">2.2.2 配置 Sabaki</h3>
 <p>首先勾選 <code>Englines</code> 菜單内的 <code>Show Engines Sidebar</code></p>
-<p><img src="https://cdn.via.moe/file/viamoe/img/active-eng-siderbar.jpg" alt=""></p>
+<p><img src="https://f000.backblazeb2.com/file/viamoe/img/active-eng-siderbar.jpg" alt=""></p>
 <p>側欄進入 Engine 管理</p>
-<p><img src="https://cdn.via.moe/file/viamoe/img/eng-settings.jpg" alt=""></p>
+<p><img src="https://f000.backblazeb2.com/file/viamoe/img/eng-settings.jpg" alt=""></p>
 <p>之後設置 Kotago 的路徑和運行參數</p>
-<p><img src="https://cdn.via.moe/file/viamoe/img/set-katago-path.jpg" alt=""></p>
+<p><img src="https://f000.backblazeb2.com/file/viamoe/img/set-katago-path.jpg" alt=""></p>
 <p>我的設置是</p>
 <pre><code>gtp -model D:\AI\katago\kata1-b40c256-s5942610176-d1431052518.bin.gz -config D:\AI\katago\gtp_custom.cfg
 </code></pre><p>和</p>
 <pre><code>time_settings 10 15 1
 </code></pre><p>在中國規則（應氏規則）中，上面這個意思就是計時 10 分鐘，15 秒每次，超時計 1 點。</p>
 <p>之後右下角 <code>Close</code> 退出自動保存，Kotago 就設置完成了</p>
-<p><img src="https://cdn.via.moe/file/viamoe/img/run-kotago.jpg" alt=""></p>
+<p><img src="https://f000.backblazeb2.com/file/viamoe/img/run-kotago.jpg" alt=""></p>
 <h1 id="3-配置-leela-zero">3 配置 Leela-Zero</h1>
 <p>Leela Zero 是由比利時程式設計師 Gian-Carlo Pascutto 起頭所開發的電腦圍棋軟體，以及相關的運算計畫。</p>
 <h2 id="31-下載-leela-zero">3.1 下載 Leela-Zero</h2>
@@ -307,12 +307,12 @@ https://github.com/lightvector/KataGo/blob/master/cpp/configs/gtp_example.cfg
 <p>沒有獨立顯卡可以使用 cpuonly 版本</p>
 <h2 id="32-配置適用於-leela-zero-的-sabaki-棋盤">3.2 配置適用於 Leela-Zero 的 Sabaki 棋盤</h2>
 <p>同 2.2.2，進入 Engine 管理，設置 Leela-Zero 的路徑和運行參數</p>
-<p><img src="https://cdn.via.moe/file/viamoe/img/set-leela-path.jpg" alt=""></p>
+<p><img src="https://f000.backblazeb2.com/file/viamoe/img/set-leela-path.jpg" alt=""></p>
 <h1 id="4-選擇棋局對戰雙方和規則設置">4 選擇棋局對戰雙方和規則設置</h1>
 <p>Sabaki 右下角進入 <code>info</code> 棋局設置</p>
-<p><img src="https://cdn.via.moe/file/viamoe/img/set-info.jpg" alt=""></p>
+<p><img src="https://f000.backblazeb2.com/file/viamoe/img/set-info.jpg" alt=""></p>
 <p>選擇棋局對戰 AI或人類玩家</p>
-<p><img src="https://cdn.via.moe/file/viamoe/img/set-rule.jpg" alt=""></p>
+<p><img src="https://f000.backblazeb2.com/file/viamoe/img/set-rule.jpg" alt=""></p>
 <p>棋局規則設置</p>
 <p>Komi：貼目</p>
 <p>Handicap：讓子，默認不讓子</p>
@@ -320,9 +320,9 @@ https://github.com/lightvector/KataGo/blob/master/cpp/configs/gtp_example.cfg
 <p>之後選擇 <code>OK</code> 設置完成</p>
 <h1 id="5-開始對戰">5 開始對戰</h1>
 <p>進入 <code>Englines</code> 菜單内的 <code>Start Engine vs. Engine Game</code></p>
-<p><img src="https://cdn.via.moe/file/viamoe/img/ai-result.jpg" alt=""></p>
+<p><img src="https://f000.backblazeb2.com/file/viamoe/img/ai-result.jpg" alt=""></p>
 <p>之後就可以進行自動 AI 對戰，Sabaki 也提供了每一步的勝率計算和下子坐標推薦</p>
-<p><img src="https://cdn.via.moe/file/viamoe/img/sabaki-ui-functions.jpg" alt=""></p>
+<p><img src="https://f000.backblazeb2.com/file/viamoe/img/sabaki-ui-functions.jpg" alt=""></p>
 </div>
   <footer class="post-footer">
     <ul class="post-tags">
