@@ -1,622 +1,374 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>https://via.moe/</loc>
     <lastmod>2021-01-26T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/tags/go/</loc>
     <lastmod>2021-01-26T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/post/</loc>
     <lastmod>2021-01-26T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/tags/</loc>
     <lastmod>2021-01-26T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/katago-vs-leelazero/</loc>
     <lastmod>2021-01-26T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/tags/google/</loc>
     <lastmod>2021-01-25T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/chinese-lunar-calendar/</loc>
     <lastmod>2021-01-25T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/about-apple-ocsp/</loc>
     <lastmod>2020-11-15T10:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/tags/macos/</loc>
     <lastmod>2020-11-15T10:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/how-to-fix-macbook-charger-not-working-issue/</loc>
     <lastmod>2020-11-05T10:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/tags/macbook/</loc>
     <lastmod>2020-11-05T10:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/tags/mfs2020/</loc>
     <lastmod>2020-09-20T10:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/mfs2020-mods/</loc>
     <lastmod>2020-09-20T10:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/fix-catalina-to-open-third-party-apps/</loc>
     <lastmod>2020-09-11T10:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/tags/dns/</loc>
     <lastmod>2020-07-29T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/dns/</loc>
     <lastmod>2020-07-29T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/backblaze-use-cf-cdn/</loc>
     <lastmod>2019-12-02T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/tags/cdn/</loc>
     <lastmod>2019-12-02T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/tags/airline/</loc>
     <lastmod>2019-11-08T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/airline-promotion/</loc>
     <lastmod>2019-11-08T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/tags/android/</loc>
     <lastmod>2019-11-05T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/android-no-exclamation/</loc>
     <lastmod>2019-11-05T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/please-sleep/</loc>
     <lastmod>2019-10-22T10:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/tags/rss/</loc>
     <lastmod>2019-09-14T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/share-rss-and-podcast/</loc>
     <lastmod>2019-09-14T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/tags/amdyes/</loc>
     <lastmod>2019-07-31T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/tags/nas/</loc>
     <lastmod>2019-07-31T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/build-your-nas/</loc>
     <lastmod>2019-07-31T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/tags/vscode/</loc>
     <lastmod>2019-05-10T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/make-vscode-transparent/</loc>
     <lastmod>2019-05-10T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/nexus-5x-with-aospextend/</loc>
     <lastmod>2019-02-14T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/tags/windows/</loc>
     <lastmod>2019-02-02T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/windows10-tips/</loc>
     <lastmod>2019-02-02T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/tags/hackintosh/</loc>
     <lastmod>2019-01-01T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/hackintosh-tools-note/</loc>
     <lastmod>2019-01-01T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/tags/shopping/</loc>
     <lastmod>2018-11-29T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/11112018/</loc>
     <lastmod>2018-11-29T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/tags/book/</loc>
     <lastmod>2018-11-13T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/books/</loc>
     <lastmod>2018-11-13T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/tags/cc0/</loc>
     <lastmod>2018-11-05T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/cc0-images/</loc>
     <lastmod>2018-11-05T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/tags/gpg/</loc>
     <lastmod>2018-08-09T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/use-gpg/</loc>
     <lastmod>2018-08-09T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/tags/minecraft/</loc>
     <lastmod>2018-05-14T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/setup-minecraft-spigot-server/</loc>
     <lastmod>2018-05-14T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/tags/letsencrypt/</loc>
     <lastmod>2018-03-14T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/use-dns-get-le-certificate/</loc>
     <lastmod>2018-03-14T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/tags/arcade/</loc>
     <lastmod>2018-03-04T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/arcade-game-emulator/</loc>
     <lastmod>2018-03-04T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/against-dns-poisoning-in-china/</loc>
     <lastmod>2018-03-01T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/nexus-5x-with-lineageos/</loc>
     <lastmod>2018-02-14T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/tags/raspberrypi/</loc>
     <lastmod>2018-02-05T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/raspberry-init/</loc>
     <lastmod>2018-02-05T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/macos-10-13-1-security-update/</loc>
     <lastmod>2017-11-24T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/cloudspeed/</loc>
     <lastmod>2017-11-24T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/tags/bt/</loc>
     <lastmod>2017-10-01T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/pirate-codex/</loc>
     <lastmod>2017-10-01T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/hackintosh-upgrade-high-sierra/</loc>
     <lastmod>2017-09-29T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/tags/kindle/</loc>
     <lastmod>2017-09-24T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/kindle-book-chinese-traditionalize-and-vertical-layout/</loc>
     <lastmod>2017-09-24T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/tags/aria2/</loc>
     <lastmod>2017-08-06T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/aria2c-installation/</loc>
     <lastmod>2017-08-06T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/tags/freedom/</loc>
     <lastmod>2017-07-22T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/digital-immigrant/</loc>
     <lastmod>2017-07-22T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/mi-box-with-android-tv/</loc>
     <lastmod>2017-07-16T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/tags/youtube/</loc>
     <lastmod>2017-05-18T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/use-youtube-dl/</loc>
     <lastmod>2017-05-18T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/tags/amiibo/</loc>
     <lastmod>2017-05-14T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/tags/chrome/</loc>
     <lastmod>2017-05-14T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/thx4google/</loc>
     <lastmod>2017-05-14T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/tags/nintendo/</loc>
     <lastmod>2017-05-14T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/osmc-init/</loc>
     <lastmod>2017-05-14T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/tags/switch/</loc>
     <lastmod>2017-05-14T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/luotianyi-chrome-theme/</loc>
     <lastmod>2017-05-14T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/diy-your-amiibo/</loc>
     <lastmod>2017-05-14T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/tags/linux/</loc>
     <lastmod>2017-01-01T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/linux-tcp-tuning/</loc>
     <lastmod>2017-01-01T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/shanghai-weather-with-aqi/</loc>
     <lastmod>2016-12-23T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/tags/kiminonwa/</loc>
     <lastmod>2016-12-10T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/mydairy-app/</loc>
     <lastmod>2016-12-10T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/kiminonawa-chrome-theme/</loc>
     <lastmod>2016-12-05T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/lets-benchmark/</loc>
     <lastmod>2016-10-06T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/tags/ipkg/</loc>
     <lastmod>2016-09-05T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/tags/opkg/</loc>
     <lastmod>2016-09-05T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/synology-ds216j-optware-ipkg-init/</loc>
     <lastmod>2016-09-05T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/tags/kcptun/</loc>
     <lastmod>2016-08-09T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/kcptun/</loc>
     <lastmod>2016-08-09T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/tags/nginx/</loc>
     <lastmod>2016-03-10T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/ngx-http-google-filter-module/</loc>
     <lastmod>2016-03-10T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/tags/psp/</loc>
     <lastmod>2016-03-01T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/sleep-tight-psp/</loc>
     <lastmod>2016-03-01T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/tags/sony/</loc>
     <lastmod>2016-03-01T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/end-of-the-world/</loc>
     <lastmod>2016-01-23T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/ds4-for-windows/</loc>
     <lastmod>2015-11-09T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/tags/ps4/</loc>
     <lastmod>2015-11-09T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/fbi-warning-ssh-notification/</loc>
     <lastmod>2015-10-19T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/tags/ssh/</loc>
     <lastmod>2015-10-19T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/tags/song/</loc>
     <lastmod>2015-09-29T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/share-cantonese-songs/</loc>
     <lastmod>2015-09-29T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/tags/nanking/</loc>
     <lastmod>2015-09-04T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/visit-nanking/</loc>
     <lastmod>2015-09-04T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/open-google-now-on-android-lollipop/</loc>
     <lastmod>2015-08-16T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/tags/canton/</loc>
     <lastmod>2015-06-18T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/tags/hong-kong/</loc>
     <lastmod>2015-06-18T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/tags/shenzhen/</loc>
     <lastmod>2015-06-18T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/visit-shenzhen-and-hongkong/</loc>
     <lastmod>2015-06-18T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/visit-canton/</loc>
     <lastmod>2015-05-26T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/visual-studio-code/</loc>
     <lastmod>2015-04-30T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/ps4-controller-on-pc/</loc>
     <lastmod>2015-03-28T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/raspberry-pi-2/</loc>
     <lastmod>2015-03-22T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/chrome-tips/</loc>
     <lastmod>2015-02-27T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/tags/2015/</loc>
     <lastmod>2015-02-18T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/2015-chinese-new-year/</loc>
     <lastmod>2015-02-18T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/support-for-theme-color-in-chrome-39-for-android/</loc>
     <lastmod>2015-01-29T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/tags/ublock/</loc>
     <lastmod>2014-08-09T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/ublock/</loc>
     <lastmod>2014-08-09T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/use-google/</loc>
     <lastmod>2014-06-22T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/edit-autoproxy-rules/</loc>
     <lastmod>2014-03-24T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/tags/shanghai/</loc>
     <lastmod>2013-07-12T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/visit-google-shanghai/</loc>
     <lastmod>2013-07-12T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/about/</loc>
     <lastmod>2012-12-19T19:32:59+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/archives/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/categories/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://via.moe/series/</loc>
   </url>
-  
 </urlset>
