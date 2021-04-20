@@ -6,7 +6,7 @@
     <script>var url=window.location.href;url.indexOf("https")<0&&(url=url.replace("http:","https:"),window.location.replace(url));</script>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
-    <title>解決 Android 10 的狀態欄感嘆號問題 - Siege</title>
+    <title>解決 Android 11 的狀態欄感嘆號問題 - Siege</title>
     
     <meta name="description" content="Wherever we want to go, we go.">
     <meta name="author" content="h0wardch3ng">
@@ -43,11 +43,14 @@
 
 <article class="post-single">
   <header class="post-header">
-    <h1 class="post-title">解決 Android 10 的狀態欄感嘆號問題</h1>
-    <div class="post-meta">November 5, 2019</div>
+    <h1 class="post-title">解決 Android 11 的狀態欄感嘆號問題</h1>
+    <div class="post-meta">November 5, 2020</div>
   </header>
   <div class="post-content"><p>Mac 可以通過 Homebrew 完成修改驗證服務器的操作。</p>
-<p>此命令支持 Android 10.x/9.x/8.x/7.x</p>
+<p>此命令支持 Android 11.x</p>
+<pre><code>adb shell settings put global captive_portal_mode 0
+adb shell settings put global captive_portal_https_url https://via.moe/generate_204
+</code></pre><p>此命令支持 Android 10.x/9.x/8.x/7.x</p>
 <pre><code>ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
 brew cask install android-platform-tools
 adb devices

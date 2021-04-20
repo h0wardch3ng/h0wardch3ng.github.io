@@ -31,7 +31,7 @@
       
       <guid>https://via.moe/ps4-controller-on-pc/</guid>
       <description>本文將講解Windows 7系統下如何將PS4手柄與PC電腦配對，並模擬成Xbox 360手柄的設置
-現在已經是 2017 年了，也有了更好的工具，請見 https://level5.dev/ds4-for-windows/
+現在已經是 2021 年了，也有了更好的工具，請見 https://via.moe/ds4-for-windows/
 需要無線連接之前請先嚐試有線連接是否正常
  有線連接  拿一條安卓設備常見的microusb連接線 連接PC等待安裝完驅動即可使用 但此時是兼容的DirectInput遊戲手柄設備 PS4手柄背部此時LED顯示爲黃色常亮
 需要去這個論壇下載 DS4 TO XInput Wrapper 這個軟件模擬XBOX遊戲手柄 *最新版本是DS4TOOL 1.2.2.zip

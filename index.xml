@@ -60,6 +60,18 @@ Chrome 和 Android 目前還未採用 OCSP 驗證。</description>
     </item>
     
     <item>
+      <title>解決 Android 11 的狀態欄感嘆號問題</title>
+      <link>https://via.moe/android-no-exclamation/</link>
+      <pubDate>Thu, 05 Nov 2020 19:32:59 +0800</pubDate>
+      
+      <guid>https://via.moe/android-no-exclamation/</guid>
+      <description>Mac 可以通過 Homebrew 完成修改驗證服務器的操作。
+此命令支持 Android 11.x
+adb shell settings put global captive_portal_mode 0 adb shell settings put global captive_portal_https_url https://via.moe/generate_204 此命令支持 Android 10.x/9.x/8.x/7.x
+ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot; brew cask install android-platform-tools adb devices adb shell settings put global captive_portal_detection_enabled 1 adb shell settings put global captive_portal_mode 1 adb shell settings put global captive_portal_use_https 0 adb shell settings put global captive_portal_server via.moe adb shell settings put global captive_portal_http_url http://via.moe/generate_204 adb shell settings put global captive_portal_https_url https://via.</description>
+    </item>
+    
+    <item>
       <title>How To Fix Mac Charger Not Working Issue</title>
       <link>https://via.moe/how-to-fix-macbook-charger-not-working-issue/</link>
       <pubDate>Thu, 05 Nov 2020 10:32:59 +0800</pubDate>
@@ -139,19 +151,6 @@ xcode-select --installcodesign --force --deep --sign - /Applications/name.app<
       <guid>https://via.moe/airline-promotion/</guid>
       <description>聚合了國內航司的一些優惠促銷活動，可以在你的 Google 日曆中展示。
 點擊此處訂閱</description>
-    </item>
-    
-    <item>
-      <title>解決 Android 10 的狀態欄感嘆號問題</title>
-      <link>https://via.moe/android-no-exclamation/</link>
-      <pubDate>Tue, 05 Nov 2019 19:32:59 +0800</pubDate>
-      
-      <guid>https://via.moe/android-no-exclamation/</guid>
-      <description>Mac 可以通過 Homebrew 完成修改驗證服務器的操作。
-此命令支持 Android 10.x/9.x/8.x/7.x
-ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot; brew cask install android-platform-tools adb devices adb shell settings put global captive_portal_detection_enabled 1 adb shell settings put global captive_portal_mode 1 adb shell settings put global captive_portal_use_https 0 adb shell settings put global captive_portal_server via.moe adb shell settings put global captive_portal_http_url http://via.moe/generate_204 adb shell settings put global captive_portal_https_url https://via.moe/generate_204 其他操作系統自行手動安裝對應平台 Google 的 SDK Platform Tools
-設置參數：
-captive_portal_detection_enabled: 5.0 ~ 7.</description>
     </item>
     
     <item>
@@ -1097,7 +1096,7 @@ Google Now使用自然語言用戶接口（Natural language user interface）通
       
       <guid>https://via.moe/ps4-controller-on-pc/</guid>
       <description>本文將講解Windows 7系統下如何將PS4手柄與PC電腦配對，並模擬成Xbox 360手柄的設置
-現在已經是 2017 年了，也有了更好的工具，請見 https://level5.dev/ds4-for-windows/
+現在已經是 2021 年了，也有了更好的工具，請見 https://via.moe/ds4-for-windows/
 需要無線連接之前請先嚐試有線連接是否正常
  有線連接  拿一條安卓設備常見的microusb連接線 連接PC等待安裝完驅動即可使用 但此時是兼容的DirectInput遊戲手柄設備 PS4手柄背部此時LED顯示爲黃色常亮
 需要去這個論壇下載 DS4 TO XInput Wrapper 這個軟件模擬XBOX遊戲手柄 *最新版本是DS4TOOL 1.2.2.zip
