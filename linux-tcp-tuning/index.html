@@ -3,13 +3,22 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <script>var url=window.location.href;url.indexOf("https")<0&&(url=url.replace("http:","https:"),window.location.replace(url));</script>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script>var url=window.location.href;url.indexOf("https")<0&&(url=url.replace("http:","https:"),window.location.replace(url));</script>
     
     <title>Linux TCP 性能調優筆記 - Siege</title>
     
-    <meta name="description" content="Wherever we want to go, we go.">
-    <meta name="author" content="h0wardch3ng">
+    <meta name="description" content="本文參考自 Linux Tuning
+本文可以幫助您的服務器提高 并發數量 和改善 高延遲掉包 情況。
+目前文中涉及的 hybla 和 htcp 算法已經很火星了，具體釋義請自行 Google 搜索。
+本文於 2017 年 1 月 1 日更新加入對 Google TCP BBR 算法的開啟，相關技術解釋見 知乎 討論
+不推薦使用 openvz 虛擬化技術的 VPS 此類權限較低 推薦使用 KVM 架構的虛擬 Linux VPS 。
+開啟 Google TCP BBR 請先自行將系統內核更新到 Linux Kernel 4.9 版本。
+下載 Linux Kernel 4.9 内核
+wget -O linux-image-4.9.0-amd64.deb http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.9/linux-image-4.9.0-040900-generic_4.9.0-040900.201612111631_amd64.deb 安裝內核
+dpkg -i linux-image-4.9.0-amd64.deb 卸載舊版本內核
+dpkg -l | grep linux-image | awk &#39;{print $2}&#39; | grep -v &#39;linux-image-4.">
+    <meta name="author" content="">
     
     <link href="https://via.moe/an-old-hope.min.css" rel="stylesheet">
     <link href="https://via.moe/style.css" rel="stylesheet">
@@ -17,11 +26,61 @@
     
     <link rel="apple-touch-icon" href="https://via.moe/apple-touch-icon.png">
     <link rel="icon" href="https://via.moe/favicon.ico">
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.84.4" />
     
     
+    
+    <script>
+      function setTheme() {
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.body.classList.add('dark');
+          return;
+        }
+
+        const time = new Date();
+        const prev = localStorage.getItem('date');
+        const date = String(time.getMonth() + 1) + '.' + String(time.getDate());
+
+        const now = time.getTime();
+        let sunrise;
+        let sunset;
+
+        function setBodyClass() {
+          if (now > sunrise && now < sunset) return;
+          document.body.classList.add('dark');
+        }
+
+        if (date !== prev) {
+          fetch('https://api.ipgeolocation.io/astronomy?apiKey=5ed37d85103e4defa5df4c5298ed5215')
+            .then((res) => res.json())
+            .then((data) => {
+              sunrise = data.sunrise.split(':').map(Number);
+              sunset = data.sunset.split(':').map(Number);
+            })
+            .catch(() => {
+              sunrise = [7, 0];
+              sunset = [19, 0];
+            })
+            .finally(() => {
+              sunrise = time.setHours(sunrise[0], sunrise[1], 0);
+              sunset = time.setHours(sunset[0], sunset[1], 0);
+              setBodyClass();
+              localStorage.setItem('sunrise', sunrise);
+              localStorage.setItem('sunset', sunset);
+            });
+          localStorage.setItem('date', date);
+        } else {
+          sunrise = Number(localStorage.getItem('sunrise'));
+          sunset = Number(localStorage.getItem('sunset'));
+          setBodyClass();
+        }
+      }
+    </script>
   </head>
   <body class="single">
+    <script>
+      setTheme();
+    </script>
     <header class="header">
       <nav class="nav">
         <p class="logo"><a href="https://via.moe/">Siege</a></p>
@@ -128,13 +187,13 @@ net.ipv4.tcp_congestion_control=htcp
   
 </article></main>
 <footer class="footer">
+  
   <span>本博客除另外說明，都採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW">署名-非商業性使用-相同方式共享 4.0 協議</a> 進行許可<br>Except where otherwise noted, content on this site is licensed under a<br><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a> license</span>
 </footer>
 <script src="https://via.moe/highlight.min.js"></script>
 <script>
   hljs.initHighlightingOnLoad();
 </script>
-
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-70500040-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -143,6 +202,6 @@ net.ipv4.tcp_congestion_control=htcp
 
   gtag('config', 'UA-70500040-1');
 </script>
-
 </body>
 </html>
+

@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <script>var url=window.location.href;url.indexOf("https")<0&&(url=url.replace("http:","https:"),window.location.replace(url));</script>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script>var url=window.location.href;url.indexOf("https")<0&&(url=url.replace("http:","https:"),window.location.replace(url));</script>
     
     <title>世界末日求生物品清單 - Siege</title>
     
-    <meta name="description" content="Wherever we want to go, we go.">
-    <meta name="author" content="h0wardch3ng">
+    <meta name="description" content="食品    類目名稱 簡述     壓縮餅乾 食用保質期長，提供熱量高   各類罐頭食品 食用保質期長   酒/酒精 消毒用，或可當燃料   種子 可種植，例如土豆    藥品    類目名稱 簡述 示例物品     綜合感冒藥 緩解感冒引起的疼痛，發燒，鼻塞流鼻水症狀 常用感冒藥見下方附錄 1   暈車藥 防暈藥只用於預防，不能治療    腸胃藥 避免生食，飲水建議煮沸開水、瓶裝水    止痛藥 緩解牙痛、頭痛、胃痛、經痛等疼痛    自身疾病藥 氣喘、高血壓患者、心臟病患者等一定要記得帶上相關藥品；糖尿病患者除了隨身攜帶降糖藥，同時攜帶葡萄糖水、餅乾之類食品，以備發生低血糖時急用。    外用藥 處理小傷口的藥品 酒精、碘酒、紅藥水、棉花棒、頭孢等   口罩/防毒面具 保護呼吸正常和防毒/防塵功能    紗布 潔淨的紗布，包紮傷口用    紅外溫度計 非接觸式，需要配備電池    手術刀/剪刀/縫合線 處理傷口     實用物品    類目名稱 簡述     水壺 儲存飲用水   通訊設備 手機/對講機/收音機/衛星電話，做好沒有信號的準備   各類電池 充電寶/AAA或AA電池等   發電機 柴油/汽油發電機   潔淨的衣物    登山鞋 需要防水性能好的   剪刀或各類刀具 最好是剪刀或手術刀   地圖 需要紙質的   鏡子    打火機/火柴 生火用   蠟燭 需要結實耐用的   繩子 需要結實耐用堅固的   斧頭 需要結實耐用的   手電筒 需要結實耐用的   TDS 水質檢測 檢測水源是否適合飲用   蓋革計數器 檢測周圍環境輻射    附錄 1.">
+    <meta name="author" content="">
     
     <link href="https://via.moe/an-old-hope.min.css" rel="stylesheet">
     <link href="https://via.moe/style.css" rel="stylesheet">
@@ -17,11 +17,61 @@
     
     <link rel="apple-touch-icon" href="https://via.moe/apple-touch-icon.png">
     <link rel="icon" href="https://via.moe/favicon.ico">
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.84.4" />
     
     
+    
+    <script>
+      function setTheme() {
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.body.classList.add('dark');
+          return;
+        }
+
+        const time = new Date();
+        const prev = localStorage.getItem('date');
+        const date = String(time.getMonth() + 1) + '.' + String(time.getDate());
+
+        const now = time.getTime();
+        let sunrise;
+        let sunset;
+
+        function setBodyClass() {
+          if (now > sunrise && now < sunset) return;
+          document.body.classList.add('dark');
+        }
+
+        if (date !== prev) {
+          fetch('https://api.ipgeolocation.io/astronomy?apiKey=5ed37d85103e4defa5df4c5298ed5215')
+            .then((res) => res.json())
+            .then((data) => {
+              sunrise = data.sunrise.split(':').map(Number);
+              sunset = data.sunset.split(':').map(Number);
+            })
+            .catch(() => {
+              sunrise = [7, 0];
+              sunset = [19, 0];
+            })
+            .finally(() => {
+              sunrise = time.setHours(sunrise[0], sunrise[1], 0);
+              sunset = time.setHours(sunset[0], sunset[1], 0);
+              setBodyClass();
+              localStorage.setItem('sunrise', sunrise);
+              localStorage.setItem('sunset', sunset);
+            });
+          localStorage.setItem('date', date);
+        } else {
+          sunrise = Number(localStorage.getItem('sunrise'));
+          sunset = Number(localStorage.getItem('sunset'));
+          setBodyClass();
+        }
+      }
+    </script>
   </head>
   <body class="single">
+    <script>
+      setTheme();
+    </script>
     <header class="header">
       <nav class="nav">
         <p class="logo"><a href="https://via.moe/">Siege</a></p>
@@ -228,13 +278,13 @@
   
 </article></main>
 <footer class="footer">
+  
   <span>本博客除另外說明，都採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW">署名-非商業性使用-相同方式共享 4.0 協議</a> 進行許可<br>Except where otherwise noted, content on this site is licensed under a<br><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a> license</span>
 </footer>
 <script src="https://via.moe/highlight.min.js"></script>
 <script>
   hljs.initHighlightingOnLoad();
 </script>
-
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-70500040-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -243,6 +293,6 @@
 
   gtag('config', 'UA-70500040-1');
 </script>
-
 </body>
 </html>
+

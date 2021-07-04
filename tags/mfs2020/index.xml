@@ -14,17 +14,21 @@
       
       <guid>https://via.moe/mfs2020-mods/</guid>
       <description>Start adding free aircrafts, liveries, scenery, and other mods to Microsoft Flight Simulator.
-Liveries Liveries - Clink’s Megapack https://www.msfsaddons.org/liveries/liveries-megapack-v8
-Mods Aircraft - Salty Simulations 747-8 Mod https://www.msfsaddons.org/aircraft/747-8-saltysimulations
-FlyByWire A32NX https://www.msfsaddons.org/aircraft/a32nx
+Liveries Project Mega Pack https://www.projectmegapack.com/
+Mods Aircraft - Salty Simulations 747-8 Mod https://github.com/saltysimulations/salty-747
+FlyByWire A32NX https://github.com/flybywiresim/a32nx
 C208-MSFS2020-Fix https://github.com/Dros0phila/C208-MSFS2020-Fix
 fspackages https://github.com/Working-Title-MSFS-Mods/fspackages
+bushmissiongen https://flightsim.to/file/3681/bushmissiongen
 FPS Increase - Lower 2D instrument refresh rate https://www.nexusmods.com/microsoftflightsimulator/mods/34
 More Interesting Weather Presets https://www.nexusmods.com/microsoftflightsimulator/mods/80
-Plugins vfrmap https://github.com/lian/msfs2020-go
+Plugins toolbar pushback https://flightsim.to/file/15033/toolbar-pushback
+Volanta https://volanta.app/
+vfrmap https://github.com/lian/msfs2020-go
 fs2ff https://github.com/astenlund/fs2ff
 msfs-webui-devkit https://github.com/dga711/msfs-webui-devkit
-aitrack https://github.com/AIRLegend/aitrack</description>
+aitrack https://github.com/AIRLegend/aitrack
+Sceneries Shanghai Hongqiao International Airport (ZSSS) https://flightsim.to/file/6766/shanghai-hongqiao-zsss-airport-lights-enhancement</description>
     </item>
     
   </channel>

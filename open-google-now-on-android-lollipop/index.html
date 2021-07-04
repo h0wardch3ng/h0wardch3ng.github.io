@@ -3,13 +3,21 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <script>var url=window.location.href;url.indexOf("https")<0&&(url=url.replace("http:","https:"),window.location.replace(url));</script>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script>var url=window.location.href;url.indexOf("https")<0&&(url=url.replace("http:","https:"),window.location.replace(url));</script>
     
     <title>打開 Android 5.X Lollipop 的 Google Now 教程 - Siege</title>
     
-    <meta name="description" content="Wherever we want to go, we go.">
-    <meta name="author" content="h0wardch3ng">
+    <meta name="description" content="Google Now（Google即時）是一款由Google開發的智能個人助理軟件，擴充了Google搜索手機應用程序的功能，可在Android、iOS及Google Chrome上使用。
+Google Now使用自然語言用戶接口（Natural language user interface）通過一系列的Web服務來進行回答問題、提供建議、運行動作之行爲。在迴應用戶時，Google Now會基於用戶過往的的搜索習慣來預測其所可能需要的信息。Google Now最初被包含在Android 4.1 Jelly Bean（果凍豆）之中，首先支持的智能手機爲Galaxy Nexus。
+美國雜誌《科技新時代》（Popular Science）將Google Now評選爲2012年的「年度創新」（Innovation of the Year）。
+這篇文章可幫助各位打開 中文的 Google Now
+現在 Google Now 已經支持 Android、iOS和全平臺的 Chrome 瀏覽器
+本教程僅支持 Android 5.x ，舊版本開啓 Google Now 方法請自行 Google 搜索
+ 打開 Google Now 首先需要 Gapps 和 Google Search App 的支持  首先請拔掉手機內的 sim 卡。
+系統語言需要設置英語 設置 -&gt; 語言與輸入設定 -&gt; 語言 -&gt; English - (United States)
+關閉手機的定位 ， 開啓飛行模式 ， 打開 Wifi ，如果在中國大陸地區，需要 *科學上網">
+    <meta name="author" content="">
     
     <link href="https://via.moe/an-old-hope.min.css" rel="stylesheet">
     <link href="https://via.moe/style.css" rel="stylesheet">
@@ -17,11 +25,61 @@
     
     <link rel="apple-touch-icon" href="https://via.moe/apple-touch-icon.png">
     <link rel="icon" href="https://via.moe/favicon.ico">
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.84.4" />
     
     
+    
+    <script>
+      function setTheme() {
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.body.classList.add('dark');
+          return;
+        }
+
+        const time = new Date();
+        const prev = localStorage.getItem('date');
+        const date = String(time.getMonth() + 1) + '.' + String(time.getDate());
+
+        const now = time.getTime();
+        let sunrise;
+        let sunset;
+
+        function setBodyClass() {
+          if (now > sunrise && now < sunset) return;
+          document.body.classList.add('dark');
+        }
+
+        if (date !== prev) {
+          fetch('https://api.ipgeolocation.io/astronomy?apiKey=5ed37d85103e4defa5df4c5298ed5215')
+            .then((res) => res.json())
+            .then((data) => {
+              sunrise = data.sunrise.split(':').map(Number);
+              sunset = data.sunset.split(':').map(Number);
+            })
+            .catch(() => {
+              sunrise = [7, 0];
+              sunset = [19, 0];
+            })
+            .finally(() => {
+              sunrise = time.setHours(sunrise[0], sunrise[1], 0);
+              sunset = time.setHours(sunset[0], sunset[1], 0);
+              setBodyClass();
+              localStorage.setItem('sunrise', sunrise);
+              localStorage.setItem('sunset', sunset);
+            });
+          localStorage.setItem('date', date);
+        } else {
+          sunrise = Number(localStorage.getItem('sunrise'));
+          sunset = Number(localStorage.getItem('sunset'));
+          setBodyClass();
+        }
+      }
+    </script>
   </head>
   <body class="single">
+    <script>
+      setTheme();
+    </script>
     <header class="header">
       <nav class="nav">
         <p class="logo"><a href="https://via.moe/">Siege</a></p>
@@ -78,13 +136,13 @@
   
 </article></main>
 <footer class="footer">
+  
   <span>本博客除另外說明，都採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW">署名-非商業性使用-相同方式共享 4.0 協議</a> 進行許可<br>Except where otherwise noted, content on this site is licensed under a<br><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a> license</span>
 </footer>
 <script src="https://via.moe/highlight.min.js"></script>
 <script>
   hljs.initHighlightingOnLoad();
 </script>
-
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-70500040-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -93,6 +151,6 @@
 
   gtag('config', 'UA-70500040-1');
 </script>
-
 </body>
 </html>
+

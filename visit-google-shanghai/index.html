@@ -3,13 +3,35 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <script>var url=window.location.href;url.indexOf("https")<0&&(url=url.replace("http:","https:"),window.location.replace(url));</script>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script>var url=window.location.href;url.indexOf("https")<0&&(url=url.replace("http:","https:"),window.location.replace(url));</script>
     
     <title>探訪谷歌上海辦公室 - Siege</title>
     
-    <meta name="description" content="Wherever we want to go, we go.">
-    <meta name="author" content="h0wardch3ng">
+    <meta name="description" content="2012年4月25日 Google 上海正式搬入了環球金融中心，新辦公室的設計充滿了中國元素的風情。我們一起來看看工程師們的聖地。
+  山水屏幕——揚子江上獨釣老翁
+福利——茶歇水果，應有盡有
+上面的文章來自谷歌搬到新家的報道
+接下來是今天我自己拍的 我也是匆忙收到谷歌的一個電話 讓我去參觀的 (:з」∠)
+這是我的Pass 那個藍色的圓形帖紙是進入餐廳要用的
+由於谷歌幾年前被迫離開中國 在大陸的業務就剩下廣告了 (:з」∠)
+這是入口處
+路過谷歌的餐廳 等會要來這裏吃飯的 ^_^
+谷歌內置的咖啡廳 名字叫：海 Cafe
+我朝小朋友給Google畫的Doodle~ 很可愛啊~ 很童趣
+地板上的字
+谷歌的前臺 （妹子很漂亮哦~
+入口處有個很寬的落地窗 放眼望去 是整個陸家嘴的鳥瞰
+旁邊的我朝特色的大門
+ Chrome和安德猴的雕塑
+入口還放了一個谷歌 地球的 設備 可以看全立體的地圖影像
+   每個辦公室都有一個名字 這個叫做：黃河
+由於辦公區域不能拍照 只能口述了
+谷歌在環球金融中心有兩個樓層 61和62 單單辦公室 佔了一個樓層多
+辦公室裏 可以騎車 可以遛狗 看到有人在辦公室裏養了只狗。。。
+辦公室的音樂&mdash;留聲機
+每個辦公區域 都有個中文名稱 我看到的有 仁 義 智 信 孝 （沒見到 「禮」 出自《仁義八行》吧？ 仁 智 義 忠 信 禮 孝 悌">
+    <meta name="author" content="">
     
     <link href="https://via.moe/an-old-hope.min.css" rel="stylesheet">
     <link href="https://via.moe/style.css" rel="stylesheet">
@@ -17,11 +39,61 @@
     
     <link rel="apple-touch-icon" href="https://via.moe/apple-touch-icon.png">
     <link rel="icon" href="https://via.moe/favicon.ico">
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.84.4" />
     
     
+    
+    <script>
+      function setTheme() {
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.body.classList.add('dark');
+          return;
+        }
+
+        const time = new Date();
+        const prev = localStorage.getItem('date');
+        const date = String(time.getMonth() + 1) + '.' + String(time.getDate());
+
+        const now = time.getTime();
+        let sunrise;
+        let sunset;
+
+        function setBodyClass() {
+          if (now > sunrise && now < sunset) return;
+          document.body.classList.add('dark');
+        }
+
+        if (date !== prev) {
+          fetch('https://api.ipgeolocation.io/astronomy?apiKey=5ed37d85103e4defa5df4c5298ed5215')
+            .then((res) => res.json())
+            .then((data) => {
+              sunrise = data.sunrise.split(':').map(Number);
+              sunset = data.sunset.split(':').map(Number);
+            })
+            .catch(() => {
+              sunrise = [7, 0];
+              sunset = [19, 0];
+            })
+            .finally(() => {
+              sunrise = time.setHours(sunrise[0], sunrise[1], 0);
+              sunset = time.setHours(sunset[0], sunset[1], 0);
+              setBodyClass();
+              localStorage.setItem('sunrise', sunrise);
+              localStorage.setItem('sunset', sunset);
+            });
+          localStorage.setItem('date', date);
+        } else {
+          sunrise = Number(localStorage.getItem('sunrise'));
+          sunset = Number(localStorage.getItem('sunset'));
+          setBodyClass();
+        }
+      }
+    </script>
   </head>
   <body class="single">
+    <script>
+      setTheme();
+    </script>
     <header class="header">
       <nav class="nav">
         <p class="logo"><a href="https://via.moe/">Siege</a></p>
@@ -144,13 +216,13 @@
   
 </article></main>
 <footer class="footer">
+  
   <span>本博客除另外說明，都採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW">署名-非商業性使用-相同方式共享 4.0 協議</a> 進行許可<br>Except where otherwise noted, content on this site is licensed under a<br><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a> license</span>
 </footer>
 <script src="https://via.moe/highlight.min.js"></script>
 <script>
   hljs.initHighlightingOnLoad();
 </script>
-
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-70500040-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -159,6 +231,6 @@
 
   gtag('config', 'UA-70500040-1');
 </script>
-
 </body>
 </html>
+

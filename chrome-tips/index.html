@@ -3,13 +3,17 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <script>var url=window.location.href;url.indexOf("https")<0&&(url=url.replace("http:","https:"),window.location.replace(url));</script>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script>var url=window.location.href;url.indexOf("https")<0&&(url=url.replace("http:","https:"),window.location.replace(url));</script>
     
     <title>關於Chrome的那些小技巧 - Siege</title>
     
-    <meta name="description" content="Wherever we want to go, we go.">
-    <meta name="author" content="h0wardch3ng">
+    <meta name="description" content="Chrome是Google公司開發的一個現代化的網頁瀏覽器，作爲三大瀏覽器之一 它搭載了被稱爲V8的高效率Javascript引擎。
+由於簡潔的界面風格 和便捷易用的特點 Chrome的市場份額已經升至45% ，一舉超越了Internet Explorer和Mozilla Firefox成爲全球第一大瀏覽器。(數據來自Wikipedia)
+作爲一個現代化的瀏覽器，就像智能手機的APP ，每裝一個APP，意味着你的手機又多了一個功能。Chrome瀏覽器也是如此，Google也提供了網上應用商店供人下載擴展自定義使用。
+接下來我會介紹一些大家常用的擴展
+  ABP廣告過濾 / Adblock Plus 超過5000萬人使用，適用於 Chrome 的免費的廣告攔截器，可阻止所有煩人的廣告及惡意軟件和跟蹤。 享受沒有惱人廣告的網絡世界。   更好的歷史記錄 / Better History 替換瀏覽器自帶的歷史查看頁面。本擴展能更好地查看您的歷史記錄。爲查看您的歷史記錄帶來最好的搜索體驗，最清晰的界面和最有幫助的篩選。   印象筆記 剪藏 / Evernote Web Clipper 使用印象筆記擴展程序一鍵保存精彩網頁內容到印象筆記帳戶。 印象筆記•剪藏，以最快的速度，幫你保存網頁、截取屏幕、添加標註、輕鬆歸檔，隨時隨地快速找到所需一切。   環聊 / Hangouts 環聊讓對話更生動有趣：不但可以發送圖片和表情符，還能免費視頻聊天。 環聊融入了照片、表情符和視頻，讓一對一和多人對話更加生動有趣，而且完全免費。你可以通過手機、計算機和平板電腦與朋友溝通交流。   新浪微博眼不見心不煩 新浪微博（weibo.com）非官方功能增強插件，可以無限制地屏蔽關鍵詞、用戶、來源，去除頁面廣告和推廣微博，反刷屏，還您一個清爽乾淨的微博！   新浪微博圖牀 簡單好用的新浪微博圖牀,支持選擇/拖拽/粘貼上傳本地圖片,並生成圖片地址,HTML和Markdown三種格式   網頁截圖:註釋&amp;批註 捕獲整個頁面或任何部分，矩形，圓形，箭頭，線條和文字，模糊敏感信息，一鍵上傳分享註釋。支持PNG和鏈接   網易雲音樂 不用打開網頁，收聽網易雲音樂，更簡單更易用。 網易雲音樂Chrome擴展，追求簡單體驗，不用打開網頁不用客戶端即可收聽網易雲音樂，歌單，大牌DJ，我的收藏。與其他終端同步，更簡單，更易用。   Stylish Stylish 是一款用戶樣式管理器，可讓您調整網頁的樣式。   SimpleUndoClose 簡單的恢復您曾經關閉的網站標籤   Proxy SwitchyOmega 輕鬆快捷地管理和切換多個代理設置。你懂的~   小樂圖客(ZIG) 取圖(網頁圖片批量下載) &#43; 截圖(矢量標記) &#43; 美圖 &#43; 拼圖   Prism Pretty 前端神器 代碼高亮顯示網頁HTML/CSS/JS   Eye Dropper 設計獅神器 網頁取色器   Google 輸入工具 谷歌業界良心的雲輸入法 可以支持輸入90多種國家的語言文字   發微 / Fawave Chrome上的微博插件，支持多微博，真正的實時同步發送微博，多微博發送不再煩。目前支持的微博有騰訊微博(qq)、新浪微博(sina)、搜狐微博(sohu)、飯否、做啥、嘀咕(digu)、人間網、雷猴、豆瓣、Google Buzz、網易微博(163)和一些不存在的網站。 功能全面、強大，還可以批量發送圖片。   Pocket 輕鬆地保存文章、視頻等供以後查看。有了 Pocket，您的所有內容可匯聚到一個地方，以便在任何設備上隨時查看。甚至不需要網絡連接。   tampermonkey 用戶腳本管理 Chrome上面的油猴腳本管理器 添加你的自定義功能請去https://greasyfork.">
+    <meta name="author" content="">
     
     <link href="https://via.moe/an-old-hope.min.css" rel="stylesheet">
     <link href="https://via.moe/style.css" rel="stylesheet">
@@ -17,11 +21,61 @@
     
     <link rel="apple-touch-icon" href="https://via.moe/apple-touch-icon.png">
     <link rel="icon" href="https://via.moe/favicon.ico">
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.84.4" />
     
     
+    
+    <script>
+      function setTheme() {
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.body.classList.add('dark');
+          return;
+        }
+
+        const time = new Date();
+        const prev = localStorage.getItem('date');
+        const date = String(time.getMonth() + 1) + '.' + String(time.getDate());
+
+        const now = time.getTime();
+        let sunrise;
+        let sunset;
+
+        function setBodyClass() {
+          if (now > sunrise && now < sunset) return;
+          document.body.classList.add('dark');
+        }
+
+        if (date !== prev) {
+          fetch('https://api.ipgeolocation.io/astronomy?apiKey=5ed37d85103e4defa5df4c5298ed5215')
+            .then((res) => res.json())
+            .then((data) => {
+              sunrise = data.sunrise.split(':').map(Number);
+              sunset = data.sunset.split(':').map(Number);
+            })
+            .catch(() => {
+              sunrise = [7, 0];
+              sunset = [19, 0];
+            })
+            .finally(() => {
+              sunrise = time.setHours(sunrise[0], sunrise[1], 0);
+              sunset = time.setHours(sunset[0], sunset[1], 0);
+              setBodyClass();
+              localStorage.setItem('sunrise', sunrise);
+              localStorage.setItem('sunset', sunset);
+            });
+          localStorage.setItem('date', date);
+        } else {
+          sunrise = Number(localStorage.getItem('sunrise'));
+          sunset = Number(localStorage.getItem('sunset'));
+          setBodyClass();
+        }
+      }
+    </script>
   </head>
   <body class="single">
+    <script>
+      setTheme();
+    </script>
     <header class="header">
       <nav class="nav">
         <p class="logo"><a href="https://via.moe/">Siege</a></p>
@@ -306,13 +360,13 @@ TextMate -&gt; ace/theme/textmate
   
 </article></main>
 <footer class="footer">
+  
   <span>本博客除另外說明，都採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW">署名-非商業性使用-相同方式共享 4.0 協議</a> 進行許可<br>Except where otherwise noted, content on this site is licensed under a<br><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a> license</span>
 </footer>
 <script src="https://via.moe/highlight.min.js"></script>
 <script>
   hljs.initHighlightingOnLoad();
 </script>
-
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-70500040-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -321,6 +375,6 @@ TextMate -&gt; ace/theme/textmate
 
   gtag('config', 'UA-70500040-1');
 </script>
-
 </body>
 </html>
+

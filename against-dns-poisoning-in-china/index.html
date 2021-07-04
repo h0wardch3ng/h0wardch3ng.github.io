@@ -3,13 +3,21 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <script>var url=window.location.href;url.indexOf("https")<0&&(url=url.replace("http:","https:"),window.location.replace(url));</script>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script>var url=window.location.href;url.indexOf("https")<0&&(url=url.replace("http:","https:"),window.location.replace(url));</script>
     
     <title>自建無汙染的 DNS 服務器 - Siege</title>
     
-    <meta name="description" content="Wherever we want to go, we go.">
-    <meta name="author" content="h0wardch3ng">
+    <meta name="description" content="Twitter 被解析到了 Facebook 的 CDN 上，提示證書錯誤
+查看 openDNS 和 AliDNS 的數據，下面的 31.13.xx.xx / 67.15.xx.xx 都是 Facebook 的 CDN
+對於大陸境內通過 UDP 53 端口傳輸的數據都會被檢測，又沒有任何認證機制，而且域名查詢通常基於無連接不可靠的UDP協議，查詢者只能接受最先到達的格式正確結果，並丟棄之後的結果，造成域名解析被惡意篡改。
+via Wikipedia
+之前 clowwindy 開源 的 chinaDNS 項目已經很久沒有更新，也不能提交 PR 了，那自建 Fork 一份改了上游 DNS 的源。
+https://github.com/ky0ncheng/ChinaDNS
+目前使用 TCP 去查詢上游的權威 DNS 數據，去除使用 UDP 查詢 8.8.8.8 的設定，目前採用 USTC DNS 和 openDNS 作為權威 DNS 服務器。
+目前缺點是每次都是重新查詢，沒有緩存，如果需要緩存，chinaDNS 設置監聽 127.0.0.1:5353，可以再部屬一個 unbound
+nano /etc/unbound/unbound.conf num-threads: 2 # 線程數可以修改爲物理核心數 interface: 0.0.0.0 # 偵聽所有 IPv4 地址 interface: ::0 # 偵聽所有 IPv6 地址 # 如果只需要本機使用，則一個 interface: 127.">
+    <meta name="author" content="">
     
     <link href="https://via.moe/an-old-hope.min.css" rel="stylesheet">
     <link href="https://via.moe/style.css" rel="stylesheet">
@@ -17,11 +25,61 @@
     
     <link rel="apple-touch-icon" href="https://via.moe/apple-touch-icon.png">
     <link rel="icon" href="https://via.moe/favicon.ico">
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.84.4" />
     
     
+    
+    <script>
+      function setTheme() {
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.body.classList.add('dark');
+          return;
+        }
+
+        const time = new Date();
+        const prev = localStorage.getItem('date');
+        const date = String(time.getMonth() + 1) + '.' + String(time.getDate());
+
+        const now = time.getTime();
+        let sunrise;
+        let sunset;
+
+        function setBodyClass() {
+          if (now > sunrise && now < sunset) return;
+          document.body.classList.add('dark');
+        }
+
+        if (date !== prev) {
+          fetch('https://api.ipgeolocation.io/astronomy?apiKey=5ed37d85103e4defa5df4c5298ed5215')
+            .then((res) => res.json())
+            .then((data) => {
+              sunrise = data.sunrise.split(':').map(Number);
+              sunset = data.sunset.split(':').map(Number);
+            })
+            .catch(() => {
+              sunrise = [7, 0];
+              sunset = [19, 0];
+            })
+            .finally(() => {
+              sunrise = time.setHours(sunrise[0], sunrise[1], 0);
+              sunset = time.setHours(sunset[0], sunset[1], 0);
+              setBodyClass();
+              localStorage.setItem('sunrise', sunrise);
+              localStorage.setItem('sunset', sunset);
+            });
+          localStorage.setItem('date', date);
+        } else {
+          sunrise = Number(localStorage.getItem('sunrise'));
+          sunset = Number(localStorage.getItem('sunset'));
+          setBodyClass();
+        }
+      }
+    </script>
   </head>
   <body class="single">
+    <script>
+      setTheme();
+    </script>
     <header class="header">
       <nav class="nav">
         <p class="logo"><a href="https://via.moe/">Siege</a></p>
@@ -102,13 +160,13 @@ forward-zone:
   
 </article></main>
 <footer class="footer">
+  
   <span>本博客除另外說明，都採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW">署名-非商業性使用-相同方式共享 4.0 協議</a> 進行許可<br>Except where otherwise noted, content on this site is licensed under a<br><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a> license</span>
 </footer>
 <script src="https://via.moe/highlight.min.js"></script>
 <script>
   hljs.initHighlightingOnLoad();
 </script>
-
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-70500040-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -117,6 +175,6 @@ forward-zone:
 
   gtag('config', 'UA-70500040-1');
 </script>
-
 </body>
 </html>
+

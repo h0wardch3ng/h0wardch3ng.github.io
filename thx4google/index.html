@@ -3,13 +3,22 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <script>var url=window.location.href;url.indexOf("https")<0&&(url=url.replace("http:","https:"),window.location.replace(url));</script>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script>var url=window.location.href;url.indexOf("https")<0&&(url=url.replace("http:","https:"),window.location.replace(url));</script>
     
     <title>Google 那些年 - Siege</title>
     
-    <meta name="description" content="Wherever we want to go, we go.">
-    <meta name="author" content="h0wardch3ng">
+    <meta name="description" content="Google 谷歌中國 ,生於 2006 年 4 月 卒於 2010 年 3 月 23 日
+Google 全球中文名稱爲「谷歌」，於 2006 年 4 月 13 日由 Google 公司 CEO 埃裏克 · 施密特在中國北京發佈，是 Google 唯一的非英文品牌名稱。「谷歌」的意思解作「以穀物爲歌」，是播種與期待之歌，也是收穫與歡愉之歌，象徵着耕耘和收穫的喜悅，也表達了一種勤懇求實的態度。
+時任 Google 大中華區總裁李開復曾表示，「G-O-O-G-L-E」並不是標準的中文拼音，因此很多人都無法正確讀出這個詞，有很多中國人把 Google 讀成「go go」。在 Google 公司正式發佈中文名之前，民間尚有一些原文以外的俗稱，例如：「狗狗」（現多指迅雷的「狗狗搜索」）、「酷狗」（現多指「酷狗音樂」）、「古狗」、「勾勾」等。
+另一方面，Google 公司於較早前的 2 月 15 日在臺灣登記爲「美商科高國際有限公司」（GOOGLE INTERNATIONAL LLC）。
+此外，Google 在北京的分公司曾使用「咕果」作爲合約簽訂以及網絡招聘的中文譯名。
+北京時間（UTC&#43;8）4 月 17 日凌晨 1 時左右，Google 簡體中文國際網站 正式出現「谷歌」字樣。
+由於「Google」一詞對於中文用戶來說比較難以拼寫，所以谷歌特爲解決此問題斥資千萬美元買下中國域名 g.cn，以便網民記憶。
+在谷歌退出中國事件後，2010 年 4 月 3 日，谷歌首頁更名爲「Google 中國」，但在北京時間當天晚上，谷歌中國又在其首頁恢復顯示「谷歌」字樣。
+這幾年 Google 在中國就是 來得錯誤，去得瀟灑。
+這家公司提供的服務已經改變了大家的生活 比如： Google 搜索：互聯網上最大、影響最廣泛的搜索引擎。Google 每日通過不同的服務，處理來自世界各地超過 2 億次的查詢">
+    <meta name="author" content="">
     
     <link href="https://via.moe/an-old-hope.min.css" rel="stylesheet">
     <link href="https://via.moe/style.css" rel="stylesheet">
@@ -17,11 +26,61 @@
     
     <link rel="apple-touch-icon" href="https://via.moe/apple-touch-icon.png">
     <link rel="icon" href="https://via.moe/favicon.ico">
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.84.4" />
     
     
+    
+    <script>
+      function setTheme() {
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.body.classList.add('dark');
+          return;
+        }
+
+        const time = new Date();
+        const prev = localStorage.getItem('date');
+        const date = String(time.getMonth() + 1) + '.' + String(time.getDate());
+
+        const now = time.getTime();
+        let sunrise;
+        let sunset;
+
+        function setBodyClass() {
+          if (now > sunrise && now < sunset) return;
+          document.body.classList.add('dark');
+        }
+
+        if (date !== prev) {
+          fetch('https://api.ipgeolocation.io/astronomy?apiKey=5ed37d85103e4defa5df4c5298ed5215')
+            .then((res) => res.json())
+            .then((data) => {
+              sunrise = data.sunrise.split(':').map(Number);
+              sunset = data.sunset.split(':').map(Number);
+            })
+            .catch(() => {
+              sunrise = [7, 0];
+              sunset = [19, 0];
+            })
+            .finally(() => {
+              sunrise = time.setHours(sunrise[0], sunrise[1], 0);
+              sunset = time.setHours(sunset[0], sunset[1], 0);
+              setBodyClass();
+              localStorage.setItem('sunrise', sunrise);
+              localStorage.setItem('sunset', sunset);
+            });
+          localStorage.setItem('date', date);
+        } else {
+          sunrise = Number(localStorage.getItem('sunrise'));
+          sunset = Number(localStorage.getItem('sunset'));
+          setBodyClass();
+        }
+      }
+    </script>
   </head>
   <body class="single">
+    <script>
+      setTheme();
+    </script>
     <header class="header">
       <nav class="nav">
         <p class="logo"><a href="https://via.moe/">Siege</a></p>
@@ -76,13 +135,13 @@ Google 搜索：互聯網上最大、影響最廣泛的搜索引擎。Google 每
   
 </article></main>
 <footer class="footer">
+  
   <span>本博客除另外說明，都採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW">署名-非商業性使用-相同方式共享 4.0 協議</a> 進行許可<br>Except where otherwise noted, content on this site is licensed under a<br><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a> license</span>
 </footer>
 <script src="https://via.moe/highlight.min.js"></script>
 <script>
   hljs.initHighlightingOnLoad();
 </script>
-
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-70500040-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -91,6 +150,6 @@ Google 搜索：互聯網上最大、影響最廣泛的搜索引擎。Google 每
 
   gtag('config', 'UA-70500040-1');
 </script>
-
 </body>
 </html>
+

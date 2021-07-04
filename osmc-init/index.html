@@ -3,13 +3,17 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <script>var url=window.location.href;url.indexOf("https")<0&&(url=url.replace("http:","https:"),window.location.replace(url));</script>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script>var url=window.location.href;url.indexOf("https")<0&&(url=url.replace("http:","https:"),window.location.replace(url));</script>
     
     <title>OSMC 配置筆記 - Siege</title>
     
-    <meta name="description" content="Wherever we want to go, we go.">
-    <meta name="author" content="h0wardch3ng">
+    <meta name="description" content="樹莓派（Raspberry Pi），是一款基於 Linux 系統的只有信用卡大小的單片機。它由英國的樹莓派基金會所開發，目的是以低價硬件及自由軟件刺激在學校的基本計算機科學教育。
+2015年2月，樹莓派基金會發布了第二代產品——樹莓派2，售價 35 美元。樹莓派2 採用 4 核 Broadcom BCM2836 (ARMv7-A) 芯片、雙核 VideoCore IV GPU 和 1GB 內存，其餘配置與 樹莓派B&#43; 型一致，除了支持第一代樹莓派支持的操作系統外，樹莓派2 將能夠運行Windows 10 IOT 以及 Snappy Ubuntu Core。
+樹莓派基金會於 2016年 2月 發布了樹莓派3,較前一代樹莓派2，樹莓派3 的處理器升級為了 64 位元的博通 BCM2837，並首次加入了 Wi-Fi 無線網路及藍牙功能，而售價仍然是 35 美元。
+ 此文供 樹莓派 &#43; OSMC (with Debian Jessie) 操作系統初始化安裝配置 使用。
+一個嶄新的 樹莓派2 需要自備 5V 2A 電源適配器 &#43; MicroUSB 連接線 &#43; 鍵盤(或者配合網線/Wifi模塊 通過 SSH 遠程連接) &#43; 鼠標(可選) &#43; HDMI (rev 1.">
+    <meta name="author" content="">
     
     <link href="https://via.moe/an-old-hope.min.css" rel="stylesheet">
     <link href="https://via.moe/style.css" rel="stylesheet">
@@ -17,11 +21,61 @@
     
     <link rel="apple-touch-icon" href="https://via.moe/apple-touch-icon.png">
     <link rel="icon" href="https://via.moe/favicon.ico">
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.84.4" />
     
     
+    
+    <script>
+      function setTheme() {
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.body.classList.add('dark');
+          return;
+        }
+
+        const time = new Date();
+        const prev = localStorage.getItem('date');
+        const date = String(time.getMonth() + 1) + '.' + String(time.getDate());
+
+        const now = time.getTime();
+        let sunrise;
+        let sunset;
+
+        function setBodyClass() {
+          if (now > sunrise && now < sunset) return;
+          document.body.classList.add('dark');
+        }
+
+        if (date !== prev) {
+          fetch('https://api.ipgeolocation.io/astronomy?apiKey=5ed37d85103e4defa5df4c5298ed5215')
+            .then((res) => res.json())
+            .then((data) => {
+              sunrise = data.sunrise.split(':').map(Number);
+              sunset = data.sunset.split(':').map(Number);
+            })
+            .catch(() => {
+              sunrise = [7, 0];
+              sunset = [19, 0];
+            })
+            .finally(() => {
+              sunrise = time.setHours(sunrise[0], sunrise[1], 0);
+              sunset = time.setHours(sunset[0], sunset[1], 0);
+              setBodyClass();
+              localStorage.setItem('sunrise', sunrise);
+              localStorage.setItem('sunset', sunset);
+            });
+          localStorage.setItem('date', date);
+        } else {
+          sunrise = Number(localStorage.getItem('sunrise'));
+          sunset = Number(localStorage.getItem('sunset'));
+          setBodyClass();
+        }
+      }
+    </script>
   </head>
   <body class="single">
+    <script>
+      setTheme();
+    </script>
     <header class="header">
       <nav class="nav">
         <p class="logo"><a href="https://via.moe/">Siege</a></p>
@@ -140,13 +194,13 @@ deb http://mirrors.tuna.tsinghua.edu.cn/osmc/osmc/apt/  jessie main
   
 </article></main>
 <footer class="footer">
+  
   <span>本博客除另外說明，都採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW">署名-非商業性使用-相同方式共享 4.0 協議</a> 進行許可<br>Except where otherwise noted, content on this site is licensed under a<br><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a> license</span>
 </footer>
 <script src="https://via.moe/highlight.min.js"></script>
 <script>
   hljs.initHighlightingOnLoad();
 </script>
-
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-70500040-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -155,6 +209,6 @@ deb http://mirrors.tuna.tsinghua.edu.cn/osmc/osmc/apt/  jessie main
 
   gtag('config', 'UA-70500040-1');
 </script>
-
 </body>
 </html>
+

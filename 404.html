@@ -1,195 +1,113 @@
 <!DOCTYPE html>
 <html lang="en-US">
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1" name="viewport">
-  <title>THIS PAGE NOT FOUND, BUT YOU FOUND ME!</title>
-  <link rel="icon" type="image/png" href="https://via.moe/favicon-192.png" sizes="192x192" />
-  <meta name="google" content="notranslate">
-  <meta name="description" content="THIS PAGE NOT FOUND, BUT YOU FOUND ME!">
-  <meta name="keyword" content="h0wrdch3ng,blog,shanghai,cs">
-  <meta name="theme-color" content="#616161">
-  <meta http-equiv="refresh" content="7;URL='https://via.moe/'" />
-  <script>var url = window.location.href;
-    if (url.indexOf("https") < 0) {
-    url = url.replace("http:", "https:");
-    window.location.replace(url);
-    }</script>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-    }
-    html,
-    body {
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-    }
-    #container {
-      overflow: hidden;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-    }
-    #background_video {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      object-fit: cover;
-      height: 100%;
-      width: 100%;
-    }
-    #video_cover {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: url('https://web-1251118338.cos.ap-chengdu.myqcloud.com/404_bg-89093d4f.jpg') no-repeat;
-      background-size: cover;
-      background-position: center;
-    }
-    #video_controls {
-      position: absolute;
-      left: 50%;
-      transform: translate(-50%, 0);
-    }
-    #play img {
-      width: 100px;
-    }
-    #pause img {
-      width: 90px;
-    }
-    #pause {
-      display: none;
-    }
-    @media (min-width: 768px) {
-      #video_controls {
-        display: none;
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script>var url=window.location.href;url.indexOf("https")<0&&(url=url.replace("http:","https:"),window.location.replace(url));</script>
+    
+    <title>404 Page not found - Siege</title>
+    
+    <meta name="description" content="I think, therefore I am.">
+    <meta name="author" content="">
+    <meta name="theme-color" content="#000000">
+    
+    <link href="https://via.moe/an-old-hope.min.css" rel="stylesheet">
+    <link href="https://via.moe/style.css" rel="stylesheet">
+    <link href="https://via.moe/custom.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://via.moe/apple-touch-icon.png">
+    <link rel="icon" href="https://via.moe/favicon.ico">
+    <meta name="generator" content="Hugo 0.84.4" />
+    
+    
+    
+    <script>
+      function setTheme() {
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.body.classList.add('dark');
+          return;
+        }
+
+        const time = new Date();
+        const prev = localStorage.getItem('date');
+        const date = String(time.getMonth() + 1) + '.' + String(time.getDate());
+
+        const now = time.getTime();
+        let sunrise;
+        let sunset;
+
+        function setBodyClass() {
+          if (now > sunrise && now < sunset) return;
+          document.body.classList.add('dark');
+        }
+
+        if (date !== prev) {
+          fetch('https://api.ipgeolocation.io/astronomy?apiKey=5ed37d85103e4defa5df4c5298ed5215')
+            .then((res) => res.json())
+            .then((data) => {
+              sunrise = data.sunrise.split(':').map(Number);
+              sunset = data.sunset.split(':').map(Number);
+            })
+            .catch(() => {
+              sunrise = [7, 0];
+              sunset = [19, 0];
+            })
+            .finally(() => {
+              sunrise = time.setHours(sunrise[0], sunrise[1], 0);
+              sunset = time.setHours(sunset[0], sunset[1], 0);
+              setBodyClass();
+              localStorage.setItem('sunrise', sunrise);
+              localStorage.setItem('sunset', sunset);
+            });
+          localStorage.setItem('date', date);
+        } else {
+          sunrise = Number(localStorage.getItem('sunrise'));
+          sunset = Number(localStorage.getItem('sunset'));
+          setBodyClass();
+        }
       }
-    }
-     
-    body {
-      text-align: center;
-      font-family: 'proxima-nova', Helvetica;
-    }
-    #container {
-      height: 100%;
-    }
-    #overlay {
-      position: absolute;
-      top: 0;
-      right: 0;
-      left: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.5);
-    }
-    #main_content {
-      z-index: 2;
-      position: relative;
-      display: inline-block;
-       
-      top: 50%;
-      transform: translateY(-50%);
-    }
-    #main_content h1 {
-      text-transform: uppercase;
-      font-weight: 600;
-      font-family: 'proxima-nova-condensed', Helvetica;
-      color: #fff;
-      font-size: 35px;
-    }
-    #main_content .sub_head {
-      color: rgba(255, 255, 255, 0.5);
-      font-size: 18px;
-    }
-    #main_content .info {
-      color: rgba(255, 255, 255, 0.5);
-      font-size: 12px;
-      margin-top: 10px;
-    }
-    #links {
-      margin-top: 50px;
-    }
-    #links a {
-      border: 2px solid rgba(255, 255, 255, 0.20);
-      border-radius: 61px;
-      font-size: 12px;
-      color: #FFFFFF;
-      letter-spacing: 1px;
-      text-decoration: none;
-      text-transform: uppercase;
-      padding: 10px 25px;
-      display: inline-block;
-      margin-right: 15px;
-    }
-    #footer {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-    }
-    #footer a {
-      color: rgba(255, 255, 255, 0.5);
-      text-decoration: none;
-      margin: 10px;
-      font-size: 12px;
-    }
-    #footer a:first-child {
-      float: left;
-    }
-    #footer a:last-child {
-      float: right;
-    }
-  </style>
+    </script>
+  </head>
+  <body class="list">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <p class="logo"><a href="https://via.moe/">Siege</a></p>
+        <ul class="menu">
+          <li>
+            <a href="/">Index</a>
+          </li>
+          <li>
+            <a href="/rss.xml">RSS</a>
+          </li>
+          <li>
+            <a href="/about/">About</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
 
-  <script src="https://use.typekit.net/nlq1kdt.js"></script>
-  <script>
-    try {
-      Typekit.load({
-        async: true
-      });
-    } catch (e) {}
-  </script>
-</head>
+<div class="not-found">404</div></main>
+<footer class="footer">
+  
+  <span>本博客除另外說明，都採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW">署名-非商業性使用-相同方式共享 4.0 協議</a> 進行許可<br>Except where otherwise noted, content on this site is licensed under a<br><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a> license</span>
+</footer>
+<script src="https://via.moe/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-70500040-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-<body>
-  <div id="container">
-    <video id="background_video" loop muted></video>
-    <div id="video_cover"></div>
-    <div id="overlay"></div>
-
-    <div id="video_controls">
-      <span id="play">
-        <img src="https://web-1251118338.cos.ap-chengdu.myqcloud.com/play.png">
-      </span>
-      <span id="pause">
-        <img src="https://web-1251118338.cos.ap-chengdu.myqcloud.com/pause.png">
-      </span>
-    </div>
-
-    <section id="main_content">
-      <div id="head">
-        <h1>404 Not Found!</h1>
-        <p class="sub_head">But we found a video of our Super Star! Yeah, just wait and Enjoy it.</p>
-        <p class="info">(Hold on! The video might take a while to load.)</p>
-      </div>
-
-      
-    </section>
-  </div>
-
-  <div id="footer">
-    <a href="https://twitter.com/gitcafe" target="_blank">
-      Video by GitCafe
-    </a>
-  </div>
-
-  <script src="https://web-1251118338.cos.ap-chengdu.myqcloud.com/bideo.js"></script>
-  <script src="https://web-1251118338.cos.ap-chengdu.myqcloud.com/main.js"></script>
-  <script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-70500040-1",'auto');ga('send','pageview');</script><script>hljs.initHighlightingOnLoad();</script>
+  gtag('config', 'UA-70500040-1');
+</script>
 </body>
-
 </html>
+
